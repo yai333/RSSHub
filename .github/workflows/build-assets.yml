@@ -7,12 +7,15 @@ on:
             - master
         paths:
             - 'lib/**/*.ts'
+            - 'exports/**'
+    schedule:
+        - cron: '0 0 * * *' # Daily at midnight UTC
 
 jobs:
     build:
         runs-on: ubuntu-latest
         name: Build assets
-        timeout-minutes: 5
+        timeout-minutes: 10
         permissions:
             contents: write
         steps:
@@ -31,6 +34,15 @@ jobs:
             # assets
             - name: Build assets
               run: pnpm build
+
+            # Export routes by category
+            - name: Export routes by category
+              run: pnpm export:categories
+
+            # Copy exports to assets for deployment
+            - name: Copy exports to assets
+              run: cp -r exports/* assets/
+
             - name: Deploy
               uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
               with:
