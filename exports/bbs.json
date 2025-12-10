@@ -1,0 +1,2888 @@
+{
+    "category": "bbs",
+    "displayName": "BBS",
+    "displayNameZh": "论坛",
+    "icon": "💬️",
+    "count": 96,
+    "routes": [
+        {
+            "namespace": "19lou",
+            "namespaceName": "19 楼",
+            "namespaceUrl": "19lou.com",
+            "path": "/:city?",
+            "fullPath": "/19lou/:city?",
+            "name": "头条",
+            "example": "/19lou/jiaxing",
+            "description": "| 杭州 | 台州    | 嘉兴    | 宁波   | 湖州   |\n| ---- | ------- | ------- | ------ | ------ |\n| www  | taizhou | jiaxing | ningbo | huzhou |\n\n| 绍兴     | 湖州   | 温州    | 金华   | 舟山     |\n| -------- | ------ | ------- | ------ | -------- |\n| shaoxing | huzhou | wenzhou | jinhua | zhoushan |\n\n| 衢州   | 丽水   | 义乌 | 萧山     | 余杭   |\n| ------ | ------ | ---- | -------- | ------ |\n| quzhou | lishui | yiwu | xiaoshan | yuhang |\n\n| 临安  | 富阳   | 桐庐   | 建德   | 淳安   |\n| ----- | ------ | ------ | ------ | ------ |\n| linan | fuyang | tonglu | jiande | chunan |",
+            "parameters": {
+                "city": "分类，见下表，默认为 www，即杭州"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "1point3acres",
+            "namespaceName": "一亩三分地",
+            "namespaceUrl": "blog.1point3acres.com",
+            "path": "/blog/:category?",
+            "fullPath": "/1point3acres/blog/:category?",
+            "name": "博客",
+            "example": "/1point3acres/blog",
+            "description": "| 留学申请   | 找工求职 | 生活攻略  | 投资理财 | 签证移民 | 时政要闻 |\n| ---------- | -------- | --------- | -------- | -------- | -------- |\n| studyinusa | career   | lifestyle | invest   | visa     | news     |",
+            "parameters": {
+                "category": "分类，见下表，可在对应分类页 URL 中找到"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["blog.1point3acres.com/:category"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "1point3acres",
+            "namespaceName": "一亩三分地",
+            "namespaceUrl": "blog.1point3acres.com",
+            "path": "/category/:id?/:type?/:order?",
+            "fullPath": "/1point3acres/category/:id?/:type?/:order?",
+            "name": "标签",
+            "example": "/1point3acres/category/h1b",
+            "description": "::: tip\n  更多标签可以在 [标签列表](https://instant.1point3acres.com/tags) 中找到。\n:::\n\n  分类\n\n| 热门帖子 | 最新帖子 |\n| -------- | -------- |\n| hot      | new      |\n\n  排序方式\n\n| 最新回复 | 最新发布 |\n| -------- | -------- |\n|          | post     |",
+            "parameters": {
+                "id": "标签 id，默认为全部",
+                "type": "帖子分类, 见下表，默认为 hot，即热门帖子",
+                "order": "排序方式，见下表，默认为空，即最新回复"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["instant.1point3acres.com/section/:id", "instant.1point3acres.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "1point3acres",
+            "namespaceName": "一亩三分地",
+            "namespaceUrl": "blog.1point3acres.com",
+            "path": "/offer/:year?/:major?/:school?",
+            "fullPath": "/1point3acres/offer/:year?/:major?/:school?",
+            "name": "录取结果",
+            "example": "/1point3acres/offer/12/null/CMU",
+            "description": "::: tip 三个 id 获取方式\n  1.  打开 [https://offer.1point3acres.com](https://offer.1point3acres.com)\n  2.  打开控制台\n  3.  切换到 Network 面板\n  4.  点击 搜索 按钮\n  5.  点击 results?ps=15&pg=1 POST 请求\n  6.  找到 Request Payload 请求参数，例如 `filters: {planyr: \"13\", planmajor: \"1\", outname_w: \"ACADIAU\"}` ，则三个 id 分别为: 13,1,ACADIAU\n:::",
+            "parameters": {
+                "year": "录取年份  id，空为null",
+                "major": "录取专业 id，空为null",
+                "school": "录取学校 id，空为null"
+            },
+            "maintainers": ["EthanWng97"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["offer.1point3acres.com/"],
+                    "target": "/offer"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "1point3acres",
+            "namespaceName": "一亩三分地",
+            "namespaceUrl": "blog.1point3acres.com",
+            "path": "/section/:id?/:type?/:order?",
+            "fullPath": "/1point3acres/section/:id?/:type?/:order?",
+            "name": "分区",
+            "example": "/1point3acres/section/345",
+            "description": "分区\n\n| 分区     | id  |\n| -------- | --- |\n| 留学申请 | 257 |\n| 世界公民 | 379 |\n| 投资理财 | 400 |\n| 生活干货 | 31  |\n| 职场达人 | 345 |\n| 人际关系 | 391 |\n| 海外求职 | 38  |\n| 签证移民 | 265 |\n\n  分类\n\n| 热门帖子 | 最新帖子 |\n| -------- | -------- |\n| hot      | new      |\n\n  排序方式\n\n| 最新回复 | 最新发布 |\n| -------- | -------- |\n|          | post     |",
+            "parameters": {
+                "id": "分区 id，见下表，默认为全部",
+                "type": "帖子分类, 见下表，默认为 hot，即热门帖子",
+                "order": "排序方式，见下表，默认为空，即最新回复"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["instant.1point3acres.com/section/:id", "instant.1point3acres.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "1point3acres",
+            "namespaceName": "一亩三分地",
+            "namespaceUrl": "blog.1point3acres.com",
+            "path": "/thread/:type?/:order?",
+            "fullPath": "/1point3acres/thread/:type?/:order?",
+            "name": "帖子",
+            "example": "/1point3acres/thread/hot",
+            "description": "分类\n\n| 热门帖子 | 最新帖子 |\n| -------- | -------- |\n| hot      | new      |\n\n  排序方式\n\n| 最新回复 | 最新发布 |\n| -------- | -------- |\n|          | post     |",
+            "parameters": {
+                "type": "帖子分类, 见下表，默认为 hot，即热门帖子",
+                "order": "排序方式，见下表，默认为空，即最新回复"
+            },
+            "maintainers": ["EthanWng97", "DIYgod", "nczitzk"],
+            "categories": ["bbs"],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "1point3acres",
+            "namespaceName": "一亩三分地",
+            "namespaceUrl": "blog.1point3acres.com",
+            "path": "/user/:id/posts",
+            "fullPath": "/1point3acres/user/:id/posts",
+            "name": "用户回帖",
+            "example": "/1point3acres/user/1/posts",
+            "parameters": {
+                "id": "用户 id，可在 Instant 版网站的个人主页 URL 找到"
+            },
+            "maintainers": ["Maecenas"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["instant.1point3acres.com/profile/:id", "instant.1point3acres.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "1point3acres",
+            "namespaceName": "一亩三分地",
+            "namespaceUrl": "blog.1point3acres.com",
+            "path": "/user/:id/threads",
+            "fullPath": "/1point3acres/user/:id/threads",
+            "name": "用户主题帖",
+            "example": "/1point3acres/user/1/threads",
+            "parameters": {
+                "id": "用户 id，可在 Instant 版网站的个人主页 URL 找到"
+            },
+            "maintainers": ["Maecenas"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["instant.1point3acres.com/profile/:id", "instant.1point3acres.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "8264",
+            "namespaceName": "8264",
+            "namespaceUrl": "8264.com",
+            "path": "/list/:id?",
+            "fullPath": "/8264/list/:id?",
+            "name": "列表",
+            "example": "/8264/list/751",
+            "description": "| 热门推荐 | 户外知识 | 户外装备 |\n| -------- | -------- | -------- |\n| 751      | 238      | 204      |\n\n<details>\n<summary>更多列表</summary>\n\n#### 热门推荐\n\n| 业界 | 国际 | 专访 | 图说 | 户外 | 登山 | 攀岩 |\n| ---- | ---- | ---- | ---- | ---- | ---- | ---- |\n| 489  | 733  | 746  | 902  | 914  | 934  | 935  |\n\n#### 户外知识\n\n| 徒步 | 露营 | 安全急救 | 领队 | 登雪山 |\n| ---- | ---- | -------- | ---- | ------ |\n| 242  | 950  | 931    | 920  | 915  |\n\n| 攀岩 | 骑行 | 跑步 | 滑雪 | 水上运动 |\n| ---- | ---- | ---- | ---- | -------- |\n| 916  | 917  | 918  | 919  | 921    |\n\n| 钓鱼 | 潜水 | 攀冰 | 冲浪 | 网球 |\n| ---- | ---- | ---- | ---- | ---- |\n| 951  | 952  | 953  | 966  | 967  |\n\n| 绳索知识 | 高尔夫 | 马术 | 户外摄影 | 羽毛球 |\n| -------- | ------ | ---- | -------- | ------ |\n| 968    | 969  | 970  | 973    | 971  |\n\n| 游泳 | 溯溪 | 健身 | 瑜伽 |\n| ---- | ---- | ---- | ---- |\n| 974  | 975  | 976  | 977  |\n\n#### 户外装备\n\n| 服装 | 冲锋衣 | 抓绒衣 | 皮肤衣 | 速干衣 |\n| ---- | ------ | ------ | ------ | ------ |\n| 209  | 923  | 924  | 925  | 926  |\n\n| 羽绒服 | 软壳 | 户外鞋 | 登山鞋 | 徒步鞋 |\n| ------ | ---- | ------ | ------ | ------ |\n| 927  | 929  | 211  | 928  | 930  |\n\n| 越野跑鞋 | 溯溪鞋 | 登山杖 | 帐篷 | 睡袋 |\n| -------- | ------ | ------ | ---- | ---- |\n| 933    | 932  | 220  | 208  | 212  |\n\n| 炉具 | 灯具 | 水具 | 面料 | 背包 |\n| ---- | ---- | ---- | ---- | ---- |\n| 792  | 218  | 219  | 222  | 207  |\n\n| 防潮垫 | 电子导航 | 冰岩绳索 | 综合装备 |\n| ------ | -------- | -------- | -------- |\n| 214  | 216    | 215    | 223    |\n</details>",
+            "parameters": {
+                "id": "列表 id，见下表，默认为 751，即热门推荐"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "baidu",
+            "namespaceName": "百度",
+            "namespaceUrl": "www.baidu.com",
+            "path": "/tieba/forum/:kw/:sortBy?",
+            "fullPath": "/baidu/tieba/forum/:kw/:sortBy?",
+            "name": "精品帖子",
+            "example": "/baidu/tieba/forum/good/女图",
+            "parameters": {
+                "kw": "吧名",
+                "cid": "精品分类，默认为 `0`（全部分类），如果不传 `cid` 则获取全部分类",
+                "sortBy": "排序方式：`created`, `replied`。默认为 `created`"
+            },
+            "maintainers": ["u3u"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "baidu",
+            "namespaceName": "百度",
+            "namespaceUrl": "www.baidu.com",
+            "path": "/tieba/forum/good/:kw/:cid?/:sortBy?",
+            "fullPath": "/baidu/tieba/forum/good/:kw/:cid?/:sortBy?",
+            "name": "精品帖子",
+            "example": "/baidu/tieba/forum/good/女图",
+            "parameters": {
+                "kw": "吧名",
+                "cid": "精品分类，默认为 `0`（全部分类），如果不传 `cid` 则获取全部分类",
+                "sortBy": "排序方式：`created`, `replied`。默认为 `created`"
+            },
+            "maintainers": ["u3u"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "baidu",
+            "namespaceName": "百度",
+            "namespaceUrl": "www.baidu.com",
+            "path": "/tieba/post/:id",
+            "fullPath": "/baidu/tieba/post/:id",
+            "name": "帖子动态",
+            "example": "/baidu/tieba/post/686961453",
+            "parameters": {
+                "id": "帖子 ID"
+            },
+            "maintainers": ["u3u"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["tieba.baidu.com/p/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "baidu",
+            "namespaceName": "百度",
+            "namespaceUrl": "www.baidu.com",
+            "path": "/tieba/post/lz/:id",
+            "fullPath": "/baidu/tieba/post/lz/:id",
+            "name": "帖子动态",
+            "example": "/baidu/tieba/post/686961453",
+            "parameters": {
+                "id": "帖子 ID"
+            },
+            "maintainers": ["u3u"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["tieba.baidu.com/p/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "baidu",
+            "namespaceName": "百度",
+            "namespaceUrl": "www.baidu.com",
+            "path": "/tieba/search/:qw/:routeParams?",
+            "fullPath": "/baidu/tieba/search/:qw/:routeParams?",
+            "name": "贴吧搜索",
+            "example": "/baidu/tieba/search/neuro",
+            "description": "| 键           | 含义                                                       | 接受的值      | 默认值 |\n| ------------ | ---------------------------------------------------------- | ------------- | ------ |\n| kw           | 在名为 kw 的贴吧中搜索                                     | 任意名称 / 无 | 无     |\n| only_thread  | 只看主题帖，默认为 0 关闭                                  | 0/1           | 0      |\n| rn           | 返回条目的数量                                             | 1-20          | 20     |\n| sm           | 排序方式，0 为按时间顺序，1 为按时间倒序，2 为按相关性顺序 | 0/1/2         | 1      |\n\n  用例：`/baidu/tieba/search/neuro/kw=neurosama&only_thread=1&sm=2`",
+            "parameters": {
+                "qw": "搜索关键词",
+                "routeParams": "额外参数；请参阅以下说明和表格"
+            },
+            "maintainers": ["JimenezLi"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "baidu",
+            "namespaceName": "百度",
+            "namespaceUrl": "www.baidu.com",
+            "path": "/tieba/user/:uid",
+            "fullPath": "/baidu/tieba/user/:uid",
+            "name": "用户帖子",
+            "example": "/baidu/tieba/user/斗鱼游戏君",
+            "description": "用户 ID 可以通过打开用户的主页后查看地址栏的 `un` 字段来获取。",
+            "parameters": {
+                "uid": "用户 ID"
+            },
+            "maintainers": ["igxlin", "nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "chiphell",
+            "namespaceName": "Chiphell",
+            "namespaceUrl": "www.chiphell.com",
+            "path": "/portal/:catId?",
+            "fullPath": "/chiphell/portal/:catId?",
+            "name": "分类",
+            "example": "/chiphell/portal/1",
+            "parameters": {
+                "catId": "分类 ID，可在 URL 中找到，默认为 1"
+            },
+            "maintainers": ["tylinux"],
+            "categories": ["bbs"],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "chongbuluo",
+            "namespaceName": "虫部落",
+            "namespaceUrl": "www.chongbuluo.com",
+            "path": "/newthread",
+            "fullPath": "/chongbuluo/newthread",
+            "name": "最新发表",
+            "example": "/chongbuluo/newthread",
+            "maintainers": ["qiye45"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.chongbuluo.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "cool18",
+            "namespaceName": "禁忌书屋",
+            "namespaceUrl": "cool18.com",
+            "path": "/:id?/:type?/:keyword?",
+            "fullPath": "/cool18/:id?/:type?/:keyword?",
+            "name": "禁忌书屋",
+            "example": "cool18.com/bbs4",
+            "parameters": {
+                "id": "the name of the bbs",
+                "type": "the type of the post. Can be `home`, `gold` or `threadsearch`. Default: `home`",
+                "keyword": "the keyword to search.",
+                "pageSize": "the number of posts to fetch. If the type is not in search, you can type any words. Default: 10"
+            },
+            "maintainers": ["nczitzk", "Gabrlie"],
+            "categories": ["bbs"],
+            "features": {
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["cool18.com/:id/"],
+                    "target": "/:id/:type?/:keyword?"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "dcard",
+            "namespaceName": "Dcard",
+            "namespaceUrl": "www.dcard.tw",
+            "path": "/:section/:type?",
+            "fullPath": "/dcard/:section/:type?",
+            "name": "板塊帖子",
+            "example": "/dcard/funny/popular",
+            "description": "::: warning\n僅能透過台灣 IP 抓取。\n:::",
+            "parameters": {
+                "section": "板塊名稱，URL 中獲得",
+                "type": "排序，popular 熱門；latest 最新，默認為 latest"
+            },
+            "maintainers": ["HenryQW"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": true,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "deepin",
+            "namespaceName": "Deepin",
+            "namespaceUrl": "bbs.deepin.org",
+            "path": "/homepage/:user_id",
+            "fullPath": "/deepin/homepage/:user_id",
+            "name": "BBS Home Page",
+            "example": "/deepin/homepage/78326",
+            "parameters": {
+                "user_id": "user id"
+            },
+            "maintainers": ["tensor-tech"],
+            "categories": ["bbs"],
+            "radar": [
+                {
+                    "source": ["bbs.deepin.org/user/:user_id"],
+                    "target": "/homepage/:user_id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "deepin",
+            "namespaceName": "Deepin",
+            "namespaceUrl": "bbs.deepin.org",
+            "path": "/threads/:type?",
+            "fullPath": "/deepin/threads/:type?",
+            "name": "首页主题列表",
+            "example": "/deepin/threads/latest",
+            "parameters": {
+                "type": {
+                    "description": "主题类型",
+                    "options": [
+                        {
+                            "value": "hot",
+                            "label": "最热主题"
+                        },
+                        {
+                            "value": "latest",
+                            "label": "最新主题"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["myml"],
+            "categories": ["bbs"],
+            "radar": [
+                {
+                    "source": ["bbs.deepin.org"],
+                    "target": "/threads/latest"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "discourse",
+            "namespaceName": "Discourse",
+            "path": "/:configId/notifications/:fulltext?",
+            "fullPath": "/discourse/:configId/notifications/:fulltext?",
+            "name": "Notifications",
+            "example": "/discourse/0/notifications",
+            "description": "::: warning\nIf you opt to enable `fulltext` feature, consider adding `limit` parameter to your query to avoid sending too many request.\n:::",
+            "parameters": {
+                "configId": "Environment variable configuration id, see above",
+                "fulltext": "Fetch the content if the notification points to a post. This is disabled by default, set it to `1` to enable it."
+            },
+            "maintainers": [],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "DISCOURSE_CONFIG_*",
+                        "description": ""
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "discourse",
+            "namespaceName": "Discourse",
+            "path": "/:configId/official/:path{.+}",
+            "fullPath": "/discourse/:configId/official/:path{.+}",
+            "name": "Official RSS",
+            "example": "/discourse/0/official/latest",
+            "description": "::: warning\nYou need to set the environment variable `DISCOURSE_CONFIG_{id}` before using it. Please refer to Configuration section in the Deploy page of the documentation.\n:::",
+            "parameters": {
+                "configId": "Environment variable configuration id, see above",
+                "path": "Discourse RSS path between `domain` and `.rss`. All supported Rss path can be found in [https://meta.discourse.org/t/finding-discourse-rss-feeds/264134](https://meta.discourse.org/t/finding-discourse-rss-feeds/264134). For example: the path of [https://meta.discourse.org/top/all.rss](https://meta.discourse.org/top/all.rss) is `top/all`."
+            },
+            "maintainers": ["Raikyou", "dzx-dzx"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "DISCOURSE_CONFIG_*",
+                        "description": "Configure the Discourse environment variables referring to [https://docs.rsshub.app/deploy/config#discourse](https://docs.rsshub.app/deploy/config#discourse)."
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "discourse",
+            "namespaceName": "Discourse",
+            "path": "/:configId/posts",
+            "fullPath": "/discourse/:configId/posts",
+            "name": "Latest posts",
+            "example": "/discourse/0/posts",
+            "description": "::: warning\nYou need to set the environment variable `DISCOURSE_CONFIG_{id}` before using it. Please refer to Configuration section in the Deploy page of the documentation.\n:::",
+            "parameters": {
+                "configId": "Environment variable configuration id, see above"
+            },
+            "maintainers": ["dzx-dzx"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "DISCOURSE_CONFIG_*",
+                        "description": ""
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "douyu",
+            "namespaceName": "斗鱼直播",
+            "namespaceUrl": "www.douyu.com",
+            "path": "/group/:id/:sort?",
+            "fullPath": "/douyu/group/:id/:sort?",
+            "name": "鱼吧帖子",
+            "example": "/douyu/group/1011",
+            "description": "| 回复时间排序 | 发布时间排序 |\n| ------------ | ------------ |\n| 1            | 2            |",
+            "parameters": {
+                "id": "鱼吧 id，可在鱼吧页 URL 中找到",
+                "sort": "排序方式，见下表，默认为发布时间排序"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["yuba.douyu.com/group/:id", "yuba.douyu.com/group/newself/:id", "yuba.douyu.com/group/newall/:id", "yuba.douyu.com/"],
+                    "target": "/group/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "douyu",
+            "namespaceName": "斗鱼直播",
+            "namespaceUrl": "www.douyu.com",
+            "path": "/post/:id",
+            "fullPath": "/douyu/post/:id",
+            "name": "鱼吧跟帖",
+            "example": "/douyu/post/631737151576473201",
+            "parameters": {
+                "id": "帖子 id，可在帖子页 URL 中找到"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["yuba.douyu.com/p/:id", "yuba.douyu.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "dxy",
+            "namespaceName": "丁香园",
+            "namespaceUrl": "dxy.cn",
+            "path": "/bbs/board/:boardId",
+            "fullPath": "/dxy/bbs/board/:boardId",
+            "name": "板块",
+            "example": "/dxy/bbs/board/46",
+            "parameters": {
+                "specialId": "板块 ID，可在对应板块页 URL 中找到"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["bbs"],
+            "radar": [
+                {
+                    "source": ["www.dxy.cn/bbs/newweb/pc/category/:boardIdId"],
+                    "target": "/bbs/board/:boardIdId"
+                },
+                {
+                    "source": ["3g.dxy.cn/bbs/board/:boardIdId"],
+                    "target": "/bbs/board/:boardIdId"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "dxy",
+            "namespaceName": "丁香园",
+            "namespaceUrl": "dxy.cn",
+            "path": "/bbs/profile/thread/:userId",
+            "fullPath": "/dxy/bbs/profile/thread/:userId",
+            "name": "个人帖子",
+            "example": "/dxy/bbs/profile/thread/8335054",
+            "parameters": {
+                "userId": "个人 ID，可在 URL 中找到"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["dxy.cn/bbs/newweb/pc/profile/:userId/threads", "dxy.cn/bbs/newweb/pc/profile/:userId"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "dxy",
+            "namespaceName": "丁香园",
+            "namespaceUrl": "dxy.cn",
+            "path": "/bbs/special/:specialId",
+            "fullPath": "/dxy/bbs/special/:specialId",
+            "name": "专题",
+            "example": "/dxy/bbs/special/72",
+            "parameters": {
+                "specialId": "专题 ID，可在对应专题页 URL 中找到"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "elasticsearch-cn",
+            "namespaceName": "Elastic 中文社区",
+            "namespaceUrl": "elasticsearch.cn",
+            "path": "/:params?",
+            "fullPath": "/elasticsearch-cn/:params?",
+            "name": "发现",
+            "example": "/elasticsearch-cn",
+            "description": "如 [Elasticsearch 最新](https://elasticsearch.cn/category-2) 的 URL 为 `https://elasticsearch.cn/category-2`，则分类参数处填写 `category-2`，最后得到路由地址 [`/elasticsearch-cn/category-2`](https://rsshub.app/elasticsearch-cn/category-2)。\n\n  又如 [求职招聘 30 天热门](https://elasticsearch.cn/sort_type-hot____category-12__day-30) 的 URL 为 `https://elasticsearch.cn/sort_type-hot____category-12__day-30`，则分类参数处填写 `sort_type-hot____category-12__day-30`，最后得到路由地址 [`/elasticsearch-cn/sort_type-hot____category-12__day-30`](https://rsshub.app/elasticsearch-cn/sort_type-hot____category-12__day-30)。",
+            "parameters": {
+                "params": "分类，可在对应分类页 URL 中找到"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["elasticsearch.cn/:params", "elasticsearch.cn/"],
+                    "target": "/:params"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "eleduck",
+            "namespaceName": "电鸭社区",
+            "namespaceUrl": "eleduck.com",
+            "path": "/jobs",
+            "fullPath": "/eleduck/jobs",
+            "name": "工作机会",
+            "example": "/eleduck/jobs",
+            "parameters": {},
+            "maintainers": ["sfyumi"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["eleduck.com/categories/5", "eleduck.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "eleduck",
+            "namespaceName": "电鸭社区",
+            "namespaceUrl": "eleduck.com",
+            "path": "/posts/:id?",
+            "fullPath": "/eleduck/posts/:id?",
+            "name": "分类文章",
+            "example": "/eleduck/posts/4",
+            "description": "| id | 分类     |\n| -- | -------- |\n| 0  | 全部     |\n| 1  | 讨论     |\n| 2  | 分享     |\n| 3  | 露个脸   |\n| 4  | 访谈故事 |\n| 5  | 招聘     |\n| 10 | 海外移民 |\n| 12 | 英语     |\n| 14 | 电鸭官方 |\n| 15 | 独立产品 |\n| 17 | 闲话开源 |\n| 19 | Web3     |\n| 21 | 设计     |\n| 22 | 人才库   |\n| 23 | Upwork   |\n| 24 | 经验课   |",
+            "parameters": {
+                "id": "分类id,可以论坛的URL找到，默认为全部"
+            },
+            "maintainers": ["running-grass"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "feng",
+            "namespaceName": "威锋",
+            "namespaceUrl": "feng.com",
+            "path": "/forum/:id/:type?",
+            "fullPath": "/feng/forum/:id/:type?",
+            "name": "社区",
+            "example": "/feng/forum/1",
+            "description": "| 最新回复 | 最新发布 | 热门 | 精华    |\n| -------- | -------- | ---- | ------- |\n| newest   | all      | hot  | essence |",
+            "parameters": {
+                "id": "版块 ID，可在版块 URL 找到",
+                "type": "排序，见下表，默认为 `all`"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["feng.com/forum/photo/:id", "feng.com/forum/:id"],
+                    "target": "/forum/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "flyert",
+            "namespaceName": "飞客茶馆",
+            "namespaceUrl": "flyert.com.cn",
+            "path": "/forum/:params{.+}?",
+            "fullPath": "/flyert/forum/:params{.+}?",
+            "name": "会员说",
+            "example": "/flyert/forum",
+            "description": "::: tip\n  若订阅 [酒店集团优惠](https://www.flyert.com.cn/forum.php?mod=forumdisplay&sum=all&fid=all&catid=322&filter=sortid&sortid=144&searchsort=1&youhui_type=19)，网址为 `https://www.flyert.com.cn/forum.php?mod=forumdisplay&sum=all&fid=all&catid=322&filter=sortid&sortid=144&searchsort=1&youhui_type=19`。截取 `https://www.flyert.com.cn/forum.php?` 到末尾的部分 `mod=forumdisplay&sum=all&fid=all&catid=322&filter=sortid&sortid=144&searchsort=1&youhui_type=19` **进行 UrlEncode 编码** 后作为参数填入，此时路由为 [`/flyert/forum/mod%3Dforumdisplay%26sum%3Dall%26fid%3Dall%26catid%3D322%26filter%3Dsortid%26sortid%3D144%26searchsort%3D1%26youhui_type%3D226`](https://rsshub.app/flyert/forum/mod%3Dforumdisplay%26sum%3Dall%26fid%3Dall%26catid%3D322%26filter%3Dsortid%26sortid%3D144%26searchsort%3D1%26youhui_type%3D226)。\n:::\n    ",
+            "parameters": {
+                "params": "参数，默认为空，可在对应分类页 URL 中找到"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.flyert.com.cn/forum.php"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "guozaoke",
+            "namespaceName": "guozaoke",
+            "namespaceUrl": "guozaoke.com",
+            "path": "/default",
+            "fullPath": "/guozaoke/default",
+            "name": "过早客",
+            "example": "/guozaoke/default",
+            "parameters": {},
+            "maintainers": ["xiaoshame"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "huoxian",
+            "namespaceName": "火线",
+            "namespaceUrl": "zone.huoxian.cn",
+            "path": "/zone",
+            "fullPath": "/huoxian/zone",
+            "name": "Zone",
+            "example": "/huoxian/zone",
+            "parameters": {},
+            "maintainers": ["p7e4"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hupu",
+            "namespaceName": "虎扑",
+            "namespaceUrl": ".hupu.com",
+            "path": "/:category?",
+            "fullPath": "/hupu/:category?",
+            "name": "手机虎扑网",
+            "example": "/hupu/nba",
+            "description": "::: tip\n电竞分类参见 [游戏热帖](https://bbs.hupu.com/all-gg) 的对应路由 [`/hupu/all/all-gg`](https://rsshub.app/hupu/all/all-gg)。\n:::",
+            "parameters": {
+                "category": {
+                    "description": "分类，可选值：nba、cba、soccer，默认为空（首页）",
+                    "default": "",
+                    "options": [
+                        {
+                            "label": "NBA",
+                            "value": "nba"
+                        },
+                        {
+                            "label": "CBA",
+                            "value": "cba"
+                        },
+                        {
+                            "label": "足球",
+                            "value": "soccer"
+                        },
+                        {
+                            "label": "首页",
+                            "value": ""
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["nczitzk", "hyoban"],
+            "categories": ["bbs"],
+            "radar": [
+                {
+                    "source": ["m.hupu.com/:category", "m.hupu.com/"],
+                    "target": "/:category"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hupu",
+            "namespaceName": "虎扑",
+            "namespaceUrl": ".hupu.com",
+            "path": "/all/:id?",
+            "fullPath": "/hupu/all/:id?",
+            "name": "热帖",
+            "example": "/hupu/all/topic-daily",
+            "description": "::: tip\n  更多热帖版面参见 [论坛](https://bbs.hupu.com)\n:::",
+            "parameters": {
+                "id": "编号，可在对应热帖版面 URL 中找到，默认为步行街每日话题"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["m.hupu.com/:category", "m.hupu.com/"],
+                    "target": "/:category"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hupu",
+            "namespaceName": "虎扑",
+            "namespaceUrl": ".hupu.com",
+            "path": "/bbs/:id?/:order?",
+            "fullPath": "/hupu/bbs/:id?/:order?",
+            "name": "社区",
+            "example": "/hupu/bbs/topic-daily",
+            "description": "::: tip\n  更多社区参见 [社区](https://bbs.hupu.com)\n:::",
+            "parameters": {
+                "id": "编号，可在对应社区 URL 中找到，默认为#步行街主干道",
+                "order": "排序方式，可选 `0` 即 最新回复 或 `1` 即 最新发布，默认为最新回复"
+            },
+            "maintainers": ["LogicJake", "nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["m.hupu.com/:category", "m.hupu.com/"],
+                    "target": "/:category"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hupu",
+            "namespaceName": "虎扑",
+            "namespaceUrl": ".hupu.com",
+            "path": "/bxj/:id?/:order?",
+            "fullPath": "/hupu/bxj/:id?/:order?",
+            "name": "社区",
+            "example": "/hupu/bbs/topic-daily",
+            "description": "::: tip\n  更多社区参见 [社区](https://bbs.hupu.com)\n:::",
+            "parameters": {
+                "id": "编号，可在对应社区 URL 中找到，默认为#步行街主干道",
+                "order": "排序方式，可选 `0` 即 最新回复 或 `1` 即 最新发布，默认为最新回复"
+            },
+            "maintainers": ["LogicJake", "nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["m.hupu.com/:category", "m.hupu.com/"],
+                    "target": "/:category"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hupu",
+            "namespaceName": "虎扑",
+            "namespaceUrl": ".hupu.com",
+            "path": "/dept/:category?",
+            "fullPath": "/hupu/dept/:category?",
+            "name": "手机虎扑网",
+            "example": "/hupu/nba",
+            "description": "::: tip\n电竞分类参见 [游戏热帖](https://bbs.hupu.com/all-gg) 的对应路由 [`/hupu/all/all-gg`](https://rsshub.app/hupu/all/all-gg)。\n:::",
+            "parameters": {
+                "category": {
+                    "description": "分类，可选值：nba、cba、soccer，默认为空（首页）",
+                    "default": "",
+                    "options": [
+                        {
+                            "label": "NBA",
+                            "value": "nba"
+                        },
+                        {
+                            "label": "CBA",
+                            "value": "cba"
+                        },
+                        {
+                            "label": "足球",
+                            "value": "soccer"
+                        },
+                        {
+                            "label": "首页",
+                            "value": ""
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["nczitzk", "hyoban"],
+            "categories": ["bbs"],
+            "radar": [
+                {
+                    "source": ["m.hupu.com/:category", "m.hupu.com/"],
+                    "target": "/:category"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hupu",
+            "namespaceName": "虎扑",
+            "namespaceUrl": ".hupu.com",
+            "path": "/news/:team",
+            "fullPath": "/hupu/news/:team",
+            "name": "队伍新闻",
+            "example": "/news/Spurs",
+            "parameters": {
+                "team": {
+                    "description": "全小写的英文队名，例如：spurs, lakers, warriors 等等"
+                }
+            },
+            "maintainers": ["hyoban"],
+            "categories": ["bbs"],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "kanxue",
+            "namespaceName": "看雪",
+            "namespaceUrl": "kanxue.com",
+            "path": "/topic/:category?/:type?",
+            "fullPath": "/kanxue/topic/:category?/:type?",
+            "name": "论坛",
+            "example": "/kanxue/topic/android/digest",
+            "description": "| 版块           | category  |\n| -------------- | --------- |\n| 智能设备       | iot       |\n| Android 安全   | android   |\n| iOS 安全       | ios       |\n| HarmonyOS 安全 | harmonyos |\n| 软件逆向       | re        |\n| 编程技术       | coding    |\n| 加壳脱壳       | unpack    |\n| 密码应用       | crypto    |\n| 二进制漏洞     | vuln      |\n| CTF 对抗       | ctf       |\n| Pwn            | pwn       |\n| WEB 安全       | web       |\n| 茶余饭后       | chat      |\n| 极客空间       | geekzone  |\n| 外文翻译       | translate |\n| 全站           | all       |\n\n| 类型     | type   |\n| -------- | ------ |\n| 最新主题 | latest |\n| 精华主题 | digest |",
+            "parameters": {
+                "category": "版块, 缺省为`all`",
+                "type": "类型, 缺省为`latest`"
+            },
+            "maintainers": ["renzhexigua"],
+            "categories": ["bbs"],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "learnku",
+            "namespaceName": "LearnKu",
+            "namespaceUrl": "learnku.com",
+            "path": "/:community/:category?",
+            "fullPath": "/learnku/:community/:category?",
+            "name": "社区",
+            "example": "/learnku/laravel/qa",
+            "description": "| 招聘 | 翻译         | 问答 | 链接  |\n| ---- | ------------ | ---- | ----- |\n| jobs | translations | qa   | links |",
+            "parameters": {
+                "community": "社区 标识，可在 <https://learnku.com/communities> 找到",
+                "category": "分类，如果不传 `category` 则获取全部分类"
+            },
+            "maintainers": ["kayw-geek"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["learnku.com/:community"],
+                    "target": "/:community"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "loongarch",
+            "namespaceName": "LA UOSC社区",
+            "namespaceUrl": "loongarch.org",
+            "path": "/post/:type?",
+            "fullPath": "/loongarch/post/:type?",
+            "name": "最热 / 最新帖子",
+            "example": "/loongarch/post/newest",
+            "parameters": {
+                "type": "top 或 newest"
+            },
+            "maintainers": ["ladeng07", "3401797899"],
+            "categories": ["bbs"],
+            "radar": [
+                {
+                    "source": ["bbs.loongarch.org"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "meteor",
+            "namespaceName": "Meteor",
+            "namespaceUrl": "meteor.today",
+            "path": "/:board?",
+            "fullPath": "/meteor/:board?",
+            "name": "看板",
+            "example": "/meteor/all",
+            "parameters": {
+                "board": "看板 ID 或簡稱，可在 URL 或下方路由找到，預設為 `all`"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "meteor",
+            "namespaceName": "Meteor",
+            "namespaceUrl": "meteor.today",
+            "path": "/boards",
+            "fullPath": "/meteor/boards",
+            "name": "看板列表",
+            "example": "/meteor/boards",
+            "parameters": {},
+            "maintainers": ["TonyRL"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["meteor.today/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "miui",
+            "namespaceName": "MIUI",
+            "namespaceUrl": "miui.com",
+            "path": "/community/user/:uid",
+            "fullPath": "/miui/community/user/:uid",
+            "name": "小米社区用户发帖",
+            "example": "/miui/community/user/1200057564",
+            "parameters": {
+                "uid": "小米用户 UID，可于网页版用户主页链接中 `uid` 项获取"
+            },
+            "maintainers": ["abc1763613206"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["web.vip.miui.com/page/info/mio/mio/homePage"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "nga",
+            "namespaceName": "NGA",
+            "namespaceUrl": "bbs.nga.cn",
+            "path": "/forum/:fid/:recommend?",
+            "fullPath": "/nga/forum/:fid/:recommend?",
+            "name": "分区帖子",
+            "example": "/nga/forum/489",
+            "parameters": {
+                "fid": "分区 id, 可在分区主页 URL 找到, 没有 fid 时 stid 同样适用",
+                "recommend": "是否只显示精华主题, 留空为否, 任意值为是"
+            },
+            "maintainers": ["xyqfer"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "nga",
+            "namespaceName": "NGA",
+            "namespaceUrl": "bbs.nga.cn",
+            "path": "/post/:tid/:authorId?",
+            "fullPath": "/nga/post/:tid/:authorId?",
+            "name": "帖子",
+            "example": "/nga/post/18449558",
+            "parameters": {
+                "tid": "帖子 id, 可在帖子 URL 找到",
+                "authorId": "作者 id"
+            },
+            "maintainers": ["xyqfer", "syrinka"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "nowcoder",
+            "namespaceName": "牛客网",
+            "namespaceUrl": "nowcoder.com",
+            "path": "/discuss/:type/:order",
+            "fullPath": "/nowcoder/discuss/:type/:order",
+            "name": "讨论区",
+            "example": "/nowcoder/discuss/2/4",
+            "description": "| 最新回复 | 最新发表 | 最新 | 精华 |\n| -------- | -------- | ---- | ---- |\n| 0        | 3        | 1    | 4    |",
+            "parameters": {
+                "type": "讨论区分区id 在 URL 中可以找到",
+                "order": "排序方式"
+            },
+            "maintainers": ["LogicJake"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "nowcoder",
+            "namespaceName": "牛客网",
+            "namespaceUrl": "nowcoder.com",
+            "path": "/experience/:tagId",
+            "fullPath": "/nowcoder/experience/:tagId",
+            "name": "面经",
+            "example": "/nowcoder/experience/639?order=3&companyId=665&phaseId=0",
+            "description": "可选参数：\n\n  -   companyId：公司 id，[🔗查询链接](https://www.nowcoder.com/discuss/tag/exp), 复制打开\n  -   order：3 - 最新；1 - 最热\n  -   phaseId：0 - 所有；1 - 校招；2 - 实习；3 - 社招",
+            "parameters": {
+                "tagId": "职位id [🔗查询链接](https://www.nowcoder.com/profile/all-jobs)复制打开"
+            },
+            "maintainers": ["huyyi"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["nowcoder.com/"],
+                    "target": "/experience"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "nowcoder",
+            "namespaceName": "牛客网",
+            "namespaceUrl": "nowcoder.com",
+            "path": "/jobcenter/:recruitType?/:city?/:type?/:order?/:latest?",
+            "fullPath": "/nowcoder/jobcenter/:recruitType?/:city?/:type?/:order?/:latest?",
+            "name": "实习广场 & 社招广场",
+            "example": "/nowcoder/jobcenter/1/北京/1/1/true",
+            "description": "可选城市有：北京、上海、广州、深圳、杭州、南京、成都、厦门、武汉、西安、长沙、哈尔滨、合肥、其他\n\n  职位类型代码见下表：\n\n| 研发 | 测试 | 数据 | 算法 | 前端 | 产品 | 运营 | 其他 |\n| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |\n| 1    | 2    | 3    | 4    | 5    | 6    | 7    | 0    |\n\n  排序参数见下表：\n\n| 最新发布 | 最快处理 | 处理率最高 |\n| -------- | -------- | ---------- |\n| 1        | 2        | 3          |",
+            "parameters": {
+                "recruitType": "招聘分类，`1` 指 实习广场，`2` 指 社招广场，默认为 `1`",
+                "city": "所在城市，可选城市见下表，若空则为 `全国`",
+                "type": "职位类型，可选职位代码见下表，若空则为 `全部`",
+                "order": "排序参数，可选排序参数代码见下表，若空则为 `默认`",
+                "latest": "是否仅查看最近一周，可选 `true` 和 `false`，默认为 `false`"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["nowcoder.com/"],
+                    "target": "/jobcenter"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "nowcoder",
+            "namespaceName": "牛客网",
+            "namespaceUrl": "nowcoder.com",
+            "path": "/recommend",
+            "fullPath": "/nowcoder/recommend",
+            "name": "求职推荐",
+            "example": "/nowcoder/recommend",
+            "parameters": {},
+            "maintainers": ["junfengP"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["nowcoder.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "nowcoder",
+            "namespaceName": "牛客网",
+            "namespaceUrl": "nowcoder.com",
+            "path": "/schedule/:propertyId?/:typeId?",
+            "fullPath": "/nowcoder/schedule/:propertyId?/:typeId?",
+            "name": "校招日程",
+            "example": "/nowcoder/schedule",
+            "parameters": {
+                "propertyId": "行业, 在控制台中抓取接口，可获得行业id，默认0",
+                "typeId": "类别，同上"
+            },
+            "maintainers": ["junfengP"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["nowcoder.com/"],
+                    "target": "/schedule"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "pikabu",
+            "namespaceName": "Pikabu",
+            "namespaceUrl": "pikabu.ru",
+            "path": "/:type/:name",
+            "fullPath": "/pikabu/:type/:name",
+            "name": "Unknown",
+            "maintainers": [],
+            "categories": ["bbs"],
+            "lang": "ru"
+        },
+        {
+            "namespace": "pikabu",
+            "namespaceName": "Pikabu",
+            "namespaceUrl": "pikabu.ru",
+            "path": "/user/:name",
+            "fullPath": "/pikabu/user/:name",
+            "name": "User",
+            "example": "/pikabu/user/@bula.dragon",
+            "parameters": {
+                "name": "User name"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["pikabu.ru/:name"]
+                }
+            ],
+            "lang": "ru"
+        },
+        {
+            "namespace": "pincong",
+            "namespaceName": "品葱",
+            "namespaceUrl": "pincong.rocks",
+            "path": "/category/:category?/:sort?",
+            "fullPath": "/pincong/category/:category?/:sort?",
+            "name": "发现",
+            "example": "/pincong/category/1/new",
+            "description": "| 最新 | 推荐      | 热门 |\n| ---- | --------- | ---- |\n| new  | recommend | hot  |",
+            "parameters": {
+                "category": "分类，与官网分类 URL `category-` 后的数字对应，默认为全部",
+                "sort": "排序方式，参数可见下表，默认为推荐"
+            },
+            "maintainers": ["zphw"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": true,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "pincong",
+            "namespaceName": "品葱",
+            "namespaceUrl": "pincong.rocks",
+            "path": "/hot/:category?",
+            "fullPath": "/pincong/hot/:category?",
+            "name": "精选",
+            "example": "/pincong/hot",
+            "parameters": {
+                "category": "分类，与官网分类 URL `category-` 后的数字对应，默认为全部"
+            },
+            "maintainers": ["zphw"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": true,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "pincong",
+            "namespaceName": "品葱",
+            "namespaceUrl": "pincong.rocks",
+            "path": "/topic/:topic",
+            "fullPath": "/pincong/topic/:topic",
+            "name": "Unknown",
+            "maintainers": ["zphw"],
+            "categories": ["bbs"],
+            "radar": [
+                {
+                    "source": ["pincong.rocks/topic/:topic"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "pkmer",
+            "namespaceName": "PKMer",
+            "namespaceUrl": "pkmer.cn",
+            "path": "/recent",
+            "fullPath": "/pkmer/recent",
+            "name": "最近更新",
+            "example": "/pkmer/recent",
+            "parameters": {},
+            "maintainers": ["Gnoyong"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["pkmer.cn/page/*"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "playno1",
+            "namespaceName": "PLAYNO.1 玩樂達人",
+            "namespaceUrl": "stno1.playno1.com",
+            "path": "/av/:catid?",
+            "fullPath": "/playno1/av/:catid?",
+            "name": "AV",
+            "example": "/playno1/av",
+            "description": "::: warning\n目前观测到该博客可能禁止日本 IP 访问。建议部署在日本区以外的服务器上。\n:::\n\n| 全部文章 | AV 新聞 | AV 導覽 |\n| -------- | ------- | ------- |\n| 78       | 3       | 5       |",
+            "parameters": {
+                "catid": "分类，见下表，默认为全部文章"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "playno1",
+            "namespaceName": "PLAYNO.1 玩樂達人",
+            "namespaceUrl": "stno1.playno1.com",
+            "path": "/st/:catid?",
+            "fullPath": "/playno1/st/:catid?",
+            "name": "情趣",
+            "example": "/playno1/st",
+            "description": "| 全部文章 | 情趣體驗報告 | 情趣新聞 | 情趣研究所 |\n| -------- | ------------ | -------- | ---------- |\n| all      | experience   | news     | graduate   |",
+            "parameters": {
+                "catid": "分类，见下表，默认为全部文章"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["stno1.playno1.com/stno1/:catid/"],
+                    "target": "/st/:catid"
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "qq",
+            "namespaceName": "腾讯网",
+            "namespaceUrl": "qq.com",
+            "path": "/pd/guild/:id/:sub?/:sort?",
+            "fullPath": "/qq/pd/guild/:id/:sub?/:sort?",
+            "name": "腾讯频道",
+            "example": "/qq/pd/guild/qrp4pkq01d/650967831/created",
+            "description": "",
+            "parameters": {
+                "id": "频道号",
+                "sub": "子频道 ID，网页端 URL `subc` 参数的值，默认为 `hot`（全部）",
+                "sort": "排序方式，`hot`（热门），`created`（最新发布），`replied`（最新回复），默认为 `created`"
+            },
+            "maintainers": ["mobyw"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["pd.qq.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "resetera",
+            "namespaceName": "ResetEra",
+            "namespaceUrl": "resetera.com",
+            "path": "/thread/:id",
+            "fullPath": "/resetera/thread/:id",
+            "name": "Thread latest posts (text & images)",
+            "example": "/resetera/thread/1076160",
+            "parameters": {
+                "id": "Numeric thread ID at the end of the URL"
+            },
+            "maintainers": ["ZEN-GUO"],
+            "categories": ["bbs"],
+            "radar": [
+                {
+                    "source": ["resetera.com/threads/:slug.:id/"],
+                    "target": "/thread/:id"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "right",
+            "namespaceName": "恩山无线论坛",
+            "namespaceUrl": "right.com.cn",
+            "path": "/forum/:id?",
+            "fullPath": "/right/forum/:id?",
+            "name": "板块",
+            "example": "/right/forum/31",
+            "parameters": {
+                "id": "板块 id，可在板块页 URL 中找到，默认为新手入门及其它(硬件)"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "saraba1st",
+            "namespaceName": "Saraba1st",
+            "namespaceUrl": "stage1st.com",
+            "path": "/digest/:tid",
+            "fullPath": "/saraba1st/digest/:tid",
+            "name": "论坛摘要",
+            "example": "/saraba1st/digest/forum-6-1",
+            "description": "版面网址如果为 `https://stage1st.com/2b/forum-6-1.html` 那么论坛 id 就是 `forum-6-1`。",
+            "parameters": {
+                "tid": "论坛 id"
+            },
+            "maintainers": ["shinemoon"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "saraba1st",
+            "namespaceName": "Saraba1st",
+            "namespaceUrl": "stage1st.com",
+            "path": "/thread/:tid",
+            "fullPath": "/saraba1st/thread/:tid",
+            "name": "帖子",
+            "example": "/saraba1st/thread/751272",
+            "description": "帖子网址如果为 `https://stage1st.com/2b/thread-751272-1-1.html` 那么帖子 id 就是 `751272`。",
+            "parameters": {
+                "tid": "帖子 id"
+            },
+            "maintainers": ["zengxs"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "sdo",
+            "namespaceName": "盛趣游戏在线",
+            "namespaceUrl": "sdo.com",
+            "path": "/ff14risingstones/posts/:pid?/:type?",
+            "fullPath": "/sdo/ff14risingstones/posts/:pid?/:type?",
+            "name": "帖子",
+            "example": "/sdo/ff14risingstones/posts/all/hot",
+            "parameters": {
+                "pid": {
+                    "description": "分区id，默认显示所有分区，可通过 `,` 拼接多个分区 id 进行筛选",
+                    "default": "all",
+                    "options": [
+                        {
+                            "label": "全部",
+                            "value": "all"
+                        },
+                        {
+                            "value": "34",
+                            "label": "冒险者行会"
+                        },
+                        {
+                            "value": "52",
+                            "label": "生活杂谈"
+                        },
+                        {
+                            "value": "38",
+                            "label": "同人创作"
+                        },
+                        {
+                            "value": "36",
+                            "label": "剧情讨论"
+                        },
+                        {
+                            "value": "51",
+                            "label": "建议和BUG反馈"
+                        },
+                        {
+                            "value": "37",
+                            "label": "游戏记录"
+                        },
+                        {
+                            "value": "35",
+                            "label": "举手提问"
+                        },
+                        {
+                            "value": "74",
+                            "label": "版务专区"
+                        },
+                        {
+                            "value": "75",
+                            "label": "官方讯息"
+                        }
+                    ]
+                },
+                "type": {
+                    "description": "帖文类型，默认不做筛选",
+                    "options": [
+                        {
+                            "label": "置顶",
+                            "value": "top"
+                        },
+                        {
+                            "label": "精华",
+                            "value": "refine"
+                        },
+                        {
+                            "label": "周热门",
+                            "value": "hot"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["KarasuShin"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "SDO_FF14RISINGSTONES",
+                        "description": "值为 Cookie 头中 ff14risingstones 值"
+                    },
+                    {
+                        "name": "SDO_UA",
+                        "description": "值为与在网页端获取 Cookie 时相匹配的 User-Agent 值"
+                    }
+                ]
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "sdo",
+            "namespaceName": "盛趣游戏在线",
+            "namespaceUrl": "sdo.com",
+            "path": "/ff14risingstones/strats/:pid?/:type?",
+            "fullPath": "/sdo/ff14risingstones/strats/:pid?/:type?",
+            "name": "攻略",
+            "example": "/sdo/ff14risingstones/strats/1,2/refine",
+            "parameters": {
+                "pid": {
+                    "description": "分区id，默认显示所有分区，可通过 `,` 拼接多个分区 id 进行筛选",
+                    "default": "all",
+                    "options": [
+                        {
+                            "label": "全部",
+                            "value": "all"
+                        },
+                        {
+                            "label": "新手指引",
+                            "value": "1"
+                        },
+                        {
+                            "label": "副本攻略",
+                            "value": "2"
+                        },
+                        {
+                            "label": "战斗职业",
+                            "value": "3"
+                        },
+                        {
+                            "label": "PVP",
+                            "value": "4"
+                        },
+                        {
+                            "label": "生产采集",
+                            "value": "5"
+                        },
+                        {
+                            "label": "投影外观",
+                            "value": "6"
+                        },
+                        {
+                            "label": "房屋装修",
+                            "value": "7"
+                        },
+                        {
+                            "label": "骑士",
+                            "value": "8"
+                        },
+                        {
+                            "label": "武僧",
+                            "value": "9"
+                        },
+                        {
+                            "label": "战士",
+                            "value": "10"
+                        },
+                        {
+                            "label": "龙骑士",
+                            "value": "11"
+                        },
+                        {
+                            "label": "吟游诗人",
+                            "value": "12"
+                        },
+                        {
+                            "label": "白魔法师",
+                            "value": "13"
+                        },
+                        {
+                            "label": "黑魔法师",
+                            "value": "14"
+                        },
+                        {
+                            "label": "召唤师",
+                            "value": "15"
+                        },
+                        {
+                            "label": "学者",
+                            "value": "16"
+                        },
+                        {
+                            "label": "忍者",
+                            "value": "17"
+                        },
+                        {
+                            "label": "机工士",
+                            "value": "18"
+                        },
+                        {
+                            "label": "暗黑骑士",
+                            "value": "19"
+                        },
+                        {
+                            "label": "占星术士",
+                            "value": "20"
+                        },
+                        {
+                            "label": "武士",
+                            "value": "21"
+                        },
+                        {
+                            "label": "赤魔法师",
+                            "value": "22"
+                        },
+                        {
+                            "label": "青魔法师",
+                            "value": "23"
+                        },
+                        {
+                            "label": "绝枪战士",
+                            "value": "24"
+                        },
+                        {
+                            "label": "舞者",
+                            "value": "25"
+                        },
+                        {
+                            "label": "钐镰客",
+                            "value": "26"
+                        },
+                        {
+                            "label": "贤者",
+                            "value": "27"
+                        },
+                        {
+                            "label": "猫魅族",
+                            "value": "28"
+                        },
+                        {
+                            "label": "拉拉菲尔族",
+                            "value": "29"
+                        },
+                        {
+                            "label": "人族",
+                            "value": "30"
+                        },
+                        {
+                            "label": "精灵族",
+                            "value": "31"
+                        },
+                        {
+                            "label": "维埃拉族",
+                            "value": "32"
+                        },
+                        {
+                            "label": "敖龙族",
+                            "value": "59"
+                        },
+                        {
+                            "label": "硌狮族",
+                            "value": "60"
+                        },
+                        {
+                            "label": "鲁加族",
+                            "value": "61"
+                        },
+                        {
+                            "label": "无人岛",
+                            "value": "62"
+                        },
+                        {
+                            "label": "特殊场景探索",
+                            "value": "63"
+                        },
+                        {
+                            "label": "游戏资讯",
+                            "value": "64"
+                        },
+                        {
+                            "label": "内容考据",
+                            "value": "65"
+                        },
+                        {
+                            "label": "摄影截图",
+                            "value": "66"
+                        },
+                        {
+                            "label": "金碟游乐场",
+                            "value": "67"
+                        },
+                        {
+                            "label": "综合",
+                            "value": "68"
+                        },
+                        {
+                            "label": "其他",
+                            "value": "69"
+                        },
+                        {
+                            "label": "国际服资讯翻译",
+                            "value": "70"
+                        },
+                        {
+                            "label": "游戏资讯整理",
+                            "value": "71"
+                        },
+                        {
+                            "label": "其他",
+                            "value": "72"
+                        }
+                    ]
+                },
+                "type": {
+                    "description": "攻略类型，默认不做筛选",
+                    "options": [
+                        {
+                            "label": "置顶",
+                            "value": "top"
+                        },
+                        {
+                            "label": "精华",
+                            "value": "refine"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["KarasuShin"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "SDO_FF14RISINGSTONES",
+                        "description": "值为 Cookie 头中 ff14risingstones 值"
+                    },
+                    {
+                        "name": "SDO_UA",
+                        "description": "值为与在网页端获取 Cookie 时相匹配的 User-Agent 值"
+                    }
+                ]
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "sdo",
+            "namespaceName": "盛趣游戏在线",
+            "namespaceUrl": "sdo.com",
+            "path": "/ff14risingstones/timeline",
+            "fullPath": "/sdo/ff14risingstones/timeline",
+            "name": "时间线",
+            "example": "/sdo/ff14risingstones/timeline",
+            "maintainers": ["KarasuShin"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "SDO_FF14RISINGSTONES",
+                        "description": "值为 Cookie 头中 ff14risingstones 值"
+                    },
+                    {
+                        "name": "SDO_UA",
+                        "description": "值为与在网页端获取 Cookie 时相匹配的 User-Agent 值"
+                    }
+                ]
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "sdo",
+            "namespaceName": "盛趣游戏在线",
+            "namespaceUrl": "sdo.com",
+            "path": "/ff14risingstones/user-dynamics/:uid",
+            "fullPath": "/sdo/ff14risingstones/user-dynamics/:uid",
+            "name": "用户动态",
+            "example": "/sdo/ff14risingstones/user-dynamics/10001226",
+            "maintainers": ["KarasuShin"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "SDO_FF14RISINGSTONES",
+                        "description": "值为 Cookie 头中 ff14risingstones 值"
+                    },
+                    {
+                        "name": "SDO_UA",
+                        "description": "值为与在网页端获取 Cookie 时相匹配的 User-Agent 值"
+                    }
+                ]
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "sdo",
+            "namespaceName": "盛趣游戏在线",
+            "namespaceUrl": "sdo.com",
+            "path": "/ff14risingstones/user-posts/:uid",
+            "fullPath": "/sdo/ff14risingstones/user-posts/:uid",
+            "name": "用户发帖",
+            "example": "/sdo/ff14risingstones/user-posts/10001226",
+            "maintainers": ["KarasuShin"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "SDO_FF14RISINGSTONES",
+                        "description": "值为 Cookie 头中 ff14risingstones 值"
+                    },
+                    {
+                        "name": "SDO_UA",
+                        "description": "值为与在网页端获取 Cookie 时相匹配的 User-Agent 值"
+                    }
+                ]
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "sdo",
+            "namespaceName": "盛趣游戏在线",
+            "namespaceUrl": "sdo.com",
+            "path": "/ff14risingstones/user-resently/:uid",
+            "fullPath": "/sdo/ff14risingstones/user-resently/:uid",
+            "name": "游戏近况",
+            "example": "/sdo/ff14risingstones/user-resently/10008214",
+            "maintainers": ["KarasuShin"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "SDO_FF14RISINGSTONES",
+                        "description": "值为 Cookie 头中 ff14risingstones 值"
+                    },
+                    {
+                        "name": "SDO_UA",
+                        "description": "值为与在网页端获取 Cookie 时相匹配的 User-Agent 值"
+                    }
+                ]
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "sdo",
+            "namespaceName": "盛趣游戏在线",
+            "namespaceUrl": "sdo.com",
+            "path": "/ff14risingstones/user-strats/:uid",
+            "fullPath": "/sdo/ff14risingstones/user-strats/:uid",
+            "name": "用户攻略",
+            "example": "/sdo/ff14risingstones/user-strats/10001226",
+            "maintainers": ["KarasuShin"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "SDO_FF14RISINGSTONES",
+                        "description": "值为 Cookie 头中 ff14risingstones 值"
+                    },
+                    {
+                        "name": "SDO_UA",
+                        "description": "值为与在网页端获取 Cookie 时相匹配的 User-Agent 值"
+                    }
+                ]
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "sis001",
+            "namespaceName": "第一会所",
+            "namespaceUrl": "sis001.com",
+            "path": "/author/:id?",
+            "fullPath": "/sis001/author/:id?",
+            "name": "作者",
+            "example": "/sis001/author/13131575",
+            "description": "::: tip\n    第一会所有多个备用网址，本路由默认使用`https://sis001.com`，若该网址无法访问，可以在部署实例的时候通过`SIS001_BASE_URL`环境变量配置要使用的地址，如`https://www.sis001.com`等\n:::",
+            "parameters": {
+                "id": "作者 ID，可以在作者的个人空间地址找到"
+            },
+            "maintainers": ["keocheung"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "sis001",
+            "namespaceName": "第一会所",
+            "namespaceUrl": "sis001.com",
+            "path": "/forum/:id?",
+            "fullPath": "/sis001/forum/:id?",
+            "name": "子版块",
+            "example": "/sis001/forum/322",
+            "description": "::: tip\n    第一会所有多个备用网址，本路由默认使用`https://sis001.com`，若该网址无法访问，可以在部署实例的时候通过`SIS001_BASE_URL`环境变量配置要使用的地址，如`https://www.sis001.com`等\n:::",
+            "parameters": {
+                "id": "子版块 ID，可在子论坛 URL 找到，默认为 `Funny Jokes | 短篇笑话区`"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "trow",
+            "namespaceName": "The Ring of Wonder",
+            "namespaceUrl": "trow.cc",
+            "path": "/portal",
+            "fullPath": "/trow/portal",
+            "name": "首页更新",
+            "example": "/trow/portal",
+            "parameters": {},
+            "maintainers": ["shiningdracon"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["trow.cc/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "txrjy",
+            "namespaceName": "通信人家园",
+            "namespaceUrl": "txrjy.com",
+            "path": "/fornumtopic/:channel?",
+            "fullPath": "/txrjy/fornumtopic/:channel?",
+            "name": "论坛 频道",
+            "example": "/txrjy/fornumtopic",
+            "description": "| 最新 500 个主题帖 | 最新 500 个回复帖 | 最新精华帖 | 最新精华帖 | 一周热帖 | 本月热帖 |\n| :---------------: | :---------------: | :--------: | :--------: | :------: | :------: |\n|         1         |         2         |      3     |      4     |     5    |     6    |",
+            "parameters": {
+                "channel": "频道的 id，见下表，默认为最新500个主题帖"
+            },
+            "maintainers": ["Fatpandac"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "v2ex",
+            "namespaceName": "V2EX",
+            "namespaceUrl": "v2ex.com",
+            "path": "/post/:postid",
+            "fullPath": "/v2ex/post/:postid",
+            "name": "帖子",
+            "example": "/v2ex/post/584403",
+            "parameters": {
+                "postid": "帖子ID，在 URL 可以找到"
+            },
+            "maintainers": ["kt286"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["v2ex.com/t/:postid"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "v2ex",
+            "namespaceName": "V2EX",
+            "namespaceUrl": "v2ex.com",
+            "path": "/tab/:tabid",
+            "fullPath": "/v2ex/tab/:tabid",
+            "name": "标签",
+            "example": "/v2ex/tab/hot",
+            "parameters": {
+                "tabid": "tab标签ID,在 URL 可以找到"
+            },
+            "maintainers": ["liyefox"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "v2ex",
+            "namespaceName": "V2EX",
+            "namespaceUrl": "v2ex.com",
+            "path": "/topics/:type",
+            "fullPath": "/v2ex/topics/:type",
+            "name": "最热 / 最新主题",
+            "example": "/v2ex/topics/latest",
+            "parameters": {
+                "type": {
+                    "description": "主题类型",
+                    "options": [
+                        {
+                            "value": "hot",
+                            "label": "最热主题"
+                        },
+                        {
+                            "value": "latest",
+                            "label": "最新主题"
+                        }
+                    ],
+                    "default": "hot"
+                }
+            },
+            "maintainers": ["WhiteWorld"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "v2ex",
+            "namespaceName": "V2EX",
+            "namespaceUrl": "v2ex.com",
+            "path": "/xna",
+            "fullPath": "/v2ex/xna",
+            "name": "XNA",
+            "example": "/v2ex/xna",
+            "parameters": {},
+            "maintainers": ["luckyscript"],
+            "categories": ["bbs", "blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "xiaote",
+            "namespaceName": "小特社区",
+            "namespaceUrl": "xiaote.com",
+            "path": "/news",
+            "fullPath": "/xiaote/news",
+            "name": "首页帖子",
+            "example": "/xiaote/news",
+            "parameters": {},
+            "maintainers": ["wxsimon"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["xiaote.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "xsijishe",
+            "namespaceName": "司机社",
+            "namespaceUrl": "xsijishe.com",
+            "path": "/forum/:fid",
+            "fullPath": "/xsijishe/forum/:fid",
+            "name": "论坛",
+            "example": "/xsijishe/forum/51",
+            "description": "::: tip 关于子论坛 id 的获取方法\n  `/xsijishe/forum/51` 对应于论坛 `https://xsijishe.com/forum-51-1.html`，这个论坛的 fid 为 51，也就是 `forum-{fid}-1` 中的 fid。\n:::",
+            "parameters": {
+                "fid": "子论坛 id"
+            },
+            "maintainers": ["akynazh"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "XSIJISHE_COOKIE",
+                        "description": ""
+                    },
+                    {
+                        "name": "XSIJISHE_USER_AGENT",
+                        "description": ""
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "xsijishe",
+            "namespaceName": "司机社",
+            "namespaceUrl": "xsijishe.com",
+            "path": "/rank/:type",
+            "fullPath": "/xsijishe/rank/:type",
+            "name": "排行榜",
+            "example": "/xsijishe/rank/weekly",
+            "parameters": {
+                "type": {
+                    "description": "排行榜类型",
+                    "options": [
+                        {
+                            "value": "weekly",
+                            "label": "周榜"
+                        },
+                        {
+                            "value": "monthly",
+                            "label": "月榜"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["akynazh", "AiraNadih"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "XSIJISHE_COOKIE",
+                        "description": ""
+                    },
+                    {
+                        "name": "XSIJISHE_USER_AGENT",
+                        "description": ""
+                    }
+                ],
+                "requirePuppeteer": true,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "yamibo",
+            "namespaceName": "百合会",
+            "namespaceUrl": "yamibo.com",
+            "path": "/bbs/forum/:fid/:type?",
+            "fullPath": "/yamibo/bbs/forum/:fid/:type?",
+            "name": "BBS - 板块",
+            "example": "/yamibo/bbs/forum/5/404",
+            "description": "::: warning\n百合会BBS访问部分板块需要用户登录认证，请参考配置说明\n:::",
+            "parameters": {
+                "fid": "板块 id，可从URL中提取。https://bbs.yamibo.com/forum-aa-b.html中的aa部分即为fid值",
+                "type": "板块子分类，网页中选中板块分类后URL中的typeid值"
+            },
+            "maintainers": ["KarasuShin"],
+            "categories": ["bbs"],
+            "features": {
+                "antiCrawler": true,
+                "requireConfig": [
+                    {
+                        "optional": true,
+                        "name": "YAMIBO_SALT",
+                        "description": "百合会BBS登录后的认证信息，获取方式：1. 登录百合会BBS网页版 2. 打开浏览器开发者工具，切换到 Application 面板\n3. 点击侧边栏中的Storage -> Cookies -> https://bbs.yamibo.com 4. 复制 Cookie 中的 EeqY_2132_saltkey 值"
+                    },
+                    {
+                        "optional": true,
+                        "name": "YAMIBO_AUTH",
+                        "description": "百合会BBS登录后的认证信息，获取方式：1. 登录百合会BBS网页版 2. 打开浏览器开发者工具，切换到 Application 面板\n3. 点击侧边栏中的Storage -> Cookies -> https://bbs.yamibo.com 4. 复制 Cookie 中的 EeqY_2132_auth 值"
+                    }
+                ]
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "yamibo",
+            "namespaceName": "百合会",
+            "namespaceUrl": "yamibo.com",
+            "path": "/bbs/thread/:tid",
+            "fullPath": "/yamibo/bbs/thread/:tid",
+            "name": "BBS - 讨论串",
+            "example": "/yamibo/bbs/thread/541914",
+            "description": "::: warning\n百合会BBS访问部分讨论串需要用户登录认证，请参考配置说明\n:::",
+            "parameters": {
+                "tid": "讨论串 id，可从URL中提取。https://bbs.yamibo.com/forum.php?mod=viewthread&tid=xxxx中的xxx或https://bbs.yamibo.com/thread-aaa-b-c.html中的aaa部分即为tid值"
+            },
+            "maintainers": ["KarasuShin"],
+            "categories": ["bbs"],
+            "features": {
+                "antiCrawler": true,
+                "requireConfig": [
+                    {
+                        "optional": true,
+                        "name": "YAMIBO_SALT",
+                        "description": "百合会BBS登录后的认证信息，获取方式：1. 登录百合会BBS网页版 2. 打开浏览器开发者工具，切换到 Application 面板\n3. 点击侧边栏中的Storage -> Cookies -> https://bbs.yamibo.com 4. 复制 Cookie 中的 EeqY_2132_saltkey 值"
+                    },
+                    {
+                        "optional": true,
+                        "name": "YAMIBO_AUTH",
+                        "description": "百合会BBS登录后的认证信息，获取方式：1. 登录百合会BBS网页版 2. 打开浏览器开发者工具，切换到 Application 面板\n3. 点击侧边栏中的Storage -> Cookies -> https://bbs.yamibo.com 4. 复制 Cookie 中的 EeqY_2132_auth 值"
+                    }
+                ]
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "yuanliao",
+            "namespaceName": "猿料",
+            "namespaceUrl": "yuanliao.info",
+            "path": "/:tag?",
+            "fullPath": "/yuanliao/:tag?",
+            "name": "主题",
+            "example": "/yuanliao",
+            "description": "::: tip\n订阅 [问题反馈](https://yuanliao.info/t/bug-report)，其源网址为 `https://yuanliao.info/t/bug-report`，请参考该 URL 指定部分构成参数，此时路由为 [`/yuanliao/bug-report`](https://rsshub.app/yuanliao/bug-report)。\n:::\n\n| 标签                                             | id                                                       |\n| ------------------------------------------------ | -------------------------------------------------------- |\n| [问题反馈](https://yuanliao.info/t/bug-report)   | [bug-report](https://rsshub.app/yuanliao/bug-report)     |\n| [Windows](https://yuanliao.info/t/windows)       | [windows](https://rsshub.app/yuanliao/windows)           |\n| [macOS](https://yuanliao.info/t/macos)           | [macos](https://rsshub.app/yuanliao/macos)               |\n| [Linux](https://yuanliao.info/t/linux)           | [linux](https://rsshub.app/yuanliao/linux)               |\n| [意见建议](https://yuanliao.info/t/suggestions)  | [suggestions](https://rsshub.app/yuanliao/suggestions)   |\n| [插件发布](https://yuanliao.info/t/plugins)      | [plugins](https://rsshub.app/yuanliao/plugins)           |\n| [插件需求](https://yuanliao.info/t/plugin-needs) | [plugin-needs](https://rsshub.app/yuanliao/plugin-needs) |\n| [开发者](https://yuanliao.info/t/developers)     | [developers](https://rsshub.app/yuanliao/developers)     |\n",
+            "parameters": {
+                "tag": {
+                    "description": "标签，默认为全部，可在对应标签页 URL 中找到",
+                    "options": [
+                        {
+                            "label": "问题反馈",
+                            "value": "bug-report"
+                        },
+                        {
+                            "label": "Windows",
+                            "value": "windows"
+                        },
+                        {
+                            "label": "macOS",
+                            "value": "macos"
+                        },
+                        {
+                            "label": "Linux",
+                            "value": "linux"
+                        },
+                        {
+                            "label": "意见建议",
+                            "value": "suggestions"
+                        },
+                        {
+                            "label": "插件发布",
+                            "value": "plugins"
+                        },
+                        {
+                            "label": "插件需求",
+                            "value": "plugin-needs"
+                        },
+                        {
+                            "label": "开发者",
+                            "value": "developers"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["yuanliao.info", "yuanliao.info/t/:tag"]
+                },
+                {
+                    "title": "问题反馈",
+                    "source": ["yuanliao.info/t/bug-report"],
+                    "target": "/bug-report"
+                },
+                {
+                    "title": "Windows",
+                    "source": ["yuanliao.info/t/windows"],
+                    "target": "/windows"
+                },
+                {
+                    "title": "macOS",
+                    "source": ["yuanliao.info/t/macos"],
+                    "target": "/macos"
+                },
+                {
+                    "title": "Linux",
+                    "source": ["yuanliao.info/t/linux"],
+                    "target": "/linux"
+                },
+                {
+                    "title": "意见建议",
+                    "source": ["yuanliao.info/t/suggestions"],
+                    "target": "/suggestions"
+                },
+                {
+                    "title": "插件发布",
+                    "source": ["yuanliao.info/t/plugins"],
+                    "target": "/plugins"
+                },
+                {
+                    "title": "插件需求",
+                    "source": ["yuanliao.info/t/plugin-needs"],
+                    "target": "/plugin-needs"
+                },
+                {
+                    "title": "开发者",
+                    "source": ["yuanliao.info/t/developers"],
+                    "target": "/developers"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "zhibo8",
+            "namespaceName": "直播吧",
+            "namespaceUrl": "zhibo8.cc",
+            "path": "/forum/:id",
+            "fullPath": "/zhibo8/forum/:id",
+            "name": "子论坛",
+            "example": "/zhibo8/forum/8",
+            "parameters": {
+                "id": "子论坛 id，可在子论坛 URL 找到"
+            },
+            "maintainers": ["LogicJake"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "zhibo8",
+            "namespaceName": "直播吧",
+            "namespaceUrl": "zhibo8.cc",
+            "path": "/luxiang/:category?",
+            "fullPath": "/zhibo8/luxiang/:category?",
+            "name": "Unknown",
+            "maintainers": ["TonyRL"],
+            "categories": ["bbs"],
+            "radar": [
+                {
+                    "source": ["zhibo8.cc/:category/luxiang.htm"],
+                    "target": "/luxiang/:category"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "zhibo8",
+            "namespaceName": "直播吧",
+            "namespaceUrl": "zhibo8.cc",
+            "path": "/more/:category?",
+            "fullPath": "/zhibo8/more/:category?",
+            "name": "滚动新闻",
+            "example": "/zhibo8/more/nba",
+            "description": "\n| NBA | 足球  | 电竞     | 综合   |\n| --- | ----- | -------- | ------ |\n| nba | zuqiu | dianjing | zonghe |",
+            "parameters": {
+                "category": "分类，见下表，默认为 NBA"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["news.zhibo8.cc/:category"],
+                    "target": "/more/:category"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "zhibo8",
+            "namespaceName": "直播吧",
+            "namespaceUrl": "zhibo8.cc",
+            "path": "/post/:id",
+            "fullPath": "/zhibo8/post/:id",
+            "name": "回帖",
+            "example": "/zhibo8/post/3050708",
+            "parameters": {
+                "id": "帖子 id，可在帖子 URL 找到"
+            },
+            "maintainers": ["LogicJake"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "zodgame",
+            "namespaceName": "ZodGame",
+            "namespaceUrl": "zodgame.xyz",
+            "path": "/forum/:fid?",
+            "fullPath": "/zodgame/forum/:fid?",
+            "name": "forum",
+            "example": "/zodgame/forum/13",
+            "parameters": {
+                "fid": "forum id, can be found in URL"
+            },
+            "maintainers": ["FeCCC"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "ZODGAME_COOKIE",
+                        "description": ""
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "zuvio",
+            "namespaceName": "Zuvio",
+            "namespaceUrl": "irs.zuvio.com.tw",
+            "path": "/student5/:board?",
+            "fullPath": "/zuvio/student5/:board?",
+            "name": "校園話題",
+            "example": "/zuvio/student5/34",
+            "parameters": {
+                "board": "看板 ID，空为全站文章，可在看板 URL 或下方路由找到"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "zuvio",
+            "namespaceName": "Zuvio",
+            "namespaceUrl": "irs.zuvio.com.tw",
+            "path": "/student5/boards",
+            "fullPath": "/zuvio/student5/boards",
+            "name": "看板列表",
+            "example": "/zuvio/student5/boards",
+            "parameters": {},
+            "maintainers": ["TonyRL"],
+            "categories": ["bbs"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-TW"
+        }
+    ]
+}

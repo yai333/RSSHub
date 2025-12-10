@@ -1,0 +1,431 @@
+{
+    "category": "live",
+    "displayName": "Live",
+    "displayNameZh": "直播",
+    "icon": "🎥",
+    "count": 15,
+    "routes": [
+        {
+            "namespace": "bilibili",
+            "namespaceName": "哔哩哔哩 bilibili",
+            "namespaceUrl": "www.bilibili.com",
+            "path": "/live/area/:areaID/:order",
+            "fullPath": "/bilibili/live/area/:areaID/:order",
+            "name": "直播分区",
+            "example": "/bilibili/live/area/207/online",
+            "description": "::: warning\n  由于接口未提供开播时间，如果直播间未更换标题与分区，将视为一次。如果直播间更换分区与标题，将视为另一项\n:::",
+            "parameters": {
+                "areaID": "分区 ID 分区增删较多, 可通过 [分区列表](https://api.live.bilibili.com/room/v1/Area/getList) 查询",
+                "order": "排序方式, live_time 开播时间, online 人气"
+            },
+            "maintainers": ["Qixingchen"],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "bilibili",
+            "namespaceName": "哔哩哔哩 bilibili",
+            "namespaceUrl": "www.bilibili.com",
+            "path": "/live/room/:roomID",
+            "fullPath": "/bilibili/live/room/:roomID",
+            "name": "直播开播",
+            "example": "/bilibili/live/room/3",
+            "parameters": {
+                "roomID": "房间号, 可在直播间 URL 中找到, 长短号均可"
+            },
+            "maintainers": ["Qixingchen"],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["live.bilibili.com/:roomID"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "bilibili",
+            "namespaceName": "哔哩哔哩 bilibili",
+            "namespaceUrl": "www.bilibili.com",
+            "path": "/live/search/:key/:order",
+            "fullPath": "/bilibili/live/search/:key/:order",
+            "name": "直播搜索",
+            "example": "/bilibili/live/search/dota/online",
+            "parameters": {
+                "key": "搜索关键字",
+                "order": "排序方式, live_time 开播时间, online 人气"
+            },
+            "maintainers": ["Qixingchen"],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "douyin",
+            "namespaceName": "抖音直播",
+            "namespaceUrl": "douyin.com",
+            "path": "/live/:rid",
+            "fullPath": "/douyin/live/:rid",
+            "name": "直播间开播",
+            "example": "/douyin/live/685317364746",
+            "description": "::: warning\n反爬严格，需要启用 puppeteer。抖音的视频 CDN 会验证 Referer，意味着许多阅读器都无法直接播放内嵌视频，以下是一些变通解决方案：\n\n1.  启用内嵌视频 (`embed=1`), 参考 [通用参数 -> 多媒体处理](/parameter#多媒体处理) 配置 `multimedia_hotlink_template` **或** `wrap_multimedia_in_iframe`。\n2.  关闭内嵌视频 (`embed=0`)，手动点击 `视频直链` 超链接，一般情况下均可成功播放视频。若仍然出现 HTTP 403，请复制 URL 以后到浏览器打开。\n3.  点击原文链接打开抖音网页版的视频详情页播放视频。\n:::\n\n额外参数\n\n| 键      | 含义             | 值                     | 默认值  |\n| ------- | ---------------- | ---------------------- | ------- |\n| `embed` | 是否启用内嵌视频 | `0`/`1`/`true`/`false` | `false` |",
+            "parameters": {
+                "rid": "直播间 id, 可在主播直播间页 URL 中找到"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": true,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["live.douyin.com/:rid"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "douyu",
+            "namespaceName": "斗鱼直播",
+            "namespaceUrl": "www.douyu.com",
+            "path": "/room/:id",
+            "fullPath": "/douyu/room/:id",
+            "name": "直播间开播",
+            "example": "/douyu/room/24422",
+            "parameters": {
+                "id": "直播间 id, 可在主播直播间页 URL 中找到"
+            },
+            "maintainers": ["DIYgod", "ChaosTong"],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.douyu.com/:id", "www.douyu.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "lang",
+            "namespaceName": "浪 Play 直播",
+            "namespaceUrl": "lang.live",
+            "path": "/live/room/:id",
+            "fullPath": "/lang/live/room/:id",
+            "name": "直播间开播",
+            "example": "/lang/live/room/1352360",
+            "parameters": {
+                "id": "直播间 id, 可在主播直播间页 URL 中找到"
+            },
+            "maintainers": ["MittWillson"],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["lang.live/room/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "lxixsxa",
+            "namespaceName": "LiSA",
+            "namespaceUrl": "www.sonymusic.co.jp",
+            "path": "/disco",
+            "fullPath": "/lxixsxa/disco",
+            "name": "Latest Discography",
+            "example": "/lxixsxa/disco",
+            "parameters": {},
+            "maintainers": ["Kiotlin"],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.lxixsxa.com/", "www.lxixsxa.com/discography"]
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "lxixsxa",
+            "namespaceName": "LiSA",
+            "namespaceUrl": "www.sonymusic.co.jp",
+            "path": "/info",
+            "fullPath": "/lxixsxa/info",
+            "name": "News",
+            "example": "/lxixsxa/info",
+            "parameters": {},
+            "maintainers": ["Kiotlin"],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.lxixsxa.com/", "www.lxixsxa.com/info"]
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "twitch",
+            "namespaceName": "Twitch",
+            "namespaceUrl": "www.twitch.tv",
+            "path": "/live/:login",
+            "fullPath": "/twitch/live/:login",
+            "name": "Live",
+            "example": "/twitch/live/riotgames",
+            "parameters": {
+                "login": "Twitch username"
+            },
+            "maintainers": ["hoilc"],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "twitch",
+            "namespaceName": "Twitch",
+            "namespaceUrl": "www.twitch.tv",
+            "path": "/schedule/:login",
+            "fullPath": "/twitch/schedule/:login",
+            "name": "Stream Schedule",
+            "example": "/twitch/schedule/riotgames",
+            "parameters": {
+                "login": "Twitch username"
+            },
+            "maintainers": ["hoilc"],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.twitch.tv/:login/schedule"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "twitch",
+            "namespaceName": "Twitch",
+            "namespaceUrl": "www.twitch.tv",
+            "path": "/video/:login/:filter?",
+            "fullPath": "/twitch/video/:login/:filter?",
+            "name": "Channel Video",
+            "example": "/twitch/video/riotgames/highlights",
+            "parameters": {
+                "login": "Twitch username",
+                "filter": {
+                    "description": "Video type, Default to all",
+                    "options": [
+                        {
+                            "value": "archive",
+                            "label": "Archive"
+                        },
+                        {
+                            "value": "highlights",
+                            "label": "Highlights"
+                        },
+                        {
+                            "value": "all",
+                            "label": "All"
+                        }
+                    ],
+                    "default": "all"
+                }
+            },
+            "maintainers": ["hoilc"],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.twitch.tv/:login/videos"],
+                    "target": "/video/:login"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "yoasobi-music",
+            "namespaceName": "Yoasobi Official",
+            "namespaceUrl": "www.yoasobi-music.jp",
+            "path": "/info/:category?",
+            "fullPath": "/yoasobi-music/info/:category?",
+            "name": "News & Biography",
+            "example": "/yoasobi-music/info/news",
+            "parameters": {
+                "category": "`news`, `biography`"
+            },
+            "maintainers": [],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.yoasobi-music.jp/", "www.yoasobi-music.jp/:category"],
+                    "target": "/info/:category"
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "yoasobi-music",
+            "namespaceName": "Yoasobi Official",
+            "namespaceUrl": "www.yoasobi-music.jp",
+            "path": "/live",
+            "fullPath": "/yoasobi-music/live",
+            "name": "Live",
+            "example": "/yoasobi-music/live",
+            "parameters": {},
+            "maintainers": ["Kiotlin"],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.yoasobi-music.jp/", "www.yoasobi-music.jp/live"]
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "yoasobi-music",
+            "namespaceName": "Yoasobi Official",
+            "namespaceUrl": "www.yoasobi-music.jp",
+            "path": "/media",
+            "fullPath": "/yoasobi-music/media",
+            "name": "Media",
+            "example": "/yoasobi-music/media",
+            "parameters": {},
+            "maintainers": ["Kiotlin"],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.yoasobi-music.jp/", "www.yoasobi-music.jp/media"]
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "youtube",
+            "namespaceName": "YouTube",
+            "namespaceUrl": "youtube.com",
+            "path": "/live/:username/:embed?",
+            "fullPath": "/youtube/live/:username/:embed?",
+            "name": "Live",
+            "example": "/youtube/live/@GawrGura",
+            "parameters": {
+                "username": "YouTuber id",
+                "embed": "Default to embed the video, set to any value to disable embedding"
+            },
+            "maintainers": ["sussurr127"],
+            "categories": ["live"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "YOUTUBE_KEY",
+                        "description": "YouTube API Key, support multiple keys, split them with `,`, [API Key application](https://console.developers.google.com/)"
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        }
+    ]
+}

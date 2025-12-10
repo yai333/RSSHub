@@ -1,0 +1,4220 @@
+{
+    "category": "game",
+    "displayName": "Gaming",
+    "displayNameZh": "游戏",
+    "icon": "🎮",
+    "count": 142,
+    "routes": [
+        {
+            "namespace": "163",
+            "namespaceName": "网易公开课",
+            "namespaceUrl": "163.com",
+            "path": "/ds/:id",
+            "fullPath": "/163/ds/:id",
+            "name": "用户发帖",
+            "example": "/163/ds/63dfbaf4117741daaf73404601165843",
+            "description": "::: tip\n部分歌单及听歌排行信息为登陆后可见，自建时将环境变量`NCM_COOKIES`设为登陆后的 Cookie 值，即可正常获取。\n:::",
+            "parameters": {
+                "id": "用户ID"
+            },
+            "maintainers": ["luyuhuang"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ds.163.com/user/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "2023game",
+            "namespaceName": "游戏星辰",
+            "namespaceUrl": "www.2023game.com",
+            "path": "/:category?/:tab?",
+            "fullPath": "/2023game/:category?/:tab?",
+            "name": "游戏星辰",
+            "example": "/2023game/sgame/topicList",
+            "description": "分类\n\n| PS4游戏 | switch游戏 | 3DS游戏 | PSV游戏 | Xbox360 | PS3游戏 | 世嘉MD/SS | PSP游戏 | PC周边 | 怀旧掌机 | 怀旧主机 | PS4教程 | PS4金手指 | switch金手指 | switch教程 | switch补丁 | switch主题 | switch存档 |\n| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |\n| ps4 | sgame | 3ds | psv | jiaocheng | ps3yx | zhuji.md | zhangji.psp | pcgame | zhangji | zhuji | ps4.psjc | ps41.ps4pkg | nsaita.cundang | nsaita.pojie | nsaita.buding | nsaita.zhutie | nsaita.zhuti |",
+            "parameters": {
+                "category": "分类，见下表",
+                "tab": "标签, 所有:all;最新:topicList;热门:jhcpb"
+            },
+            "maintainers": ["xzzpig"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "3dmgame",
+            "namespaceName": "3DMGame",
+            "namespaceUrl": "3dmgame.com",
+            "path": "/games/:name/:type?",
+            "fullPath": "/3dmgame/games/:name/:type?",
+            "name": "游戏资讯",
+            "maintainers": ["sinchang", "jacky2001114", "HenryQW", "lyqluis"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["3dmgame.com/games/:name/:type"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "3dmgame",
+            "namespaceName": "3DMGame",
+            "namespaceUrl": "3dmgame.com",
+            "path": "/news/:category?",
+            "fullPath": "/3dmgame/news/:category?",
+            "name": "新闻中心",
+            "example": "/3dmgame/news",
+            "description": "| 新闻推荐 | 游戏新闻 | 动漫影视 | 智能数码 | 时事焦点    |\n| -------- | -------- | -------- | -------- | ----------- |\n|          | game     | acg      | next     | news_36_1 |",
+            "parameters": {
+                "category": "分类名或 ID，见下表，默认为新闻推荐，ID 可从分类 URL 中找到，如 Steam 为 `22221`"
+            },
+            "maintainers": ["zhboner", "lyqluis"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["3dmgame.com/news/:category?", "3dmgame.com/news"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "3kns",
+            "namespaceName": "3k-Switch游戏库",
+            "namespaceUrl": "www.3kns.com",
+            "path": "/:filters?/:order?",
+            "fullPath": "/3kns/:filters?/:order?",
+            "name": "3k-Switch游戏库",
+            "example": "/3kns/category=all&lang=all",
+            "description": "游戏类型(category)\n\n| 不限 | 角色扮演 | 动作冒险 | 策略游戏 | 模拟经营 | 即时战略 | 格斗类 | 射击游戏 | 休闲益智 | 体育运动 | 街机格斗 | 无双类 | 其他游戏 | 赛车竞速 |\n| ---- | -------- | -------- | -------- | -------- | -------- | ------ | -------- | -------- | -------- | -------- | ------ | -------- | -------- |\n| all  | 1        | 2        | 3        | 4        | 5        | 6      | 7        | 8        | 9        | 10       | 11     | 12       | 13       |\n\n  游戏语言(language)\n\n| 不限 | 中文 | 英语 | 日语 | 其他 | 中文汉化 | 德语 |\n| ---- | ---- | ---- | ---- | ---- | -------- | ---- |\n| all  | 1    | 2    | 3    | 4    | 5        | 6    |\n\n  游戏标签(tag)\n\n| 不限 | 热门 | 多人聚会 | 僵尸 | 体感 | 大作 | 音乐 | 三国 | RPG | 格斗 | 闯关 | 横版 | 科幻 | 棋牌 | 运输 | 无双 | 卡通动漫 | 日系 | 养成 | 恐怖 | 运动 | 乙女 | 街机 | 飞行模拟 | 解谜 | 海战 | 战争 | 跑酷 | 即时策略 | 射击 | 经营 | 益智 | 沙盒 | 模拟 | 冒险 | 竞速 | 休闲 | 动作 | 生存 | 独立 | 拼图 | 魔改 xci | 卡牌 | 塔防 |\n| ---- | ---- | -------- | ---- | ---- | ---- | ---- | ---- | --- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | -------- | ---- | ---- | ---- | ---- | ---- | ---- | -------- | ---- | ---- | ---- | ---- | -------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | -------- | ---- | ---- |\n| all  | 1    | 2        | 3    | 4    | 5    | 6    | 7    | 8   | 9    | 10   | 11   | 12   | 13   | 14   | 15   | 16       | 17   | 18   | 19   | 20   | 21   | 22   | 23       | 24   | 25   | 26   | 27   | 28       | 29   | 30   | 31   | 32   | 33   | 34   | 35   | 36   | 37   | 38   | 39   | 40   | 41       | 42   | 43   |\n\n  发售时间(pubDate)\n\n| 不限 | 2017 年 | 2018 年 | 2019 年 | 2020 年 | 2021 年 | 2022 年 | 2023 年 | 2024 年 |\n| ---- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- |\n| all  | 1       | 2       | 3       | 4       | 5       | 6       | 7       | 8       |\n\n  游戏集合(collection)\n\n| 不限 | 舞力全开 | 马里奥 | 生化危机 | 炼金工房 | 最终幻想 | 塞尔达 | 宝可梦 | 勇者斗恶龙 | 模拟器 | 秋之回忆 | 第一方 | 体感健身 | 开放世界 | 儿童乐园 |\n| ---- | -------- | ------ | -------- | -------- | -------- | ------ | ------ | ---------- | ------ | -------- | ------ | -------- | -------- | -------- |\n| all  | 1        | 2      | 3        | 4        | 5        | 6      | 7      | 8          | 9      | 10       | 11     | 12       | 13       | 14       |",
+            "parameters": {
+                "filters": "过滤器，可用参数见下表",
+                "order": "排序，按高分排序:desc;按低分排序:asc"
+            },
+            "maintainers": ["xzzpig"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "4gamers",
+            "namespaceName": "4Gamers",
+            "namespaceUrl": "www.4gamers.com.tw",
+            "path": "/",
+            "fullPath": "/4gamers/",
+            "name": "Unknown",
+            "maintainers": ["TonyRL"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["www.4gamers.com.tw/news", "www.4gamers.com.tw/"],
+                    "target": ""
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "4gamers",
+            "namespaceName": "4Gamers",
+            "namespaceUrl": "www.4gamers.com.tw",
+            "path": "/category/:category",
+            "fullPath": "/4gamers/category/:category",
+            "name": "Unknown",
+            "maintainers": ["TonyRL"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["www.4gamers.com.tw/news", "www.4gamers.com.tw/"],
+                    "target": ""
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "4gamers",
+            "namespaceName": "4Gamers",
+            "namespaceUrl": "www.4gamers.com.tw",
+            "path": "/tag/:tag",
+            "fullPath": "/4gamers/tag/:tag",
+            "name": "标签",
+            "example": "/4gamers/tag/限時免費",
+            "parameters": {
+                "tag": "标签名，可在标签 URL 中找到"
+            },
+            "maintainers": ["hoilc"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.4gamers.com.tw/news/tag/:tag"]
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "4gamers",
+            "namespaceName": "4Gamers",
+            "namespaceUrl": "www.4gamers.com.tw",
+            "path": "/topic/:topic",
+            "fullPath": "/4gamers/topic/:topic",
+            "name": "主題",
+            "example": "/4gamers/topic/gentlemen-topic",
+            "parameters": {
+                "topic": "主题，可在首页上方页面内找到"
+            },
+            "maintainers": ["bestpika"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.4gamers.com.tw/news/option-cfg/:topic"]
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "5eplay",
+            "namespaceName": "5EPLAY",
+            "namespaceUrl": "csgo.5eplay.com",
+            "path": "/article",
+            "fullPath": "/5eplay/article",
+            "name": "新闻列表",
+            "example": "/5eplay/article",
+            "parameters": {},
+            "maintainers": ["Dlouxgit"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["csgo.5eplay.com/", "csgo.5eplay.com/article"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "a9vg",
+            "namespaceName": "A9VG 电玩部落",
+            "namespaceUrl": "a9vg.com",
+            "path": "/:category{.+}?",
+            "fullPath": "/a9vg/:category{.+}?",
+            "name": "新闻",
+            "example": "/a9vg/news",
+            "description": "::: tip\n  若订阅 [PS4](http://www.a9vg.com/list/news/PS4)，网址为 `http://www.a9vg.com/list/news/PS4`。截取 `http://www.a9vg.com/list` 到末尾的部分 `news/PS4` 作为参数填入，此时路由为 [`/a9vg/news/PS4`](https://rsshub.app/a9vg/news/PS4)。\n:::\n\n| 分类                                               | ID                                                     |\n| -------------------------------------------------- | ------------------------------------------------------ |\n| [All](https://www.a9vg.com/list/news/All)          | [news/All](https://rsshub.app/a9vg/news/All)           |\n| [PS4](https://www.a9vg.com/list/news/PS4)          | [news/PS4](https://rsshub.app/a9vg/news/PS4)           |\n| [PS5](https://www.a9vg.com/list/news/PS5)          | [news/PS5](https://rsshub.app/a9vg/news/PS5)           |\n| [Switch](https://www.a9vg.com/list/news/Switch)    | [news/Switch](https://rsshub.app/a9vg/news/Switch)     |\n| [Xbox One](https://www.a9vg.com/list/news/XboxOne) | [news/XboxOne](https://rsshub.app/a9vg/news/XboxOne)   |\n| [XSX](https://www.a9vg.com/list/news/XSX)          | [news/XSX](https://rsshub.app/a9vg/news/XSX)           |\n| [PC](https://www.a9vg.com/list/news/PC)            | [news/PC](https://rsshub.app/a9vg/news/PC)             |\n| [业界](https://www.a9vg.com/list/news/Industry)    | [news/Industry](https://rsshub.app/a9vg/news/Industry) |\n| [厂商](https://www.a9vg.com/list/news/Factory)     | [news/Factory](https://rsshub.app/a9vg/news/Factory)   |\n  ",
+            "parameters": {
+                "category": "分类，默认为 ，可在对应分类页 URL 中找到, Category, by default"
+            },
+            "maintainers": ["monnerHenster", "nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.a9vg.com/list/:category"]
+                },
+                {
+                    "title": "All",
+                    "source": ["www.a9vg.com/list/news/All"],
+                    "target": "/news/All"
+                },
+                {
+                    "title": "PS4",
+                    "source": ["www.a9vg.com/list/news/PS4"],
+                    "target": "/news/PS4"
+                },
+                {
+                    "title": "PS5",
+                    "source": ["www.a9vg.com/list/news/PS5"],
+                    "target": "/news/PS5"
+                },
+                {
+                    "title": "Switch",
+                    "source": ["www.a9vg.com/list/news/Switch"],
+                    "target": "/news/Switch"
+                },
+                {
+                    "title": "Xbox One",
+                    "source": ["www.a9vg.com/list/news/XboxOne"],
+                    "target": "/news/XboxOne"
+                },
+                {
+                    "title": "XSX",
+                    "source": ["www.a9vg.com/list/news/XSX"],
+                    "target": "/news/XSX"
+                },
+                {
+                    "title": "PC",
+                    "source": ["www.a9vg.com/list/news/PC"],
+                    "target": "/news/PC"
+                },
+                {
+                    "title": "业界",
+                    "source": ["www.a9vg.com/list/news/Industry"],
+                    "target": "/news/Industry"
+                },
+                {
+                    "title": "厂商",
+                    "source": ["www.a9vg.com/list/news/Factory"],
+                    "target": "/news/Factory"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "ali213",
+            "namespaceName": "游侠网",
+            "namespaceUrl": "ali213.net",
+            "path": "/news/:category?",
+            "fullPath": "/ali213/news/:category?",
+            "name": "资讯",
+            "example": "/ali213/news/new",
+            "description": "::: tip\n若订阅 [游戏资讯](https://www.ali213.net/news/game/)，网址为 `https://www.ali213.net/news/game/`，请截取 `https://www.ali213.net/news/` 到末尾 `/` 的部分 `game` 作为 `category` 参数填入，此时目标路由为 [`/ali213/news/game`](https://rsshub.app/ali213/news/game)。\n:::\n\n| 分类名称 | 分类 ID |\n| -------- | ------- |\n| 最新资讯 | new     |\n| 评测     | pingce  |\n| 游戏     | game    |\n| 动漫     | comic   |\n| 影视     | movie   |\n| 科技     | tech    |\n| 电竞     | esports |\n| 娱乐     | amuse   |\n| 手游     | mobile  |\n",
+            "parameters": {
+                "category": "分类，默认为 `new`，即最新资讯，可在对应分类页 URL 中找到"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.ali213.net/news/:category"]
+                },
+                {
+                    "title": "最新资讯",
+                    "source": ["www.ali213.net/news/new"],
+                    "target": "/news/new"
+                },
+                {
+                    "title": "评测",
+                    "source": ["www.ali213.net/news/pingce"],
+                    "target": "/news/pingce"
+                },
+                {
+                    "title": "游戏",
+                    "source": ["www.ali213.net/news/game"],
+                    "target": "/news/game"
+                },
+                {
+                    "title": "动漫",
+                    "source": ["www.ali213.net/news/comic"],
+                    "target": "/news/comic"
+                },
+                {
+                    "title": "影视",
+                    "source": ["www.ali213.net/news/movie"],
+                    "target": "/news/movie"
+                },
+                {
+                    "title": "科技",
+                    "source": ["www.ali213.net/news/tech"],
+                    "target": "/news/tech"
+                },
+                {
+                    "title": "电竞",
+                    "source": ["www.ali213.net/news/esports"],
+                    "target": "/news/esports"
+                },
+                {
+                    "title": "娱乐",
+                    "source": ["www.ali213.net/news/amuse"],
+                    "target": "/news/amuse"
+                },
+                {
+                    "title": "手游",
+                    "source": ["www.ali213.net/news/mobile"],
+                    "target": "/news/mobile"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "ali213",
+            "namespaceName": "游侠网",
+            "namespaceUrl": "ali213.net",
+            "path": "/zl/:category?",
+            "fullPath": "/ali213/zl/:category?",
+            "name": "大侠号",
+            "example": "/ali213/zl",
+            "description": "::: tip\n若订阅 [游戏](https://www.ali213.net/news/zl/game/)，网址为 `https://www.ali213.net/news/zl/game/`，请截取 `https://www.ali213.net/news/zl/` 到末尾 `/` 的部分 `game` 作为 `category` 参数填入，此时目标路由为 [`/ali213/zl/game`](https://rsshub.app/ali213/zl/game)。\n:::\n\n| 首页                                     | 游戏                                         | 动漫                                           | 影视                                           | 娱乐                                           |\n| ---------------------------------------- | -------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |\n| [index](https://www.ali213.net/news/zl/) | [game](https://www.ali213.net/news/zl/game/) | [comic](https://www.ali213.net/news/zl/comic/) | [movie](https://www.ali213.net/news/zl/movie/) | [amuse](https://www.ali213.net/news/zl/amuse/) |\n",
+            "parameters": {
+                "category": "分类，默认为首页，可在对应分类页 URL 中找到"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.ali213.net/news/zl/:category"]
+                },
+                {
+                    "title": "首页",
+                    "source": ["www.ali213.net/news/zl/"],
+                    "target": "/zl"
+                },
+                {
+                    "title": "游戏",
+                    "source": ["www.ali213.net/news/zl/game/"],
+                    "target": "/zl/game"
+                },
+                {
+                    "title": "动漫",
+                    "source": ["www.ali213.net/news/zl/comic/"],
+                    "target": "/zl/comic"
+                },
+                {
+                    "title": "影视",
+                    "source": ["www.ali213.net/news/zl/movie/"],
+                    "target": "/zl/movie"
+                },
+                {
+                    "title": "娱乐",
+                    "source": ["www.ali213.net/news/zl/amuse/"],
+                    "target": "/zl/amuse"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "alicesoft",
+            "namespaceName": "ALICESOFT",
+            "namespaceUrl": "www.alicesoft.com",
+            "path": "/information/:category?/:game?",
+            "fullPath": "/alicesoft/information/:category?/:game?",
+            "name": "ニュース",
+            "example": "/alicesoft/information/game/cat377",
+            "parameters": {
+                "category": "Category in the URL, which can be accessed under カテゴリ一覧 on the website.",
+                "game": "Game-specific subcategory in the URL, which can be accessed under カテゴリ一覧 on the website. In this case, the category value should be `game`."
+            },
+            "maintainers": ["keocheung"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.alicesoft.com/information", "www.alicesoft.com/information/:category", "www.alicesoft.com/information/:category/:game"],
+                    "target": "/information/:category/:game"
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "azurlane",
+            "namespaceName": "Azur Lane",
+            "namespaceUrl": "azurlane.jp",
+            "path": "/news/:server/:type?",
+            "fullPath": "/azurlane/news/:server/:type?",
+            "name": "News",
+            "example": "/azurlane/news/jp/0",
+            "description": "| すべて | お知らせ | イベント | メインテナンス | 重要 |\n| :--: | :--: | :--: | :--: | :--: |\n| 0 | 1 | 2 | 3 | 4 |",
+            "parameters": {
+                "server": "game server (ISO 3166 two-letter country code, case-insensitive), only `JP` is supported for now",
+                "type": "news type, see the table below, `0` by default"
+            },
+            "maintainers": ["AnitsuriW"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "ja"
+        },
+        {
+            "namespace": "blizzard",
+            "namespaceName": "Blizzard",
+            "namespaceUrl": "news.blizzard.com",
+            "path": "/news-cn/:category?",
+            "fullPath": "/blizzard/news-cn/:category?",
+            "name": "暴雪游戏国服新闻",
+            "example": "/blizzard/news-cn/ow",
+            "description": "\n| 守望先锋 | 炉石传说 | 魔兽世界 |\n|----------|----------|---------|\n| ow       | hs       | wow     |\n",
+            "parameters": {
+                "category": "游戏类别, 默认为 ow"
+            },
+            "maintainers": ["zhangpeng2k"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ow.blizzard.cn", "wow.blizzard.cn", "hs.blizzard.cn"],
+                    "target": "/news-cn/"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "blizzard",
+            "namespaceName": "Blizzard",
+            "namespaceUrl": "news.blizzard.com",
+            "path": "/news/:language?/:category?",
+            "fullPath": "/blizzard/news/:language?/:category?",
+            "name": "News",
+            "example": "/blizzard/news",
+            "description": "Categories\n\n| Category               | Slug                |\n| ---------------------- | ------------------- |\n| All News               |                     |\n| Diablo II: Resurrected | diablo2             |\n| Diablo III             | diablo3             |\n| Diablo IV              | diablo4             |\n| Diablo Immortal        | diablo-immortal     |\n| Hearthstone            | hearthstone         |\n| Heroes of the Storm    | heroes-of-the-storm |\n| Overwatch 2            | overwatch           |\n| StarCraft: Remastered  | starcraft           |\n| StarCraft II           | starcraft2          |\n| World of Warcraft      | world-of-warcraft   |\n| Warcraft 3: Reforged   | warcraft3           |\n| Warcraft Rumble        | warcraft-rumble     |\n| Battle.net             | battlenet           |\n| BlizzCon               | blizzcon            |\n| Inside Blizzard        | blizzard            |\n\n  Language codes\n\n| Language           | Code  |\n| ------------------ | ----- |\n| Deutsch            | de-de |\n| English (US)       | en-us |\n| English (EU)       | en-gb |\n| Español (EU)       | es-es |\n| Español (Latino)   | es-mx |\n| Français           | fr-fr |\n| Italiano           | it-it |\n| Português (Brasil) | pt-br |\n| Polski             | pl-pl |\n| Русский            | ru-ru |\n| 한국어             | ko-kr |\n| ภาษาไทย            | th-th |\n| 日本語             | ja-jp |\n| 繁體中文           | zh-tw |",
+            "parameters": {
+                "language": "Language code, see below, en-US by default",
+                "category": "Category, see below, All News by default"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "bluearchive",
+            "namespaceName": "Blue Archive",
+            "namespaceUrl": "bluearchive.jp",
+            "path": "/news/:server/:type?",
+            "fullPath": "/bluearchive/news/:server/:type?",
+            "name": "News",
+            "example": "/bluearchive/news/jp",
+            "description": "| 全て | イベント | お知らせ | メンテナンス |\n| :--: | :--: | :--: | :--: |\n| 0 | 1 | 2 | 3 |",
+            "parameters": {
+                "server": "game server (ISO 3166 two-letter country code, case-insensitive), only `JP` is supported for now",
+                "type": "news type, checkout the table below for details"
+            },
+            "maintainers": ["equt"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "ja"
+        },
+        {
+            "namespace": "chuapp",
+            "namespaceName": "触乐",
+            "namespaceUrl": "chuapp.com",
+            "path": "/:category?",
+            "fullPath": "/chuapp/:category?",
+            "name": "分类",
+            "example": "/chuapp/daily",
+            "description": "\n  | `category` | 栏目分类 |\n  | ------------ | ------- |\n  | `daily`    | 每日聚焦 |\n  | `pcz`      | 最好玩   |\n  | `night`    | 触乐夜话 |\n  | `news`     | 动态资讯 |\n    ",
+            "parameters": {
+                "category": "栏目分类，见下表"
+            },
+            "maintainers": ["dousha"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["chuapp.com/category/:category"],
+                    "target": "/:category"
+                },
+                {
+                    "source": ["chuapp.com/tag/index/id/20369.html"],
+                    "target": "/night"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "counter-strike",
+            "namespaceName": "Counter Strike",
+            "namespaceUrl": "counter-strike.net",
+            "path": "/news/:category?/:language?",
+            "fullPath": "/counter-strike/news/:category?/:language?",
+            "name": "News",
+            "example": "/counter-strike/news",
+            "description": "::: tip\n  If you subscribe to [Updates in English](https://www.counter-strike.net/news/updates?l=english)，where the URL is `https://www.counter-strike.net/news/updates?l=english`, extract the `l`, which is `english`, and use it as the parameter to fill in. Therefore, the route will be [`/counter-strike/news/updates/english`](https://rsshub.app/counter-strike/news/updates/english).\n:::\n\n<details>\n<summary>More languages</summary>\n\n| 语言代码                                          | 语言名称   |\n| ------------------------------------------------- | ---------- |\n| English                                           | english    |\n| Español - España (Spanish - Spain)                | spanish    |\n| Français (French)                                 | french     |\n| Italiano (Italian)                                | italian    |\n| Deutsch (German)                                  | german     |\n| Ελληνικά (Greek)                                  | greek      |\n| 한국어 (Korean)                                   | koreana    |\n| 简体中文 (Simplified Chinese)                     | schinese   |\n| 繁體中文 (Traditional Chinese)                    | tchinese   |\n| Русский (Russian)                                 | russian    |\n| ไทย (Thai)                                        | thai       |\n| 日本語 (Japanese)                                 | japanese   |\n| Português (Portuguese)                            | portuguese |\n| Português - Brasil (Portuguese - Brazil)          | brazilian  |\n| Polski (Polish)                                   | polish     |\n| Dansk (Danish)                                    | danish     |\n| Nederlands (Dutch)                                | dutch      |\n| Suomi (Finnish)                                   | finnish    |\n| Norsk (Norwegian)                                 | norwegian  |\n| Svenska (Swedish)                                 | swedish    |\n| Čeština (Czech)                                   | czech      |\n| Magyar (Hungarian)                                | hungarian  |\n| Română (Romanian)                                 | romanian   |\n| Български (Bulgarian)                             | bulgarian  |\n| Türkçe (Turkish)                                  | turkish    |\n| Українська (Ukrainian)                            | ukrainian  |\n| Tiếng Việt (Vietnamese)                           | vietnamese |\n| Español - Latinoamérica (Spanish - Latin America) | latam      |\n\n</details>\n    ",
+            "parameters": {
+                "category": "Category, `updates` or `all`, `all` by default",
+                "language": "Language, english by default, see below for more languages"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.counter-strike.net/news/:category"]
+                }
+            ]
+        },
+        {
+            "namespace": "deadbydaylight",
+            "namespaceName": "DeadbyDaylight",
+            "namespaceUrl": "deadbydaylight.com",
+            "path": "/blog",
+            "fullPath": "/deadbydaylight/blog",
+            "name": "Latest News",
+            "example": "/deadbydaylight/blog",
+            "description": "\n      DeadbyDaylight Official\n    ",
+            "parameters": {},
+            "maintainers": ["NeverBehave"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["deadbydaylight.com/news"],
+                    "target": "/news"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "devolverdigital",
+            "namespaceName": "DevolverDigital",
+            "namespaceUrl": "devolverdigital.com",
+            "path": "/blog",
+            "fullPath": "/devolverdigital/blog",
+            "name": "Official Blogs",
+            "example": "/devolverdigital/blog",
+            "parameters": {},
+            "maintainers": ["XXY233"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["devolverdigital.com/blog"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "diershoubing",
+            "namespaceName": "二柄 APP",
+            "namespaceUrl": "diershoubing.com",
+            "path": "/news",
+            "fullPath": "/diershoubing/news",
+            "name": "新闻",
+            "example": "/diershoubing/news",
+            "parameters": {},
+            "maintainers": ["wushijishan"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["diershoubing.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "dorohedoro",
+            "namespaceName": "Dorohedoro",
+            "namespaceUrl": "dorohedoro.net",
+            "path": "/news",
+            "fullPath": "/dorohedoro/news",
+            "name": "News",
+            "example": "/dorohedoro/news",
+            "parameters": {},
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["dorohedoro.net/news", "dorohedoro.net/"]
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "ea",
+            "namespaceName": "EA Games",
+            "namespaceUrl": "www.ea.com",
+            "path": "/apex-news/:lang?/:type?",
+            "fullPath": "/ea/apex-news/:lang?/:type?",
+            "name": "APEX Legends 官网资讯",
+            "example": "/ea/apex-news/zh-hant/game-updates",
+            "parameters": {
+                "lang": {
+                    "description": "语言",
+                    "options": [
+                        {
+                            "value": "zh-hant",
+                            "label": "中文(繁体)"
+                        },
+                        {
+                            "value": "en",
+                            "label": "English"
+                        }
+                    ],
+                    "default": "en"
+                },
+                "type": {
+                    "description": "资讯类型（可选）",
+                    "options": [
+                        {
+                            "value": "news-article",
+                            "label": "最新消息"
+                        },
+                        {
+                            "value": "game-updates",
+                            "label": "游戏更新"
+                        },
+                        {
+                            "value": "latest",
+                            "label": "全部"
+                        }
+                    ],
+                    "default": "latest"
+                }
+            },
+            "maintainers": ["IceChestnut"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            }
+        },
+        {
+            "namespace": "epicgames",
+            "namespaceName": "Epic Games Store",
+            "namespaceUrl": "store.epicgames.com",
+            "path": "/freegames/:locale?/:country?",
+            "fullPath": "/epicgames/freegames/:locale?/:country?",
+            "name": "Free games",
+            "example": "/epicgames/freegames/en-US/US",
+            "parameters": {
+                "locale": {
+                    "description": "Locale",
+                    "default": "en-US"
+                },
+                "country": {
+                    "description": "Country",
+                    "default": "US"
+                }
+            },
+            "maintainers": ["DIYgod", "NeverBehave", "Zyx-A", "junfengP", "nczitzk", "KotaHv"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["store.epicgames.com/:locale/free-games"],
+                    "target": "/freegames/:locale"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "famitsu",
+            "namespaceName": "ファミ通",
+            "namespaceUrl": "famitsu.com",
+            "path": "/category/:category?",
+            "fullPath": "/famitsu/category/:category?",
+            "name": "Category",
+            "example": "/famitsu/category/new-article",
+            "description": "| 新着        | Switch | PS5 | PS4 | PC ゲーム | ニュース | 動画   | 特集・企画記事  | インタビュー | 取材・リポート | レビュー | インディーゲーム |\n| ----------- | ------ | --- | --- | --------- | -------- | ------ | --------------- | ------------ | -------------- | -------- | ---------------- |\n| new-article | switch | ps5 | ps4 | pc-game   | news     | videos | special-article | interview    | event-report   | review   | indie-game       |",
+            "parameters": {
+                "category": "Category, see table below, `new-article` by default"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["www.famitsu.com/category/:category/page/1"]
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "ff14",
+            "namespaceName": "FINAL FANTASY XIV",
+            "namespaceUrl": "eu.finalfantasyxiv.com",
+            "path": "/ff14_global/:lang/:type?",
+            "fullPath": "/ff14/ff14_global/:lang/:type?",
+            "name": "FINAL FANTASY XIV (The Lodestone)",
+            "example": "/ff14/global/na/all",
+            "description": "Region\n\n| North Ameria | Europe | France | Germany | Japan |\n| ------------ | ------ | ------ | ------- | ----- |\n| na           | eu     | fr     | de      | jp    |\n\n  Category\n\n| all | topics | notices | maintenance | updates | status | developers |\n| --- | ------ | ------- | ----------- | ------- | ------ | ---------- |",
+            "parameters": {
+                "lang": "Region",
+                "type": "Category, `all` by default"
+            },
+            "maintainers": ["kmod-midori"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "ff14",
+            "namespaceName": "FINAL FANTASY XIV",
+            "namespaceUrl": "eu.finalfantasyxiv.com",
+            "path": "/ff14_zh/:type?",
+            "fullPath": "/ff14/ff14_zh/:type?",
+            "name": "最终幻想 14 国服",
+            "example": "/ff14/zh/news",
+            "description": "| 新闻 | 公告     | 活动   | 广告      | 所有 |\n| ---- | -------- | ------ | --------- | ---- |\n| news | announce | events | advertise | all  |",
+            "parameters": {
+                "type": "分类名，预设为 `all`"
+            },
+            "maintainers": ["Kiotlin", "ZeroClad", "15x15G"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ff.web.sdo.com/web8/index.html"],
+                    "target": "/zh"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "ff14",
+            "namespaceName": "FINAL FANTASY XIV",
+            "namespaceUrl": "eu.finalfantasyxiv.com",
+            "path": "/global/:lang/:type?",
+            "fullPath": "/ff14/global/:lang/:type?",
+            "name": "FINAL FANTASY XIV (The Lodestone)",
+            "example": "/ff14/global/na/all",
+            "description": "Region\n\n| North Ameria | Europe | France | Germany | Japan |\n| ------------ | ------ | ------ | ------- | ----- |\n| na           | eu     | fr     | de      | jp    |\n\n  Category\n\n| all | topics | notices | maintenance | updates | status | developers |\n| --- | ------ | ------- | ----------- | ------- | ------ | ---------- |",
+            "parameters": {
+                "lang": "Region",
+                "type": "Category, `all` by default"
+            },
+            "maintainers": ["kmod-midori"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "ff14",
+            "namespaceName": "FINAL FANTASY XIV",
+            "namespaceUrl": "eu.finalfantasyxiv.com",
+            "path": "/zh/:type?",
+            "fullPath": "/ff14/zh/:type?",
+            "name": "最终幻想 14 国服",
+            "example": "/ff14/zh/news",
+            "description": "| 新闻 | 公告     | 活动   | 广告      | 所有 |\n| ---- | -------- | ------ | --------- | ---- |\n| news | announce | events | advertise | all  |",
+            "parameters": {
+                "type": "分类名，预设为 `all`"
+            },
+            "maintainers": ["Kiotlin", "ZeroClad", "15x15G"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ff.web.sdo.com/web8/index.html"],
+                    "target": "/zh"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "fortnite",
+            "namespaceName": "Fortnite",
+            "namespaceUrl": "fortnite.com",
+            "path": "/news/:options?",
+            "fullPath": "/fortnite/news/:options?",
+            "name": "News",
+            "example": "/fortnite/news",
+            "description": "-   `options.lang`, optional, language, eg. `/fortnite/news/lang=en-US`, common languages are listed below, more languages are available one the [official website](https://www.fortnite.com/news)\n\n| English (default) | Spanish | Japanese | French | Korean | Polish |\n| ----------------- | ------- | -------- | ------ | ------ | ------ |\n| en-US             | es-ES   | ja       | fr     | ko     | pl     |",
+            "parameters": {
+                "options": "Params"
+            },
+            "maintainers": ["lyqluis"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": true,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "gamebase",
+            "namespaceName": "遊戲基地 Gamebase",
+            "namespaceUrl": "news.gamebase.com.tw",
+            "path": "/news/:type?/:category?",
+            "fullPath": "/gamebase/news/:type?/:category?",
+            "name": "新聞",
+            "example": "/gamebase/news",
+            "description": "::: tip\n若訂閱 [手機遊戲新聞](https://news.gamebase.com.tw/news/newslist?type=mobile)，網址為 `https://news.gamebase.com.tw/news/newslist?type=mobile`，請截取 `https://news.gamebase.com.tw/news/` 到末尾的部分 `newslist` 作為 `type` 參數填入，`mobile` 作為 `category` 參數填入，此時目標路由為 [`/gamebase/news/newslist/mobile`](https://rsshub.app/gamebase/news/newslist/mobile)。\n:::\n\n| newslist | r18list |\n| -------- | ------- |\n",
+            "parameters": {
+                "type": "類型，見下表，預設為 newslist",
+                "category": "分類，預設為 `all`，即全部，可在對應分類頁 URL 中找到"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["news.gamebase.com.tw/news", "news.gamebase.com.tw/news/:type"]
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "gamegene",
+            "namespaceName": "游戏基因",
+            "namespaceUrl": "news.gamegene.cn",
+            "path": "/news",
+            "fullPath": "/gamegene/news",
+            "name": "资讯",
+            "example": "/gamegene/news",
+            "parameters": {},
+            "maintainers": ["lone1y-51"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["news.gamegene.cn/news"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gamekee",
+            "namespaceName": "GameKee | 游戏百科攻略",
+            "namespaceUrl": "www.gamekee.com",
+            "path": "/news",
+            "fullPath": "/gamekee/news",
+            "name": "游戏情报",
+            "example": "/gamekee/news",
+            "maintainers": ["ueiu"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["gamekee.com", "gamekee.com/news"],
+                    "target": "/news"
+                }
+            ]
+        },
+        {
+            "namespace": "gamer520",
+            "namespaceName": "全球游戏交流中心",
+            "namespaceUrl": "www.gamer520.com",
+            "path": "/:category?/:order?",
+            "fullPath": "/gamer520/:category?/:order?",
+            "name": "文章",
+            "example": "/gamer520/switchyouxi",
+            "description": "分类\n\n| 所有 | Switch 游戏下载 | 金手指     | 3A 巨作 | switch 主题 | PC 游戏 |\n| ---- | --------------- | ---------- | ------- | ----------- | ------- |\n| all  | switchyouxi     | jinshouzhi | 3ajuzuo | zhuti       | pcgame  |",
+            "parameters": {
+                "category": "分类，见下表",
+                "order": "排序，发布日期: date; 修改日期: modified"
+            },
+            "maintainers": ["xzzpig"],
+            "categories": ["game"],
+            "features": {
+                "antiCrawler": true
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gamersecret",
+            "namespaceName": "Gamer Secret",
+            "namespaceUrl": "gamersecret.com",
+            "path": "/:type?/:category?",
+            "fullPath": "/gamersecret/:type?/:category?",
+            "name": "Category",
+            "example": "/gamersecret",
+            "description": "| Latest News | PC | Playstation | Nintendo | Xbox | Moblie |\n| ----------- | -- | ----------- | -------- | ---- | ------ |\n| latest-news | pc | playstation | nintendo | xbox | moblie |\n\n  Or\n\n| GENERAL          | GENERAL EN         | MOBILE          | MOBILE EN         |\n| ---------------- | ------------------ | --------------- | ----------------- |\n| category/general | category/generalen | category/mobile | category/mobileen |\n\n| NINTENDO          | NINTENDO EN         | PC          | PC EN         |\n| ----------------- | ------------------- | ----------- | ------------- |\n| category/nintendo | category/nintendoen | category/pc | category/pcen |\n\n| PLAYSTATION          | PLAYSTATION EN         | REVIEWS          |\n| -------------------- | ---------------------- | ---------------- |\n| category/playstation | category/playstationen | category/reviews |\n\n| XBOX          | XBOX EN         |\n| ------------- | --------------- |\n| category/xbox | category/xboxen |",
+            "parameters": {
+                "type": "Type, see below, Latest News by default",
+                "category": "Category, see below"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["gamersecret.com/:type", "gamersecret.com/:type/:category", "gamersecret.com/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "gamersky",
+            "namespaceName": "GamerSky",
+            "namespaceUrl": "gamersky.com",
+            "path": "/ent/:category?",
+            "fullPath": "/gamersky/ent/:category?",
+            "name": "娱乐",
+            "example": "/gamersky/ent/xz",
+            "description": "|\n|\n|\n",
+            "parameters": {
+                "type": "分类类型，留空为 `all`"
+            },
+            "maintainers": ["LogicJake"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gamersky",
+            "namespaceName": "GamerSky",
+            "namespaceUrl": "gamersky.com",
+            "path": "/news/:type?",
+            "fullPath": "/gamersky/news/:type?",
+            "name": "资讯",
+            "example": "/gamersky/news/pc",
+            "description": "|today|pc|ns|mobile|web|industry|hardware|tech|\n|---|---|---|---|---|---|---|---|\n|今日推荐|单机电玩|NS|手游|网游|业界|硬件|科技|\n",
+            "parameters": {
+                "type": "资讯类型，见表，默认为 `pc`"
+            },
+            "maintainers": ["yy4382"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.gamersky.com/news"],
+                    "target": "/news"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gamersky",
+            "namespaceName": "GamerSky",
+            "namespaceUrl": "gamersky.com",
+            "path": "/review/:type?",
+            "fullPath": "/gamersky/review/:type?",
+            "name": "评测",
+            "example": "/gamersky/review/pc",
+            "description": "|pc|tv|indie|web|mobile|all|\n|---|---|---|---|---|---|\n|单机|电视|独立游戏|网游|手游|全部评测|\n",
+            "parameters": {
+                "type": "评测类型，可选值为 `pc`、`tv`、`indie`、`web`、`mobile`、`all`，默认为 `pc`"
+            },
+            "maintainers": ["yy4382"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.gamersky.com/review"],
+                    "target": "/review"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gcores",
+            "namespaceName": "机核网",
+            "namespaceUrl": "gcores.com",
+            "path": "/articles",
+            "fullPath": "/gcores/articles",
+            "name": "文章",
+            "example": "/gcores/articles",
+            "description": "机核 GCORES",
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.gcores.com/articles"],
+                    "target": "/gcores/articles"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gcores",
+            "namespaceName": "机核网",
+            "namespaceUrl": "gcores.com",
+            "path": "/categories/:id/:tab?",
+            "fullPath": "/gcores/categories/:id/:tab?",
+            "name": "分类",
+            "example": "/gcores/categories/1/articles",
+            "description": "::: tip\n若订阅 [文章 - 文章](https://www.gcores.com/categories/1?tab=articles)，网址为 `https://www.gcores.com/categories/1?tab=articles`，请截取 `https://www.gcores.com/categories/` 到末尾的部分 `1` 作为 `id` 参数填入，截取 `articles` 作为 `tab` 参数填入，此时目标路由为 [`/gcores/categories/1/articles`](https://rsshub.app/gcores/categories/1/articles)。\n:::\n\n| 全部 | 播客   | 文章     | 资讯 | 视频   |\n| ---- | ------ | -------- | ---- | ------ |\n|      | radios | articles | news | videos |\n",
+            "parameters": {
+                "id": {
+                    "description": "分类 ID，可在对应分类页 URL 中找到"
+                },
+                "tab": {
+                    "description": "类型，默认为空，即全部，可在对应分类页 URL 中找到",
+                    "options": [
+                        {
+                            "label": "全部",
+                            "value": ""
+                        },
+                        {
+                            "label": "播客",
+                            "value": "radios"
+                        },
+                        {
+                            "label": "文章",
+                            "value": "articles"
+                        },
+                        {
+                            "label": "资讯",
+                            "value": "news"
+                        },
+                        {
+                            "label": "视频",
+                            "value": "videos"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["MoguCloud", "StevenRCE0", "nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.gcores.com/categories/:id"]
+                },
+                {
+                    "title": "全部",
+                    "source": ["www.gcores.com/categories/:id"],
+                    "target": "/gcores/categories/:id"
+                },
+                {
+                    "title": "播客",
+                    "source": ["www.gcores.com/categories/:id"],
+                    "target": "/categories/:id/radios"
+                },
+                {
+                    "title": "文章",
+                    "source": ["www.gcores.com/categories/:id"],
+                    "target": "/categories/:id/articles"
+                },
+                {
+                    "title": "资讯",
+                    "source": ["www.gcores.com/categories/:id"],
+                    "target": "/categories/:id/news"
+                },
+                {
+                    "title": "视频",
+                    "source": ["www.gcores.com/categories/:id"],
+                    "target": "/categories/:id/videos"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gcores",
+            "namespaceName": "机核网",
+            "namespaceUrl": "gcores.com",
+            "path": "/collections/:id/:tab?",
+            "fullPath": "/gcores/collections/:id/:tab?",
+            "name": "专题",
+            "example": "/gcores/collections/64/articles",
+            "description": "::: tip\n若订阅 [文章 - 文章](https://www.gcores.com/collections/64?tab=articles)，网址为 `https://www.gcores.com/collections/64?tab=articles`，请截取 `https://www.gcores.com/collections/` 到末尾的部分 `64` 作为 `id` 参数填入，截取 `articles` 作为 `tab` 参数填入，此时目标路由为 [`/gcores/collections/64/articles`](https://rsshub.app/gcores/collections/64/articles)。\n:::\n\n| 全部 | 播客   | 文章     | 资讯 | 视频   |\n| ---- | ------ | -------- | ---- | ------ |\n|      | radios | articles | news | videos |\n",
+            "parameters": {
+                "id": {
+                    "description": "专题 ID，可在对应专题页 URL 中找到"
+                },
+                "tab": {
+                    "description": "类型，默认为空，即全部，可在对应专题页 URL 中找到",
+                    "options": [
+                        {
+                            "label": "全部",
+                            "value": ""
+                        },
+                        {
+                            "label": "播客",
+                            "value": "radios"
+                        },
+                        {
+                            "label": "文章",
+                            "value": "articles"
+                        },
+                        {
+                            "label": "资讯",
+                            "value": "news"
+                        },
+                        {
+                            "label": "视频",
+                            "value": "videos"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["kudryavka1013", "nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.gcores.com/collections/:id"]
+                },
+                {
+                    "title": "全部",
+                    "source": ["www.gcores.com/collections/:id"],
+                    "target": "/collections/:id"
+                },
+                {
+                    "title": "播客",
+                    "source": ["www.gcores.com/collections/:id"],
+                    "target": "/collections/:id/radios"
+                },
+                {
+                    "title": "文章",
+                    "source": ["www.gcores.com/collections/:id"],
+                    "target": "/collections/:id/articles"
+                },
+                {
+                    "title": "资讯",
+                    "source": ["www.gcores.com/collections/:id"],
+                    "target": "/collections/:id/news"
+                },
+                {
+                    "title": "视频",
+                    "source": ["www.gcores.com/collections/:id"],
+                    "target": "/collections/:id/videos"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gcores",
+            "namespaceName": "机核网",
+            "namespaceUrl": "gcores.com",
+            "path": "/news",
+            "fullPath": "/gcores/news",
+            "name": "资讯",
+            "example": "/gcores/news",
+            "description": "机核 GCORES",
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.gcores.com/news"],
+                    "target": "/gcores/news"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gcores",
+            "namespaceName": "机核网",
+            "namespaceUrl": "gcores.com",
+            "path": "/radios/preview",
+            "fullPath": "/gcores/radios/preview",
+            "name": "预告",
+            "example": "/gcores/radios/preview",
+            "description": "机核 GCORES",
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.gcores.com/radios/preview"],
+                    "target": "/gcores/radios/preview"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gcores",
+            "namespaceName": "机核网",
+            "namespaceUrl": "gcores.com",
+            "path": "/tags/:id/:tab?",
+            "fullPath": "/gcores/tags/:id/:tab?",
+            "name": "标签",
+            "example": "/gcores/tags/1/articles",
+            "description": "::: tip\n若订阅 [美国 - 文章](https://www.gcores.com/tags/1/originals?tab=articles)，网址为 `https://www.gcores.com/tags/1/originals?tab=articles`，请截取 `https://www.gcores.com/tags/` 到末尾 `/originals` 的部分 `1` 作为 `id` 参数填入，截取 `articles` 作为 `tab` 参数填入，此时目标路由为 [`/gcores/tags/1/articles`](https://rsshub.app/gcores/tags/1/articles)。\n:::\n\n| 全部 | 播客   | 文章     | 资讯 | 视频   |\n| ---- | ------ | -------- | ---- | ------ |\n|      | radios | articles | news | videos |\n",
+            "parameters": {
+                "id": {
+                    "description": "标签 ID，可在对应标签页 URL 中找到"
+                },
+                "tab": {
+                    "description": "类型，默认为空，即全部，可在对应标签页 URL 中找到",
+                    "options": [
+                        {
+                            "label": "全部",
+                            "value": ""
+                        },
+                        {
+                            "label": "播客",
+                            "value": "radios"
+                        },
+                        {
+                            "label": "文章",
+                            "value": "articles"
+                        },
+                        {
+                            "label": "资讯",
+                            "value": "news"
+                        },
+                        {
+                            "label": "视频",
+                            "value": "videos"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["StevenRCE0", "nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.gcores.com/tags/:id/originals"]
+                },
+                {
+                    "title": "全部",
+                    "source": ["www.gcores.com/tags/:id/originals"],
+                    "target": "/gcores/tags/:id"
+                },
+                {
+                    "title": "播客",
+                    "source": ["www.gcores.com/tags/:id/originals"],
+                    "target": "/gcores/tags/:id/radios"
+                },
+                {
+                    "title": "文章",
+                    "source": ["www.gcores.com/tags/:id/originals"],
+                    "target": "/gcores/tags/:id/articles"
+                },
+                {
+                    "title": "资讯",
+                    "source": ["www.gcores.com/tags/:id/originals"],
+                    "target": "/gcores/tags/:id/news"
+                },
+                {
+                    "title": "视频",
+                    "source": ["www.gcores.com/tags/:id/originals"],
+                    "target": "/gcores/tags/:id/videos"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gcores",
+            "namespaceName": "机核网",
+            "namespaceUrl": "gcores.com",
+            "path": "/topics/:id/recommend",
+            "fullPath": "/gcores/topics/:id/recommend",
+            "name": "机组推荐",
+            "example": "/gcores/topics/recommend",
+            "description": "::: tip\n若订阅 [我的年度总结](https://www.gcores.com/topics/581)，网址为 `https://www.gcores.com/topics/581`，请截取 `https://www.gcores.com/topics/` 到末尾的部分 `581` 作为 `id` 参数填入，此时目标路由为 [`/gcores/topics/581/recommend`](https://rsshub.app/gcores/topics/581/recommend)。\n:::\n",
+            "parameters": {
+                "id": {
+                    "description": "小组 ID，默认为空，即全部，可在对应小组页 URL 中找到"
+                }
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.gcores.com/topics/home"],
+                    "target": "/gcores/topics/recommend"
+                },
+                {
+                    "source": ["www.gcores.com/topics/:id"],
+                    "target": "/gcores/topics/:id/recommend"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gcores",
+            "namespaceName": "机核网",
+            "namespaceUrl": "gcores.com",
+            "path": "/topics/recommend",
+            "fullPath": "/gcores/topics/recommend",
+            "name": "机组推荐",
+            "example": "/gcores/topics/recommend",
+            "description": "::: tip\n若订阅 [我的年度总结](https://www.gcores.com/topics/581)，网址为 `https://www.gcores.com/topics/581`，请截取 `https://www.gcores.com/topics/` 到末尾的部分 `581` 作为 `id` 参数填入，此时目标路由为 [`/gcores/topics/581/recommend`](https://rsshub.app/gcores/topics/581/recommend)。\n:::\n",
+            "parameters": {
+                "id": {
+                    "description": "小组 ID，默认为空，即全部，可在对应小组页 URL 中找到"
+                }
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.gcores.com/topics/home"],
+                    "target": "/gcores/topics/recommend"
+                },
+                {
+                    "source": ["www.gcores.com/topics/:id"],
+                    "target": "/gcores/topics/:id/recommend"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gcores",
+            "namespaceName": "机核网",
+            "namespaceUrl": "gcores.com",
+            "path": "/videos",
+            "fullPath": "/gcores/videos",
+            "name": "视频",
+            "example": "/gcores/videos",
+            "description": "机核 GCORES",
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.gcores.com/videos"],
+                    "target": "/gcores/videos"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gf-cn",
+            "namespaceName": "少女前线",
+            "namespaceUrl": "sunborngame.com",
+            "path": "/news/:category?",
+            "fullPath": "/gf-cn/news/:category?",
+            "name": "情报局",
+            "example": "/gf-cn/news",
+            "description": "| 新闻 | 公告 |\n| ---- | ---- |\n| 1    | 3    |",
+            "parameters": {
+                "category": "分类，见下表，默认为新闻"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["sunborngame.com/:category", "sunborngame.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hoyolab",
+            "namespaceName": "HoYoLAB",
+            "namespaceUrl": "hoyolab.com",
+            "path": "/news/:language/:gids/:type",
+            "fullPath": "/hoyolab/news/:language/:gids/:type",
+            "name": "Official Announcement",
+            "example": "/hoyolab/news/zh-cn/2/2",
+            "description": "| Language         | Code  |\n| ---------------- | ----- |\n| 简体中文         | zh-cn |\n| 繁體中文         | zh-tw |\n| 日本語           | ja-jp |\n| 한국어           | ko-kr |\n| English (US)     | en-us |\n| Español (EU)     | es-es |\n| Français         | fr-fr |\n| Deutsch          | de-de |\n| Русский          | ru-ru |\n| Português        | pt-pt |\n| Español (Latino) | es-mx |\n| Indonesia        | id-id |\n| Tiếng Việt       | vi-vn |\n| ภาษาไทย          | th-th |\n\n| Honkai Impact 3rd | Genshin Impact | Tears of Themis | HoYoLAB | Honkai: Star Rail | Zenless Zone Zero |\n| ----------------- | -------------- | --------------- | ------- | ----------------- | ----------------- |\n| 1                 | 2              | 4               | 5       | 6                 | 8                 |\n\n| Notices | Events | Info |\n| ------- | ------ | ---- |\n| 1       | 2      | 3    |",
+            "parameters": {
+                "language": "Language",
+                "gids": "Game ID",
+                "type": "Announcement type"
+            },
+            "maintainers": ["ZenoTian"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hypergryph",
+            "namespaceName": "鹰角网络",
+            "namespaceUrl": "www.hypergryph.com",
+            "path": "/arknights/announce/:platform?/:group?",
+            "fullPath": "/hypergryph/arknights/announce/:platform?/:group?",
+            "name": "明日方舟 - 游戏内公告",
+            "example": "/hypergryph/arknights/announce",
+            "description": "平台\n\n|  安卓服 | iOS 服 |   B 服   |\n| :-----: | :----: | :------: |\n| Android |   IOS  | Bilibili |\n\n  分组\n\n| 全部 | 系统公告 | 活动公告 |\n| :--: | :------: | :------: |\n|  ALL |  SYSTEM  | ACTIVITY |",
+            "parameters": {
+                "platform": "平台，默认为 Android",
+                "group": "分组，默认为 ALL"
+            },
+            "maintainers": ["swwind"],
+            "categories": ["game"],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hypergryph",
+            "namespaceName": "鹰角网络",
+            "namespaceUrl": "www.hypergryph.com",
+            "path": "/arknights/arktca",
+            "fullPath": "/hypergryph/arknights/arktca",
+            "name": "回归线",
+            "example": "/hypergryph/arknights/arktca",
+            "description": "明日方舟期刊《回归线》 | 泰拉创作者联合会",
+            "parameters": {},
+            "maintainers": ["Bendancom"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["aneot.arktca.com"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hypergryph",
+            "namespaceName": "鹰角网络",
+            "namespaceUrl": "www.hypergryph.com",
+            "path": "/arknights/japan",
+            "fullPath": "/hypergryph/arknights/japan",
+            "name": "アークナイツ (日服新闻)",
+            "example": "/hypergryph/arknights/japan",
+            "maintainers": ["ofyark"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["ak.arknights.jp/news", "ak.arknights.jp/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hypergryph",
+            "namespaceName": "鹰角网络",
+            "namespaceUrl": "www.hypergryph.com",
+            "path": "/arknights/news/:group?",
+            "fullPath": "/hypergryph/arknights/news/:group?",
+            "name": "明日方舟 - 游戏公告与新闻",
+            "example": "/hypergryph/arknights/news",
+            "description": "\n| 全部 | 最新   | 公告         | 活动     | 新闻 |\n| ---- | ------ | ------------ | -------- | ---- |\n| ALL  | LATEST | ANNOUNCEMENT | ACTIVITY | NEWS |",
+            "parameters": {
+                "group": "分组，默认为 `ALL`"
+            },
+            "maintainers": ["Astrian"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["ak-conf.hypergryph.com/news"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "imop",
+            "namespaceName": "imop",
+            "namespaceUrl": "imop.com",
+            "path": "/tianshu",
+            "fullPath": "/imop/tianshu",
+            "name": "全部消息",
+            "example": "/imop/tianshu",
+            "maintainers": ["zhkgo"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["t.imop.com"],
+                    "target": "/tianshu"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "indienova",
+            "namespaceName": "indienova 独立游戏",
+            "namespaceUrl": "indienova.com",
+            "path": "/:type",
+            "fullPath": "/indienova/:type",
+            "name": "文章",
+            "example": "/indienova/article",
+            "parameters": {
+                "type": "类型: `article` 文章，`development` 开发"
+            },
+            "maintainers": ["GensouSakuya", "kt286"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "indienova",
+            "namespaceName": "indienova 独立游戏",
+            "namespaceUrl": "indienova.com",
+            "path": "/column/:columnId",
+            "fullPath": "/indienova/column/:columnId",
+            "name": "专题",
+            "example": "/indienova/column/52",
+            "description": "<details>\n<summary>专题 ID</summary>\n\n    游戏推荐\n\n| itch 一周游戏汇 | 一周值得关注的发售作品 | 诺娃速递 | 周末游戏视频集锦 | 每月媒体评分 | 年度最佳游戏 | Indie Focus 近期新游 | indienova Picks 精选 |\n| --------------- | ---------------------- | -------- | ---------------- | ------------ | ------------ | -------------------- | -------------------- |\n| 52              | 29                     | 41       | 43               | 45           | 39           | 1                    | 8                    |\n\n    游戏评论\n\n| 游必有方 Podcast | 独立游戏潮（RED） |\n| ---------------- | ----------------- |\n| 6                | 3                 |\n\n    游戏开发\n\n| 游戏设计模式 | Roguelike 开发 | GMS 中文教程 |\n| ------------ | -------------- | ------------ |\n| 15           | 14             | 7            |\n\n    游戏设计\n\n| 游戏与所有 | 让人眼前一亮的游戏设计 | 游戏音乐分析 | 游戏情感设计 | 游戏相关书籍 | 游戏设计课程笔记 | 游戏设计工具 | 游戏设计灵感 | 设计师谈设计 | 游戏研究方法 | 功能游戏 | 游戏设计专业院校 | 像素课堂 |\n| ---------- | ---------------------- | ------------ | ------------ | ------------ | ---------------- | ------------ | ------------ | ------------ | ------------ | -------- | ---------------- | -------- |\n| 10         | 33                     | 17           | 4            | 22           | 11               | 24           | 26           | 27           | 28           | 38       | 9                | 19       |\n\n    游戏文化\n\n| NOVA 海外独立游戏见闻 | 工作室访谈 | indie Figure 游戏人 | 游戏艺术家 | 独立游戏音乐欣赏 | 游戏瑰宝 | 电脑 RPG 游戏史 | ALT. CTRL. GAMING |\n| --------------------- | ---------- | ------------------- | ---------- | ---------------- | -------- | --------------- | ----------------- |\n| 53                    | 23         | 5                   | 44         | 18               | 21       | 16              | 2                 |\n\n    Game Jam\n\n| Ludum Dare | Global Game Jam |\n| ---------- | --------------- |\n| 31         | 13              |\n</details>",
+            "parameters": {
+                "columnId": "专题 ID，可在 URL中找到"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["indienova.com/column/:columnId"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "indienova",
+            "namespaceName": "indienova 独立游戏",
+            "namespaceUrl": "indienova.com",
+            "path": "/gamedb/recent",
+            "fullPath": "/indienova/gamedb/recent",
+            "name": "Unknown",
+            "maintainers": ["TonyRL"],
+            "categories": ["game"],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "indienova",
+            "namespaceName": "indienova 独立游戏",
+            "namespaceUrl": "indienova.com",
+            "path": "/usergames",
+            "fullPath": "/indienova/usergames",
+            "name": "会员开发游戏库",
+            "example": "/indienova/usergames",
+            "parameters": {},
+            "maintainers": ["TonyRL"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["indienova.com/usergames", "indienova.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "itch",
+            "namespaceName": "itch.io",
+            "namespaceUrl": "itch.io",
+            "path": "*",
+            "fullPath": "/itch*",
+            "name": "Unknown",
+            "maintainers": [],
+            "categories": ["game"],
+            "lang": "en"
+        },
+        {
+            "namespace": "itch",
+            "namespaceName": "itch.io",
+            "namespaceUrl": "itch.io",
+            "path": "/devlog/:user/:id",
+            "fullPath": "/itch/devlog/:user/:id",
+            "name": "Developer Logs",
+            "example": "/itch/devlog/teamterrible/the-baby-in-yellow",
+            "description": "`User id` is the field before `.itch.io` in the URL of the corresponding page, e.g. the URL of [The Baby In Yellow Devlog](https://teamterrible.itch.io/the-baby-in-yellow/devlog) is `https://teamterrible.itch.io/the-baby-in-yellow/devlog`, where the field before `.itch.io` is `teamterrible`.\n\n  `Item id` is the field between `itch.io` and `/devlog` in the URL of the corresponding page, e.g. the URL for [The Baby In Yellow Devlog](https://teamterrible.itch.io/the-baby-in-yellow/devlog) is `https://teamterrible.itch.io/the-baby-in-yellow/devlog`, where the field between `itch.io` and `/devlog` is `the-baby-in-yellow`.\n\n  So the route is [`/itch/devlogs/teamterrible/the-baby-in-yellow`](https://rsshub.app/itch/devlogs/teamterrible/the-baby-in-yellow).",
+            "parameters": {
+                "user": "User id, can be found in URL",
+                "id": "Item id, can be found in URL"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "itch",
+            "namespaceName": "itch.io",
+            "namespaceUrl": "itch.io",
+            "path": "/posts/:topic/:id",
+            "fullPath": "/itch/posts/:topic/:id",
+            "name": "Posts",
+            "example": "/itch/posts/9539/introduce-yourself",
+            "parameters": {
+                "topic": "Topic id, can be found in URL",
+                "id": "Topic name, can be found in URL"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["itch.io/t/:topic/:id"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "jump",
+            "namespaceName": "JUMP",
+            "namespaceUrl": "switch.jumpvg.com",
+            "path": "/discount/:platform/:filter?/:countries?",
+            "fullPath": "/jump/discount/:platform/:filter?/:countries?",
+            "name": "游戏折扣",
+            "example": "/jump/discount/ps5/all",
+            "description": "| switch | ps4  | ps5  | xbox   | steam | epic   |\n| ------ | ---- | ---- | ------ | ----- | ------ |\n| 可用   | 可用 | 可用 | 不可用 | 可用  | 不可用 |\n\n| filter | switch | ps4 | ps5 | steam |\n| ------ | ------ | --- | --- | ----- |\n| all    | ✔     | ✔  | ✔  | ✔    |\n| jx     | ✔     | ✔  | ❌  | ✔    |\n| sd     | ✔     | ✔  | ✔  | ✔    |\n| dl     | ❌     | ✔  | ❌  | ✔    |\n| vip    | ❌     | ❌  | ✔  | ❌    |\n\n| 北美 | 欧洲（英语） | 法国 | 德国 | 日本 |\n| ---- | ------------ | ---- | ---- | ---- |\n| na   | eu           | fr   | de   | jp   |",
+            "parameters": {
+                "platform": "平台:switch,ps4,ps5,xbox,steam,epic",
+                "filter": "过滤参数,all-全部，jx-精选，sd-史低，dl-独立，vip-会员",
+                "countries": "地区，具体支持较多，可自信查看地区简写"
+            },
+            "maintainers": ["zytomorrow"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "keylol",
+            "namespaceName": "其乐",
+            "namespaceUrl": "keylol.com",
+            "path": "/:path",
+            "fullPath": "/keylol/:path",
+            "name": "论坛",
+            "example": "/keylol/f161-1",
+            "description": "::: tip\n  若订阅 [热点聚焦](https://keylol.com/f161-1)，网址为 `https://keylol.com/f161-1`。截取 `https://keylol.com/` 到末尾的部分 `f161-1` 作为参数，此时路由为 [`/keylol/f161-1`](https://rsshub.app/keylol/f161-1)。\n  若订阅子分类 [试玩免费 - 热点聚焦](https://keylol.com/forum.php?mod=forumdisplay&fid=161&filter=typeid&typeid=459)，网址为 `https://keylol.com/forum.php?mod=forumdisplay&fid=161&filter=typeid&typeid=459`。提取`fid`及`typeid` 作为参数，此时路由为 [`/keylol/fid=161&typeid=459`](https://rsshub.app/keylol/fid=161&typeid=459)。注意不要包括`filter`，会调用[全局的内容过滤](https://docs.rsshub.app/guide/parameters#filtering)。\n:::",
+            "parameters": {
+                "path": "路径，默认为热点聚焦"
+            },
+            "maintainers": ["nczitzk", "kennyfong19931"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "KEYLOL_COOKIE",
+                        "optional": true,
+                        "description": "配置后可抓取具有阅读权限的帖子內容"
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["keylol.com/:path"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "kisskiss",
+            "namespaceName": "KISS",
+            "namespaceUrl": "www.kisskiss.tv",
+            "path": "/blog/:category?",
+            "fullPath": "/kisskiss/blog/:category?",
+            "name": "ブログ",
+            "example": "/blog/DLC",
+            "parameters": {
+                "category": "category"
+            },
+            "maintainers": ["keocheung"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["www.kisskiss.tv/kiss/diary.php"],
+                    "target": "/blog"
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "koyso",
+            "namespaceName": "Koyso",
+            "namespaceUrl": "koyso.to",
+            "path": "/:category?/:sort?",
+            "fullPath": "/koyso/:category?/:sort?",
+            "name": "游戏",
+            "example": "/koyso/0/latest",
+            "description": "::: tip\n订阅 [最新动作游戏](https://koyso.to/?category=3&sort=latest)，其源网址为 `https://koyso.to/?category=3&sort=latest`，请参考该 URL 指定部分构成参数，此时路由为 [`/koyso/3/latest`](https://koyso.to/?category=3&sort=latest)。\n:::\n\n#### 分类\n\n| 分类                                        | ID                                |\n| ------------------------------------------- | --------------------------------- |\n| [全部游戏](https://koyso.to/)               | [0](https://rsshub.app/koyso/0)   |\n| [动作游戏](https://koyso.to/?category=3)    | [3](https://rsshub.app/koyso/3)   |\n| [冒险游戏](https://koyso.to/?category=5)    | [5](https://rsshub.app/koyso/5)   |\n| [绅士游戏](https://koyso.to/?category=7)    | [7](https://rsshub.app/koyso/7)   |\n| [射击游戏](https://koyso.to/?category=1)    | [1](https://rsshub.app/koyso/1)   |\n| [休闲游戏](https://koyso.to/?category=2)    | [2](https://rsshub.app/koyso/2)   |\n| [体育竞速](https://koyso.to/?category=4)    | [4](https://rsshub.app/koyso/4)   |\n| [模拟经营](https://koyso.to/?category=6)    | [6](https://rsshub.app/koyso/6)   |\n| [角色扮演](https://koyso.to/?category=8)    | [8](https://rsshub.app/koyso/8)   |\n| [策略游戏](https://koyso.to/?category=9)    | [9](https://rsshub.app/koyso/9)   |\n| [格斗游戏](https://koyso.to/?category=10)   | [10](https://rsshub.app/koyso/10) |\n| [恐怖游戏](https://koyso.to/?category=11)   | [11](https://rsshub.app/koyso/11) |\n| [即时战略](https://koyso.to/?category=12)   | [12](https://rsshub.app/koyso/12) |\n| [卡牌游戏](https://koyso.to/?category=13)   | [13](https://rsshub.app/koyso/13) |\n| [独立游戏](https://koyso.to/?category=14)   | [14](https://rsshub.app/koyso/14) |\n| [局域网联机](https://koyso.to/?category=15) | [15](https://rsshub.app/koyso/15) |\n\n#### 排序\n\n| 排序                                  | ID                                          |\n| ------------------------------------- | ------------------------------------------- |\n| [热度](https://koyso.to/?sort=views)  | [views](https://rsshub.app/koyso/0/views)   |\n| [最新](https://koyso.to/?sort=latest) | [latest](https://rsshub.app/koyso/0/latest) |\n",
+            "parameters": {
+                "category": {
+                    "description": "排序，默认为 `0`，即全部，可在对应分类页 URL 中找到",
+                    "options": [
+                        {
+                            "label": "全部游戏",
+                            "value": "0"
+                        },
+                        {
+                            "label": "动作游戏",
+                            "value": "3"
+                        },
+                        {
+                            "label": "冒险游戏",
+                            "value": "5"
+                        },
+                        {
+                            "label": "绅士游戏",
+                            "value": "7"
+                        },
+                        {
+                            "label": "射击游戏",
+                            "value": "1"
+                        },
+                        {
+                            "label": "休闲游戏",
+                            "value": "2"
+                        },
+                        {
+                            "label": "体育竞速",
+                            "value": "4"
+                        },
+                        {
+                            "label": "模拟经营",
+                            "value": "6"
+                        },
+                        {
+                            "label": "角色扮演",
+                            "value": "8"
+                        },
+                        {
+                            "label": "策略游戏",
+                            "value": "9"
+                        },
+                        {
+                            "label": "格斗游戏",
+                            "value": "10"
+                        },
+                        {
+                            "label": "恐怖游戏",
+                            "value": "11"
+                        },
+                        {
+                            "label": "即时战略",
+                            "value": "12"
+                        },
+                        {
+                            "label": "卡牌游戏",
+                            "value": "13"
+                        },
+                        {
+                            "label": "独立游戏",
+                            "value": "14"
+                        },
+                        {
+                            "label": "局域网联机",
+                            "value": "15"
+                        }
+                    ]
+                },
+                "sort": {
+                    "description": "排序，默认为 `latest`，即最新，可在对应页 URL 中找到",
+                    "options": [
+                        {
+                            "label": "热度",
+                            "value": "views"
+                        },
+                        {
+                            "label": "最新",
+                            "value": "latest"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["koyso.to"]
+                },
+                {
+                    "title": "全部游戏",
+                    "source": ["koyso.to"],
+                    "target": "/0"
+                },
+                {
+                    "title": "动作游戏",
+                    "source": ["koyso.to"],
+                    "target": "/3"
+                },
+                {
+                    "title": "冒险游戏",
+                    "source": ["koyso.to"],
+                    "target": "/5"
+                },
+                {
+                    "title": "绅士游戏",
+                    "source": ["koyso.to"],
+                    "target": "/7"
+                },
+                {
+                    "title": "射击游戏",
+                    "source": ["koyso.to"],
+                    "target": "/1"
+                },
+                {
+                    "title": "休闲游戏",
+                    "source": ["koyso.to"],
+                    "target": "/2"
+                },
+                {
+                    "title": "体育竞速",
+                    "source": ["koyso.to"],
+                    "target": "/4"
+                },
+                {
+                    "title": "模拟经营",
+                    "source": ["koyso.to"],
+                    "target": "/6"
+                },
+                {
+                    "title": "角色扮演",
+                    "source": ["koyso.to"],
+                    "target": "/8"
+                },
+                {
+                    "title": "策略游戏",
+                    "source": ["koyso.to"],
+                    "target": "/9"
+                },
+                {
+                    "title": "格斗游戏",
+                    "source": ["koyso.to"],
+                    "target": "/10"
+                },
+                {
+                    "title": "恐怖游戏",
+                    "source": ["koyso.to"],
+                    "target": "/11"
+                },
+                {
+                    "title": "即时战略",
+                    "source": ["koyso.to"],
+                    "target": "/12"
+                },
+                {
+                    "title": "卡牌游戏",
+                    "source": ["koyso.to"],
+                    "target": "/13"
+                },
+                {
+                    "title": "独立游戏",
+                    "source": ["koyso.to"],
+                    "target": "/14"
+                },
+                {
+                    "title": "局域网联机",
+                    "source": ["koyso.to"],
+                    "target": "/15"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "kurogames",
+            "namespaceName": "库洛游戏 | Kuro Games",
+            "namespaceUrl": "www.kurogames.com",
+            "path": "/wutheringwaves/news/:language?",
+            "fullPath": "/kurogames/wutheringwaves/news/:language?",
+            "name": "鸣潮 — 游戏公告、新闻与活动",
+            "example": "/kurogames/wutheringwaves/news",
+            "description": "\nLanguage codes for the `language` parameter:\n\n| Language | Code         |\n|----------|--------------|\n| English  | en           |\n| 日本語    | jp           |\n| 한국어     | kr           |\n| 简体中文   | zh (default) |\n| 繁體中文   | zh-tw        |\n| Español  | es           |\n| Français | fr           |\n| Deutsch  | de           |\n    ",
+            "parameters": {
+                "language": "The language to use for the content. Default: `zh`."
+            },
+            "maintainers": ["goestav", "enpitsulin"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["mc.kurogames.com/m/main/news", "mc.kurogames.com/main"]
+                },
+                {
+                    "title": "Wuthering Waves — Game announcements, news and events",
+                    "source": ["wutheringwaves.kurogames.com/en/main/news", "wutheringwaves.kurogames.com/en/main"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "last-origin",
+            "namespaceName": "LastOrigin",
+            "namespaceUrl": "www.last-origin.com",
+            "path": "/news",
+            "fullPath": "/last-origin/news",
+            "name": "News",
+            "example": "/last-origin/news",
+            "parameters": {},
+            "maintainers": ["gudezhi"],
+            "categories": ["game"],
+            "features": {
+                "supportRadar": true
+            },
+            "radar": [
+                {
+                    "source": ["www.last-origin.com/news.html", "www.last-origin.com"],
+                    "target": "/news"
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "leagueoflegends",
+            "namespaceName": "League of Legends",
+            "namespaceUrl": "leagueoflegends.com",
+            "path": "/patch-notes",
+            "fullPath": "/leagueoflegends/patch-notes",
+            "name": "Patch Notes",
+            "example": "/leagueoflegends/patch-notes",
+            "maintainers": ["noahm"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["www.leagueoflegends.com/en-us/news/tags/patch-notes/", "www.leagueoflegends.com/en-us/news/game-updates/:postSlug"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "lfsyd",
+            "namespaceName": "旅法师营地",
+            "namespaceUrl": "www.iyingdi.com",
+            "path": "/home",
+            "fullPath": "/lfsyd/home",
+            "name": "首页",
+            "example": "/lfsyd/home",
+            "parameters": {},
+            "maintainers": ["auto-bot-ty"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.iyingdi.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "lfsyd",
+            "namespaceName": "旅法师营地",
+            "namespaceUrl": "www.iyingdi.com",
+            "path": "/old_home",
+            "fullPath": "/lfsyd/old_home",
+            "name": "首页（旧版）",
+            "example": "/lfsyd/old_home",
+            "parameters": {},
+            "maintainers": ["auto-bot-ty"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.iyingdi.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "lfsyd",
+            "namespaceName": "旅法师营地",
+            "namespaceUrl": "www.iyingdi.com",
+            "path": "/tag/:tagId?",
+            "fullPath": "/lfsyd/tag/:tagId?",
+            "name": "Unknown",
+            "maintainers": ["auto-bot-ty"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["mob.iyingdi.com/fine/:tagId"],
+                    "target": "/tag/:tagId"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "lfsyd",
+            "namespaceName": "旅法师营地",
+            "namespaceUrl": "www.iyingdi.com",
+            "path": "/user/:id?",
+            "fullPath": "/lfsyd/user/:id?",
+            "name": "Unknown",
+            "maintainers": ["auto-bot-ty"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["www.iyingdi.com/tz/people/:id", "www.iyingdi.com/tz/people/:id/*"],
+                    "target": "/user/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "liquipedia",
+            "namespaceName": "Liquipedia",
+            "namespaceUrl": "liquipedia.net",
+            "path": "/counterstrike/matches/:team",
+            "fullPath": "/liquipedia/counterstrike/matches/:team",
+            "name": "Counter-Strike Team Match Results",
+            "example": "/liquipedia/counterstrike/matches/Team_Falcons",
+            "maintainers": ["CookiePieWw"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["liquipedia.net/counterstrike/:id/Matches", "liquipedia.net/dota2/:id"],
+                    "target": "/counterstrike/matches/:id"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "liquipedia",
+            "namespaceName": "Liquipedia",
+            "namespaceUrl": "liquipedia.net",
+            "path": "/dota2/matches/:id",
+            "fullPath": "/liquipedia/dota2/matches/:id",
+            "name": "Dota2 战队最近比赛结果",
+            "example": "/liquipedia/dota2/matches/Team_Aster",
+            "parameters": {
+                "id": "战队名称，可在url中找到。例如:https://liquipedia.net/dota2/Team_Aster"
+            },
+            "maintainers": ["wzekin"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["liquipedia.net/dota2/:id"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "loltw",
+            "namespaceName": "英雄联盟",
+            "namespaceUrl": "lol.garena.tw",
+            "path": "/news/:category?",
+            "fullPath": "/loltw/news/:category?",
+            "name": "台服新闻",
+            "example": "/loltw/news",
+            "description": "| 活动  | 资讯 | 系统   | 电竞   | 版本资讯 | 战棋资讯 |\n| ----- | ---- | ------ | ------ | -------- | -------- |\n| event | info | system | esport | patch    | TFTpatch |",
+            "parameters": {
+                "category": "新闻分类，置空为全部新闻"
+            },
+            "maintainers": ["hoilc"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "mcmod",
+            "namespaceName": "MC百科",
+            "namespaceUrl": "www.mcmod.cn",
+            "path": "/:type",
+            "fullPath": "/mcmod/:type",
+            "name": "最新MOD",
+            "example": "/mcmod/new",
+            "description": "`:type` 类型可选如下\n\n| 随机显示MOD | 最新收录MOD | 最近编辑MOD |\n| ------ | --- | ---- |\n| random | new | edit |",
+            "parameters": {
+                "type": "查询类型，详见下表"
+            },
+            "maintainers": ["hualiong"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "mihoyo",
+            "namespaceName": "米哈游",
+            "namespaceUrl": "genshin.hoyoverse.com",
+            "path": "/bbs/follow-list/:uid",
+            "fullPath": "/mihoyo/bbs/follow-list/:uid",
+            "name": "米游社 - 用户关注",
+            "example": "/mihoyo/bbs/follow-list/77005350",
+            "parameters": {
+                "uid": "用户uid"
+            },
+            "maintainers": ["CaoMeiYouRen"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "mihoyo",
+            "namespaceName": "米哈游",
+            "namespaceUrl": "genshin.hoyoverse.com",
+            "path": "/bbs/img-ranking/:game/:routeParams?",
+            "fullPath": "/mihoyo/bbs/img-ranking/:game/:routeParams?",
+            "name": "米游社 - 同人榜",
+            "example": "/mihoyo/bbs/img-ranking/ys/forumType=tongren&cateType=illustration&rankingType=daily",
+            "description": "| 键          | 含义                                  | 接受的值                                                             | 默认值       |\n| ----------- | ------------------------------------- | -------------------------------------------------------------------- | ------------ |\n| forumType   | 主榜类型（仅原神、大别野有 cos 主榜） | tongren/cos                                                          | tongren      |\n| cateType    | 子榜类型（仅崩坏三、原神有子榜）      | 崩坏三：illustration/comic/cos；原神：illustration/comic/qute/manual | illustration |\n| rankingType | 排行榜类型（崩坏二没有日榜）          | daily/weekly/monthly                                                 | daily        |\n| lastId      | 当前页 id（用于分页）                 | 数字                                                                 | 1            |\n\n  游戏缩写\n\n| 崩坏三 | 原神 | 崩坏二 | 未定事件簿 | 星穹铁道 | 大别野 | 绝区零 |\n| ------ | ---- | ------ | ---------- | -------- | ------ | ------ |\n| bh3    | ys   | bh2    | wd         | sr       | dby    | zzz    |\n\n  主榜类型\n\n| 同人榜  | COS 榜 |\n| ------- | ------ |\n| tongren | cos    |\n\n  子榜类型\n\n  崩坏三 子榜\n\n| 插画         | 漫画  | COS |\n| ------------ | ----- | --- |\n| illustration | comic | cos |\n\n  原神 子榜\n\n| 插画         | 漫画  | Q 版 | 手工   |\n| ------------ | ----- | ---- | ------ |\n| illustration | comic | qute | manual |\n\n  排行榜类型\n\n| 日榜  | 周榜   | 月榜    |\n| ----- | ------ | ------- |\n| daily | weekly | monthly |",
+            "parameters": {
+                "game": "游戏缩写",
+                "routeParams": "额外参数；请参阅以下说明和表格"
+            },
+            "maintainers": ["CaoMeiYouRen"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["miyoushe.com/:game/imgRanking/:forum_id/:ranking_id/:cate_id"],
+                    "target": "/bbs/img-ranking/:game"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "mihoyo",
+            "namespaceName": "米哈游",
+            "namespaceUrl": "genshin.hoyoverse.com",
+            "path": "/bbs/official/:gids/:type?/:page_size?/:last_id?",
+            "fullPath": "/mihoyo/bbs/official/:gids/:type?/:page_size?/:last_id?",
+            "name": "米游社 - 官方公告",
+            "example": "/mihoyo/bbs/official/2/3/20/",
+            "description": "游戏 id\n\n| 崩坏三 | 原神 | 崩坏二 | 未定事件簿 | 星穹铁道 | 绝区零 |\n| ------ | ---- | ------ | ---------- | -------- | ------ |\n| 1      | 2    | 3      | 4          | 6        | 8      |\n\n  公告类型\n\n| 公告 | 活动 | 资讯 |\n| ---- | ---- | ---- |\n| 1    | 2    | 3    |",
+            "parameters": {
+                "gids": "游戏id",
+                "type": "公告类型，默认为 2(即 活动)",
+                "page_size": "分页大小，默认为 20 ",
+                "last_id": "跳过的公告数，例如指定为 40 就是从第 40 条公告开始，可用于分页"
+            },
+            "maintainers": ["CaoMeiYouRen"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "mihoyo",
+            "namespaceName": "米哈游",
+            "namespaceUrl": "genshin.hoyoverse.com",
+            "path": "/bbs/timeline",
+            "fullPath": "/mihoyo/bbs/timeline",
+            "name": "米游社 - 用户关注动态",
+            "example": "/mihoyo/bbs/timeline",
+            "description": "::: warning\n  用户关注动态需要米游社登录后的 Cookie 值，所以只能自建，详情见部署页面的配置模块。\n:::",
+            "parameters": {},
+            "maintainers": ["CaoMeiYouRen"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "MIHOYO_COOKIE",
+                        "description": ""
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["miyoushe.com/:game/timeline"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "mihoyo",
+            "namespaceName": "米哈游",
+            "namespaceUrl": "genshin.hoyoverse.com",
+            "path": "/bbs/user-post/:uid",
+            "fullPath": "/mihoyo/bbs/user-post/:uid",
+            "name": "米游社 - 用户帖子",
+            "example": "/mihoyo/bbs/user-post/77005350",
+            "parameters": {
+                "uid": "用户uid"
+            },
+            "maintainers": ["CaoMeiYouRen"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "mihoyo",
+            "namespaceName": "米哈游",
+            "namespaceUrl": "genshin.hoyoverse.com",
+            "path": "/sr/:location?/:category?",
+            "fullPath": "/mihoyo/sr/:location?/:category?",
+            "name": "崩坏：星穹铁道",
+            "example": "/mihoyo/sr",
+            "description": "#### 新闻 {#mi-ha-you-beng-huai-xing-qiong-tie-dao-xin-wen}\n\n| 最新     | 新闻 | 公告   | 活动     |\n| -------- | ---- | ------ | -------- |\n| news-all | news | notice | activity |",
+            "parameters": {
+                "location": "区域，可选 `zh-cn`（国服，简中）或 `zh-tw`（国际服，繁中）",
+                "category": "分类，见下表，默认为最新"
+            },
+            "maintainers": ["shinanory"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["sr.mihoyo.com/news"],
+                    "target": "/sr"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "mihoyo",
+            "namespaceName": "米哈游",
+            "namespaceUrl": "genshin.hoyoverse.com",
+            "path": "/ys/:location?/:category?",
+            "fullPath": "/mihoyo/ys/:location?/:category?",
+            "name": "原神",
+            "example": "/mihoyo/ys",
+            "description": "#### 新闻 {#mi-ha-you-yuan-shen-xin-wen}\n\n| 最新   | 新闻 | 公告   | 活动     |\n| ------ | ---- | ------ | -------- |\n| latest | news | notice | activity |",
+            "parameters": {
+                "location": "区域，可选 `main`（简中）或 `zh-tw`（繁中）",
+                "category": "分类，见下表，默认为最新"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["genshin.hoyoverse.com/:location/news"],
+                    "target": "/ys/:location"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "mihoyo",
+            "namespaceName": "米哈游",
+            "namespaceUrl": "genshin.hoyoverse.com",
+            "path": "/zzz/:location?/:category?",
+            "fullPath": "/mihoyo/zzz/:location?/:category?",
+            "name": "绝区零",
+            "example": "/mihoyo/zzz",
+            "description": "#### 新闻 {#mi-ha-you-jue-qu-ling-xin-wen}\n\n| 最新     | 新闻 | 公告   | 活动     |\n| -------- | ---- | ------ | -------- |\n| news-all | news | notice | activity |",
+            "parameters": {
+                "location": "区域，可选 `zh-cn`（国服，简中）或 `zh-tw`（国际服，繁中）",
+                "category": "分类，见下表，默认为最新"
+            },
+            "maintainers": ["Yeye-0426"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["zzz.mihoyo.com/news"],
+                    "target": "/zzz"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "minecraft",
+            "namespaceName": "Minecraft",
+            "namespaceUrl": "minecraft.net",
+            "path": "/blockedservers",
+            "fullPath": "/minecraft/blockedservers",
+            "name": "Java Blocked Servers",
+            "example": "/minecraft/blockedservers",
+            "description": "Java 版中被 Mojang 通过 sessionserver 阻止的服务器域名的 SHA-1 散列",
+            "parameters": {},
+            "maintainers": ["xtexChooser"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["minecraft.net/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "minecraft",
+            "namespaceName": "Minecraft",
+            "namespaceUrl": "minecraft.net",
+            "path": "/java-runtime/:arch?/:javaType?",
+            "fullPath": "/minecraft/java-runtime/:arch?/:javaType?",
+            "name": "Java Runtimes",
+            "example": "/minecraft/java-runtime",
+            "description": "\narch:\n\n- gamecore (Currently not used by Mojang)\n- linux\n- linux-i386\n- mac-os\n- mac-os-arm64\n- windows-arm64\n- windows-x64\n- windows-x86\n\njavaType:\n\n- java-runtime-alpha\n- java-runtime-beta\n- java-runtime-delta\n- java-runtime-gamma\n- java-runtime-gamma-snapshot\n- jre-legacy\n- minecraft-java-exe (Only on Windows)\n",
+            "parameters": {
+                "arch": "Arch, `all` by default",
+                "javaType": "Java runtime type, `all` by default"
+            },
+            "maintainers": ["xtexChooser"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["minecraft.net/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "minecraft",
+            "namespaceName": "Minecraft",
+            "namespaceUrl": "minecraft.net",
+            "path": "/version/:versionType?/:linkType?",
+            "fullPath": "/minecraft/version/:versionType?/:linkType?",
+            "name": "Java Game Update",
+            "example": "/minecraft/version",
+            "description": "\n| Version                    | versionType |\n| -------------------------- | ----------- |\n| 正式版                     | release     |\n| 快照                       | snapshot    |\n| Alpha 及更早的版本         | old_alpha  |\n| Beta 版                    | old_beta   |\n| Target                     | linkType    |\n| -------------------------- | --------    |\n| minecraft.net              | official    |\n| 英文 Minecraft Wiki 版本页 | enwiki      |\n| 中文 Minecraft Wiki 版本页 | zhwiki      |\n",
+            "parameters": {
+                "versionType": "Game version type, `all` by default",
+                "linkType": "Link added to feed, `official` by default"
+            },
+            "maintainers": ["TheresaQWQ", "xtexChooser"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["minecraft.net/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "modrinth",
+            "namespaceName": "Modrinth",
+            "namespaceUrl": "modrinth.com",
+            "path": "/project/:id/versions/:routeParams?",
+            "fullPath": "/modrinth/project/:id/versions/:routeParams?",
+            "name": "Project versions",
+            "example": "/modrinth/project/sodium/versions",
+            "description": "| Name           | Example                                      |\n| -------------- | -------------------------------------------- |\n| loaders        | loaders=fabric&loaders=quilt&loaders=forge |\n| game_versions | game_versions=1.20.1&game_versions=1.20.2 |\n| featured       | featured=true                                |",
+            "parameters": {
+                "id": "Id or slug of the Modrinth project",
+                "routeParams": "Extra route params. See the table below for options"
+            },
+            "maintainers": ["SettingDust"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": [
+                        "modrinth.com/mod/:id/*",
+                        "modrinth.com/plugin/:id/*",
+                        "modrinth.com/datapack/:id/*",
+                        "modrinth.com/shader/:id/*",
+                        "modrinth.com/resourcepack/:id/*",
+                        "modrinth.com/modpack/:id/*",
+                        "modrinth.com/mod/:id",
+                        "modrinth.com/plugin/:id",
+                        "modrinth.com/datapack/:id",
+                        "modrinth.com/shader/:id",
+                        "modrinth.com/resourcepack/:id",
+                        "modrinth.com/modpack/:id"
+                    ],
+                    "target": "/project/:id/versions"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "mycard520",
+            "namespaceName": "MyCard娛樂中心",
+            "namespaceUrl": "mycard520.com.tw",
+            "path": "/category/:category?",
+            "fullPath": "/mycard520/category/:category?",
+            "name": "遊戲新聞",
+            "example": "/mycard520/category/cardgame",
+            "description": "::: tip\n若订阅 [最新遊戲](https://app.mycard520.com.tw/category/cardgame/)，网址为 `https://app.mycard520.com.tw/category/cardgame/`，请截取 `https://app.mycard520.com.tw/category/` 到末尾 `/` 的部分 `cardgame` 作为 `category` 参数填入，此时目标路由为 [`/mycard520/category/cardgame`](https://rsshub.app/mycard520/category/cardgame)。\n:::\n\n| [最新遊戲](https://app.mycard520.com.tw/category/cardgame/) | [手機遊戲](https://app.mycard520.com.tw/category/cardgame-mobile/)       | [PC 遊戲](https://app.mycard520.com.tw/category/cardgame-pc/)    | [電競賽事](https://app.mycard520.com.tw/category/cardgame-esports/)        | [實況直播](https://app.mycard520.com.tw/category/cardgame-live/)     |\n| ----------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------- |\n| [cardgame](https://rsshub.app/mycard520/category/cardgame)  | [cardgame-mobile](https://rsshub.app/mycard520/category/cardgame-mobile) | [cardgame-pc](https://rsshub.app/mycard520/category/cardgame-pc) | [cardgame-esports](https://rsshub.app/mycard520/category/cardgame-esports) | [cardgame-live](https://rsshub.app/mycard520/category/cardgame-live) |\n",
+            "parameters": {
+                "category": {
+                    "description": "分类，默认为 `cardgame`，即最新遊戲，可在对应分类页 URL 中找到",
+                    "options": [
+                        {
+                            "label": "最新遊戲",
+                            "value": "cardgame"
+                        },
+                        {
+                            "label": "手機遊戲",
+                            "value": "cardgame-mobile"
+                        },
+                        {
+                            "label": "PC 遊戲",
+                            "value": "cardgame-pc"
+                        },
+                        {
+                            "label": "電競賽事",
+                            "value": "cardgame-esports"
+                        },
+                        {
+                            "label": "實況直播",
+                            "value": "cardgame-live"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["app.mycard520.com.tw/category/:category"]
+                },
+                {
+                    "title": "最新遊戲",
+                    "source": ["app.mycard520.com.tw/category/cardgame"],
+                    "target": "/category/cardgame"
+                },
+                {
+                    "title": "手機遊戲",
+                    "source": ["app.mycard520.com.tw/category/cardgame-mobile"],
+                    "target": "/category/cardgame-mobile"
+                },
+                {
+                    "title": "PC 遊戲",
+                    "source": ["app.mycard520.com.tw/category/cardgame-pc"],
+                    "target": "/category/cardgame-pc"
+                },
+                {
+                    "title": "電競賽事",
+                    "source": ["app.mycard520.com.tw/category/cardgame-esports"],
+                    "target": "/category/cardgame-esports"
+                },
+                {
+                    "title": "實況直播",
+                    "source": ["app.mycard520.com.tw/category/cardgame-live"],
+                    "target": "/category/cardgame-live"
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "nintendo",
+            "namespaceName": "Nintendo",
+            "namespaceUrl": "nintendo.com",
+            "path": "/direct",
+            "fullPath": "/nintendo/direct",
+            "name": "Nintendo Direct",
+            "example": "/nintendo/direct",
+            "parameters": {},
+            "maintainers": ["HFO4"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["nintendo.com/nintendo-direct/archive", "nintendo.com/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "nintendo",
+            "namespaceName": "Nintendo",
+            "namespaceUrl": "nintendo.com",
+            "path": "/eshop/cn",
+            "fullPath": "/nintendo/eshop/cn",
+            "name": "Unknown",
+            "maintainers": [],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["nintendoswitch.com.cn/software", "nintendoswitch.com.cn/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "nintendo",
+            "namespaceName": "Nintendo",
+            "namespaceUrl": "nintendo.com",
+            "path": "/eshop/hk",
+            "fullPath": "/nintendo/eshop/hk",
+            "name": "Unknown",
+            "maintainers": [],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["nintendo.com.hk/software/switch", "nintendo.com.hk/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "nintendo",
+            "namespaceName": "Nintendo",
+            "namespaceUrl": "nintendo.com",
+            "path": "/eshop/jp",
+            "fullPath": "/nintendo/eshop/jp",
+            "name": "Unknown",
+            "maintainers": [],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["nintendo.co.jp/software/switch/index.html", "nintendo.co.jp/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "nintendo",
+            "namespaceName": "Nintendo",
+            "namespaceUrl": "nintendo.com",
+            "path": "/eshop/us",
+            "fullPath": "/nintendo/eshop/us",
+            "name": "Unknown",
+            "maintainers": [],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["nintendo.com/store/games", "nintendo.com/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "nintendo",
+            "namespaceName": "Nintendo",
+            "namespaceUrl": "nintendo.com",
+            "path": "/news",
+            "fullPath": "/nintendo/news",
+            "name": "News（Hong Kong only）",
+            "example": "/nintendo/news",
+            "parameters": {},
+            "maintainers": ["HFO4"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["nintendo.com.hk/topics", "nintendo.com.hk/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "nintendo",
+            "namespaceName": "Nintendo",
+            "namespaceUrl": "nintendo.com",
+            "path": "/news/china",
+            "fullPath": "/nintendo/news/china",
+            "name": "首页资讯（中国）",
+            "example": "/nintendo/news/china",
+            "parameters": {},
+            "maintainers": ["NeverBehave"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["nintendoswitch.com.cn/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "nintendo",
+            "namespaceName": "Nintendo",
+            "namespaceUrl": "nintendo.com",
+            "path": "/system-update",
+            "fullPath": "/nintendo/system-update",
+            "name": "Switch System Update（Japan）",
+            "example": "/nintendo/system-update",
+            "parameters": {},
+            "maintainers": ["hoilc"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["nintendo.co.jp/support/switch/system_update/index.html", "nintendo.co.jp/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "osu",
+            "namespaceName": "osu!",
+            "namespaceUrl": "osu.ppy.sh",
+            "path": "/latest-ranked/:routeParams?",
+            "fullPath": "/osu/latest-ranked/:routeParams?",
+            "name": "Latest Ranked Beatmap",
+            "example": "/osu/latest-ranked/includeMode=osu&difficultyLimit=L3&difficultyLimit=U7",
+            "description": "\nSubscribe to the new beatmaps on https://osu.ppy.sh/beatmapsets.\n\n#### Parameter Description\n\nParameters allows you to:\n\n- Filter game mode\n- Limit beatmap difficulty\n- Show/hide game mode in feed title\n\nBelow is a table of all allowed parameters passed to `routeParams`\n\n\n| Name              | Default  | Description                                                                                                                                                                                                                                          |\n| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `includeMode`     | All mode | Could be `osu`, `mania`, `fruits` or `taiko`. Specify included game mode of beatmaps. Including this paramseter multiple times to specify multiple game modes, e.g.: `includeMode=osu&includeMode=mania`. Subscribe to all game modes if not specified |\n| `difficultyLimit` | None     | Lower/upper limit of star rating of the beatmaps in the beatmapset item, e.g.:`difficultyLimit=U6`. Checkout tips in descriptions for detailed explaination and examples.                                                                            |\n| `modeInTitle`     | `true`   | `true` or `false` Add mode info into feed title.\n\n\nThis actual parameters should be passed as `routeParams` in URL Query String format without `?`, e.g.:\n\n    /osu/latest-ranked/modeInTitle=true&includeMode=osu\n\n::: tip\nYou could make use of `difficultyLimit` paramters to create a \"high difficulty/low difficulty only\" only feed.\n\nFor example, if you only wants to play low star rating beatmap like 1 or 2 star, you could subscribe to:\n\n    /osu/latest-ranked/difficultyLimit=U2\n\nThis will filter out all beatmapsets that do not provide at least one beatmap with star rating<=`2.00`.\n\nSimilarly, you could use lower bound to filter out beatmapsets which don't have at least one beatmap\nwith star rating higher than a certain threshold.\n\n    /osu/latest-ranked/difficultyLimit=L6\n\nNow all beatmapsets that don't provided at least one beatmap with star rating higher than `6.00` will be filtered.\n:::",
+            "parameters": {
+                "routeParams": {
+                    "description": "Used to pass route parameters in Query String format. Check out route description for more info.",
+                    "default": "null"
+                }
+            },
+            "maintainers": ["nfnfgo"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "supportRadar": true
+            },
+            "radar": [
+                {
+                    "source": ["osu.ppy.sh/beatmapsets"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "osu",
+            "namespaceName": "osu!",
+            "namespaceUrl": "osu.ppy.sh",
+            "path": "/packs/:type?",
+            "fullPath": "/osu/packs/:type?",
+            "name": "Beatmap Packs",
+            "example": "/osu/packs",
+            "parameters": {
+                "type": "pack type, default to `standard`, can choose from `featured`, `tournament`, `loved`, `chart`, `theme` and `artist`"
+            },
+            "maintainers": ["JimenezLi"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "priconne-redive",
+            "namespaceName": "PRINCESS CONNECT! Re Dive プリンセスコネクト！Re Dive",
+            "namespaceUrl": "priconne-redive.jp",
+            "path": "/news/:server?",
+            "fullPath": "/priconne-redive/news/:server?",
+            "name": "最新公告",
+            "example": "/priconne-redive/news",
+            "description": "服务器\n\n| 国服  | 台服  | 日服  |\n| ----- | ----- | ---- |\n| zh-cn | zh-tw | jp   |",
+            "parameters": {
+                "server": "服务器，默认日服"
+            },
+            "maintainers": ["SayaSS", "frankcwl"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["priconne-redive.jp/news"],
+                    "target": "/news/jp"
+                },
+                {
+                    "source": ["princessconnect.so-net.tw/news"],
+                    "target": "/news/zh-tw"
+                },
+                {
+                    "source": ["game.bilibili.com/pcr/news.html"],
+                    "target": "/news/zh-cn"
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "ps",
+            "namespaceName": "PlayStation Store",
+            "namespaceUrl": "www.playstation.com",
+            "path": "/monthly-games",
+            "fullPath": "/ps/monthly-games",
+            "name": "PlayStation Monthly Games",
+            "example": "/ps/monthly-games",
+            "parameters": {},
+            "maintainers": ["justjustCC"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.playstation.com/en-sg/ps-plus/whats-new"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "ps",
+            "namespaceName": "PlayStation Store",
+            "namespaceUrl": "www.playstation.com",
+            "path": "/trophy/:id",
+            "fullPath": "/ps/trophy/:id",
+            "name": "PlayStation Network user trophy",
+            "example": "/ps/trophy/DIYgod_",
+            "parameters": {
+                "id": "User ID"
+            },
+            "maintainers": ["DIYgod"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "psnine",
+            "namespaceName": "PSN 中文站",
+            "namespaceUrl": "psnine.com",
+            "path": "/",
+            "fullPath": "/psnine/",
+            "name": "首页",
+            "example": "/psnine",
+            "maintainers": ["betta-cyber"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["psnine.com"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "psnine",
+            "namespaceName": "PSN 中文站",
+            "namespaceUrl": "psnine.com",
+            "path": "/game",
+            "fullPath": "/psnine/game",
+            "name": "游戏",
+            "example": "/psnine/game",
+            "maintainers": ["betta-cyber"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["psnine.com/psngame", "psnine.com"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "psnine",
+            "namespaceName": "PSN 中文站",
+            "namespaceUrl": "psnine.com",
+            "path": "/node/:id?/:order?",
+            "fullPath": "/psnine/node/:id?/:order?",
+            "name": "节点",
+            "example": "/psnine/node/news",
+            "parameters": {
+                "id": "节点 id，见下表，默认为 news",
+                "order": "排序，`date` 即最新，默认为 `obdate` 即综合排序"
+            },
+            "maintainers": ["betta-cyber", "nczitzk"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["psnine.com/node/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "psnine",
+            "namespaceName": "PSN 中文站",
+            "namespaceUrl": "psnine.com",
+            "path": "/shuzhe",
+            "fullPath": "/psnine/shuzhe",
+            "name": "数折",
+            "example": "/psnine/shuzhe",
+            "maintainers": ["betta-cyber"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["psnine.com/dd", "psnine.com"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "psnine",
+            "namespaceName": "PSN 中文站",
+            "namespaceUrl": "psnine.com",
+            "path": "/trade",
+            "fullPath": "/psnine/trade",
+            "name": "闲游",
+            "example": "/psnine/trade",
+            "maintainers": ["betta-cyber"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["psnine.com/trade", "psnine.com"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "qq",
+            "namespaceName": "腾讯网",
+            "namespaceUrl": "qq.com",
+            "path": "/cfhd/news/:category?",
+            "fullPath": "/qq/cfhd/news/:category?",
+            "name": "穿越火线 CFHD 专区资讯中心",
+            "example": "/qq/cfhd/news",
+            "description": "::: tip\n  若订阅 [穿越火线 CFHD 专区资讯中心 - 最新](https://cfhd.cf.qq.com/webplat/info/news_version3/37427/59139/59140/60847/m22510/list_1.shtml)，网址为 `https://cfhd.cf.qq.com/webplat/info/news_version3/37427/59139/59140/60847/m22510/list_1.shtml`。截取 `https://cfhd.cf.qq.com/webplat/info/news_version3/37427/59139/59140/` 到末尾 `/m22510/list_1.shtml` 的部分 `60847` 作为参数填入，此时路由为 [`/qq/cfhd/news/60847`](https://rsshub.app/qq/cfhd/news/60847)。\n:::\n\n| 分类                                                                                                  | ID                                            |\n| ----------------------------------------------------------------------------------------------------- | --------------------------------------------- |\n| [最新](https://cfhd.cf.qq.com/webplat/info/news_version3/37427/59139/59140/60847/m22510/list_1.shtml) | [60847](https://rsshub.app/qq/cfhd/news/60847) |\n| [公告](https://cfhd.cf.qq.com/webplat/info/news_version3/37427/59139/59140/59625/m22510/list_1.shtml) | [59625](https://rsshub.app/qq/cfhd/news/59625) |\n| [版本](https://cfhd.cf.qq.com/webplat/info/news_version3/37427/59139/59140/60850/m22510/list_1.shtml) | [60850](https://rsshub.app/qq/cfhd/news/60850) |\n| [赛事](https://cfhd.cf.qq.com/webplat/info/news_version3/37427/59139/59140/59626/m22510/list_1.shtml) | [59626](https://rsshub.app/qq/cfhd/news/59626) |\n| [杂谈](https://cfhd.cf.qq.com/webplat/info/news_version3/37427/59139/59140/59624/m22510/list_1.shtml) | [59624](https://rsshub.app/qq/cfhd/news/59624) |\n  ",
+            "parameters": {
+                "category": "分类，默认为 60847，即最新，可在对应分类页 URL 中找到"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "title": "穿越火线 CFHD 专区资讯中心 - 最新",
+                    "source": ["cfhd.cf.qq.com/webplat/info/news_version3/37427/59139/59140/60847/m22510/list_1.shtml"],
+                    "target": "/cfhd/news/60847"
+                },
+                {
+                    "title": "穿越火线 CFHD 专区资讯中心 - 公告",
+                    "source": ["cfhd.cf.qq.com/webplat/info/news_version3/37427/59139/59140/59625/m22510/list_1.shtml"],
+                    "target": "/cfhd/news/59625"
+                },
+                {
+                    "title": "穿越火线 CFHD 专区资讯中心 - 版本",
+                    "source": ["cfhd.cf.qq.com/webplat/info/news_version3/37427/59139/59140/60850/m22510/list_1.shtml"],
+                    "target": "/cfhd/news/60850"
+                },
+                {
+                    "title": "穿越火线 CFHD 专区资讯中心 - 赛事",
+                    "source": ["cfhd.cf.qq.com/webplat/info/news_version3/37427/59139/59140/59626/m22510/list_1.shtml"],
+                    "target": "/cfhd/news/59626"
+                },
+                {
+                    "title": "穿越火线 CFHD 专区资讯中心 - 杂谈",
+                    "source": ["cfhd.cf.qq.com/webplat/info/news_version3/37427/59139/59140/59624/m22510/list_1.shtml"],
+                    "target": "/cfhd/news/59624"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "qq",
+            "namespaceName": "腾讯网",
+            "namespaceUrl": "qq.com",
+            "path": "/lol/news/:category?",
+            "fullPath": "/qq/lol/news/:category?",
+            "name": "英雄联盟新闻",
+            "example": "/qq/lol/news",
+            "description": "::: tip\n若订阅 [英雄联盟首页新闻列表 - 公告](https://lol.qq.com/news/index.shtml)，网址为 `https://lol.qq.com/news/index.shtml`，请选择 `24` 作为 `category` 参数填入，此时目标路由为 [`/qq/lol/news/24`](https://rsshub.app/qq/lol/news/24)。\n:::\n\n| 综合 | 公告 | 赛事 | 攻略 | 社区 |\n| ---- | ---- | ---- | ---- | ---- |\n| 23   | 24   | 25   | 27   | 28   |\n",
+            "parameters": {
+                "category": "分类，默认为 `23`，即综合，见下表"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "title": "综合",
+                    "source": ["lol.qq.com/news/index.shtml"],
+                    "target": "/lol/news/23"
+                },
+                {
+                    "title": "公告",
+                    "source": ["lol.qq.com/news/index.shtml"],
+                    "target": "/lol/news/24"
+                },
+                {
+                    "title": "赛事",
+                    "source": ["lol.qq.com/news/index.shtml"],
+                    "target": "/lol/news/25"
+                },
+                {
+                    "title": "攻略",
+                    "source": ["lol.qq.com/news/index.shtml"],
+                    "target": "/lol/news/27"
+                },
+                {
+                    "title": "社区",
+                    "source": ["lol.qq.com/news/index.shtml"],
+                    "target": "/lol/news/28"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "sega",
+            "namespaceName": "SEGA",
+            "namespaceUrl": "pjsekai.sega.jp",
+            "path": "/maimaidx/news",
+            "fullPath": "/sega/maimaidx/news",
+            "name": "maimai DX Japanese Ver. News",
+            "example": "/sega/maimaidx/news",
+            "maintainers": ["randompasser"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["info-maimai.sega.jp/"]
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "sega",
+            "namespaceName": "SEGA",
+            "namespaceUrl": "pjsekai.sega.jp",
+            "path": "/pjsekai/news",
+            "fullPath": "/sega/pjsekai/news",
+            "name": "世界计划 多彩舞台 ｜ ProjectSekai ｜ プロセカ",
+            "example": "/sega/pjsekai/news",
+            "parameters": {},
+            "maintainers": ["15x15G"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["pjsekai.sega.jp/news/index.html"]
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "steam",
+            "namespaceName": "Steam",
+            "namespaceUrl": "store.steampowered.com",
+            "path": "/appcommunityfeed/:appid/:routeParams?",
+            "fullPath": "/steam/appcommunityfeed/:appid/:routeParams?",
+            "name": "Steam Community Hub Feeds",
+            "example": "/steam/appcommunityfeed/730",
+            "description": "Query Parameters:\n\n| Name                   | Type   | Description             |\n| ---------------------- | ------ | ----------------------- |\n| p                      | string | p                       |\n| rgSections[]           | string | rgSections              |\n| filterLanguage         | string | Filter Language         |\n| languageTag            | string | Language Tag            |\n| nMaxInappropriateScore | string | Max Inappropriate Score |\n\nExample:\n- `/appcommunityfeed/730/p=1&rgSections[]=2&rgSections[]=4&filterLanguage=english&languageTag=english&nMaxInappropriateScore=1` for CS2 Screenshot and Artwork contents.\n- `/appcommunityfeed/730/rgSections[]=6` for CS2 Workshop contents only.\n- `/appcommunityfeed/570/rgSections[]=3&rgSections[]=9` for Dota2 Video and Guides contents.\n\n::: tip\nIt can also access community hub contents that require a logged-in account.\n:::\n",
+            "parameters": {
+                "appid": "Steam appid, can be found on the community hub page or store page URL.",
+                "routeParams": "Query parameters."
+            },
+            "maintainers": ["NyaaaDoge"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "title": "Community Hub",
+                    "source": ["steamcommunity.com/app/:appid"],
+                    "target": "/appcommunityfeed/:appid"
+                },
+                {
+                    "title": "Community Hub",
+                    "source": ["store.steampowered.com/app/:appid/*/"],
+                    "target": "/appcommunityfeed/:appid"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "steam",
+            "namespaceName": "Steam",
+            "namespaceUrl": "store.steampowered.com",
+            "path": "/curator/:id/:routeParams?",
+            "fullPath": "/steam/curator/:id/:routeParams?",
+            "name": "Latest Curator Reviews",
+            "example": "/steam/curator/34646096-80-Days",
+            "description": "The Latest reviews from a Steam Curator.",
+            "parameters": {
+                "id": "Steam curator id. It usually consists of a series of numbers and the curator's name.",
+                "routeParams": {
+                    "description": "Extra parameters to filter the reviews. The following parameters are supported:\n| Key             | Description                                                                                   | Accepts                                    | Defaults to |\n| --------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------ | ----------- |\n| `curations`   | Review type to filter by. `0`: Recommended, `1`: Not Recommended, `2`: Informational    | `0`/`1`/`2`/`0,1`/`0,2`/`1,2`  |             |\n| `tagids`      | Tag to filter by. Details are provided below.                                                 | use comma to separate multiple tagid       |             |\n\nNote: There is a [‘Popular Tags’](https://store.steampowered.com/tag/browse) page where you can find many but not all of the tags. The tag’s ID is in the `data-tagid` attribute of the element.Steam does not currently provide a page that comprehensively lists all tags, and you may need to explore alternative ways to find them.\n\nExamples:\n* `/steam/curator/34646096-80-Days/curations=&tagids=`\n* `/steam/curator/34646096-80-Days/curations=0&tagids=19`\n* `/steam/curator/34646096-80-Days/curations=0,2&tagids=19,21`\n"
+                }
+            },
+            "maintainers": ["naremloa", "fenxer"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "title": "Latest Curator Reviews",
+                    "source": ["store.steampowered.com/curator/:id"],
+                    "target": "/curator/:id"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "steam",
+            "namespaceName": "Steam",
+            "namespaceUrl": "store.steampowered.com",
+            "path": "/news/:appid/:language?",
+            "fullPath": "/steam/news/:appid/:language?",
+            "name": "News",
+            "example": "/news/958260/english",
+            "description": "\n<details>\n<summary>More languages</summary>\n\n| 语言代码                                          | 语言名称   |\n| ------------------------------------------------- | ---------- |\n| English                                           | english    |\n| Español - España (Spanish - Spain)                | spanish    |\n| Français (French)                                 | french     |\n| Italiano (Italian)                                | italian    |\n| Deutsch (German)                                  | german     |\n| Ελληνικά (Greek)                                  | greek      |\n| 한국어 (Korean)                                   | koreana    |\n| 简体中文 (Simplified Chinese)                     | schinese   |\n| 繁體中文 (Traditional Chinese)                    | tchinese   |\n| Русский (Russian)                                 | russian    |\n| ไทย (Thai)                                        | thai       |\n| 日本語 (Japanese)                                 | japanese   |\n| Português (Portuguese)                            | portuguese |\n| Português - Brasil (Portuguese - Brazil)          | brazilian  |\n| Polski (Polish)                                   | polish     |\n| Dansk (Danish)                                    | danish     |\n| Nederlands (Dutch)                                | dutch      |\n| Suomi (Finnish)                                   | finnish    |\n| Norsk (Norwegian)                                 | norwegian  |\n| Svenska (Swedish)                                 | swedish    |\n| Čeština (Czech)                                   | czech      |\n| Magyar (Hungarian)                                | hungarian  |\n| Română (Romanian)                                 | romanian   |\n| Български (Bulgarian)                             | bulgarian  |\n| Türkçe (Turkish)                                  | turkish    |\n| Українська (Ukrainian)                            | ukrainian  |\n| Tiếng Việt (Vietnamese)                           | vietnamese |\n| Español - Latinoamérica (Spanish - Latin America) | latam      |\n\n</details>\n    ",
+            "parameters": {
+                "appid": "Game App ID, all digits, can be found in the URL",
+                "language": "Language, english by default, see below for more languages"
+            },
+            "maintainers": ["keocheung"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "title": "News",
+                    "source": ["steamcommunity.com/app/:appid", "steamcommunity.com/app/:appid/allnews", "steamcommunity.com/app/:appid/announcements", "steamcommunity.com/app/:appid/news"],
+                    "target": "/news/:appid"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "steam",
+            "namespaceName": "Steam",
+            "namespaceUrl": "store.steampowered.com",
+            "path": "/search/:params",
+            "fullPath": "/steam/search/:params",
+            "name": "Store Search",
+            "example": "/steam/search/sort_by=Released_DESC&tags=492&category1=10&os=linux",
+            "parameters": {
+                "params": "Query parameters for a Steam Store search."
+            },
+            "maintainers": ["moppman"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["store.steampowered.com", "store.steampowered.com/search/:params"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "steam",
+            "namespaceName": "Steam",
+            "namespaceUrl": "store.steampowered.com",
+            "path": "/sharefile-changelog/:sharefileID/:routeParams?",
+            "fullPath": "/steam/sharefile-changelog/:sharefileID/:routeParams?",
+            "name": "Sharefile Changelog",
+            "example": "/steam/sharefile-changelog/2851063440/l=schinese",
+            "description": "Steam Community Sharefile's Changelog. Primary used for a workshop item.\nHelpful route parameters:\n- `l=` language parameter, change the language of description.\n- `p=` page parameter, change the results page. p=1 by default.\n",
+            "parameters": {
+                "sharefileID": "Steam community sharefile id. Usually refers to a workshop item.",
+                "routeParams": "Route parameters."
+            },
+            "maintainers": ["NyaaaDoge"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "title": "Sharefile Changelog",
+                    "source": ["steamcommunity.com/sharedfiles/filedetails/changelog/:sharefileID"],
+                    "target": "/sharefile-changelog/:sharefileID"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "steam",
+            "namespaceName": "Steam",
+            "namespaceUrl": "store.steampowered.com",
+            "path": "/workshopsearch/:appid?/:routeParams?",
+            "fullPath": "/steam/workshopsearch/:appid?/:routeParams?",
+            "name": "Community Workshop Search",
+            "example": "/steam/workshopsearch/730",
+            "description": "Steam Community Workshop Search Results.\nThe parameter 'l=language' changes the language of search results(if possible).\nFor example, route `/workshopsearch/730/l=schinese` will display the simplified Chinese descriptions of the entry.\n\nLanguage Parameter:\n\n| English | 简体中文 | 繁體中文 | 日本語   | 한국어  | ภาษาไทย | български | čeština | dansk  | Deutsch | español | latam | ελληνικά | français | italiano | Bahasa Indonesia | magyar    | Nederlands | norsk     | polski | português  | brasileiro | română   | русский | suomi   | svenska | Türkçe  | Tiếng Việt | українська |\n| ------- | -------- | -------- | -------- | ------- | ------- | --------- | ------- | ------ | ------- | ------- | ----- | -------- | -------- | -------- | ---------------- | --------- | ---------- | --------- | ------ | ---------- | ---------- | -------- | ------- | ------- | ------- | ------- | ---------- | ---------- |\n| english | schinese | tchinese | japanese | koreana | thai    | bulgarian | czech   | danish | german  | spanish | latam | greek    | french   | italian  | indonesian       | hungarian | dutch      | norwegian | polish | portuguese | brazilian  | romanian | russian | finnish | swedish | turkish | vietnamese | ukrainian  |\n\n",
+            "parameters": {
+                "appid": "Steam appid, can be found on the community hub page or store page URL, 730 by default.",
+                "routeParams": "Route parameters, can be found on the search result page URL. Route parameters located after the appid."
+            },
+            "maintainers": ["NyaaaDoge"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "title": "Workshop Search Results",
+                    "source": ["steamcommunity.com/app/:appid/workshop/"],
+                    "target": "/workshopsearch/:appid"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "supercell",
+            "namespaceName": "Supercell",
+            "namespaceUrl": "supercell.com",
+            "path": "/:game/blog/:locale?",
+            "fullPath": "/supercell/:game/blog/:locale?",
+            "name": "Game Blog",
+            "example": "/supercell/clashroyale/blog/zh",
+            "description": "Supported games\n\n| Game              | Slug          |\n| ----------------- | ------------- |\n| Clash Royale      | clashroyale   |\n| Brawl Stars       | brawlstars    |\n| Clash of Clans    | clashofclans  |\n| Boom Beach        | boombeach     |\n| Hay Day           | hayday        |\n\nLanguage codes\n\n| Language           | Code    |\n| ------------------ | ------- |\n| English            |         |\n| 繁體中文           | zh      |\n| 简体中文           | zh-hans |\n| Français           | fr      |\n| Deutsch            | de      |\n| Indonesia          | id      |\n| Italiano           | it      |\n| 日本語             | ja      |\n| 한국어             | ko      |\n| Português          | pt      |\n| Русский            | ru      |\n| Español            | es      |",
+            "parameters": {
+                "game": "Game name, see below",
+                "locale": "Language code, see below, English by default"
+            },
+            "maintainers": ["fishyo"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["supercell.com/en/games/:game/:locale/blog"],
+                    "target": "/:game/blog/:locale"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "taptap",
+            "namespaceName": "TapTap",
+            "namespaceUrl": "www.taptap.io",
+            "path": "/changelog/:id/:lang?",
+            "fullPath": "/taptap/changelog/:id/:lang?",
+            "name": "游戏更新",
+            "example": "/taptap/changelog/60809/en_US",
+            "description": "::: warning\n由于区域限制，需要在有国内 IP 的机器上自建才能正常获取 RSS。而对于《TapTap 国际版》则需要部署在具有海外出口的 IP 上才可正常获取 RSS。\n:::",
+            "parameters": {
+                "id": "游戏 ID，游戏主页 URL 中获取",
+                "lang": "语言，默认使用 `zh_CN`，亦可使用 `en_US`"
+            },
+            "maintainers": ["hoilc", "ETiV"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.taptap.cn/app/:id"],
+                    "target": "/changelog/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "taptap",
+            "namespaceName": "TapTap",
+            "namespaceUrl": "www.taptap.io",
+            "path": "/intl/changelog/:id/:lang?",
+            "fullPath": "/taptap/intl/changelog/:id/:lang?",
+            "name": "Game's Changelog",
+            "example": "/taptap/intl/changelog/191001/zh_TW",
+            "description": "Language Code\n\n| English (US) | 繁體中文 | 한국어 | 日本語 |\n| ------------ | -------- | ------ | ------ |\n| en_US       | zh_TW   | ko_KR | ja_JP |",
+            "parameters": {
+                "id": "Game's App ID, you may find it from the URL of the Game",
+                "lang": "Language, checkout the table below for possible values, default is `en_US`"
+            },
+            "maintainers": ["hoilc", "ETiV"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.taptap.io/app/:id"],
+                    "target": "/intl/changelog/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "taptap",
+            "namespaceName": "TapTap",
+            "namespaceUrl": "www.taptap.io",
+            "path": "/intl/review/:id/:order?/:lang?",
+            "fullPath": "/taptap/intl/review/:id/:order?/:lang?",
+            "name": "Ratings & Reviews",
+            "example": "/taptap/intl/review/82354/recent",
+            "description": "Sort Method\n\n| Most Helpful | Most Recent |\n| ------------ | ----------- |\n| helpful      | recent      |\n\nLanguage Code\n\n| English (US) | 繁體中文 | 한국어 | 日本語 |\n| ------------ | -------- | ------ | ------ |\n| en_US       | zh_TW   | ko_KR | ja_JP |",
+            "parameters": {
+                "id": "Game's App ID, you may find it from the URL of the Game",
+                "order": "Sort Method, default is `helpful`, checkout the table below for possible values",
+                "lang": "Language, checkout the table below for possible values, default is `en_US`"
+            },
+            "maintainers": ["hoilc", "TonyRL", "ETiV"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.taptap.io/app/:id/review", "www.taptap.io/app/:id"],
+                    "target": "/intl/review/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "taptap",
+            "namespaceName": "TapTap",
+            "namespaceUrl": "www.taptap.io",
+            "path": "/review/:id/:order?/:lang?",
+            "fullPath": "/taptap/review/:id/:order?/:lang?",
+            "name": "游戏评价",
+            "example": "/taptap/review/142793/hot",
+            "description": "| 最新   | 综合 |\n| --- | --- |\n| new | hot |",
+            "parameters": {
+                "id": "游戏 ID，游戏主页 URL 中获取",
+                "order": "排序方式，空为综合，可选如下",
+                "lang": "语言，`zh-CN` 或 `zh-TW`，默认为 `zh-CN`"
+            },
+            "maintainers": ["hoilc", "TonyRL"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.taptap.cn/app/:id/review", "www.taptap.cn/app/:id"],
+                    "target": "/review/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "taptap",
+            "namespaceName": "TapTap",
+            "namespaceUrl": "www.taptap.io",
+            "path": "/topic/:id/:type?/:sort?/:lang?",
+            "fullPath": "/taptap/topic/:id/:type?/:sort?/:lang?",
+            "name": "游戏论坛",
+            "example": "/taptap/topic/142793/official",
+            "description": "| 全部 | 精华  | 官方     | 影片  |\n| ---- | ----- | -------- | ----- |\n| feed | elite | official | video |\n\n| 发布时间 | 回复时间  | 默认排序 |\n| -------- | --------- | ------- |\n| created  | commented | default |",
+            "parameters": {
+                "id": "游戏 ID，游戏主页 URL 中获取",
+                "type": "论坛版块，默认显示所有帖子，论坛版块 URL 中 `type` 参数，见下表，默认为 `feed`",
+                "sort": "排序，见下表，默认为 `created`",
+                "lang": "语言，`zh-CN`或`zh-TW`，默认为`zh-CN`"
+            },
+            "maintainers": ["hoilc", "TonyRL"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["taptap.cn/app/:id/topic", "taptap.cn/app/:id"],
+                    "target": "/topic/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "tencent",
+            "namespaceName": "腾讯",
+            "namespaceUrl": "tencent.com",
+            "path": "/pvp/newsindex/:type",
+            "fullPath": "/tencent/pvp/newsindex/:type",
+            "name": "新闻中心",
+            "example": "/tencent/pvp/newsindex/all",
+            "description": "| 全部 | 热门 | 新闻 | 公告 | 活动 | 赛事 | 优化 |\n| ---- | ---- | ---- | ---- | ---- | ---- | ---- |\n| all  | rm   | xw   | gg   | hd   | ss   | yh   |",
+            "parameters": {
+                "type": "栏目分类，见下表"
+            },
+            "maintainers": ["Jeason0228", "HenryQW"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "tgbus",
+            "namespaceName": "电玩巴士 TGBUS",
+            "namespaceUrl": "tgbus.com",
+            "path": "/list/:category",
+            "fullPath": "/tgbus/list/:category",
+            "name": "文章列表",
+            "example": "/tgbus/list/news",
+            "description": "| 最新资讯 | 游戏评测 | 游戏视频 | 巴士首页特稿 | 硬件资讯 |\n| -------- | -------- | -------- | ------------ | -------- |\n| news     | review   | video    | special      | hardware |",
+            "parameters": {
+                "category": "列表分类，见下表"
+            },
+            "maintainers": ["Xzonn"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["www.tgbus.com/list/:category/"],
+                    "target": "/list/:category"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "warhammer-community",
+            "namespaceName": "Warhammer Community",
+            "namespaceUrl": "www.warhammer-community.com/en-gb/",
+            "path": "/news",
+            "fullPath": "/warhammer-community/news",
+            "name": "News",
+            "example": "/warhammer-community/news",
+            "maintainers": ["TonyRL"],
+            "categories": ["game"],
+            "radar": [
+                {
+                    "source": ["www.warhammer-community.com/en-gb/all-news-and-features/", "www.warhammer-community.com/en-gb/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "warthunder",
+            "namespaceName": "War Thunder",
+            "namespaceUrl": "warthunder.com",
+            "path": "/news",
+            "fullPath": "/warthunder/news",
+            "name": "News",
+            "example": "/warthunder/news",
+            "description": "News data from [https://warthunder.com/en/news/](https://warthunder.com/en/news/)\n  The `pubDate` provided under UTC time zone, so please ignore the specific time!!!",
+            "parameters": {},
+            "maintainers": ["axojhf"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["warthunder.com/en/news", "warthunder.com/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "wmpvp",
+            "namespaceName": "完美世界电竞",
+            "namespaceUrl": "wmpvp.com",
+            "path": "/news/:type",
+            "fullPath": "/wmpvp/news/:type",
+            "name": "资讯列表",
+            "example": "/wmpvp/news/1",
+            "description": "| DOTA2 | CS2 |\n| ----- | --- |\n| 1     | 2   |",
+            "parameters": {
+                "type": "资讯分类，见下表"
+            },
+            "maintainers": ["tssujt"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "worldofwarships",
+            "namespaceName": "World of Warships",
+            "namespaceUrl": "worldofwarships.com",
+            "path": "/devblog",
+            "fullPath": "/worldofwarships/devblog",
+            "name": "Development Blog",
+            "example": "/worldofwarships/devblog",
+            "description": "Tip: use proxy if necessary.",
+            "maintainers": ["SinCerely023"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["blog.worldofwarships.com"],
+                    "target": "/devblog"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "xboxfan",
+            "namespaceName": "盒心光环",
+            "namespaceUrl": "xboxfan.com",
+            "path": "/news",
+            "fullPath": "/xboxfan/news",
+            "name": "资讯",
+            "example": "/xboxfan/news",
+            "parameters": {},
+            "maintainers": ["XXY233"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["xboxfan.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "xiaoheihe",
+            "namespaceName": "小黑盒",
+            "namespaceUrl": "xiaoheihe.cn",
+            "path": "/add2cart/:platform",
+            "fullPath": "/xiaoheihe/add2cart/:platform",
+            "name": "喜加一",
+            "example": "/xiaoheihe/add2cart/epic",
+            "parameters": {
+                "platform": "平台名：epic、steam或gog"
+            },
+            "maintainers": ["ladeng07"],
+            "categories": ["game"],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "xiaoheihe",
+            "namespaceName": "小黑盒",
+            "namespaceUrl": "xiaoheihe.cn",
+            "path": "/discount/:platform",
+            "fullPath": "/xiaoheihe/discount/:platform",
+            "name": "游戏折扣",
+            "example": "/xiaoheihe/discount/pc",
+            "description": "| PC  | Switch  | PSN   | Xbox |\n| ----- | ------ | ----- | ----- |\n| pc    | switch | psn   | xbox  |",
+            "parameters": {
+                "platform": "平台分类，见下表"
+            },
+            "maintainers": ["tssujt"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "xiaoheihe",
+            "namespaceName": "小黑盒",
+            "namespaceUrl": "xiaoheihe.cn",
+            "path": "/news",
+            "fullPath": "/xiaoheihe/news",
+            "name": "游戏新闻",
+            "example": "/xiaoheihe/news",
+            "maintainers": ["tssujt"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "xiaoheihe",
+            "namespaceName": "小黑盒",
+            "namespaceUrl": "xiaoheihe.cn",
+            "path": "/user/:id",
+            "fullPath": "/xiaoheihe/user/:id",
+            "name": "用户动态",
+            "example": "/xiaoheihe/user/30664023",
+            "parameters": {
+                "id": "用户 ID"
+            },
+            "maintainers": ["tssujt"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "yxdown",
+            "namespaceName": "游讯网",
+            "namespaceUrl": "yxdown.com",
+            "path": "/news/:category?",
+            "fullPath": "/yxdown/news/:category?",
+            "name": "资讯",
+            "example": "/yxdown/news",
+            "description": "| 资讯首页 | 业界动态 | 视频预告 | 新作发布 | 游戏资讯 | 游戏评测 | 网络游戏 | 手机游戏 |\n| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |\n|          | dongtai  | yugao    | xinzuo   | zixun    | pingce   | wangluo  | shouyou  |",
+            "parameters": {
+                "category": "分类，见下表，默认为资讯首页"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "yxdown",
+            "namespaceName": "游讯网",
+            "namespaceUrl": "yxdown.com",
+            "path": "/recommend",
+            "fullPath": "/yxdown/recommend",
+            "name": "精彩推荐",
+            "example": "/yxdown/recommend",
+            "parameters": {},
+            "maintainers": ["nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["yxdown.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "yxdzqb",
+            "namespaceName": "游戏打折情报",
+            "namespaceUrl": "yxdzqb.com",
+            "path": "/:type",
+            "fullPath": "/yxdzqb/:type",
+            "name": "游戏折扣",
+            "example": "/yxdzqb/popular_cn",
+            "description": "| Steam 最新折扣 | Steam 热门游戏折扣 | Steam 热门中文游戏折扣 | Steam 历史低价 | Steam 中文游戏历史低价 |\n| -------------- | ------------------ | ---------------------- | -------------- | ---------------------- |\n| discount       | popular            | popular_cn            | low            | low_cn                |",
+            "parameters": {
+                "type": "折扣类型"
+            },
+            "maintainers": ["LogicJake", "nczitzk"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["yxdzqb.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "yxrb",
+            "namespaceName": "游戏日报",
+            "namespaceUrl": "news.yxrb.net",
+            "path": "/:category?",
+            "fullPath": "/yxrb/:category?",
+            "name": "分类",
+            "example": "/yxrb/info",
+            "description": "| 资讯 | 访谈    | 服务    | 游理游据 |\n| ---- | ------- | ------- | -------- |\n| info | talking | service | comments |",
+            "parameters": {
+                "category": "分类，见下表，预设为 `info`"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["news.yxrb.net/:category", "news.yxrb.net/"],
+                    "target": "/:category"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "yystv",
+            "namespaceName": "游研社",
+            "namespaceUrl": "yystv.cn",
+            "path": "/category/:category",
+            "fullPath": "/yystv/category/:category",
+            "name": "游研社 - 分类文章",
+            "example": "/yystv/category/recommend",
+            "description": "| 推游      | 游戏史  | 大事件 | 文化    | 趣闻 | 经典回顾 | 业界     |\n| --------- | ------- | ------ | ------- | ---- | -------- | -------- |\n| recommend | history | big    | culture | news | retro    | industry |",
+            "parameters": {
+                "category": "专栏类型"
+            },
+            "maintainers": ["betta-cyber", "dousha"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "yystv",
+            "namespaceName": "游研社",
+            "namespaceUrl": "yystv.cn",
+            "path": "/docs",
+            "fullPath": "/yystv/docs",
+            "name": "游研社 - 全部文章",
+            "example": "/yystv/docs",
+            "parameters": {},
+            "maintainers": ["HaitianLiu", "yy4382"],
+            "categories": ["game"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["yystv.cn/docs"]
+                }
+            ],
+            "lang": "zh-CN"
+        }
+    ]
+}

@@ -1,0 +1,3730 @@
+{
+    "category": "anime",
+    "displayName": "ACG",
+    "displayNameZh": "二次元",
+    "icon": "🎨️",
+    "count": 112,
+    "routes": [
+        {
+            "namespace": "005",
+            "namespaceName": "幻之羁绊动漫网",
+            "namespaceUrl": "005.tv",
+            "path": "/:category?",
+            "fullPath": "/005/:category?",
+            "name": "资讯",
+            "example": "/005/zx",
+            "description": "\n| 二次元资讯 | 慢慢说 | 道听途说 | 展会资讯 |\n| ---------- | ------ | -------- | -------- |\n| zx         | zwh    | dtts     | zh       |\n    ",
+            "parameters": {
+                "category": "分类，可在对应分类页 URL 中找到，默认为二次元资讯"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["005.tv/:category"]
+                },
+                {
+                    "title": "二次元资讯",
+                    "source": ["005.tv/zx/"],
+                    "target": "/005/zx"
+                },
+                {
+                    "title": "慢慢说",
+                    "source": ["005.tv/zwh/"],
+                    "target": "/005/zwh"
+                },
+                {
+                    "title": "道听途说",
+                    "source": ["005.tv/dtts/"],
+                    "target": "/005/dtts"
+                },
+                {
+                    "title": "展会资讯",
+                    "source": ["005.tv/zh/"],
+                    "target": "/005/zh"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "18comic",
+            "namespaceName": "禁漫天堂",
+            "namespaceUrl": "18comic.org",
+            "path": "/:category?/:time?/:order?/:keyword?",
+            "fullPath": "/18comic/:category?/:time?/:order?/:keyword?",
+            "name": "成人 A 漫",
+            "example": "/18comic",
+            "description": "分类\n\n| 全部 | 其他漫畫 | 同人   | 韓漫   | 美漫   | 短篇  | 单本   |\n| ---- | -------- | ------ | ------ | ------ | ----- | ------ |\n| all  | another  | doujin | hanman | meiman | short | single |\n\n  时间范围\n\n| 全部 | 今天 | 这周 | 本月 |\n| ---- | ---- | ---- | ---- |\n| a    | t    | w    | m    |\n\n  排列顺序\n\n| 最新 | 最多点阅的 | 最多图片 | 最高评分 | 最多评论 | 最多爱心 |\n| ---- | ---------- | -------- | -------- | -------- | -------- |\n| mr   | mv         | mp       | tr       | md       | tf       |\n\n  关键字（供参考）\n\n| YAOI | 女性向 | NTR | 非 H | 3D | 獵奇 |\n| ---- | ------ | --- | ---- | -- | ---- |",
+            "parameters": {
+                "category": "分类，见下表，默认为 `all` 即全部",
+                "time": "时间范围，见下表，默认为 `a` 即全部",
+                "order": "排列顺序，见下表，默认为 `mr` 即最新",
+                "keyword": "关键字，见下表，默认为空"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["jmcomic.group/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "18comic",
+            "namespaceName": "禁漫天堂",
+            "namespaceUrl": "18comic.org",
+            "path": "/album/:id",
+            "fullPath": "/18comic/album/:id",
+            "name": "专辑",
+            "example": "/18comic/album/292282",
+            "description": "::: tip\n  专辑 id 不包括 URL 中标题的部分。\n:::",
+            "parameters": {
+                "id": "专辑 id，可在专辑页 URL 中找到"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["jmcomic.group/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "18comic",
+            "namespaceName": "禁漫天堂",
+            "namespaceUrl": "18comic.org",
+            "path": "/blogs/:category?",
+            "fullPath": "/18comic/blogs/:category?",
+            "name": "文庫",
+            "example": "/18comic/blogs",
+            "description": "分类\n\n| 全部 | 紳夜食堂 | 遊戲文庫 | JG GAMES | 模型山下 |\n| ---- | -------- | -------- | -------- | -------- |\n|      | dinner   | raiders  | jg       | figure   |",
+            "parameters": {
+                "category": "分类，见下表，默认为空即全部"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["jmcomic.group/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "18comic",
+            "namespaceName": "禁漫天堂",
+            "namespaceUrl": "18comic.org",
+            "path": "/search/:option?/:category?/:keyword?/:time?/:order?",
+            "fullPath": "/18comic/search/:option?/:category?/:keyword?/:time?/:order?",
+            "name": "搜索",
+            "example": "/18comic/search/photos/all/NTR",
+            "description": "::: tip\n  关键字必须超过两个字，这是来自网站的限制。\n:::",
+            "parameters": {
+                "option": "选项，可选 `video` 和 `photos`，默认为 `photos`",
+                "category": "分类，同上表，默认为 `all` 即全部",
+                "keyword": "关键字，同上表，默认为空",
+                "time": "时间范围，同上表，默认为 `a` 即全部",
+                "order": "排列顺序，同上表，默认为 `mr` 即最新"
+            },
+            "maintainers": [],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["jmcomic.group/"],
+                    "target": "/:category?/:time?/:order?/:keyword?"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "acfun",
+            "namespaceName": "AcFun",
+            "namespaceUrl": "www.acfun.cn",
+            "path": "/article/:categoryId/:sortType?/:timeRange?",
+            "fullPath": "/acfun/article/:categoryId/:sortType?/:timeRange?",
+            "name": "文章",
+            "example": "/acfun/article/110",
+            "description": "| 二次元画师 | 综合 | 生活情感 | 游戏 | 动漫文化 | 漫画文学 |\n| ---------- | ---- | -------- | ---- | -------- | -------- |\n| 184        | 110  | 73       | 164  | 74       | 75       |\n\n| 最新发表   | 最新动态        | 最热文章 |\n| ---------- | --------------- | -------- |\n| createTime | lastCommentTime | hotScore |\n\n| 时间不限 | 24 小时 | 三天     | 一周    | 一个月   |\n| -------- | ------- | -------- | ------- | -------- |\n| all      | oneDay  | threeDay | oneWeek | oneMonth |",
+            "parameters": {
+                "categoryId": {
+                    "description": "分区 ID",
+                    "options": [
+                        {
+                            "value": "73",
+                            "label": "生活情感"
+                        },
+                        {
+                            "value": "74",
+                            "label": "动漫文化"
+                        },
+                        {
+                            "value": "75",
+                            "label": "漫画文学"
+                        },
+                        {
+                            "value": "110",
+                            "label": "综合"
+                        },
+                        {
+                            "value": "164",
+                            "label": "游戏"
+                        },
+                        {
+                            "value": "184",
+                            "label": "二次元画师"
+                        }
+                    ]
+                },
+                "sortType": {
+                    "description": "排序",
+                    "options": [
+                        {
+                            "value": "createTime",
+                            "label": "最新发表"
+                        },
+                        {
+                            "value": "lastCommentTime",
+                            "label": "最新动态"
+                        },
+                        {
+                            "value": "hotScore",
+                            "label": "最热文章"
+                        }
+                    ],
+                    "default": "createTime"
+                },
+                "timeRange": {
+                    "description": "时间范围，仅在排序是 `hotScore` 有效",
+                    "options": [
+                        {
+                            "value": "all",
+                            "label": "时间不限"
+                        },
+                        {
+                            "value": "oneDay",
+                            "label": "24 小时"
+                        },
+                        {
+                            "value": "threeDay",
+                            "label": "三天"
+                        },
+                        {
+                            "value": "oneWeek",
+                            "label": "一周"
+                        },
+                        {
+                            "value": "oneMonth",
+                            "label": "一个月"
+                        }
+                    ],
+                    "default": "all"
+                }
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "acfun",
+            "namespaceName": "AcFun",
+            "namespaceUrl": "www.acfun.cn",
+            "path": "/bangumi/:id",
+            "fullPath": "/acfun/bangumi/:id",
+            "name": "番剧",
+            "example": "/acfun/bangumi/5022158",
+            "description": "::: tip\n番剧 id 不包含开头的 aa。\n例如：`https://www.acfun.cn/bangumi/aa5022158` 的番剧 id 是 5022158，不包括开头的 aa。\n:::",
+            "parameters": {
+                "id": "番剧 id"
+            },
+            "maintainers": ["xyqfer"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "acfun",
+            "namespaceName": "AcFun",
+            "namespaceUrl": "www.acfun.cn",
+            "path": "/user/video/:uid",
+            "fullPath": "/acfun/user/video/:uid",
+            "name": "用户投稿",
+            "example": "/acfun/user/video/6102",
+            "parameters": {
+                "uid": "用户 UID"
+            },
+            "maintainers": ["wdssmq"],
+            "categories": ["anime"],
+            "radar": [
+                {
+                    "source": ["www.acfun.cn/u/:id"],
+                    "target": "/user/video/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "acg17",
+            "namespaceName": "ACG17",
+            "namespaceUrl": "acg17.com",
+            "path": "/post/all",
+            "fullPath": "/acg17/post/all",
+            "name": "全部文章",
+            "example": "/acg17/post/all",
+            "parameters": {},
+            "maintainers": ["SunBK201"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["acg17.com/post"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "acgvinyl",
+            "namespaceName": "ACG Vinyl - 黑胶",
+            "namespaceUrl": "www.acgvinyl.com",
+            "path": "/news",
+            "fullPath": "/acgvinyl/news",
+            "name": "News",
+            "example": "/news",
+            "maintainers": ["williamgateszhao"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.acgvinyl.com"],
+                    "target": "/news"
+                }
+            ]
+        },
+        {
+            "namespace": "agefans",
+            "namespaceName": "AGE 动漫",
+            "namespaceUrl": "agemys.cc",
+            "path": "/detail/:id",
+            "fullPath": "/agefans/detail/:id",
+            "name": "番剧详情",
+            "example": "/agefans/detail/20200035",
+            "parameters": {
+                "id": "番剧 id，对应详情 URL 中找到"
+            },
+            "maintainers": ["s2marine"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["agemys.org/detail/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "agefans",
+            "namespaceName": "AGE 动漫",
+            "namespaceUrl": "agemys.cc",
+            "path": "/update",
+            "fullPath": "/agefans/update",
+            "name": "最近更新",
+            "example": "/agefans/update",
+            "parameters": {},
+            "maintainers": ["nczitzk"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["agemys.org/update", "agemys.org/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "anime1",
+            "namespaceName": "Anime1",
+            "namespaceUrl": "anime1.me",
+            "path": "anime/:category/:name",
+            "fullPath": "/anime1anime/:category/:name",
+            "name": "Anime",
+            "example": "/anime1/anime/2024年夏季/神之塔-第二季",
+            "parameters": {
+                "category": "Anime1 Category",
+                "name": "Anime1 Name"
+            },
+            "maintainers": ["cxheng315"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["anime1.me/category/:category/:name"],
+                    "target": "/anime/:category/:name"
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "anime1",
+            "namespaceName": "Anime1",
+            "namespaceUrl": "anime1.me",
+            "path": "search/:keyword",
+            "fullPath": "/anime1search/:keyword",
+            "name": "Search",
+            "example": "/anime1/search/神之塔",
+            "parameters": {
+                "keyword": "Anime1 Search Keyword"
+            },
+            "maintainers": ["cxheng315"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "bakamh",
+            "namespaceName": "巴卡漫画",
+            "namespaceUrl": "bakamh.com",
+            "path": "/manga/:name",
+            "fullPath": "/bakamh/manga/:name",
+            "name": "漫画更新",
+            "example": "/bakamh/manga/最强家丁",
+            "parameters": {
+                "name": "漫画名称，漫画主页的地址栏中"
+            },
+            "maintainers": ["yoyobase"],
+            "categories": ["anime"],
+            "radar": [
+                {
+                    "source": ["bakamh.com/manga/:name/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "bangumi.moe",
+            "namespaceName": "萌番组",
+            "namespaceUrl": "bangumi.online",
+            "path": "/*",
+            "fullPath": "/bangumi.moe/*",
+            "name": "Latest",
+            "example": "/bangumi.moe",
+            "maintainers": ["nczitzk"],
+            "categories": ["anime"],
+            "radar": [
+                {
+                    "source": ["bangumi.moe/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "bangumi.online",
+            "namespaceName": "アニメ新番組",
+            "namespaceUrl": "bangumi.online",
+            "path": "/",
+            "fullPath": "/bangumi.online/",
+            "name": "當季新番",
+            "example": "/bangumi.online",
+            "parameters": {},
+            "maintainers": ["devinmugen"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["bangumi.online/"]
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "bangumi.tv",
+            "namespaceName": "Bangumi 番组计划",
+            "namespaceUrl": "bangumi.tv",
+            "path": "/:type/followrank",
+            "fullPath": "/bangumi.tv/:type/followrank",
+            "name": "成员关注榜",
+            "example": "/bangumi.tv/anime/followrank",
+            "parameters": {
+                "type": "类型：anime - 动画，book - 图书，music - 音乐，game - 游戏，real - 三次元"
+            },
+            "maintainers": ["honue", "zhoukuncheng", "NekoAria"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["bgm.tv/:type"],
+                    "target": "/:type/followrank"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "bangumi.tv",
+            "namespaceName": "Bangumi 番组计划",
+            "namespaceUrl": "bangumi.tv",
+            "path": "/calendar/today",
+            "fullPath": "/bangumi.tv/calendar/today",
+            "name": "放送列表",
+            "example": "/bangumi.tv/calendar/today",
+            "parameters": {},
+            "maintainers": ["magic-akari"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["bgm.tv/calendar"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "bangumi.tv",
+            "namespaceName": "Bangumi 番组计划",
+            "namespaceUrl": "bangumi.tv",
+            "path": "/group/:id",
+            "fullPath": "/bangumi.tv/group/:id",
+            "name": "小组话题",
+            "example": "/bangumi.tv/group/boring",
+            "parameters": {
+                "id": "小组 id, 在小组页面地址栏查看"
+            },
+            "maintainers": ["SettingDust"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["bgm.tv/group/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "bangumi.tv",
+            "namespaceName": "Bangumi 番组计划",
+            "namespaceUrl": "bangumi.tv",
+            "path": "/person/:id",
+            "fullPath": "/bangumi.tv/person/:id",
+            "name": "现实人物的新作品",
+            "example": "/bangumi.tv/person/32943",
+            "parameters": {
+                "id": "人物 id, 在人物页面的地址栏查看"
+            },
+            "maintainers": ["ylc395"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["bgm.tv/person/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "bangumi.tv",
+            "namespaceName": "Bangumi 番组计划",
+            "namespaceUrl": "bangumi.tv",
+            "path": "/subject/:id/:type?/:showOriginalName?",
+            "fullPath": "/bangumi.tv/subject/:id/:type?/:showOriginalName?",
+            "name": "条目的通用路由格式",
+            "example": "/bangumi.tv/subject/328609/ep/true",
+            "description": "::: warning\n  此通用路由仅用于对路由参数的描述，具体信息请查看下方与条目相关的路由\n:::",
+            "parameters": {
+                "id": "条目 id, 在条目页面的地址栏查看",
+                "type": "条目类型，可选值为 `ep`, `comments`, `blogs`, `topics`，默认为 `ep`",
+                "showOriginalName": "显示番剧标题原名，可选值 0/1/false/true，默认为 false"
+            },
+            "maintainers": ["JimenezLi"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["bgm.tv/subject/:id"],
+                    "target": "/tv/subject/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "bangumi.tv",
+            "namespaceName": "Bangumi 番组计划",
+            "namespaceUrl": "bangumi.tv",
+            "path": "/topic/:id",
+            "fullPath": "/bangumi.tv/topic/:id",
+            "name": "小组话题的新回复",
+            "example": "/bangumi.tv/topic/367032",
+            "parameters": {
+                "id": "话题 id, 在话题页面地址栏查看"
+            },
+            "maintainers": ["ylc395"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["bgm.tv/group/topic/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "bangumi.tv",
+            "namespaceName": "Bangumi 番组计划",
+            "namespaceUrl": "bangumi.tv",
+            "path": "/user/blog/:id",
+            "fullPath": "/bangumi.tv/user/blog/:id",
+            "name": "用户日志",
+            "example": "/bangumi.tv/user/blog/sai",
+            "parameters": {
+                "id": "用户 id, 在用户页面地址栏查看"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["bgm.tv/user/:id"]
+                },
+                {
+                    "source": ["bangumi.tv/user/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "bangumi.tv",
+            "namespaceName": "Bangumi 番组计划",
+            "namespaceUrl": "bangumi.tv",
+            "path": "/user/collections/:id/:subjectType/:type",
+            "fullPath": "/bangumi.tv/user/collections/:id/:subjectType/:type",
+            "name": "Bangumi 用户收藏列表",
+            "example": "/bangumi.tv/user/collections/sai/1/1",
+            "parameters": {
+                "id": "用户 id, 在用户页面地址栏查看",
+                "subjectType": {
+                    "description": "全部类别: `空`、book: `1`、anime: `2`、music: `3`、game: `4`、real: `6`",
+                    "options": [
+                        {
+                            "value": "ALL",
+                            "label": "all"
+                        },
+                        {
+                            "value": "book",
+                            "label": "1"
+                        },
+                        {
+                            "value": "anime",
+                            "label": "2"
+                        },
+                        {
+                            "value": "music",
+                            "label": "3"
+                        },
+                        {
+                            "value": "game",
+                            "label": "4"
+                        },
+                        {
+                            "value": "real",
+                            "label": "6"
+                        }
+                    ]
+                },
+                "type": {
+                    "description": "全部类别: `空`、想看: `1`、看过: `2`、在看: `3`、搁置: `4`、抛弃: `5`",
+                    "options": [
+                        {
+                            "value": "ALL",
+                            "label": "all"
+                        },
+                        {
+                            "value": "想看",
+                            "label": "1"
+                        },
+                        {
+                            "value": "看过",
+                            "label": "2"
+                        },
+                        {
+                            "value": "在看",
+                            "label": "3"
+                        },
+                        {
+                            "value": "搁置",
+                            "label": "4"
+                        },
+                        {
+                            "value": "抛弃",
+                            "label": "5"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["youyou-sudo", "honue"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["bgm.tv/anime/list/:id"],
+                    "target": "/bangumi.tv/user/collections/:id/all/all"
+                },
+                {
+                    "source": ["bangumi.tv/anime/list/:id"],
+                    "target": "/bangumi.tv/user/collections/:id/all/all"
+                },
+                {
+                    "source": ["bgm.tv/anime/list/:id/wish"],
+                    "target": "/bangumi.tv/user/collections/:id/2/1"
+                },
+                {
+                    "source": ["bangumi.tv/anime/list/:id/wish"],
+                    "target": "/bangumi.tv/user/collections/:id/2/1"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "baozimh",
+            "namespaceName": "包子漫画",
+            "namespaceUrl": "www.baozimh.com",
+            "path": "/comic/:name",
+            "fullPath": "/baozimh/comic/:name",
+            "name": "订阅漫画",
+            "example": "/baozimh/comic/guowangpaiming-shiricaofu",
+            "parameters": {
+                "name": "漫画名称，在漫画链接可以得到(`comic/` 后的那段)"
+            },
+            "maintainers": ["Fatpandac"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.baozimh.com/comic/:name"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "bgmlist",
+            "namespaceName": "番组放送",
+            "namespaceUrl": "bgmlist.com",
+            "path": "/onair/:lang?",
+            "fullPath": "/bgmlist/onair/:lang?",
+            "name": "开播提醒",
+            "example": "/bgmlist/onair/zh-Hans",
+            "parameters": {
+                "lang": "语言"
+            },
+            "maintainers": ["x2cf"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "cartoonmad",
+            "namespaceName": "動漫狂",
+            "namespaceUrl": "cartoonmad.com",
+            "path": "/comic/:id",
+            "fullPath": "/cartoonmad/comic/:id",
+            "name": "漫画更新",
+            "example": "/cartoonmad/comic/5827",
+            "parameters": {
+                "id": "漫画ID"
+            },
+            "maintainers": ["KellyHwong"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["cartoonmad.com/comic/:id"]
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "cngal",
+            "namespaceName": "CnGal",
+            "namespaceUrl": "www.cngal.org",
+            "path": "/entry/:id",
+            "fullPath": "/cngal/entry/:id",
+            "name": "制作者 / 游戏新闻",
+            "example": "/cngal/entry/2693",
+            "parameters": {
+                "id": "词条ID，游戏或制作者页面URL的最后一串数字"
+            },
+            "maintainers": ["kmod-midori"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.cngal.org/entries/index/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "cngal",
+            "namespaceName": "CnGal",
+            "namespaceUrl": "www.cngal.org",
+            "path": "/weekly",
+            "fullPath": "/cngal/weekly",
+            "name": "每周速报",
+            "example": "/cngal/weekly",
+            "parameters": {},
+            "maintainers": ["kmod-midori"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.cngal.org/", "www.cngal.org/weeklynews"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "colamanga",
+            "namespaceName": "COLAMANGA",
+            "namespaceUrl": "www.colamanga.com",
+            "path": "/:id",
+            "fullPath": "/colamanga/:id",
+            "name": "Manga",
+            "example": "/colamanga/manga-qq978758",
+            "parameters": {
+                "id": "漫画id"
+            },
+            "maintainers": ["machsix"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": true,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.colamanga.com/:id/"],
+                    "target": "/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "collabo-cafe",
+            "namespaceName": "コラボカフェ",
+            "namespaceUrl": "collabo-cafe.com",
+            "path": "/",
+            "fullPath": "/collabo-cafe/",
+            "name": "全部文章",
+            "example": "/collabo-cafe/",
+            "description": "コラボカフェ - アニメ・漫画・ゲームのコラボ情報一覧まとめ",
+            "maintainers": ["cokemine"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "ja"
+        },
+        {
+            "namespace": "collabo-cafe",
+            "namespaceName": "コラボカフェ",
+            "namespaceUrl": "collabo-cafe.com",
+            "path": "/category/:category",
+            "fullPath": "/collabo-cafe/category/:category",
+            "name": "分类",
+            "example": "/collabo-cafe/category/cafe",
+            "description": "コラボカフェ - アニメ・漫画・ゲームのコラボ情報一覧まとめ",
+            "parameters": {
+                "category": "Category, refer to the original website (ジャンル別)"
+            },
+            "maintainers": ["cokemine"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "ja"
+        },
+        {
+            "namespace": "collabo-cafe",
+            "namespaceName": "コラボカフェ",
+            "namespaceUrl": "collabo-cafe.com",
+            "path": "/tag/:tag",
+            "fullPath": "/collabo-cafe/tag/:tag",
+            "name": "标签",
+            "example": "/collabo-cafe/tag/ikebukuro",
+            "description": "コラボカフェ - アニメ・漫画・ゲームのコラボ情報一覧まとめ",
+            "parameters": {
+                "tag": "Tag, refer to the original website (開催地域別)"
+            },
+            "maintainers": ["cokemine"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "ja"
+        },
+        {
+            "namespace": "comicat",
+            "namespaceName": "Comicat",
+            "namespaceUrl": "comicat.org",
+            "path": "/search/:keyword",
+            "fullPath": "/comicat/search/:keyword",
+            "name": "搜索关键词",
+            "example": "/comicat/search/喵萌奶茶屋+跃动青春+720P+简日",
+            "parameters": {
+                "keyword": "关键词，请用`+`号连接"
+            },
+            "maintainers": ["Cyang39"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": true,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "comicskingdom",
+            "namespaceName": "Comics Kingdom",
+            "namespaceUrl": "comicskingdom.com",
+            "path": "/:name",
+            "fullPath": "/comicskingdom/:name",
+            "name": "Archive",
+            "example": "/comicskingdom/pardon-my-planet",
+            "parameters": {
+                "name": "URL path of the strip on comicskingdom.com"
+            },
+            "maintainers": ["stjohnjohnson"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["comicskingdom.com/:name/*", "comicskingdom.com/:name"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "copymanga",
+            "namespaceName": "拷贝漫画",
+            "namespaceUrl": "copymanga.com",
+            "path": "/comic/:id/:chapterCnt?",
+            "fullPath": "/copymanga/comic/:id/:chapterCnt?",
+            "name": "漫画更新",
+            "example": "/copymanga/comic/dianjuren/5",
+            "parameters": {
+                "id": "漫画ID",
+                "chapterCnt": "返回章节的数量，默认为 `10`"
+            },
+            "maintainers": ["btdwv", "marvolo666"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "creative-comic",
+            "namespaceName": "CCC 創作集",
+            "namespaceUrl": "creative-comic.tw",
+            "path": "/book/:id/:coverOnly?/:quality?",
+            "fullPath": "/creative-comic/book/:id/:coverOnly?/:quality?",
+            "name": "漫畫",
+            "example": "/creative-comic/book/117",
+            "parameters": {
+                "id": "漫畫 ID，可在 URL 中找到",
+                "coverOnly": "僅獲取封面，非 `true` 時將獲取**全部**頁面，預設 `true`",
+                "quality": "閱讀品質，標準畫質 `1`，高畫質 `2`，預設 `1`"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["creative-comic.tw/book/:id/*"],
+                    "target": "/:id"
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "dlsite",
+            "namespaceName": "DLsite",
+            "namespaceUrl": "dlsite.com",
+            "path": "*",
+            "fullPath": "/dlsite*",
+            "name": "Unknown",
+            "maintainers": [],
+            "categories": ["anime"],
+            "features": {
+                "nsfw": true
+            },
+            "lang": "ja"
+        },
+        {
+            "namespace": "dlsite",
+            "namespaceName": "DLsite",
+            "namespaceUrl": "dlsite.com",
+            "path": "/campaign/:type/:free?",
+            "fullPath": "/dlsite/campaign/:type/:free?",
+            "name": "Discounted Works",
+            "example": "/dlsite/campaign/home",
+            "parameters": {
+                "type": {
+                    "description": "类型",
+                    "options": [
+                        {
+                            "value": "home",
+                            "label": "「DLsite 同人」"
+                        },
+                        {
+                            "value": "comic",
+                            "label": "「DLsite コミック」"
+                        },
+                        {
+                            "value": "soft",
+                            "label": "「DLsite PCソフト」"
+                        },
+                        {
+                            "value": "maniax",
+                            "label": "「DLsite 同人 - R18」"
+                        },
+                        {
+                            "value": "books",
+                            "label": "「DLsite 成年コミック - R18」"
+                        },
+                        {
+                            "value": "pro",
+                            "label": "「DLsite 美少女ゲーム」"
+                        },
+                        {
+                            "value": "girls",
+                            "label": "「DLsite 乙女」"
+                        },
+                        {
+                            "value": "bl",
+                            "label": "「DLsite BL」"
+                        }
+                    ]
+                },
+                "free": {
+                    "description": "免费",
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": "是"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["cssxsh"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "ja"
+        },
+        {
+            "namespace": "dlsite",
+            "namespaceName": "DLsite",
+            "namespaceUrl": "dlsite.com",
+            "path": "/ci-en/:id/article",
+            "fullPath": "/dlsite/ci-en/:id/article",
+            "name": "Ci-en Creators' Article",
+            "example": "/dlsite/ci-en/7400/article",
+            "parameters": {
+                "id": "Creator id, can be found in URL"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["ci-en.dlsite.com/creator/:id/article/843558", "ci-en.dlsite.com/"]
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "dlsite",
+            "namespaceName": "DLsite",
+            "namespaceUrl": "dlsite.com",
+            "path": "/new/:type",
+            "fullPath": "/dlsite/new/:type",
+            "name": "Current Release",
+            "example": "/dlsite/new/home",
+            "description": "| Doujin | Comics | PC Games | Doujin (R18) | Adult Comics | H Games | Otome | BL |\n| ------ | ------ | -------- | ------------ | ------------ | ------- | ----- | -- |\n| home   | comic  | soft     | maniax       | books        | pro     | girls | bl |",
+            "parameters": {
+                "type": {
+                    "description": "类型",
+                    "options": [
+                        {
+                            "value": "home",
+                            "label": "「DLsite 同人」"
+                        },
+                        {
+                            "value": "comic",
+                            "label": "「DLsite コミック」"
+                        },
+                        {
+                            "value": "soft",
+                            "label": "「DLsite PCソフト」"
+                        },
+                        {
+                            "value": "maniax",
+                            "label": "「DLsite 同人 - R18」"
+                        },
+                        {
+                            "value": "books",
+                            "label": "「DLsite 成年コミック - R18」"
+                        },
+                        {
+                            "value": "pro",
+                            "label": "「DLsite 美少女ゲーム」"
+                        },
+                        {
+                            "value": "girls",
+                            "label": "「DLsite 乙女」"
+                        },
+                        {
+                            "value": "bl",
+                            "label": "「DLsite BL」"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["cssxsh"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "ja"
+        },
+        {
+            "namespace": "dmzj",
+            "namespaceName": "动漫之家",
+            "namespaceUrl": "news.dmzj.com",
+            "path": "/news/:category?",
+            "fullPath": "/dmzj/news/:category?",
+            "name": "新闻站",
+            "example": "/dmzj/news/donghuaqingbao",
+            "description": "| 漫画情报      | 轻小说情报          | 动漫周边       | 声优情报        | 音乐资讯    | 游戏资讯   | 美图欣赏      | 漫展情报       | 大杂烩  |\n| ------------- | ------------------- | -------------- | --------------- | ----------- | ---------- | ------------- | -------------- | ------- |\n| manhuaqingbao | qingxiaoshuoqingbao | manhuazhoubian | shengyouqingbao | yinyuezixun | youxizixun | meituxinshang | manzhanqingbao | dazahui |",
+            "parameters": {
+                "category": "类别"
+            },
+            "maintainers": ["vzz64"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["news.dmzj.com/"],
+                    "target": "/news"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "dora-world",
+            "namespaceName": "Doraemon Channel",
+            "namespaceUrl": "www.dora-world.com",
+            "path": "/article/:topic/:topicId?",
+            "fullPath": "/dora-world/article/:topic/:topicId?",
+            "name": "Article",
+            "example": "/dora-world/article/contents",
+            "parameters": {
+                "topic": "Topic name, can be found in URL. For example: the topic name of [https://www.dora-world.com/movie](https://www.dora-world.com/movie) is `movie`",
+                "topicId": "Topic id, can be found in URL. For example: the topic id of [https://www.dora-world.com/contents?t=197](https://www.dora-world.com/contents?t=197) is `197`"
+            },
+            "maintainers": ["AChangAZha"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.dora-world.com/:topic"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "eventernote",
+            "namespaceName": "Eventernote",
+            "namespaceUrl": "www.eventernote.com",
+            "path": "/actors/:name/:id",
+            "fullPath": "/eventernote/actors/:name/:id",
+            "name": "声优活动及演唱会",
+            "example": "/eventernote/actors/三森すずこ/2634",
+            "parameters": {
+                "name": "声优姓名",
+                "id": "声优 ID"
+            },
+            "maintainers": ["KTachibanaM"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.eventernote.com/actors/:name/:id", "www.eventernote.com/actors/:name/:id/events"]
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "fffdm",
+            "namespaceName": "风之动漫",
+            "namespaceUrl": "manhua.fffdm.com",
+            "path": "/manhua/:id/:cdn?",
+            "fullPath": "/fffdm/manhua/:id/:cdn?",
+            "name": "在线漫画",
+            "example": "/fffdm/manhua/93",
+            "parameters": {
+                "id": "漫画ID。默认获取全部，建议使用通用参数limit获取指定数量",
+                "cdn": "cdn加速器。默认5，当前可选1-5"
+            },
+            "maintainers": ["zytomorrow"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.fffdm.com/manhua/:id", "www.fffdm.com/:id"],
+                    "target": "/manhua/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "freexcomic",
+            "namespaceName": "漫小肆韓漫",
+            "namespaceUrl": "freexcomic.com",
+            "path": "/book/:id",
+            "fullPath": "/freexcomic/book/:id",
+            "name": "漫画更新",
+            "example": "/freexcomic/book/90",
+            "parameters": {
+                "id": "漫画id，漫画主页的地址栏中"
+            },
+            "maintainers": ["junfengP"],
+            "categories": ["anime"],
+            "features": {
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["www.jjmhw.cc/book/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gamer",
+            "namespaceName": "巴哈姆特電玩資訊站",
+            "namespaceUrl": "acg.gamer.com.tw",
+            "path": "/ani/anime/:sn",
+            "fullPath": "/gamer/ani/anime/:sn",
+            "name": "動畫瘋 - 動畫",
+            "example": "/gamer/ani/anime/36868",
+            "parameters": {
+                "sn": "動畫 sn，在 URL 可以找到"
+            },
+            "maintainers": ["maple3142", "pseudoyu"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ani.gamer.com.tw/"],
+                    "target": "/anime/:sn"
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "gamer",
+            "namespaceName": "巴哈姆特電玩資訊站",
+            "namespaceUrl": "acg.gamer.com.tw",
+            "path": "/ani/new_anime",
+            "fullPath": "/gamer/ani/new_anime",
+            "name": "動畫瘋 - 最後更新",
+            "example": "/gamer/ani/new_anime",
+            "parameters": {},
+            "maintainers": ["maple3142", "pseudoyu"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ani.gamer.com.tw/"],
+                    "target": "/new_anime"
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "gamer",
+            "namespaceName": "巴哈姆特電玩資訊站",
+            "namespaceUrl": "acg.gamer.com.tw",
+            "path": "/gnn/:category?",
+            "fullPath": "/gamer/gnn/:category?",
+            "name": "GNN 新聞",
+            "example": "/gamer/gnn/1",
+            "description": "缺省為首頁",
+            "parameters": {
+                "category": {
+                    "description": "版塊",
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": "PC"
+                        },
+                        {
+                            "value": "3",
+                            "label": "TV 掌機"
+                        },
+                        {
+                            "value": "4",
+                            "label": "手機遊戲"
+                        },
+                        {
+                            "value": "5",
+                            "label": "動漫畫"
+                        },
+                        {
+                            "value": "9",
+                            "label": "主題報導"
+                        },
+                        {
+                            "value": "11",
+                            "label": "活動展覽"
+                        },
+                        {
+                            "value": "13",
+                            "label": "電競"
+                        },
+                        {
+                            "value": "ns",
+                            "label": "Switch"
+                        },
+                        {
+                            "value": "ps5",
+                            "label": "PS5"
+                        },
+                        {
+                            "value": "ps4",
+                            "label": "PS4"
+                        },
+                        {
+                            "value": "xbone",
+                            "label": "XboxOne"
+                        },
+                        {
+                            "value": "xbsx",
+                            "label": "XboxSX"
+                        },
+                        {
+                            "value": "pc",
+                            "label": "PC 單機"
+                        },
+                        {
+                            "value": "olg",
+                            "label": "PC 線上"
+                        },
+                        {
+                            "value": "ios",
+                            "label": "iOS"
+                        },
+                        {
+                            "value": "android",
+                            "label": "Android"
+                        },
+                        {
+                            "value": "web",
+                            "label": "Web"
+                        },
+                        {
+                            "value": "comic",
+                            "label": "漫畫"
+                        },
+                        {
+                            "value": "anime",
+                            "label": "動畫"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["Arracc", "ladeng07", "pseudoyu"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "gamer",
+            "namespaceName": "巴哈姆特電玩資訊站",
+            "namespaceUrl": "acg.gamer.com.tw",
+            "path": "/hot/:bsn",
+            "fullPath": "/gamer/hot/:bsn",
+            "name": "本板推薦",
+            "example": "/gamer/hot/47157",
+            "parameters": {
+                "bsn": "板塊 id，在 URL 可以找到"
+            },
+            "maintainers": ["nczitzk", "TonyRL", "kennyfong19931"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "gogoanimehd",
+            "namespaceName": "Gogoanimehd",
+            "namespaceUrl": "developer.anitaku.to",
+            "path": "/recent-releases",
+            "fullPath": "/gogoanimehd/recent-releases",
+            "name": "Recent Releases",
+            "example": "/gogoanimehd/recent-releases",
+            "parameters": {},
+            "maintainers": ["user4302"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["developer.anitaku.to/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "hanime1",
+            "namespaceName": "Hanime1",
+            "namespaceUrl": "hanime1.me",
+            "path": "/previews/:date?",
+            "fullPath": "/hanime1/previews/:date?",
+            "name": "每月新番",
+            "example": "/hanime1/previews/202504",
+            "description": "NSFW WARNING!!! It contains adult content. Hanime1 provides adult anime",
+            "parameters": {
+                "date": {
+                    "description": "日期格式为 `YYYYMM`，默认值当月"
+                }
+            },
+            "maintainers": ["kjasn"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["hanime1.me/previews/:date", "hanime1.me/previews"],
+                    "target": "/previews/:date"
+                }
+            ]
+        },
+        {
+            "namespace": "hanime1",
+            "namespaceName": "Hanime1",
+            "namespaceUrl": "hanime1.me",
+            "path": "/search/:params",
+            "fullPath": "/hanime1/search/:params",
+            "name": "搜索结果",
+            "example": "/hanime1/search/tags%5B%5D=%E7%B4%94%E6%84%9B&",
+            "description": "NSFW WARNING!!! It contains adult content. Hanime1 provides adult anime",
+            "parameters": {
+                "params": {
+                    "description": "\n| 参数                | 说明                              | 示例或可选值                                                                                                          |\n| ------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------- |\n| `query`           | 搜索框输入的内容                  | 任意值都可以，例如：`辣妹`                                                                                          |\n| `genre`           | 番剧类型，默认为`全部`          | 可选值有：`全部` / `裏番` / `泡麵番` / `Motion+Anime` / `3D動畫` / `同人作品` / `MMD` / `Cosplay`     |\n| `tags[]`          | 标签                              | 可选值过多，不一一列举，详细请查看原网址。例如：`tags[]=純愛&tags[]=中文字幕`                                       |\n| `broad`           | 标签模糊匹配，默认为 `off`      | `on`（模糊匹配，包含任一标签） / `off`（精确匹配，包含全部标签）                                                  |\n| `sort`            | 搜索结果排序，默认 `最新上市`   | `最新上市` / `最新上傳` / `本日排行` / `本週排行` / `本月排行` / `觀看次數` / `讚好比例` / `他們在看` |\n| `year`, `month` | 筛选发布时间，默认为 `全部时间` | 例如：`year=2025&month=5`                                                                                           |\n\n::: tip\n如果你不确定标签或类型的具体名字，可以直接去原网址选好筛选条件后，把网址中的参数复制过来使用。例如： `https://hanime1.me/search?query=&genre=裏番&broad=on&sort=最新上市&tags[]=純愛&tags[]=中文字幕`，`/search?`后面的部分就是参数了,最后得到**类似**这样的路由 `https://rsshub.app/hanime1/search/query=&genre=裏番&broad=on&sort=最新上市&tags[]=純愛&tags[]=中文字幕`\n:::\n"
+                }
+            },
+            "maintainers": ["kjasn"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            }
+        },
+        {
+            "namespace": "hpoi",
+            "namespaceName": "Hpoi 手办维基",
+            "namespaceUrl": "www.hpoi.net",
+            "path": "/bannerItem",
+            "fullPath": "/hpoi/bannerItem",
+            "name": "热门推荐",
+            "example": "/hpoi/bannerItem",
+            "parameters": {},
+            "maintainers": ["DIYgod"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.hpoi.net/bannerItem/list"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hpoi",
+            "namespaceName": "Hpoi 手办维基",
+            "namespaceUrl": "www.hpoi.net",
+            "path": "/info/:type?/:catType?",
+            "fullPath": "/hpoi/info/:type?/:catType?",
+            "name": "情报",
+            "example": "/hpoi/info/all/hobby|model",
+            "description": "::: tip\n  情报类型中的*手办*、*模型*只是为了兼容, 实际效果等同于**全部**, 如果只需要**手办**类型的情报, 可以使用参数*catType*, e.g. /hpoi/info/all/hobby\n:::\n\n|  手办   | 动漫模型 | 真实模型 | 毛绒布偶 | doll娃娃 | GK/其他 |\n| ------ | ------- | ------- | ------- | ------- | ------ |\n| hobby  |  model  |  real   | moppet  |  doll   | gkdiy  |",
+            "parameters": {
+                "type": {
+                    "description": "情报类型",
+                    "options": [
+                        {
+                            "value": "all",
+                            "label": "全部"
+                        },
+                        {
+                            "value": "confirm",
+                            "label": "制作"
+                        },
+                        {
+                            "value": "official_pic",
+                            "label": "官图更新"
+                        },
+                        {
+                            "value": "preorder",
+                            "label": "开订"
+                        },
+                        {
+                            "value": "delay",
+                            "label": "延期"
+                        },
+                        {
+                            "value": "release",
+                            "label": "出荷"
+                        },
+                        {
+                            "value": "reorder",
+                            "label": "再版"
+                        },
+                        {
+                            "value": "hobby",
+                            "label": "手办(拟废弃, 无效果)"
+                        },
+                        {
+                            "value": "model",
+                            "label": "动漫模型(拟废弃, 无效果)"
+                        }
+                    ],
+                    "default": "all"
+                },
+                "catType": {
+                    "description": "手办分类过滤, 使用|分割, 支持的分类见下表",
+                    "default": "all"
+                }
+            },
+            "maintainers": ["sanmmm DIYgod"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hpoi",
+            "namespaceName": "Hpoi 手办维基",
+            "namespaceUrl": "www.hpoi.net",
+            "path": "/items/all/:order?",
+            "fullPath": "/hpoi/items/all/:order?",
+            "name": "所有周边",
+            "example": "/hpoi/items/all",
+            "parameters": {
+                "order": {
+                    "description": "排序",
+                    "options": [
+                        {
+                            "value": "release",
+                            "label": "发售"
+                        },
+                        {
+                            "value": "add",
+                            "label": "入库"
+                        },
+                        {
+                            "value": "hits",
+                            "label": "总热度"
+                        },
+                        {
+                            "value": "hits7Day",
+                            "label": "一周热度"
+                        },
+                        {
+                            "value": "hitsDay",
+                            "label": "一天热度"
+                        },
+                        {
+                            "value": "rating",
+                            "label": "评价"
+                        }
+                    ],
+                    "default": "add"
+                }
+            },
+            "maintainers": ["DIYgod"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.hpoi.net/hobby/all"],
+                    "target": "/items/all"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hpoi",
+            "namespaceName": "Hpoi 手办维基",
+            "namespaceUrl": "www.hpoi.net",
+            "path": "/items/character/:id/:order?",
+            "fullPath": "/hpoi/items/character/:id/:order?",
+            "name": "角色周边",
+            "example": "/hpoi/items/character/1035374",
+            "parameters": {
+                "id": "角色 ID",
+                "order": {
+                    "description": "排序",
+                    "options": [
+                        {
+                            "value": "release",
+                            "label": "发售"
+                        },
+                        {
+                            "value": "add",
+                            "label": "入库"
+                        },
+                        {
+                            "value": "hits",
+                            "label": "总热度"
+                        },
+                        {
+                            "value": "hits7Day",
+                            "label": "一周热度"
+                        },
+                        {
+                            "value": "hitsDay",
+                            "label": "一天热度"
+                        },
+                        {
+                            "value": "rating",
+                            "label": "评价"
+                        }
+                    ],
+                    "default": "add"
+                }
+            },
+            "maintainers": ["DIYgod"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hpoi",
+            "namespaceName": "Hpoi 手办维基",
+            "namespaceUrl": "www.hpoi.net",
+            "path": "/items/work/:id/:order?",
+            "fullPath": "/hpoi/items/work/:id/:order?",
+            "name": "作品周边",
+            "example": "/hpoi/items/work/4117491",
+            "parameters": {
+                "id": "作品 ID",
+                "order": {
+                    "description": "排序",
+                    "options": [
+                        {
+                            "value": "release",
+                            "label": "发售"
+                        },
+                        {
+                            "value": "add",
+                            "label": "入库"
+                        },
+                        {
+                            "value": "hits",
+                            "label": "总热度"
+                        },
+                        {
+                            "value": "hits7Day",
+                            "label": "一周热度"
+                        },
+                        {
+                            "value": "hitsDay",
+                            "label": "一天热度"
+                        },
+                        {
+                            "value": "rating",
+                            "label": "评价"
+                        }
+                    ],
+                    "default": "add"
+                }
+            },
+            "maintainers": ["DIYgod"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hpoi",
+            "namespaceName": "Hpoi 手办维基",
+            "namespaceUrl": "www.hpoi.net",
+            "path": "/user/:user_id/:caty",
+            "fullPath": "/hpoi/user/:user_id/:caty",
+            "name": "用户动态",
+            "example": "/hpoi/user/116297/buy",
+            "parameters": {
+                "user_id": {
+                    "description": "用户ID"
+                },
+                "caty": {
+                    "description": "类别",
+                    "options": [
+                        {
+                            "value": "want",
+                            "label": "想买"
+                        },
+                        {
+                            "value": "preorder",
+                            "label": "预定"
+                        },
+                        {
+                            "value": "buy",
+                            "label": "已入"
+                        },
+                        {
+                            "value": "care",
+                            "label": "关注"
+                        },
+                        {
+                            "value": "resell",
+                            "label": "有过"
+                        }
+                    ],
+                    "default": "buy"
+                }
+            },
+            "maintainers": ["DIYgod", "luyuhuang"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "idolmaster",
+            "namespaceName": "アイドルマスター THE IDOLM@STER",
+            "namespaceUrl": "idolmaster-official.jp",
+            "path": "/news/:routeParams?",
+            "fullPath": "/idolmaster/news/:routeParams?",
+            "name": "ニュース News",
+            "example": "/idolmaster/news/brand=MILLIONLIVE&brand=SHINYCOLORS&category=GAME&category=ANIME",
+            "description": "**Brand**\n| THE IDOLM@STER | シンデレラガールズ | ミリオンライブ！ | SideM | シャイニーカラーズ | 学園アイドルマスター | その他 |\n| -------------- | --------------- | ------------- | ----- | --------------- | ----------------- | ----- |\n| IDOLMASTER | CINDERELLAGIRLS | MILLIONLIVE | SIDEM | SHINYCOLORS | GAKUEN | OTHER |\n\n**Category**\n| ゲーム | ライブ・イベント | アニメ | 配信番組 | ラジオ | グッズ | コラボ・キャンペーン | ミュージック | ブック・コミック | メディア | その他 |\n| ----- | ------------- | ----- | ------- | ----- | ----- | ----------------- | --------- | -------------- | ------ | ----- |\n| GAME | LIVE-EVENT | ANIME | LIVESTREAM | RADIO | GOODS | COLLABO-CAMP | CD | BOOK | MEDIA | OTHER |\n    ",
+            "parameters": {
+                "routeParams": "The `brand` and `category` params in the path. The available values are as follows."
+            },
+            "maintainers": ["keocheung"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["idolmaster-official.jp/news"],
+                    "target": "/news"
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "idolypride",
+            "namespaceName": "IDOLY PRIDE 偶像荣耀",
+            "namespaceUrl": "idolypride.jp",
+            "path": "/news",
+            "fullPath": "/idolypride/news",
+            "name": "News",
+            "example": "/idolypride/news",
+            "parameters": {},
+            "maintainers": ["Mingxia1"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["idolypride.jp/news"]
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "iwara",
+            "namespaceName": "iwara",
+            "namespaceUrl": "ecchi.iwara.tv",
+            "path": "/subscriptions",
+            "fullPath": "/iwara/subscriptions",
+            "name": "User Subscriptions",
+            "example": "/iwara/subscriptions",
+            "description": "::: warning\n  This route requires username and password, therefore it's only available when self-hosting, refer to the [Deploy Guide](https://docs.rsshub.app/deploy/config#route-specific-configurations) for route-specific configurations.\n:::",
+            "parameters": {},
+            "maintainers": ["FeCCC"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "IWARA_USERNAME",
+                        "description": ""
+                    },
+                    {
+                        "name": "IWARA_PASSWORD",
+                        "description": ""
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["www.iwara.tv/subscriptions/videos", "www.iwara.tv/subscriptions/images"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "iwara",
+            "namespaceName": "iwara",
+            "namespaceUrl": "ecchi.iwara.tv",
+            "path": "/users/:username/:type?",
+            "fullPath": "/iwara/users/:username/:type?",
+            "name": "User",
+            "example": "/iwara/users/kelpie/video",
+            "parameters": {
+                "username": "username, can find in userpage",
+                "type": "content type, can be video or image, default is video"
+            },
+            "maintainers": ["Fatpandac"],
+            "categories": ["anime"],
+            "features": {
+                "nsfw": true
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "kemono",
+            "namespaceName": "Kemono",
+            "namespaceUrl": "kemono.cr",
+            "path": "/:source?/:id?/:type?",
+            "fullPath": "/kemono/:source?/:id?/:type?",
+            "name": "Posts",
+            "example": "/kemono",
+            "description": "Sources\n\n| Posts | Patreon | Pixiv Fanbox | Gumroad | SubscribeStar | DLsite | Discord | Fantia |\n| ----- | ------- | ------------ | ------- | ------------- | ------ | ------- | ------ |\n| posts | patreon | fanbox       | gumroad | subscribestar | dlsite | discord | fantia |\n\n::: tip\n  When `posts` is selected as the value of the parameter **source**, the parameter **id** does not take effect.\n  There is an optinal parameter **limit** which controls the number of posts to fetch, default value is 25.\n\n  Support for announcements and fancards:\n  - Use `/:source/:id/announcements` to get announcements\n  - Use `/:source/:id/fancards` to get fancards\n:::",
+            "parameters": {
+                "source": "Source, see below, Posts by default",
+                "id": "User id, can be found in URL",
+                "type": "Content type: announcements or fancards"
+            },
+            "maintainers": ["nczitzk", "AiraNadih"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["kemono.cr/"],
+                    "target": ""
+                },
+                {
+                    "source": ["kemono.cr/:source/user/:id"],
+                    "target": "/:source/:id"
+                },
+                {
+                    "source": ["kemono.cr/:source/user/:id/announcements"],
+                    "target": "/:source/:id/announcements"
+                },
+                {
+                    "source": ["kemono.cr/:source/user/:id/fancards"],
+                    "target": "/:source/:id/fancards"
+                },
+                {
+                    "source": ["kemono.cr/discord/server/:id"],
+                    "target": "/discord/:id"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "komiic",
+            "namespaceName": "Komiic",
+            "namespaceUrl": "komiic.com",
+            "path": "/comic/:id",
+            "fullPath": "/komiic/comic/:id",
+            "name": "漫画更新",
+            "example": "/komiic/comic/533",
+            "parameters": {
+                "id": "漫画 ID"
+            },
+            "maintainers": ["NekoAria"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["komiic.com/comic/:id"],
+                    "target": "/comic/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "laimanhua",
+            "namespaceName": "来漫画",
+            "namespaceUrl": "www.laimanhua8.com",
+            "path": "/:id",
+            "fullPath": "/laimanhua/:id",
+            "name": "漫画列表",
+            "example": "/laimanhua/tiandikangzhanjiVERSUS",
+            "parameters": {
+                "id": "漫画 ID，可在 URL 中找到"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["www.laimanhua8.com/kanmanhua/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "lovelive-anime",
+            "namespaceName": "Love Live! Official Website",
+            "namespaceUrl": "www.lovelive-anime.jp",
+            "path": "/news/:abbr?/:category?/:option?",
+            "fullPath": "/lovelive-anime/news/:abbr?/:category?/:option?",
+            "name": "News",
+            "example": "/lovelive-anime/news",
+            "description": "| Sub-project Name | All Projects | Lovelive!   | Lovelive! Sunshine!! | Lovelive! Nijigasaki High School Idol Club | Lovelive! Superstar!! | 蓮ノ空女学院 | イキヅライブ！ | 幻日のヨハネ | ラブライブ！スクールアイドルミュージカル |\n| -------------------------------- | -------------- | ----------- | -------------------- | ------------------------------------------ | --------------------- | ------------ | ------------ |  ------------ | ---------------------------------------- |\n| `abbr`parameter                  | <u>*No parameter*</u> | lovelive |     sunshine        | nijigasaki                                 | superstar              | hasunosora |  ikizulive  | yohane       | musical                                  |\n\n| Category Name       | 全てのニュース        | 音楽商品 | アニメ映像商品 | キャスト映像商品 | 劇場    | アニメ放送 / 配信 | キャスト配信 / ラジオ | ライブ / イベント | ブック | グッズ | ゲーム | メディア | ご当地情報 | キャンペーン | その他 |\n| ------------------- | --------------------- | -------- | -------------- | ---------------- | ------- | ----------------- | --------------------- | ----------------- | ------ | ------ | ------ | -------- | ---------- | ------ | ------------ |\n| `category`parameter | <u>*No parameter*</u> | music    | anime_movie   | cast_movie      | theater | onair             | radio                 | event             | books  | goods  | game   | media    | local      | campaign  | other   |",
+            "parameters": {
+                "abbr": "The path to the Love Live series of sub-projects on the official website is detailed in the table below, `abbr` is `detail` when crawling the full text",
+                "category": "The official website lists the Topics category, `category` is `detail` when crawling the full text, other categories see the following table for details",
+                "option": "Crawl full text when `option` is `detail`."
+            },
+            "maintainers": ["axojhf", "zhaoweizhong"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.lovelive-anime.jp/", "www.lovelive-anime.jp/news/"],
+                    "target": "/news"
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "m-78",
+            "namespaceName": "円谷ステーション",
+            "namespaceUrl": "m-78.jp",
+            "path": "/news/:category?",
+            "fullPath": "/m-78/news/:category?",
+            "name": "ニュース",
+            "example": "/m-78/news",
+            "parameters": {
+                "category": {
+                    "description": "news category",
+                    "default": "news",
+                    "options": [
+                        {
+                            "value": "news",
+                            "label": "ニュース"
+                        },
+                        {
+                            "value": "streaming",
+                            "label": "動画配信"
+                        },
+                        {
+                            "value": "event",
+                            "label": "イベント"
+                        },
+                        {
+                            "value": "onair",
+                            "label": "放送"
+                        },
+                        {
+                            "value": "broadcast",
+                            "label": "放送/配信"
+                        },
+                        {
+                            "value": "goods",
+                            "label": "グッズ"
+                        },
+                        {
+                            "value": "ultraman-cardgame",
+                            "label": "ウルトラマン カードゲーム"
+                        },
+                        {
+                            "value": "shop",
+                            "label": "ショップ"
+                        },
+                        {
+                            "value": "blu-ray_dvd",
+                            "label": "Blu-ray・DVD"
+                        },
+                        {
+                            "value": "digital",
+                            "label": "デジタル"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["KarasuShin"],
+            "categories": ["anime"],
+            "features": {
+                "supportRadar": true
+            },
+            "radar": [
+                {
+                    "source": ["m-78.jp/news"],
+                    "target": "/news"
+                },
+                {
+                    "source": ["m-78.jp/news/category/:category"],
+                    "target": "/news/:category"
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "mangadex",
+            "namespaceName": "MangaDex",
+            "namespaceUrl": "mangadex.org",
+            "path": "/manga/:id/:lang?",
+            "fullPath": "/mangadex/manga/:id/:lang?",
+            "name": "Single Manga Feed",
+            "example": "/mangadex/manga/f98660a1-d2e2-461c-960d-7bd13df8b76d/en",
+            "description": "MangaDex is an non-profit and ad-free manga reader offering high-quality images.",
+            "maintainers": ["vzz64", "chrisis58"],
+            "categories": ["anime"],
+            "features": {
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["mangadex.org/title/:id/:suffix", "mangadex.org/title/:id"],
+                    "target": "/manga/:id"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "mangadex",
+            "namespaceName": "MangaDex",
+            "namespaceUrl": "mangadex.org",
+            "path": "/mdlist/:id/:lang?",
+            "fullPath": "/mangadex/mdlist/:id/:lang?",
+            "name": "MDList Feed",
+            "example": "/mangadex/mdlist/10cca803-8dc9-4f0e-86a8-6659a3ce5188?limit=10&private=true",
+            "description": "Sepcific MangaDex MDList Feed",
+            "parameters": {
+                "id": {
+                    "description": "The list id of the manga list"
+                },
+                "private": {
+                    "description": "(Query Param) Needed to access private lists, any value will be treated as true"
+                }
+            },
+            "maintainers": ["chrisis58"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "MANGADEX_USERNAME",
+                        "description": "MangaDex Username, required when refresh-token is not set and the list is private",
+                        "optional": true
+                    },
+                    {
+                        "name": "MANGADEX_PASSWORD",
+                        "description": "MangaDex Password, required when refresh-token is not set and the list is private",
+                        "optional": true
+                    },
+                    {
+                        "name": "MANGADEX_CLIENT_ID",
+                        "description": "MangaDex Client ID, required when the list is private",
+                        "optional": true
+                    },
+                    {
+                        "name": "MANGADEX_CLIENT_SECRET",
+                        "description": "MangaDex Client Secret, required when the list is private",
+                        "optional": true
+                    },
+                    {
+                        "name": "MANGADEX_REFRESH_TOKEN",
+                        "description": "MangaDex Refresh Token, required when username and password are not set and the list is private",
+                        "optional": true
+                    }
+                ],
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["mangadex.org/list/:id/:suffix"],
+                    "target": "/mdlist/:id"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "mangadex",
+            "namespaceName": "MangaDex",
+            "namespaceUrl": "mangadex.org",
+            "path": "/user/feed/follow/:lang?",
+            "fullPath": "/mangadex/user/feed/follow/:lang?",
+            "name": " Follows Feed",
+            "example": "/mangadex/user/feed/follow/zh?limit=10",
+            "description": "Get the latest updates of all the manga you follow on MangaDex.",
+            "parameters": {
+                "lang": {
+                    "description": "The language of the followed manga"
+                }
+            },
+            "maintainers": ["chrisis58"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "MANGADEX_USERNAME",
+                        "description": "MangaDex Username, required when refresh-token is not set",
+                        "optional": true
+                    },
+                    {
+                        "name": "MANGADEX_PASSWORD",
+                        "description": "MangaDex Password, required when refresh-token is not set",
+                        "optional": true
+                    },
+                    {
+                        "name": "MANGADEX_CLIENT_ID",
+                        "description": "MangaDex Client ID",
+                        "optional": false
+                    },
+                    {
+                        "name": "MANGADEX_CLIENT_SECRET",
+                        "description": "MangaDex Client Secret",
+                        "optional": false
+                    },
+                    {
+                        "name": "MANGADEX_REFRESH_TOKEN",
+                        "description": "MangaDex Refresh Token, required when username and password are not set",
+                        "optional": true
+                    }
+                ],
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["mangadex.org/titles/feed"],
+                    "target": "/user/feed/follow"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "mangadex",
+            "namespaceName": "MangaDex",
+            "namespaceUrl": "mangadex.org",
+            "path": "/user/follow/:type?",
+            "fullPath": "/mangadex/user/follow/:type?",
+            "name": "Logged User's Followed Mangas Feed",
+            "example": "/mangadex/user/follow/reading",
+            "description": "Fetches the feed of mangas that you follow on MangaDex whick are in the specified status.\nCAUTION: With big amount of follows, it may take a long time to load or even fail.\nIt's recommended to use the `/mangadex/mdlist/:listId?` route instead for better performance, though it requires manual configuration.",
+            "parameters": {
+                "type": {
+                    "description": "The type of follows to fetch",
+                    "default": "reading",
+                    "options": [
+                        {
+                            "value": "reading",
+                            "label": "Reading"
+                        },
+                        {
+                            "value": "plan-to-read",
+                            "label": "Plan to Read"
+                        },
+                        {
+                            "value": "completed",
+                            "label": "Completed"
+                        },
+                        {
+                            "value": "on-hold",
+                            "label": "On Hold"
+                        },
+                        {
+                            "value": "re-reading",
+                            "label": "Re-reading"
+                        },
+                        {
+                            "value": "dropped",
+                            "label": "Dropped"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["chrisis58"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "MANGADEX_USERNAME",
+                        "description": "MangaDex Username, required when refresh-token is not set",
+                        "optional": true
+                    },
+                    {
+                        "name": "MANGADEX_PASSWORD",
+                        "description": "MangaDex Password, required when refresh-token is not set",
+                        "optional": true
+                    },
+                    {
+                        "name": "MANGADEX_CLIENT_ID",
+                        "description": "MangaDex Client ID",
+                        "optional": false
+                    },
+                    {
+                        "name": "MANGADEX_CLIENT_SECRET",
+                        "description": "MangaDex Client Secret",
+                        "optional": false
+                    },
+                    {
+                        "name": "MANGADEX_REFRESH_TOKEN",
+                        "description": "MangaDex Refresh Token, required when username and password are not set",
+                        "optional": true
+                    }
+                ],
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["mangadex.org/titles/follows"],
+                    "target": "/user/follow/reading"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "manhuagui",
+            "namespaceName": "看漫画",
+            "namespaceUrl": "www.manhuagui.com",
+            "path": "/:domain?/comic/:id/:chapterCnt?",
+            "fullPath": "/manhuagui/:domain?/comic/:id/:chapterCnt?",
+            "name": "漫画更新",
+            "example": "/manhuagui/comic/22942/5",
+            "parameters": {
+                "id": "漫画ID",
+                "chapterCnt": "返回章节的数量，默认为0，返回所有章节"
+            },
+            "maintainers": ["MegrezZhu"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["www.mhgui.com/comic/:id/"],
+                    "target": "/comic/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "manhuagui",
+            "namespaceName": "看漫画",
+            "namespaceUrl": "www.manhuagui.com",
+            "path": "/comic/:id/:chapterCnt?",
+            "fullPath": "/manhuagui/comic/:id/:chapterCnt?",
+            "name": "漫画更新",
+            "example": "/manhuagui/comic/22942/5",
+            "parameters": {
+                "id": "漫画ID",
+                "chapterCnt": "返回章节的数量，默认为0，返回所有章节"
+            },
+            "maintainers": ["MegrezZhu"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["www.mhgui.com/comic/:id/"],
+                    "target": "/comic/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "manhuagui",
+            "namespaceName": "看漫画",
+            "namespaceUrl": "www.manhuagui.com",
+            "path": "/subscribe",
+            "fullPath": "/manhuagui/subscribe",
+            "name": "漫画个人订阅",
+            "example": "/manhuagui/subscribe",
+            "description": "::: tip\n  个人订阅需要自建\n  环境变量需要添加 MHGUI_COOKIE\n:::",
+            "parameters": {},
+            "maintainers": ["shininome"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "MHGUI_COOKIE",
+                        "description": ""
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["www.mhgui.com/user/book/shelf"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "melonbooks",
+            "namespaceName": "メロンブックス",
+            "namespaceUrl": "www.melonbooks.co.jp",
+            "path": "/search/:query?",
+            "fullPath": "/melonbooks/search/:query?",
+            "name": "搜索结果",
+            "example": "/melonbooks/search/name=けいおん",
+            "description": "::: tip\n如果你期望获取限制级内容，可以添加`&adult_view=1`参数\n:::",
+            "parameters": {
+                "category": "链接参数，对应网址问号后的内容，不携带问号"
+            },
+            "maintainers": ["cokemine"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "ja"
+        },
+        {
+            "namespace": "mox",
+            "namespaceName": "Mox.moe",
+            "namespaceUrl": "mox.moe",
+            "path": "/:category?",
+            "fullPath": "/mox/:category?",
+            "name": "首頁",
+            "example": "/mox",
+            "description": "::: tip\n  在首页将分类参数选择确定后跳转到的分类页面 URL 中，`/l/` 后的字段即为分类参数。\n\n  如 [科幻 + 日語 + 日本 + 長篇 + 完結 + 最近更新](https://mox.moe/l/CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL) 的 URL 为 [https://mox.moe/l/CAT%2A 科幻，日本，完結，lastupdate,jpn,l,BL](https://mox.moe/l/CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL)，此时 `/l/` 后的字段为 `CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL`。最终获得路由为 [`/mox/CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL`](https://rsshub.app/mox/CAT%2A科幻,日本,完結,lastupdate,jpn,l,BL)\n:::\n\n::: warning\n  由于 mox.moe 对非登录用户屏蔽了部分漫画详情内容的获取，且极易触发反爬机制，导致访问ip被重定向至google.com，因此在未配置`MOX_COOKIE`参数的情况下路由只会返回漫画标题和封面，不会对详情内容进行抓取。\n:::",
+            "parameters": {
+                "category": "分类，可在对应分类页 URL 中找到"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "MOX_COOKIE",
+                        "optional": true,
+                        "description": "注册用户登录后的 Cookie, 可以从浏览器开发者工具Network面板中的mox页面请求获取，Cookie内容形如VOLSKEY=xxxxxx; VLIBSID=xxxxxx; VOLSESS=xxxxxx"
+                    }
+                ],
+                "antiCrawler": true
+            },
+            "radar": [
+                {
+                    "source": ["mox.moe/l/:category", "mox.moe/"]
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "nhentai",
+            "namespaceName": "nhentai",
+            "namespaceUrl": "nhentai.net",
+            "path": "/index/:key/:keyword/:mode?",
+            "fullPath": "/nhentai/index/:key/:keyword/:mode?",
+            "name": "Filter",
+            "example": "/nhentai/index/language/chinese",
+            "parameters": {
+                "key": "Filter term, can be: `parody`, `character`, `tag`, `artist`, `group`, `language` or `category`",
+                "keyword": "Filter value",
+                "mode": "mode, `simple` to only show cover, `detail` to show all pages, `torrent` to include Magnet URI, need login, refer to [Route-specific Configurations](https://docs.rsshub.app/deploy/config#route-specific-configurations), default to `simple`"
+            },
+            "maintainers": ["MegrezZhu", "hoilc"],
+            "categories": ["anime"],
+            "features": {
+                "antiCrawler": true,
+                "supportBT": true,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["nhentai.net/:key/:keyword"],
+                    "target": "/index/:key/:keyword"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "nhentai",
+            "namespaceName": "nhentai",
+            "namespaceUrl": "nhentai.net",
+            "path": "/search/:keyword/:mode?",
+            "fullPath": "/nhentai/search/:keyword/:mode?",
+            "name": "Advanced Search",
+            "example": "/nhentai/search/language%3Ajapanese+-scat+-yaoi+-guro+-\"mosaic+censorship\"",
+            "parameters": {
+                "keyword": "Keywords for search. You can copy the content after `q=` after searching on the original website, or you can enter it directly. See the [official website](https://nhentai.net/info/) for details",
+                "mode": "mode, `simple` to only show cover, `detail` to show all pages, `torrent` to include Magnet URI, need login, refer to [Route-specific Configurations](https://docs.rsshub.app/deploy/config#route-specific-configurations), default to `simple`"
+            },
+            "maintainers": ["MegrezZhu", "hoilc"],
+            "categories": ["anime"],
+            "features": {
+                "antiCrawler": true,
+                "supportBT": true,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["nhentai.net/:key/:keyword"],
+                    "target": "/:key/:keyword"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "ntdm",
+            "namespaceName": "NT动漫",
+            "namespaceUrl": "www.ntdm9.com",
+            "path": "/video/:id",
+            "fullPath": "/ntdm/video/:id",
+            "name": "番剧详情",
+            "example": "/ntdm/video/4309",
+            "parameters": {
+                "id": "番剧 id，对应详情 URL 中找到"
+            },
+            "maintainers": ["Yamico"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ntdm9.com/video/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "ntrblog",
+            "namespaceName": "NTR BLOG（寝取られブログ）",
+            "namespaceUrl": "ntrblog.com",
+            "path": "/articles",
+            "fullPath": "/ntrblog/articles",
+            "name": "Articles",
+            "example": "/ntrblog/articles",
+            "maintainers": ["keocheung"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["ntrblog.com"]
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "oreno3d",
+            "namespaceName": "俺の 3D エロ動画 (oreno3d)",
+            "namespaceUrl": "oreno3d.com",
+            "path": "/authors/:authorid/:sort/:pagelimit?",
+            "fullPath": "/oreno3d/authors/:authorid/:sort/:pagelimit?",
+            "name": "Author Search",
+            "example": "/oreno3d/authors/3189/latest/1",
+            "description": "| favorites | hot | latest | popularity |\n| --------- | --- | ------ | ---------- |\n| favorites | hot | latest | popularity |",
+            "parameters": {
+                "authorid": "Author id, can be found in URL",
+                "sort": "Sort method, see the table above",
+                "pagelimit": "The maximum number of pages to be crawled, the default is 1"
+            },
+            "maintainers": ["xueli_sherryli"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "ja"
+        },
+        {
+            "namespace": "oreno3d",
+            "namespaceName": "俺の 3D エロ動画 (oreno3d)",
+            "namespaceUrl": "oreno3d.com",
+            "path": "/characters/:characterid/:sort/:pagelimit?",
+            "fullPath": "/oreno3d/characters/:characterid/:sort/:pagelimit?",
+            "name": "Author Search",
+            "example": "/oreno3d/authors/3189/latest/1",
+            "description": "| favorites | hot | latest | popularity |\n| --------- | --- | ------ | ---------- |\n| favorites | hot | latest | popularity |",
+            "parameters": {
+                "authorid": "Author id, can be found in URL",
+                "sort": "Sort method, see the table above",
+                "pagelimit": "The maximum number of pages to be crawled, the default is 1"
+            },
+            "maintainers": ["xueli_sherryli"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "ja"
+        },
+        {
+            "namespace": "oreno3d",
+            "namespaceName": "俺の 3D エロ動画 (oreno3d)",
+            "namespaceUrl": "oreno3d.com",
+            "path": "/origins/:originid/:sort/:pagelimit?",
+            "fullPath": "/oreno3d/origins/:originid/:sort/:pagelimit?",
+            "name": "Author Search",
+            "example": "/oreno3d/authors/3189/latest/1",
+            "description": "| favorites | hot | latest | popularity |\n| --------- | --- | ------ | ---------- |\n| favorites | hot | latest | popularity |",
+            "parameters": {
+                "authorid": "Author id, can be found in URL",
+                "sort": "Sort method, see the table above",
+                "pagelimit": "The maximum number of pages to be crawled, the default is 1"
+            },
+            "maintainers": ["xueli_sherryli"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "ja"
+        },
+        {
+            "namespace": "oreno3d",
+            "namespaceName": "俺の 3D エロ動画 (oreno3d)",
+            "namespaceUrl": "oreno3d.com",
+            "path": "/search/:keyword/:sort/:pagelimit?",
+            "fullPath": "/oreno3d/search/:keyword/:sort/:pagelimit?",
+            "name": "Author Search",
+            "example": "/oreno3d/authors/3189/latest/1",
+            "description": "| favorites | hot | latest | popularity |\n| --------- | --- | ------ | ---------- |\n| favorites | hot | latest | popularity |",
+            "parameters": {
+                "authorid": "Author id, can be found in URL",
+                "sort": "Sort method, see the table above",
+                "pagelimit": "The maximum number of pages to be crawled, the default is 1"
+            },
+            "maintainers": ["xueli_sherryli"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "ja"
+        },
+        {
+            "namespace": "oreno3d",
+            "namespaceName": "俺の 3D エロ動画 (oreno3d)",
+            "namespaceUrl": "oreno3d.com",
+            "path": "/tags/:tagid/:sort/:pagelimit?",
+            "fullPath": "/oreno3d/tags/:tagid/:sort/:pagelimit?",
+            "name": "Author Search",
+            "example": "/oreno3d/authors/3189/latest/1",
+            "description": "| favorites | hot | latest | popularity |\n| --------- | --- | ------ | ---------- |\n| favorites | hot | latest | popularity |",
+            "parameters": {
+                "authorid": "Author id, can be found in URL",
+                "sort": "Sort method, see the table above",
+                "pagelimit": "The maximum number of pages to be crawled, the default is 1"
+            },
+            "maintainers": ["xueli_sherryli"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "lang": "ja"
+        },
+        {
+            "namespace": "pixivision",
+            "namespaceName": "pixivision",
+            "namespaceUrl": "www.pixivision.net",
+            "path": "/:lang/:category?",
+            "fullPath": "/pixivision/:lang/:category?",
+            "name": "Category",
+            "example": "/pixivision/zh-tw",
+            "description": "::: tip\n  `https://www.pixivision.net/zh-tw/c/interview` → `/pixivision/zh-tw/interview`\n:::",
+            "parameters": {
+                "lang": "Language",
+                "category": "Category"
+            },
+            "maintainers": ["SnowAgar25"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.pixivision.net/:lang"],
+                    "target": "/:lang"
+                },
+                {
+                    "source": ["www.pixivision.net/:lang/c/:category"],
+                    "target": "/:lang/:category"
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "qoo-app",
+            "namespaceName": "QooApp",
+            "namespaceUrl": "apps.qoo-app.com",
+            "path": "/apps/:lang?/card/:id",
+            "fullPath": "/qoo-app/apps/:lang?/card/:id",
+            "name": "Game Store - Cards",
+            "example": "/qoo-app/apps/en/card/7675",
+            "parameters": {
+                "lang": "Language, see the table above, empty means `中文`",
+                "id": "Game ID, can be found in URL"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "qoo-app",
+            "namespaceName": "QooApp",
+            "namespaceUrl": "apps.qoo-app.com",
+            "path": "/apps/:lang?/comment/:id",
+            "fullPath": "/qoo-app/apps/:lang?/comment/:id",
+            "name": "Game Store - Review",
+            "example": "/qoo-app/apps/en/comment/7675",
+            "description": "| 中文 | English | 한국어 | Español | 日本語 | ไทย | Tiếng Việt |\n| ---- | ------- | ------ | ------- | ------ | --- | ---------- |\n|      | en      | ko     | es      | ja     | th  | vi         |",
+            "parameters": {
+                "lang": "Language, see the table below, empty means `中文`",
+                "id": "Game ID, can be found in URL"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "qoo-app",
+            "namespaceName": "QooApp",
+            "namespaceUrl": "apps.qoo-app.com",
+            "path": "/apps/:lang?/note/:id",
+            "fullPath": "/qoo-app/apps/:lang?/note/:id",
+            "name": "Game Store - Notes",
+            "example": "/qoo-app/apps/en/note/7675",
+            "parameters": {
+                "lang": "Language, see the table above, empty means `中文`",
+                "id": "Game ID, can be found in URL"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "qoo-app",
+            "namespaceName": "QooApp",
+            "namespaceUrl": "apps.qoo-app.com",
+            "path": "/apps/:lang?/post/:id",
+            "fullPath": "/qoo-app/apps/:lang?/post/:id",
+            "name": "Game Store - Article",
+            "example": "/qoo-app/apps/en/post/7675",
+            "parameters": {
+                "lang": "Language, see the table above, empty means `中文`",
+                "id": "Game ID, can be found in URL"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "qoo-app",
+            "namespaceName": "QooApp",
+            "namespaceUrl": "apps.qoo-app.com",
+            "path": "/news/:lang?",
+            "fullPath": "/qoo-app/news/:lang?",
+            "name": "News",
+            "example": "/qoo-app/news/en",
+            "description": "| 中文 | English |\n| ---- | ------- |\n|      | en      |",
+            "parameters": {
+                "lang": "Language, see the table below, empty means `中文`"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "qoo-app",
+            "namespaceName": "QooApp",
+            "namespaceUrl": "apps.qoo-app.com",
+            "path": "/notes/:lang?/note/:id",
+            "fullPath": "/qoo-app/notes/:lang?/note/:id",
+            "name": "Note Comments",
+            "example": "/qoo-app/notes/en/note/2329113",
+            "parameters": {
+                "lang": "Language, see the table above, empty means `中文`",
+                "id": "Note ID, can be found in URL"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "qoo-app",
+            "namespaceName": "QooApp",
+            "namespaceUrl": "apps.qoo-app.com",
+            "path": "/notes/:lang?/topic/:topic",
+            "fullPath": "/qoo-app/notes/:lang?/topic/:topic",
+            "name": "Unknown",
+            "maintainers": ["TonyRL"],
+            "categories": ["anime"],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "qoo-app",
+            "namespaceName": "QooApp",
+            "namespaceUrl": "apps.qoo-app.com",
+            "path": "/notes/:lang?/user/:uid",
+            "fullPath": "/qoo-app/notes/:lang?/user/:uid",
+            "name": "User Notes",
+            "example": "/qoo-app/notes/en/user/35399143",
+            "parameters": {
+                "lang": "Language, see the table above, empty means `中文`",
+                "uid": "User ID, can be found in URL"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "qoo-app",
+            "namespaceName": "QooApp",
+            "namespaceUrl": "apps.qoo-app.com",
+            "path": "/user/:lang?/appComment/:uid",
+            "fullPath": "/qoo-app/user/:lang?/appComment/:uid",
+            "name": "User Game Comments",
+            "example": "/qoo-app/user/en/appComment/35399143",
+            "parameters": {
+                "lang": "Language, see the table above, empty means `中文`",
+                "uid": "User ID, can be found in URL"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "qq",
+            "namespaceName": "腾讯网",
+            "namespaceUrl": "qq.com",
+            "path": "/ac/rank/:type?/:time?",
+            "fullPath": "/qq/ac/rank/:type?/:time?",
+            "name": "排行榜",
+            "example": "/qq/ac/rank",
+            "description": "| 月票榜 | 飙升榜 | 新作榜 | 畅销榜 | TOP100 | 男生榜 | 女生榜 |\n| ------ | ------ | ------ | ------ | ------ | ------ | ------ |\n| mt     | rise   | new    | pay    | top    | male   | female |\n\n::: tip\n  `time` 参数仅在 `type` 参数选为 **月票榜** 的时候生效。\n:::",
+            "parameters": {
+                "type": "分类，见下表，默认为月票榜",
+                "time": "时间，`cur` 为当周、`prev` 为上周"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ac.qq.com/Rank/comicRank/type/:type", "ac.qq.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "rawkuma",
+            "namespaceName": "Rawkuma",
+            "namespaceUrl": "rawkuma.com",
+            "path": "/manga/:id",
+            "fullPath": "/rawkuma/manga/:id",
+            "name": "Manga",
+            "example": "/rawkuma/manga/tensei-shitara-dai-nana-ouji-dattanode-kimamani-majutsu-o-kiwamemasu",
+            "parameters": {
+                "id": "Manga ID, can be found in URL"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["rawkuma.com/manga/:id", "rawkuma.com/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "skebetter",
+            "namespaceName": "Skebetter",
+            "namespaceUrl": "skebetter.com",
+            "path": "/:type",
+            "fullPath": "/skebetter/:type",
+            "name": "Hot",
+            "example": "/skebetter/hot",
+            "description": "\n| 急上昇 | 週間 | 月間 | 新着 |\n| ----- | ---- | ---- | ---- |\n| hot | week | month| latest |",
+            "parameters": {
+                "type": "Type, see below"
+            },
+            "maintainers": ["SnowAgar25"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "title": "Skebetter - Hot",
+                    "source": ["skebetter.com"],
+                    "target": "/hot"
+                },
+                {
+                    "title": "Skebetter - Week",
+                    "source": ["skebetter.com"],
+                    "target": "/week"
+                },
+                {
+                    "title": "Skebetter - Month",
+                    "source": ["skebetter.com"],
+                    "target": "/month"
+                },
+                {
+                    "title": "Skebetter - Latest",
+                    "source": ["skebetter.com"],
+                    "target": "/latest"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "skebetter",
+            "namespaceName": "Skebetter",
+            "namespaceUrl": "skebetter.com",
+            "path": "/illust/:type",
+            "fullPath": "/skebetter/illust/:type",
+            "name": "Illust",
+            "example": "/skebetter/illust/hot",
+            "description": "\n| 急上昇 | 週間 | 月間 | 新着 |\n| ----- | ---- | ---- | ---- |\n| hot | week | month| latest |",
+            "parameters": {
+                "type": "Type, see below"
+            },
+            "maintainers": ["SnowAgar25"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "title": "Illust - Hot",
+                    "source": ["skebetter.com/illust"],
+                    "target": "/illust/hot"
+                },
+                {
+                    "title": "Illust - Week",
+                    "source": ["skebetter.com/illust"],
+                    "target": "/illust/week"
+                },
+                {
+                    "title": "Illust - Month",
+                    "source": ["skebetter.com/illust"],
+                    "target": "/illust/month"
+                },
+                {
+                    "title": "Illust - Latest",
+                    "source": ["skebetter.com/illust"],
+                    "target": "/illust/latest"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "skebetter",
+            "namespaceName": "Skebetter",
+            "namespaceUrl": "skebetter.com",
+            "path": "/manga/:order",
+            "fullPath": "/skebetter/manga/:order",
+            "name": "Manga",
+            "example": "/skebetter/manga/1",
+            "description": "\n| 新着 (Latest) | 人気 (Hot) |\n| ---- | ---- |\n| 1    | 2    |",
+            "parameters": {
+                "order": "Order, see below."
+            },
+            "maintainers": ["SnowAgar25"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "title": "Manga - Latest",
+                    "source": ["skebetter.com/series"],
+                    "target": "/manga/1"
+                },
+                {
+                    "title": "Manga - Hot",
+                    "source": ["skebetter.com/series"],
+                    "target": "/manga/2"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "thwiki",
+            "namespaceName": "THBWiki",
+            "namespaceUrl": "thwiki.cc",
+            "path": "/calendar/:before?/:after?",
+            "fullPath": "/thwiki/calendar/:before?/:after?",
+            "name": "Calendar",
+            "example": "/thwiki/calendar",
+            "parameters": {
+                "before": "From how many days ago (default 30)",
+                "after": "To how many days after (default 30)"
+            },
+            "maintainers": ["aether17"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["thwiki.cc/", "thwiki.cc/日程表"],
+                    "target": "/calendar"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "toranoana",
+            "namespaceName": "とらのあな",
+            "namespaceUrl": "toranoana.jp",
+            "path": "/news/:category?",
+            "fullPath": "/toranoana/news/:category?",
+            "name": "Category",
+            "example": "/toranoana/news/toragen",
+            "description": "\n::: warning TIP\n[総合新着記事](https://news.toranoana.jp)→`/toranoana/news`  \n[女性向け](https://news.toranoana.jp/joshi)→`/toranoana/news/joshi`  \n[イラスト展](https://news.toranoana.jp/exhibitions)→`/toranoana/news/exhibition`  \n[`https://news.toranoana.jp/category/media`](https://news.toranoana.jp/category/media)→`/toranoana/news/media`\n:::",
+            "parameters": {
+                "category": "category"
+            },
+            "maintainers": ["Tsuyumi25"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "title": "総合新着記事",
+                    "source": ["news.toranoana.jp"],
+                    "target": "/news"
+                },
+                {
+                    "title": "女性向け",
+                    "source": ["news.toranoana.jp/joshi"],
+                    "target": "/news/joshi"
+                },
+                {
+                    "title": "イラスト展",
+                    "source": ["news.toranoana.jp/exhibitions"],
+                    "target": "/news/exhibition"
+                },
+                {
+                    "source": ["news.toranoana.jp/category/:category"],
+                    "target": "/news/:category"
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "tsdm39",
+            "namespaceName": "天使动漫论坛",
+            "namespaceUrl": "www.tsdm39.com",
+            "path": "/bd/:type?",
+            "fullPath": "/tsdm39/bd/:type?",
+            "name": "BD",
+            "example": "/tsdm39/bd",
+            "description": "| 720P | 1080P | BDMV | 4K | AV1 |\n| :--: | :--: | :--: | :--: | :--: |\n| 403 | 404 | 405 | 4130 | 5815 |",
+            "parameters": {
+                "type": "BD type, checkout the table below for details"
+            },
+            "maintainers": ["equt"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "TSDM39_COOKIES",
+                        "optional": false,
+                        "description": "天使动漫论坛登陆后的 cookie 值，可在浏览器控制台通过 `document.cookie` 获取。"
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "vcb-s",
+            "namespaceName": "VCB-Studio",
+            "namespaceUrl": "vcb-s.com",
+            "path": "/",
+            "fullPath": "/vcb-s/",
+            "name": "Unknown",
+            "maintainers": ["cxfksword"],
+            "categories": ["anime"],
+            "radar": [
+                {
+                    "source": ["vcb-s.com/"],
+                    "target": ""
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "vcb-s",
+            "namespaceName": "VCB-Studio",
+            "namespaceUrl": "vcb-s.com",
+            "path": "/category/:cate",
+            "fullPath": "/vcb-s/category/:cate",
+            "name": "分类文章",
+            "example": "/vcb-s/category/works",
+            "description": "| 作品项目 | 科普系列 | 计划与日志 |\n| -------- | -------- | ---------- |\n| works    | kb       | planlog    |",
+            "parameters": {
+                "cate": "分类"
+            },
+            "maintainers": ["cxfksword"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["vcb-s.com/archives/category/:cate"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "xmanhua",
+            "namespaceName": "X 漫画",
+            "namespaceUrl": "xmanhua.com",
+            "path": "/:uid",
+            "fullPath": "/xmanhua/:uid",
+            "name": "最新动态",
+            "example": "/xmanhua/73xm",
+            "parameters": {
+                "uid": "漫画 id,在浏览器中可见，例如鬼灭之刃对应的 id 为 `73xm`"
+            },
+            "maintainers": ["Ye11"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["xmanhua.com/:uid"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "ymgal",
+            "namespaceName": "月幕 Galgame",
+            "namespaceUrl": "ymgal.games",
+            "path": "/article/:type?",
+            "fullPath": "/ymgal/article/:type?",
+            "name": "文章",
+            "example": "/ymgal/article",
+            "description": "| 全部文章 | 资讯 | 专栏   |\n| -------- | ---- | ------ |\n| all      | news | column |",
+            "parameters": {
+                "type": "文章类型"
+            },
+            "maintainers": ["SunBK201"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "ymgal",
+            "namespaceName": "月幕 Galgame",
+            "namespaceUrl": "ymgal.games",
+            "path": "/game/release",
+            "fullPath": "/ymgal/game/release",
+            "name": "本月新作",
+            "example": "/ymgal/game/release",
+            "parameters": {},
+            "maintainers": ["SunBK201"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["ymgal.games/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "zaimanhua",
+            "namespaceName": "再漫画",
+            "namespaceUrl": "manhua.zaimanhua.com",
+            "path": "/comic/:id",
+            "fullPath": "/zaimanhua/comic/:id",
+            "name": "漫画更新",
+            "example": "/zaimanhua/comic/14488",
+            "parameters": {
+                "id": "漫画ID"
+            },
+            "maintainers": ["kjasn"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["manhua.zaimanhua.com/details", "manhua.zaimanhua.com/details/:id"],
+                    "target": "/comic/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "zaimanhua",
+            "namespaceName": "再漫画",
+            "namespaceUrl": "manhua.zaimanhua.com",
+            "path": "/update",
+            "fullPath": "/zaimanhua/update",
+            "name": "最近更新",
+            "example": "/zaimanhua/update",
+            "maintainers": ["kjasn"],
+            "categories": ["anime"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "nsfw": true
+            },
+            "radar": [
+                {
+                    "source": ["manhua.zaimanhua.com/update"],
+                    "target": "/update"
+                }
+            ],
+            "lang": "zh-CN"
+        }
+    ]
+}

@@ -1,0 +1,2691 @@
+{
+    "category": "blog",
+    "displayName": "Blog",
+    "displayNameZh": "博客",
+    "icon": "🖊️️",
+    "count": 107,
+    "routes": [
+        {
+            "namespace": "0x80",
+            "namespaceName": "Wojciech Muła",
+            "namespaceUrl": "0x80.pl",
+            "path": "/blog",
+            "fullPath": "/0x80/blog",
+            "name": "Articles",
+            "example": "/0x80/blog",
+            "description": "",
+            "maintainers": ["xnum"],
+            "categories": ["blog"],
+            "lang": "en"
+        },
+        {
+            "namespace": "aiblog-2xv",
+            "namespaceName": "AI 博客",
+            "namespaceUrl": "aiblog-2xv.pages.dev",
+            "path": "/archives",
+            "fullPath": "/aiblog-2xv/archives",
+            "name": "归档-全部文章",
+            "example": "/aiblog-2xv/archives",
+            "parameters": {},
+            "maintainers": ["Liao-Ke"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["aiblog-2xv.pages.dev/archives"],
+                    "target": "/archives"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "apache",
+            "namespaceName": "Apache",
+            "namespaceUrl": "apisix.apache.org",
+            "path": "/apisix/blog",
+            "fullPath": "/apache/apisix/blog",
+            "name": "APISIX 博客",
+            "example": "/apache/apisix/blog",
+            "parameters": {},
+            "maintainers": ["aneasystone"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "apiseven",
+            "namespaceName": "支流科技",
+            "namespaceUrl": "apiseven.com",
+            "path": "/blog",
+            "fullPath": "/apiseven/blog",
+            "name": "博客",
+            "example": "/apiseven/blog",
+            "parameters": {},
+            "maintainers": ["aneasystone"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "apnic",
+            "namespaceName": "APNIC",
+            "namespaceUrl": "blog.apnic.net",
+            "path": "/blog",
+            "fullPath": "/apnic/blog",
+            "name": "Blog",
+            "example": "/apnic/blog",
+            "description": "Asia-Pacific Network Information Centre",
+            "maintainers": ["p3psi-boo"],
+            "categories": ["blog"],
+            "lang": "en"
+        },
+        {
+            "namespace": "backlinko",
+            "namespaceName": "Backlinko",
+            "namespaceUrl": "backlinko.com",
+            "path": "/blog",
+            "fullPath": "/backlinko/blog",
+            "name": "Blog",
+            "example": "/backlinko/blog",
+            "parameters": {},
+            "maintainers": ["TonyRL"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["backlinko.com/blog", "backlinko.com/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "baoyu",
+            "namespaceName": "宝玉",
+            "namespaceUrl": "baoyu.io",
+            "path": "/blog",
+            "fullPath": "/baoyu/blog",
+            "name": "Blog",
+            "example": "/baoyu/blog",
+            "description": "宝玉 - 博客文章",
+            "maintainers": ["liyaozhong"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["baoyu.io/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "baselang",
+            "namespaceName": "BaseLang",
+            "path": "/blog/:category?",
+            "fullPath": "/baselang/blog/:category?",
+            "name": "Blog",
+            "example": "/baselang/blog",
+            "parameters": {
+                "category": {
+                    "description": "Optional category filter",
+                    "options": [
+                        {
+                            "label": "advanced-grammar",
+                            "value": "advanced-grammar"
+                        },
+                        {
+                            "label": "basic-grammar",
+                            "value": "basic-grammar"
+                        },
+                        {
+                            "label": "company",
+                            "value": "company"
+                        },
+                        {
+                            "label": "confidence",
+                            "value": "confidence"
+                        },
+                        {
+                            "label": "french",
+                            "value": "french"
+                        },
+                        {
+                            "label": "humor",
+                            "value": "humor"
+                        },
+                        {
+                            "label": "medellin",
+                            "value": "medellin"
+                        },
+                        {
+                            "label": "motivation",
+                            "value": "motivation"
+                        },
+                        {
+                            "label": "pronunciation",
+                            "value": "pronunciation"
+                        },
+                        {
+                            "label": "study-tips",
+                            "value": "study-tips"
+                        },
+                        {
+                            "label": "success-stories",
+                            "value": "success-stories"
+                        },
+                        {
+                            "label": "travel",
+                            "value": "travel"
+                        },
+                        {
+                            "label": "uncategorized",
+                            "value": "uncategorized"
+                        },
+                        {
+                            "label": "vocabulary",
+                            "value": "vocabulary"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["johan456789"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["baselang.com/blog", "baselang.com/blog/:category"],
+                    "target": "/blog/:category"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "bulianglin",
+            "namespaceName": "不良林",
+            "namespaceUrl": "bulianglin.com",
+            "path": "/",
+            "fullPath": "/bulianglin/",
+            "name": "全部文章",
+            "example": "/bulianglin",
+            "maintainers": ["cnkmmk"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["bulianglin.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "caixin",
+            "namespaceName": "财新博客",
+            "namespaceUrl": "caixin.com",
+            "path": "/blog/:column?",
+            "fullPath": "/caixin/blog/:column?",
+            "name": "用户博客",
+            "example": "/caixin/blog/zhangwuchang",
+            "description": "通过提取文章全文，以提供比官方源更佳的阅读体验.",
+            "parameters": {
+                "column": "博客名称，可在博客主页的 URL 找到"
+            },
+            "maintainers": [],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "ceph",
+            "namespaceName": "Ceph",
+            "namespaceUrl": "ceph.io",
+            "path": "/blog/:topic?",
+            "fullPath": "/ceph/blog/:topic?",
+            "name": "Blog",
+            "example": "/ceph/blog/a11y",
+            "description": "Ceph is an open source distributed storage system designed to evolve with data.",
+            "parameters": {
+                "category": "filter blog post by category, return all posts if not specified"
+            },
+            "maintainers": ["pandada8"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ceph.io/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "chuanliu",
+            "namespaceName": "川流",
+            "namespaceUrl": "chuanliu.org",
+            "path": "/nice",
+            "fullPath": "/chuanliu/nice",
+            "name": "严选",
+            "example": "/chuanliu/nice",
+            "parameters": {},
+            "maintainers": ["nczitzk"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["chuanliu.org/nice"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "cline",
+            "namespaceName": "cline",
+            "path": "/blog",
+            "fullPath": "/cline/blog",
+            "name": "Blog",
+            "example": "/cline/blog",
+            "description": "Cline Official Blog articles",
+            "parameters": {},
+            "maintainers": ["yeshan333"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["cline.bot/blog/archive", "cline.bot/blog"],
+                    "target": "/blog"
+                }
+            ]
+        },
+        {
+            "namespace": "cloudnative",
+            "namespaceName": "云原生社区",
+            "namespaceUrl": "cloudnative.to",
+            "path": "/blog",
+            "fullPath": "/cloudnative/blog",
+            "name": "博客",
+            "example": "/cloudnative/blog",
+            "parameters": {},
+            "maintainers": ["aneasystone"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "cmpxchg8b",
+            "namespaceName": "cmpxchg8b",
+            "namespaceUrl": "lock.cmpxchg8b.com",
+            "path": "/articles",
+            "fullPath": "/cmpxchg8b/articles",
+            "name": "Articles",
+            "example": "/cmpxchg8b/articles",
+            "parameters": {},
+            "maintainers": ["yuguorui"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["lock.cmpxchg8b.com/articles"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "cmu",
+            "namespaceName": "Carnegie Mellon University",
+            "namespaceUrl": "www.cmu.edu",
+            "path": "/andypavlo/blog",
+            "fullPath": "/cmu/andypavlo/blog",
+            "name": "Andy Pavlo Blog",
+            "example": "/cmu/andypavlo/blog",
+            "parameters": {},
+            "maintainers": ["mocusez"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "cnblogs",
+            "namespaceName": "博客园",
+            "namespaceUrl": "www.cnblogs.com",
+            "path": "/aggsite/headline",
+            "fullPath": "/cnblogs/aggsite/headline",
+            "name": "10 天推荐排行榜",
+            "example": "/cnblogs/aggsite/topdiggs",
+            "description": "在博客园主页的分类出可查看所有类型。例如，go 的分类地址为: `https://www.cnblogs.com/cate/go/`, 则: [`/cnblogs/cate/go`](https://rsshub.app/cnblogs/cate/go)",
+            "parameters": {},
+            "maintainers": ["hujingnb"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.cnblogs.com/aggsite/topdiggs"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "cnblogs",
+            "namespaceName": "博客园",
+            "namespaceUrl": "www.cnblogs.com",
+            "path": "/aggsite/topdiggs",
+            "fullPath": "/cnblogs/aggsite/topdiggs",
+            "name": "10 天推荐排行榜",
+            "example": "/cnblogs/aggsite/topdiggs",
+            "description": "在博客园主页的分类出可查看所有类型。例如，go 的分类地址为: `https://www.cnblogs.com/cate/go/`, 则: [`/cnblogs/cate/go`](https://rsshub.app/cnblogs/cate/go)",
+            "parameters": {},
+            "maintainers": ["hujingnb"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.cnblogs.com/aggsite/topdiggs"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "cnblogs",
+            "namespaceName": "博客园",
+            "namespaceUrl": "www.cnblogs.com",
+            "path": "/aggsite/topviews",
+            "fullPath": "/cnblogs/aggsite/topviews",
+            "name": "10 天推荐排行榜",
+            "example": "/cnblogs/aggsite/topdiggs",
+            "description": "在博客园主页的分类出可查看所有类型。例如，go 的分类地址为: `https://www.cnblogs.com/cate/go/`, 则: [`/cnblogs/cate/go`](https://rsshub.app/cnblogs/cate/go)",
+            "parameters": {},
+            "maintainers": ["hujingnb"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.cnblogs.com/aggsite/topdiggs"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "cnblogs",
+            "namespaceName": "博客园",
+            "namespaceUrl": "www.cnblogs.com",
+            "path": "/cate/:type",
+            "fullPath": "/cnblogs/cate/:type",
+            "name": "10 天推荐排行榜",
+            "example": "/cnblogs/aggsite/topdiggs",
+            "description": "在博客园主页的分类出可查看所有类型。例如，go 的分类地址为: `https://www.cnblogs.com/cate/go/`, 则: [`/cnblogs/cate/go`](https://rsshub.app/cnblogs/cate/go)",
+            "parameters": {},
+            "maintainers": ["hujingnb"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.cnblogs.com/aggsite/topdiggs"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "cnblogs",
+            "namespaceName": "博客园",
+            "namespaceUrl": "www.cnblogs.com",
+            "path": "/pick",
+            "fullPath": "/cnblogs/pick",
+            "name": "10 天推荐排行榜",
+            "example": "/cnblogs/aggsite/topdiggs",
+            "description": "在博客园主页的分类出可查看所有类型。例如，go 的分类地址为: `https://www.cnblogs.com/cate/go/`, 则: [`/cnblogs/cate/go`](https://rsshub.app/cnblogs/cate/go)",
+            "parameters": {},
+            "maintainers": ["hujingnb"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.cnblogs.com/aggsite/topdiggs"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "cohere",
+            "namespaceName": "Cohere",
+            "namespaceUrl": "cohere.com",
+            "path": "/blog",
+            "fullPath": "/cohere/blog",
+            "name": "Blog",
+            "example": "/cohere/blog",
+            "description": "Cohere is a platform for building AI applications.",
+            "maintainers": ["Loongphy"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["cohere.com"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "coolidge",
+            "namespaceName": "Coolidge Corner Theatre",
+            "namespaceUrl": "coolidge.org",
+            "path": "/film-guide",
+            "fullPath": "/coolidge/film-guide",
+            "name": "Film Guide",
+            "example": "/coolidge/film-guide",
+            "maintainers": ["johan456789"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "coolidge",
+            "namespaceName": "Coolidge Corner Theatre",
+            "namespaceUrl": "coolidge.org",
+            "path": "/news",
+            "fullPath": "/coolidge/news",
+            "name": "News",
+            "example": "/coolidge/news",
+            "maintainers": ["johan456789"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "csdn",
+            "namespaceName": "CSDN",
+            "namespaceUrl": "blog.csdn.net",
+            "path": "/blog/:user",
+            "fullPath": "/csdn/blog/:user",
+            "name": "User Feed",
+            "example": "/csdn/blog/csdngeeknews",
+            "parameters": {
+                "user": "`user` is the username of a CSDN blog which can be found in the url of the home page"
+            },
+            "maintainers": ["Jkker"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["blog.csdn.net/:user"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "cursor",
+            "namespaceName": "Cursor",
+            "namespaceUrl": "cursor.com",
+            "path": "/blog/:topic?",
+            "fullPath": "/cursor/blog/:topic?",
+            "name": "Blog",
+            "example": "/cursor/blog",
+            "description": "",
+            "parameters": {
+                "topic": "Optional topic: product | research | company | news"
+            },
+            "maintainers": ["johan456789"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["cursor.com/blog", "cursor.com/blog/topic/:topic"],
+                    "target": "/blog/:topic"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "daoxuan",
+            "namespaceName": "道宣的窝",
+            "namespaceUrl": "daoxuan.cc",
+            "path": "/",
+            "fullPath": "/daoxuan/",
+            "name": "推荐阅读文章",
+            "example": "/daoxuan",
+            "maintainers": ["dx2331lxz"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["daoxuan.cc/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "dayanzai",
+            "namespaceName": "大眼仔旭",
+            "namespaceUrl": "dayanzai.me",
+            "path": "/:category/:fulltext?",
+            "fullPath": "/dayanzai/:category/:fulltext?",
+            "name": "分类",
+            "example": "/dayanzai/windows",
+            "description": "| 微软应用 | 安卓应用 | 教程资源 | 其他资源 |\n| -------- | -------- | -------- | -------- |\n| windows  | android  | tutorial | other    |",
+            "parameters": {
+                "category": "分类",
+                "fulltext": "是否获取全文，需要获取则传入参数`y`"
+            },
+            "maintainers": [],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["dayanzai.me/:category", "dayanzai.me/:category/*"],
+                    "target": "/:category"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "ddosi",
+            "namespaceName": "雨苁博客",
+            "namespaceUrl": "ddosi.org",
+            "path": "/",
+            "fullPath": "/ddosi/",
+            "name": "Unknown",
+            "maintainers": ["XinRoom"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["ddosi.org/"],
+                    "target": ""
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "ddosi",
+            "namespaceName": "雨苁博客",
+            "namespaceUrl": "ddosi.org",
+            "path": "/category/:category?",
+            "fullPath": "/ddosi/category/:category?",
+            "name": "分类",
+            "example": "/ddosi/category/黑客工具",
+            "parameters": {
+                "category": "N"
+            },
+            "maintainers": [],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ddosi.org/category/:category/"],
+                    "target": "/category/:category"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "deltaio",
+            "namespaceName": "Delta Lake",
+            "namespaceUrl": "delta.io",
+            "path": "/blog",
+            "fullPath": "/deltaio/blog",
+            "name": "Blogs",
+            "example": "/deltaio/blog",
+            "parameters": {},
+            "maintainers": ["RengarLee"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["delta.io/blog"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "eagle",
+            "namespaceName": "Eagle",
+            "namespaceUrl": "cn.eagle.cool",
+            "path": "/blog/:cate?/:language?",
+            "fullPath": "/eagle/blog/:cate?/:language?",
+            "name": "Blog",
+            "example": "/eagle/blog/en",
+            "parameters": {
+                "cate": "Category, get by URL, `all` by default",
+                "language": {
+                    "description": "Language",
+                    "options": [
+                        {
+                            "value": "cn",
+                            "label": "cn"
+                        },
+                        {
+                            "value": "tw",
+                            "label": "tw"
+                        },
+                        {
+                            "value": "en",
+                            "label": "en"
+                        }
+                    ],
+                    "default": "en"
+                }
+            },
+            "maintainers": ["Fatpandac"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["cn.eagle.cool/blog"],
+                    "target": "/blog"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "englishhome",
+            "namespaceName": "英語之家",
+            "namespaceUrl": "englishhome.org",
+            "path": "/",
+            "fullPath": "/englishhome/",
+            "name": "首頁",
+            "example": "/englishhome",
+            "description": "英語之家 - The Home of English 首頁",
+            "parameters": {},
+            "maintainers": ["johan456789"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["englishhome.org/"]
+                }
+            ]
+        },
+        {
+            "namespace": "enterprisecraftsmanship",
+            "namespaceName": "Enterprise Craftsmanship",
+            "namespaceUrl": "enterprisecraftsmanship.com",
+            "path": "/archives",
+            "fullPath": "/enterprisecraftsmanship/archives",
+            "name": "Archives",
+            "example": "/enterprisecraftsmanship/archives",
+            "description": "Enterprise Craftsmanship blog archives",
+            "maintainers": ["liyaozhong"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["enterprisecraftsmanship.com/archives/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "flashcat",
+            "namespaceName": "Flashcat",
+            "namespaceUrl": "flashcat.cloud",
+            "path": "/blog",
+            "fullPath": "/flashcat/blog",
+            "name": "快猫星云博客",
+            "example": "/flashcat/blog",
+            "parameters": {},
+            "maintainers": ["chesha1"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["flashcat.cloud/blog"],
+                    "target": "/blog"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "foreverblog",
+            "namespaceName": "十年之约",
+            "namespaceUrl": "www.foreverblog.cn",
+            "path": "/feeds",
+            "fullPath": "/foreverblog/feeds",
+            "name": "专题展示 - 文章",
+            "example": "/foreverblog/feeds",
+            "parameters": {},
+            "maintainers": ["7Wate", "a180285"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.foreverblog.cn/feeds.html"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "free",
+            "namespaceName": "免費資源網路社群",
+            "namespaceUrl": "free.com.tw",
+            "path": "/",
+            "fullPath": "/free/",
+            "name": "最新文章",
+            "example": "/free",
+            "maintainers": ["cnkmmk"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["free.com.tw/"]
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "freebuf",
+            "namespaceName": "FreeBuf",
+            "namespaceUrl": "freebuf.com",
+            "path": "/articles/:type",
+            "fullPath": "/freebuf/articles/:type",
+            "name": "文章",
+            "example": "/freebuf/articles/web",
+            "description": "::: tip\n  Freebuf 的文章页面带有反爬虫机制，所以目前无法获取文章的完整内容。\n:::",
+            "parameters": {
+                "type": "文章类别"
+            },
+            "maintainers": ["trganda"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["freebuf.com/articles/:type/*.html", "freebuf.com/articles/:type"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "fxiaoke",
+            "namespaceName": "纷享销客 CRM",
+            "namespaceUrl": "fxiaoke.com",
+            "path": "/crm/:type",
+            "fullPath": "/fxiaoke/crm/:type",
+            "name": "文章",
+            "example": "/fxiaoke/crm/news",
+            "description": "| 全部文章 | 文章干货 | CRM 知识 | 纷享动态        | 签约喜报  |\n| -------- | -------- | -------- | --------------- | --------- |\n| news     | blog     | articles | about-influence | customers |",
+            "parameters": {
+                "type": "文章类型, 见下表"
+            },
+            "maintainers": ["akynazh"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gaoyu",
+            "namespaceName": "Yu Gao",
+            "namespaceUrl": "gaoyu.me",
+            "path": "/blog",
+            "fullPath": "/gaoyu/blog",
+            "name": "Blog",
+            "example": "/gaoyu/blog",
+            "description": "",
+            "maintainers": ["nczitzk"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.gaoyu.me/blog"],
+                    "target": "/blog"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "geocaching",
+            "namespaceName": "Geocaching",
+            "namespaceUrl": "geocaching.com",
+            "path": "/blogs/:language?",
+            "fullPath": "/geocaching/blogs/:language?",
+            "name": "Official Blogs",
+            "example": "/geocaching/blogs/en",
+            "parameters": {
+                "language": {
+                    "description": "language",
+                    "default": "en",
+                    "options": [
+                        {
+                            "value": "en",
+                            "label": "English"
+                        },
+                        {
+                            "value": "de",
+                            "label": "Deutsch"
+                        },
+                        {
+                            "value": "fr",
+                            "label": "Français"
+                        },
+                        {
+                            "value": "es",
+                            "label": "Español"
+                        },
+                        {
+                            "value": "nl",
+                            "label": "Nederlands"
+                        },
+                        {
+                            "value": "cs",
+                            "label": "Čeština"
+                        },
+                        {
+                            "value": "all",
+                            "label": "Not Specified"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["HankChow", "Konano"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["geocaching.com/blog/", "geocaching.com/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "google",
+            "namespaceName": "Google",
+            "namespaceUrl": "www.google.com",
+            "path": "/developers/:locale?",
+            "fullPath": "/google/developers/:locale?",
+            "name": "Developers Blog",
+            "example": "/google/developers/en",
+            "description": "Google Developers Blog",
+            "parameters": {
+                "locale": {
+                    "description": "language",
+                    "default": "en",
+                    "options": [
+                        {
+                            "value": "en",
+                            "label": "English"
+                        },
+                        {
+                            "value": "es",
+                            "label": "Español (Latam)"
+                        },
+                        {
+                            "value": "id",
+                            "label": "Bahasa Indonesia"
+                        },
+                        {
+                            "value": "ja",
+                            "label": "日本語"
+                        },
+                        {
+                            "value": "ko",
+                            "label": "한국어"
+                        },
+                        {
+                            "value": "pt-br",
+                            "label": "Português (Brasil)"
+                        },
+                        {
+                            "value": "zh-hans",
+                            "label": "简体中文"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["Loongphy"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["developers.googleblog.com"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "google",
+            "namespaceName": "Google",
+            "namespaceUrl": "www.google.com",
+            "path": "/research",
+            "fullPath": "/google/research",
+            "name": "Research Blog",
+            "example": "/google/research",
+            "maintainers": ["Levix", "cscnk52"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["research.google"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "gs",
+            "namespaceName": "Goldman Sachs",
+            "namespaceUrl": "goldmansachs.com",
+            "path": "/developer/blog",
+            "fullPath": "/gs/developer/blog",
+            "name": "Goldman Sachs Developer Blog",
+            "example": "/gs/developer/blog",
+            "parameters": {},
+            "maintainers": ["chesha1"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["developer.gs.com/blog/posts"],
+                    "target": "/developer/blog"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "hamel",
+            "namespaceName": "Hamel's Blog",
+            "namespaceUrl": "hamel.dev",
+            "path": "/blog",
+            "fullPath": "/hamel/blog",
+            "name": "Blog",
+            "example": "/hamel/blog",
+            "description": "Hamel's Blog Posts",
+            "maintainers": ["liyaozhong"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["hamel.dev/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "hashnode",
+            "namespaceName": "hashnode",
+            "namespaceUrl": "hashnode.dev",
+            "path": "/blog/:username",
+            "fullPath": "/hashnode/blog/:username",
+            "name": "用户博客",
+            "example": "/hashnode/blog/inklings",
+            "description": "::: tip\n  username 为博主用户名，而非`xxx.hashnode.dev`中`xxx`所代表的 blog 地址。\n:::",
+            "parameters": {
+                "username": "博主名称，用户头像 URL 中找到"
+            },
+            "maintainers": ["hnrainll"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["hashnode.dev/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "hedwig",
+            "namespaceName": "Hedwig",
+            "namespaceUrl": "hedwig.pub",
+            "path": "/posts/:site",
+            "fullPath": "/hedwig/posts/:site",
+            "name": "Posts",
+            "example": "/posts/walnut",
+            "parameters": {
+                "site": "站点名，原则上只要是 `{site}.hedwig.pub` 都可以匹配"
+            },
+            "maintainers": ["zwithz", "GetToSet"],
+            "categories": ["blog"],
+            "features": {
+                "supportRadar": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hicairo",
+            "namespaceName": "HiFeng'Blog",
+            "namespaceUrl": "hicairo.com",
+            "path": "/",
+            "fullPath": "/hicairo/",
+            "name": "最近发表",
+            "example": "/hicairo",
+            "maintainers": ["cnkmmk"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["hicairo.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "hudsonrivertrading",
+            "namespaceName": "Hudson River Trading",
+            "namespaceUrl": "hudsonrivertrading.com",
+            "path": "/blog/:section?",
+            "fullPath": "/hudsonrivertrading/blog/:section?",
+            "name": "Tech Blog",
+            "example": "/hudsonrivertrading/blog",
+            "description": "HRT (Hudson River Trading) Tech Blog\n\n| Route | Section |\n| ----- | ------- |\n| /hudsonrivertrading/blog | All Posts |\n| /hudsonrivertrading/blog/algo | Algorithm |\n| /hudsonrivertrading/blog/engineers | Engineering |\n| /hudsonrivertrading/blog/interns | Intern Spotlight |\n| /hudsonrivertrading/blog/more | Hardware, Systems & More |",
+            "parameters": {
+                "section": {
+                    "description": "Optional section filter",
+                    "options": [
+                        {
+                            "label": "Algorithm",
+                            "value": "algo"
+                        },
+                        {
+                            "label": "Engineering",
+                            "value": "engineers"
+                        },
+                        {
+                            "label": "Intern Spotlight",
+                            "value": "interns"
+                        },
+                        {
+                            "label": "Hardware, Systems & More",
+                            "value": "more"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["johan456789"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.hudsonrivertrading.com/hrtbeat/"]
+                }
+            ]
+        },
+        {
+            "namespace": "ianspriggs",
+            "namespaceName": "Ian Spriggss",
+            "namespaceUrl": "ianspriggs.com",
+            "path": "/:category?",
+            "fullPath": "/ianspriggs/:category?",
+            "name": "Category",
+            "example": "/ianspriggs/portraits",
+            "description": "| 3D PORTRAITS | CHARACTERS |\n| ------------ | ---------- |\n| portraits    | characters |",
+            "parameters": {
+                "category": "Category, see below, 3D PORTRAITS by default"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "imhcg",
+            "namespaceName": "imhcg的信息站",
+            "namespaceUrl": "infos.imhcg.cn",
+            "path": "/",
+            "fullPath": "/imhcg/",
+            "name": "Engineering blogs",
+            "example": "/imhcg",
+            "description": "包含多种技术和新闻信息的网站",
+            "parameters": {},
+            "maintainers": ["ZiHao256", "qzydustin"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["infos.imhcg.cn"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "immich",
+            "namespaceName": "Immich",
+            "namespaceUrl": "immich.app",
+            "path": "/cursed-knowledge",
+            "fullPath": "/immich/cursed-knowledge",
+            "name": "Cursed Knowledge",
+            "example": "/immich/cursed-knowledge",
+            "maintainers": ["TonyRL"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["immich.app/cursed-knowledge", "immich.app"],
+                    "target": "/cursed-knowledge"
+                }
+            ],
+            "lang": "en-us"
+        },
+        {
+            "namespace": "ippa",
+            "namespaceName": "子方有料",
+            "namespaceUrl": "ippa.top",
+            "path": "/",
+            "fullPath": "/ippa/",
+            "name": "最新文章",
+            "example": "/ippa",
+            "maintainers": ["cnkmmk"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["ippa.top/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "itc",
+            "namespaceName": "Open Github社区",
+            "namespaceUrl": "open.itc.cn",
+            "path": "/collection/:colType",
+            "fullPath": "/itc/collection/:colType",
+            "name": "合集",
+            "example": "/itc/collection/1",
+            "maintainers": ["cnkmmk"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["open.itc.cn/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "jamesclear",
+            "namespaceName": "James Clear",
+            "namespaceUrl": "jamesclear.com",
+            "path": "/3-2-1",
+            "fullPath": "/jamesclear/3-2-1",
+            "name": "3-2-1 Newsletter",
+            "example": "/jamesclear/3-2-1",
+            "maintainers": ["Rjnishant530"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["jamesclear.com/3-2-1"],
+                    "target": "/3-2-1"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "jamesclear",
+            "namespaceName": "James Clear",
+            "namespaceUrl": "jamesclear.com",
+            "path": "/book-summaries",
+            "fullPath": "/jamesclear/book-summaries",
+            "name": "Book Summaries",
+            "example": "/jamesclear/book-summaries",
+            "maintainers": ["Rjnishant530"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["jamesclear.com/book-summaries"],
+                    "target": "/book-summaries"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "jamesclear",
+            "namespaceName": "James Clear",
+            "namespaceUrl": "jamesclear.com",
+            "path": "/great-speeches",
+            "fullPath": "/jamesclear/great-speeches",
+            "name": "Great Speeches",
+            "example": "/jamesclear/great-speeches",
+            "maintainers": ["Rjnishant530"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["jamesclear.com/great-speeches"],
+                    "target": "/great-speeches"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "jamesclear",
+            "namespaceName": "James Clear",
+            "namespaceUrl": "jamesclear.com",
+            "path": "/quotes",
+            "fullPath": "/jamesclear/quotes",
+            "name": "Quotes",
+            "example": "/jamesclear/quotes",
+            "maintainers": ["Rjnishant530"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["jamesclear.com/quotes"],
+                    "target": "/quotes"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "kadokawa",
+            "namespaceName": "台灣角川",
+            "namespaceUrl": "kadokawa.com.tw",
+            "path": "/blog",
+            "fullPath": "/kadokawa/blog",
+            "name": "角編新聞台",
+            "example": "/kadokawa/blog",
+            "description": "TAIWAN KADOKAWA",
+            "maintainers": ["nczitzk"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["kadokawa.com.tw/blog/posts"],
+                    "target": "/blog"
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "kunchengblog",
+            "namespaceName": "Kun Cheng",
+            "namespaceUrl": "kunchengblog.com",
+            "path": "/essay",
+            "fullPath": "/kunchengblog/essay",
+            "name": "Essay",
+            "example": "/kunchengblog/essay",
+            "parameters": {},
+            "maintainers": ["nczitzk"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["kunchengblog.com/essay"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "lala",
+            "namespaceName": "荒岛",
+            "namespaceUrl": "lala.im",
+            "path": "/",
+            "fullPath": "/lala/",
+            "name": "最新发布",
+            "example": "/lala",
+            "maintainers": ["cnkmmk"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["lala.im/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "langchain",
+            "namespaceName": "LangChain Blog",
+            "namespaceUrl": "blog.langchain.dev",
+            "path": "/blog",
+            "fullPath": "/langchain/blog",
+            "name": "Blog",
+            "example": "/langchain/blog",
+            "description": "LangChain Blog Posts",
+            "maintainers": ["liyaozhong"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["blog.langchain.dev/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "logrocket",
+            "namespaceName": "logrocket blog",
+            "namespaceUrl": "blog.logrocket.com",
+            "path": "/:type",
+            "fullPath": "/logrocket/:type",
+            "name": "blog.logrocket",
+            "example": "/logrocket/dev",
+            "parameters": {
+                "type": "dev | product-management | ux-design"
+            },
+            "maintainers": ["findwei"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["blog.logrocket.com"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "luolei",
+            "namespaceName": "罗磊的独立博客",
+            "namespaceUrl": "luolei.org",
+            "path": "/",
+            "fullPath": "/luolei/",
+            "name": "罗磊的独立博客",
+            "example": "/luolei",
+            "description": "",
+            "maintainers": ["nczitzk"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["luolei.org"],
+                    "target": "/"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "luxiangdong",
+            "namespaceName": "土猛的员外",
+            "namespaceUrl": "luxiangdong.com",
+            "path": "/archive",
+            "fullPath": "/luxiangdong/archive",
+            "name": "文章",
+            "example": "/luxiangdong/archive",
+            "parameters": {},
+            "maintainers": ["Levix"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["luxiangdong.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "macmenubar",
+            "namespaceName": "MacMenuBar",
+            "namespaceUrl": "macmenubar.com",
+            "path": "/recently/:category?",
+            "fullPath": "/macmenubar/recently/:category?",
+            "name": "Recently",
+            "example": "/macmenubar/recently/developer-apps,system-tools",
+            "parameters": {
+                "category": "Category path name, seperate by comma, default is all categories. Category path name can be found in url"
+            },
+            "maintainers": ["5upernova-heng"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "mashiro",
+            "namespaceName": "Mashiro's Baumkuchen",
+            "namespaceUrl": "mashiro.best",
+            "path": "/:lang",
+            "fullPath": "/mashiro/:lang",
+            "name": "Blog",
+            "example": "/mashiro/en",
+            "description": "Muen's blog posts",
+            "parameters": {
+                "lang": "the language of the site. Can be either `en` or `zh-cn`. Default: `en`"
+            },
+            "maintainers": ["MuenYu"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["mashiro.best/", "mashiro.best/:lang/"]
+                }
+            ]
+        },
+        {
+            "namespace": "mathpix",
+            "namespaceName": "Mathpix",
+            "namespaceUrl": "mathpix.com",
+            "path": "/blog",
+            "fullPath": "/mathpix/blog",
+            "name": "Blog",
+            "example": "/mathpix/blog",
+            "description": "",
+            "maintainers": ["nczitzk"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["mathpix.com/blog"],
+                    "target": "/blog"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "medium",
+            "namespaceName": "Medium",
+            "namespaceUrl": "medium.com",
+            "path": "/feed/:user",
+            "fullPath": "/medium/feed/:user",
+            "name": "Medium Feed",
+            "example": "/medium/feed/zhgchgli",
+            "parameters": {
+                "user": "Username of the Medium"
+            },
+            "maintainers": ["pseudoyu"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["medium.com/@:user"],
+                    "target": "/feed/:user"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "medium",
+            "namespaceName": "Medium",
+            "namespaceUrl": "medium.com",
+            "path": "/following/:user",
+            "fullPath": "/medium/following/:user",
+            "name": "Personalized Recommendations - Following",
+            "example": "/medium/following/imsingee",
+            "description": "::: warning\n  Personalized recommendations require the cookie value after logging in, so only self-hosting is supported. See the configuration module on the deployment page for details.\n:::",
+            "parameters": {
+                "user": "Username"
+            },
+            "maintainers": ["ImSingee"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "MEDIUM_COOKIE_*",
+                        "description": ""
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "medium",
+            "namespaceName": "Medium",
+            "namespaceUrl": "medium.com",
+            "path": "/for-you/:user",
+            "fullPath": "/medium/for-you/:user",
+            "name": "Personalized Recommendations - For You",
+            "example": "/medium/for-you/imsingee",
+            "description": "::: warning\n  Personalized recommendations require the cookie value after logging in, so only self-hosting is supported. See the configuration module on the deployment page for details.\n:::",
+            "parameters": {
+                "user": "Username"
+            },
+            "maintainers": ["ImSingee"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "MEDIUM_COOKIE_*",
+                        "description": ""
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "medium",
+            "namespaceName": "Medium",
+            "namespaceUrl": "medium.com",
+            "path": "/list/:user/:catalogId",
+            "fullPath": "/medium/list/:user/:catalogId",
+            "name": "List",
+            "example": "/medium/list/imsingee/f2d8d48096a9",
+            "description": "The List ID is the last part of the URL after `-`, for example, the username in [https://medium.com/@imsingee/list/collection-7e67004f23f9](https://medium.com/@imsingee/list/collection-7e67004f23f9) is `imsingee`, and the ID is `7e67004f23f9`.\n\n::: warning\n  To access private lists, only self-hosting is supported.\n:::",
+            "parameters": {
+                "user": "Username",
+                "catalogId": "List ID"
+            },
+            "maintainers": ["ImSingee"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "medium",
+            "namespaceName": "Medium",
+            "namespaceUrl": "medium.com",
+            "path": "/tag/:user/:tag",
+            "fullPath": "/medium/tag/:user/:tag",
+            "name": "Personalized Recommendations - Tag",
+            "example": "/medium/tag/imsingee/cybersecurity",
+            "description": "There are many tags, which can be obtained by clicking on a tag from the homepage and looking at the URL. For example, if the URL is `https://medium.com/?tag=web3`, then the tag is `web3`.\n\n::: warning\n  Personalized recommendations require the cookie value after logging in, so only self-hosting is supported. See the configuration module on the deployment page for details.\n:::",
+            "parameters": {
+                "user": "Username",
+                "tag": "Subscribed Tag"
+            },
+            "maintainers": ["ImSingee"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "MEDIUM_COOKIE_*",
+                        "description": ""
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "meteoblue",
+            "namespaceName": "meteoblue",
+            "namespaceUrl": "meteoblue.com",
+            "path": "/weathernews",
+            "fullPath": "/meteoblue/weathernews",
+            "name": "Weather News",
+            "example": "/meteoblue/weathernews",
+            "description": "Weather news and articles from meteoblue",
+            "maintainers": ["tssujt"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "mit",
+            "namespaceName": "Massachusetts Institute of Technology",
+            "namespaceUrl": "mit.edu",
+            "path": "/hanlab/blog",
+            "fullPath": "/mit/hanlab/blog",
+            "name": "HAN Lab Blog",
+            "example": "/mit/hanlab/blog",
+            "description": "MIT HAN Lab pioneers research in efficient AI, advancing algorithms and hardware to make generative models faster, smarter, and more accessible.",
+            "parameters": {},
+            "maintainers": ["johan456789"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["hanlab.mit.edu/blog"]
+                }
+            ]
+        },
+        {
+            "namespace": "nielsberglund",
+            "namespaceName": "Niels Berglund Blog",
+            "namespaceUrl": "nielsberglund.com",
+            "path": "/blog",
+            "fullPath": "/nielsberglund/blog",
+            "name": "Blog",
+            "example": "/nielsberglund/blog",
+            "description": "Niels Berglund Blog Posts",
+            "maintainers": ["liyaozhong"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["nielsberglund.com/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "njuferret",
+            "namespaceName": "njuferret",
+            "namespaceUrl": "njuferret.github.io",
+            "path": "/blog",
+            "fullPath": "/njuferret/blog",
+            "name": "Blogs",
+            "example": "/njuferret/blog",
+            "description": "",
+            "maintainers": ["tyl0622"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["njuferret.github.io"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "obsidian",
+            "namespaceName": "Obsidian",
+            "namespaceUrl": "obsidian.md",
+            "path": "/publish/:id",
+            "fullPath": "/obsidian/publish/:id",
+            "name": "Publish",
+            "example": "/obsidian/publish/marshallontheroad",
+            "parameters": {
+                "id": "网站 id，由Publish持有者自定义"
+            },
+            "maintainers": ["Xy2002"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["publish.obsidian.md/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "oct0pu5",
+            "namespaceName": "Oct0pu5 blog",
+            "namespaceUrl": "Oct0pu5.cn",
+            "path": "/",
+            "fullPath": "/oct0pu5/",
+            "name": "Oct的小破站",
+            "example": "/oct0pu5",
+            "maintainers": ["octopus058", "wiketool"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["oct0pu5.cn"],
+                    "target": "/"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "paulgraham",
+            "namespaceName": "Paul Graham",
+            "namespaceUrl": "paulgraham.com",
+            "path": "/",
+            "fullPath": "/paulgraham/",
+            "name": "Essays",
+            "example": "/paulgraham/articles",
+            "parameters": {},
+            "maintainers": ["Maecenas", "nczitzk", "dvorak0"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["paulgraham.com/articles.html"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "paulgraham",
+            "namespaceName": "Paul Graham",
+            "namespaceUrl": "paulgraham.com",
+            "path": "/articles",
+            "fullPath": "/paulgraham/articles",
+            "name": "Essays",
+            "example": "/paulgraham/articles",
+            "parameters": {},
+            "maintainers": ["Maecenas", "nczitzk", "dvorak0"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["paulgraham.com/articles.html"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "paulgraham",
+            "namespaceName": "Paul Graham",
+            "namespaceUrl": "paulgraham.com",
+            "path": "/essays",
+            "fullPath": "/paulgraham/essays",
+            "name": "Essays",
+            "example": "/paulgraham/articles",
+            "parameters": {},
+            "maintainers": ["Maecenas", "nczitzk", "dvorak0"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["paulgraham.com/articles.html"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "pianyivps",
+            "namespaceName": "便宜VPS网",
+            "namespaceUrl": "pianyivps.com",
+            "path": "/",
+            "fullPath": "/pianyivps/",
+            "name": "最新发布",
+            "example": "/pianyivps",
+            "maintainers": ["cnkmmk"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["pianyivps.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "playpcesor",
+            "namespaceName": "电脑玩物",
+            "namespaceUrl": "playpcesor.com",
+            "path": "/",
+            "fullPath": "/playpcesor/",
+            "name": "每日精选文章",
+            "example": "/playpcesor",
+            "maintainers": ["cnkmmk"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["playpcesor.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "qwenlm",
+            "namespaceName": "Qwen Blog",
+            "namespaceUrl": "qwenlm.github.io",
+            "path": "/blog/:lang?",
+            "fullPath": "/qwenlm/blog/:lang?",
+            "name": "Blog",
+            "example": "/qwenlm/blog/zh",
+            "parameters": {
+                "lang": "Blog language"
+            },
+            "maintainers": ["Kjasn"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["qwenlm.github.io/blog/", "qwenlm.github.io/:lang/blog/"],
+                    "target": "/qwenlm/blog/:lang"
+                }
+            ]
+        },
+        {
+            "namespace": "railway",
+            "namespaceName": "Railway",
+            "namespaceUrl": "railway.com",
+            "path": "/blog",
+            "fullPath": "/railway/blog",
+            "name": "Blog",
+            "example": "/railway/blog",
+            "description": "",
+            "maintainers": ["jihuayu"],
+            "categories": ["blog"],
+            "lang": "en"
+        },
+        {
+            "namespace": "react",
+            "namespaceName": "React",
+            "namespaceUrl": "react.dev",
+            "path": "/blog",
+            "fullPath": "/react/blog",
+            "name": "Blog",
+            "example": "/react/blog",
+            "maintainers": ["equt"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "sorrycc",
+            "namespaceName": "云谦的博客",
+            "namespaceUrl": "sorrycc.com",
+            "path": "/",
+            "fullPath": "/sorrycc/",
+            "name": "文章",
+            "example": "/sorrycc",
+            "description": "云谦的博客，部分内容存在权限校验，访问完整内容请部署RSSHub私有实例并配置授权信息",
+            "maintainers": ["KarasuShin"],
+            "categories": ["blog"],
+            "features": {
+                "supportRadar": true,
+                "requireConfig": [
+                    {
+                        "name": "SORRYCC_COOKIES",
+                        "description": "登录用户的Cookie,获取方式：\n1. 登录sorrycc.com\n2. 打开浏览器开发者工具，切换到 Application 面板\n3. 点击侧边栏中的Storage -> Cookies -> https://sorrycc.com\n4. 复制 Cookie 中的 wordpress_logged_in_f05fca638390aed897fbe3c2fff03000 值",
+                        "optional": true
+                    }
+                ]
+            },
+            "radar": [
+                {
+                    "source": ["sorrycc.com"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "stanford",
+            "namespaceName": "Stanford",
+            "namespaceUrl": "hazyresearch.stanford.edu/blog",
+            "path": "/hazyresearch/blog",
+            "fullPath": "/stanford/hazyresearch/blog",
+            "name": "Hazy Research Blog",
+            "example": "/stanford/hazyresearch/blog",
+            "parameters": {},
+            "maintainers": ["dvorak0"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["hazyresearch.stanford.edu/blog"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "substack",
+            "namespaceName": "Substack",
+            "namespaceUrl": "substack.com",
+            "path": "/subscribe/:user",
+            "fullPath": "/substack/subscribe/:user",
+            "name": "Substack Subscription",
+            "example": "/substack/subscribe/mangoread",
+            "parameters": {
+                "user": "Username of the Substack"
+            },
+            "maintainers": ["pseudoyu"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "thegradient",
+            "namespaceName": "The Gradient",
+            "namespaceUrl": "thegradient.pub",
+            "path": "/posts",
+            "fullPath": "/thegradient/posts",
+            "name": "Posts",
+            "example": "/thegradient/posts",
+            "description": "The Gradient Blog Posts",
+            "maintainers": ["liyaozhong"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["thegradient.pub/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "thzt",
+            "namespaceName": "thzt",
+            "namespaceUrl": "thzt.github.io",
+            "path": "/blog",
+            "fullPath": "/thzt/blog",
+            "name": "Blog",
+            "example": "/thzt/blog",
+            "description": "",
+            "maintainers": ["jihuayu"],
+            "categories": ["blog"],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "towardsdatascience",
+            "namespaceName": "Towards Data Science",
+            "namespaceUrl": "towardsdatascience.com",
+            "path": "/latest",
+            "fullPath": "/towardsdatascience/latest",
+            "name": "Towards Data Science",
+            "example": "/latest",
+            "maintainers": ["mintyfrankie"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["towardsdatascience.com/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "tumblr",
+            "namespaceName": "Tumblr",
+            "namespaceUrl": "tumblr.com",
+            "path": "/posts/:blog",
+            "fullPath": "/tumblr/posts/:blog",
+            "name": "Posts",
+            "example": "/tumblr/posts/biketouring-nearby",
+            "description": "::: tip\nTumblr provides official RSS feeds for non \"dashboard only\" blogs, for instance [https://biketouring-nearby.tumblr.com](https://biketouring-nearby.tumblr.com/rss).\n:::",
+            "parameters": {
+                "blog": "Blog identifier (see `https://www.tumblr.com/docs/en/api/v2#blog-identifiers`)"
+            },
+            "maintainers": ["Rakambda", "PolarisStarnor"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "TUMBLR_CLIENT_ID",
+                        "description": "Please see above for details."
+                    },
+                    {
+                        "name": "TUMBLR_CLIENT_SECRET",
+                        "description": "Please see above for details."
+                    },
+                    {
+                        "name": "TUMBLR_REFRESH_TOKEN",
+                        "description": "Please see above for details."
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [],
+            "lang": "en"
+        },
+        {
+            "namespace": "uber",
+            "namespaceName": "Uber",
+            "namespaceUrl": "www.uber.com",
+            "path": "/blog/:compat?",
+            "fullPath": "/uber/blog/:compat?",
+            "name": "Engineering",
+            "example": "/uber/blog",
+            "description": "The English blog on any of Uber's regional sites (e.g., www.uber.com/en-JP/blog) is the same engineering blog provided by this route, so language selection is not supported. This route is not for the public news blog on specific regional sites (e.g., www.uber.com/ja-JP/blog).",
+            "maintainers": ["hulb"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.uber.com/:language/blog/engineering"],
+                    "target": "/blog"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "v2ex",
+            "namespaceName": "V2EX",
+            "namespaceUrl": "v2ex.com",
+            "path": "/xna",
+            "fullPath": "/v2ex/xna",
+            "name": "XNA",
+            "example": "/v2ex/xna",
+            "parameters": {},
+            "maintainers": ["luckyscript"],
+            "categories": ["bbs", "blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "withgoogle",
+            "namespaceName": "People + AI Research (PAIR)",
+            "namespaceUrl": "pair.withgoogle.com",
+            "path": "/explorables",
+            "fullPath": "/withgoogle/explorables",
+            "name": "PAIR - AI Exploreables",
+            "example": "/withgoogle/explorables",
+            "maintainers": ["cesaryuan"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["pair.withgoogle.com/explorables"],
+                    "target": ""
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "wordpress",
+            "namespaceName": "WordPress",
+            "namespaceUrl": "wordpress.org",
+            "path": "/:url?/:filter{.+}?",
+            "fullPath": "/wordpress/:url?/:filter{.+}?",
+            "name": "WordPress",
+            "example": "/wordpress/https%3A%2F%2Fwordpress.org%2Fnews/category/Podcast",
+            "description": "If you subscribe to [WordPress News](https://wordpress.org/news/)，where the URL is `https://wordpress.org/news/`, Encode the URL using `encodeURIComponent()` and then use it as the parameter. Therefore, the route will be [`/wordpress/https%3A%2F%2Fwordpress.org%2Fnews`](https://rsshub.app/wordpress/https%3A%2F%2Fwordpress.org%2Fnews).\n\n::: tip\n  If you wish to subscribe to specific categories or tags, you can fill in the \"filter\" parameter in the route. `/category/Podcast` to subscribe to the Podcast category. In this case, the route would be [`/wordpress/https%3A%2F%2Fwordpress.org%2Fnews/category/Podcast`](https://rsshub.app/wordpress/https%3A%2F%2Fwordpress.org%2Fnews/category/Podcast).\n\n  You can also subscribe to multiple categories. `/category/Podcast,Community` to subscribe to both the Podcast and Community categories. In this case, the route would be [`/wordpress/https%3A%2F%2Fwordpress.org%2Fnews/category/Podcast,Community`](https://rsshub.app/wordpress/https%3A%2F%2Fwordpress.org%2Fnews/category/Podcast,Community).\n\n  Categories and tags can be combined as well. `/category/Releases/tag/tagging` to subscribe to the Releases category and the tagging tag. In this case, the route would be [`/wordpress/https%3A%2F%2Fwordpress.org%2Fnews/category/Releases/tag/tagging`](https://rsshub.app/wordpress/https%3A%2F%2Fwordpress.org%2Fnews/category/Releases/tag/tagging).\n  \n  You can also search for keywords. `/search/Blog` to search for the keyword \"Blog\". In this case, the route would be [`/wordpress/https%3A%2F%2Fwordpress.org%2Fnews/search/Blog`](https://rsshub.app/wordpress/https%3A%2F%2Fwordpress.org%2Fnews/search/Blog).\n:::",
+            "parameters": {
+                "url": "URL, <https://wordpress.org/news> by default",
+                "filter": "Filter, see below"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "ALLOW_USER_SUPPLY_UNSAFE_DOMAIN",
+                        "description": "This RSS is disabled unless 'ALLOW_USER_SUPPLY_UNSAFE_DOMAIN' is set to 'true'.",
+                        "optional": false
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [],
+            "lang": "en"
+        },
+        {
+            "namespace": "xunhupay",
+            "namespaceName": "虎皮椒",
+            "namespaceUrl": "www.xunhupay.com",
+            "path": "/blog",
+            "fullPath": "/xunhupay/blog",
+            "name": "文章",
+            "example": "/xunhupay/blog",
+            "parameters": {},
+            "maintainers": ["Joey"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.xunhupay.com/blog"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "xys",
+            "namespaceName": "新语丝",
+            "namespaceUrl": "xys.org",
+            "path": "/new",
+            "fullPath": "/xys/new",
+            "name": "新到资料",
+            "example": "/xys/new",
+            "parameters": {},
+            "maintainers": ["wenzhenl"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["xys.org/", "xys.org/new.html"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "ygkkk",
+            "namespaceName": "甬哥侃侃侃YouTube教程摘要随笔",
+            "namespaceUrl": "ygkkk.blogspot.com",
+            "path": "/",
+            "fullPath": "/ygkkk/",
+            "name": "最新发表",
+            "example": "/ygkkk",
+            "maintainers": ["cnkmmk"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["ygkkk.blogspot.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "youmemark",
+            "namespaceName": "YouMeMark",
+            "namespaceUrl": "youmemark.com",
+            "path": "/:userid",
+            "fullPath": "/youmemark/:userid",
+            "name": "Bookmarks",
+            "example": "/youmemark/pseudoyu",
+            "description": "Get user's public bookmarks from YouMeMark\n::: tip\n  Add `?limit=<number>` to the end of the route to limit the number of items. Default is 10.\n:::",
+            "parameters": {
+                "userid": "`userid` is the user id of youmemark"
+            },
+            "maintainers": ["pseudoyu"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["youmemark.com/user/:userid"],
+                    "target": "/:userid"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "zhubai",
+            "namespaceName": "竹白",
+            "namespaceUrl": "zhubai.love",
+            "path": "/posts/:id",
+            "fullPath": "/zhubai/posts/:id",
+            "name": "文章",
+            "example": "/zhubai/posts/via",
+            "description": "::: tip\n  在路由末尾处加上 `?limit=限制获取数目` 来限制获取条目数量，默认值为`20`\n:::",
+            "parameters": {
+                "id": "`id` 为竹白主页 url 中的三级域名，如 via.zhubai.love 的 `id` 为 `via`"
+            },
+            "maintainers": ["naixy28"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "zhubai",
+            "namespaceName": "竹白",
+            "namespaceUrl": "zhubai.love",
+            "path": "/top20",
+            "fullPath": "/zhubai/top20",
+            "name": "上周热门 TOP 20",
+            "example": "/zhubai/top20",
+            "parameters": {},
+            "maintainers": ["nczitzk"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["analy.zhubai.love/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "zhujiceping",
+            "namespaceName": "国外主机测评",
+            "namespaceUrl": "zhujiceping.com",
+            "path": "/",
+            "fullPath": "/zhujiceping/",
+            "name": "最新发布",
+            "example": "/zhujiceping",
+            "maintainers": ["cnkmmk"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["zhujiceping.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "zjuvag",
+            "namespaceName": "浙江大学可视分析小组",
+            "namespaceUrl": "zjuvag.org",
+            "path": "/blog",
+            "fullPath": "/zjuvag/blog",
+            "name": "博客",
+            "example": "/zjuvag/blog",
+            "parameters": {},
+            "maintainers": ["KaiyoungYu"],
+            "categories": ["blog"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "zrblog",
+            "namespaceName": "赵容部落",
+            "namespaceUrl": "zrblog.net",
+            "path": "/",
+            "fullPath": "/zrblog/",
+            "name": "最新文章",
+            "example": "/zrblog",
+            "maintainers": ["cnkmmk"],
+            "categories": ["blog"],
+            "radar": [
+                {
+                    "source": ["zrblog.net/"]
+                }
+            ],
+            "lang": "zh-CN"
+        }
+    ]
+}
