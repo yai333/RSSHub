@@ -783,7 +783,7 @@
         {
             "id": "中国古典音乐-1",
             "name": "中国古典音乐",
-            "streamURL": "https://radio.chinesemusicworld.com/chinesemusic.ogg?_=1",
+            "streamURL": "https://radio.chinesemusicworld.com/chinesemusic.ogg",
             "country": "Australia",
             "genre": "古典音樂",
             "logoName": "classic",
