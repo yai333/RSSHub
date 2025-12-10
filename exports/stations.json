@@ -872,16 +872,16 @@
             "websiteURL": "http://www.bayvoice.net/"
         },
         {
-            "id": "北韩新闻英文频道",
-            "name": "北韩新闻英文频道",
-            "streamURL": "https://www.nknews.org/category/north-korea-news-podcast/latest",
+            "id": "北韩新闻频道",
+            "name": "北韩新闻频道",
+            "streamURL": "https://radio.garden/api/ara/content/listen/NPzavm5p/channel.mp3",
             "country": "Other",
             "genre": "新聞時事",
             "logoName": "headerlogoalt",
             "bitrateKbps": 128,
             "isFeatured": false,
             "order": 89,
-            "description": "北韩新闻英文频道转播",
+            "description": "北韩新闻频道转播",
             "websiteURL": null
         },
         {
