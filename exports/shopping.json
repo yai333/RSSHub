@@ -1,0 +1,2161 @@
+{
+    "category": "shopping",
+    "displayName": "Shopping",
+    "displayNameZh": "购物",
+    "icon": "🛍️",
+    "count": 70,
+    "routes": [
+        {
+            "namespace": "0818tuan",
+            "namespaceName": "0818 团",
+            "namespaceUrl": "0818tuan.com",
+            "path": "/:listId?",
+            "fullPath": "/0818tuan/:listId?",
+            "name": "分类",
+            "example": "/0818tuan",
+            "description": "| 最新线报 | 实测活动 | 优惠券 |\n| -------- | -------- | ------ |\n| 1        | 2        | 3      |",
+            "parameters": {
+                "listId": "活动分类，见下表，默认为 `1`"
+            },
+            "maintainers": ["TonyRL"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "5music",
+            "namespaceName": "五大唱片",
+            "namespaceUrl": "5music.com.tw",
+            "path": "/new-releases/:category?",
+            "fullPath": "/5music/new-releases/:category?",
+            "name": "新貨上架",
+            "example": "/5music/new-releases",
+            "description": "Categories:\n| 華語 | 西洋 | 東洋 | 韓語 | 古典 |\n| ---- | ---- | ---- | ---- | ---- |\n| A | B | F | M | D |",
+            "parameters": {
+                "category": "Category, see below, defaults to all"
+            },
+            "maintainers": ["gideonsenku"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.5music.com.tw/New_releases.asp", "www.5music.com.tw/"],
+                    "target": "/new-releases"
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "arcteryx",
+            "namespaceName": "Arcteryx",
+            "namespaceUrl": "arcteryx.com",
+            "path": "/new-arrivals/:country/:gender",
+            "fullPath": "/arcteryx/new-arrivals/:country/:gender",
+            "name": "New Arrivals",
+            "example": "/arcteryx/new-arrivals/us/mens",
+            "description": "Country\n\n| United States | Canada | United Kingdom |\n| ------------- | ------ | -------------- |\n| us            | ca     | gb             |\n\n  gender\n\n| male | female |\n| ---- | ------ |\n| mens | womens |\n\n::: tip\n  Parameter `country` can be found within the url of `Arcteryx` website.\n:::",
+            "parameters": {
+                "country": "country",
+                "gender": "gender"
+            },
+            "maintainers": ["EthanWng97"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["arcteryx.com/:country/en/c/:gender/new-arrivals"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "arcteryx",
+            "namespaceName": "Arcteryx",
+            "namespaceUrl": "arcteryx.com",
+            "path": "/outlet/:country/:gender",
+            "fullPath": "/arcteryx/outlet/:country/:gender",
+            "name": "Outlet",
+            "example": "/arcteryx/outlet/us/mens",
+            "description": "Country\n\n| United States | Canada | United Kingdom |\n| ------------- | ------ | -------------- |\n| us            | ca     | gb             |\n\n  gender\n\n| male | female |\n| ---- | ------ |\n| mens | womens |\n\n::: tip\n  Parameter `country` can be found within the url of `Arcteryx` website.\n:::",
+            "parameters": {
+                "country": "country",
+                "gender": "gender"
+            },
+            "maintainers": ["EthanWng97"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["outlet.arcteryx.com/:country/en/c/:gender"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "arcteryx",
+            "namespaceName": "Arcteryx",
+            "namespaceUrl": "arcteryx.com",
+            "path": "/regear/new-arrivals",
+            "fullPath": "/arcteryx/regear/new-arrivals",
+            "name": "Regear New Arrivals",
+            "example": "/arcteryx/regear/new-arrivals",
+            "parameters": {},
+            "maintainers": ["EthanWng97"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["regear.arcteryx.com/shop/new-arrivals", "regear.arcteryx.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "bellroy",
+            "namespaceName": "Bellroy",
+            "namespaceUrl": "bellroy.com",
+            "path": "/new-releases",
+            "fullPath": "/bellroy/new-releases",
+            "name": "New Releases",
+            "example": "/bellroy/new-releases",
+            "parameters": {},
+            "maintainers": ["EthanWng97"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["bellroy.com/collection/new-releases", "bellroy.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "bookwalker",
+            "namespaceName": "BOOKWALKER電子書",
+            "namespaceUrl": "bookwalker.com.tw",
+            "path": "/search/:filter?",
+            "fullPath": "/bookwalker/search/:filter?",
+            "name": "搜尋",
+            "example": "/bookwalker/search/order=sell_desc&s=34",
+            "description": "::: tip\n订阅 [依發售日新至舊排序的文學小說](https://www.bookwalker.com.tw/search?order=sell_desc&s=34)，其源网址为 `https://www.bookwalker.com.tw/search?order=sell_desc&s=34`，请参考该 URL 指定部分构成参数，此时路由为 [`/bookwalker/search/order=sell_desc&s=34`](https://rsshub.app/bookwalker/search/order=sell_desc&s=34)。\n:::",
+            "parameters": {
+                "filter": {
+                    "description": "过滤器，默认为 `order=sell_desc`，即依發售日新至舊排序"
+                }
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.bookwalker.com.tw/search"],
+                    "target": "/bookwalker/search"
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "ccreports",
+            "namespaceName": "消费者报道",
+            "namespaceUrl": "www.ccreports.com.cn",
+            "path": "/article",
+            "fullPath": "/ccreports/article",
+            "name": "要闻",
+            "example": "/ccreports/article",
+            "parameters": {},
+            "maintainers": ["EsuRt", "Fatpandac"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.ccreports.com.cn/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "coolbuy",
+            "namespaceName": "玩物志",
+            "namespaceUrl": "coolbuy.com",
+            "path": "/",
+            "fullPath": "/coolbuy/",
+            "name": "产品",
+            "example": "/coolbuy",
+            "description": "",
+            "maintainers": ["nczitzk"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["coolbuy.com"],
+                    "target": "/"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "coolpc",
+            "namespaceName": "原價屋",
+            "namespaceUrl": "www.coolpc.com.tw",
+            "path": "/news",
+            "fullPath": "/coolpc/news",
+            "name": "促銷&開箱",
+            "example": "/coolpc/news",
+            "parameters": {},
+            "maintainers": ["david90103"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.coolpc.com.tw/"]
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "damai",
+            "namespaceName": "大麦网",
+            "namespaceUrl": "search.damai.cn",
+            "path": "/activity/:city/:category/:subcategory/:keyword?",
+            "fullPath": "/damai/activity/:city/:category/:subcategory/:keyword?",
+            "name": "票务更新",
+            "example": "/damai/activity/上海/音乐会/全部/柴可夫斯基",
+            "description": "城市、分类名、子分类名，请参见[大麦网搜索页面](https://search.damai.cn/search.htm)",
+            "parameters": {
+                "city": "城市，如果不需要限制，请填入`全部`",
+                "category": "分类，如果不需要限制，请填入`全部`",
+                "subcategory": "子分类，如果不需要限制，请填入`全部`",
+                "keyword": "搜索关键字，置空为不限制"
+            },
+            "maintainers": ["hoilc", "Konano"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "dianping",
+            "namespaceName": "大众点评",
+            "namespaceUrl": "dianping.com",
+            "path": "/user/:id",
+            "fullPath": "/dianping/user/:id",
+            "name": "用户动态",
+            "example": "/dianping/user/808259118",
+            "description": "获取用户点评、签到、攻略等动态。",
+            "parameters": {
+                "id": "User id，打开网页端从 URL 中获取，在 `/member/:id` 中"
+            },
+            "maintainers": ["pseudoyu"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "DIANPING_COOKIE",
+                        "optional": false,
+                        "description": "大众点评的 Cookie"
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["dianping.com/member/:id", "m.dianping.com/userprofile/:id"],
+                    "target": "/dianping/user/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "duozhuayu",
+            "namespaceName": "多抓鱼",
+            "namespaceUrl": "duozhuayu.com",
+            "path": "/search/:wd",
+            "fullPath": "/duozhuayu/search/:wd",
+            "name": "搜索结果",
+            "example": "/duozhuayu/search/JavaScript",
+            "parameters": {
+                "wd": "搜索关键词"
+            },
+            "maintainers": ["fengkx"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["duozhuayu.com/search/book/:wd"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "furstar",
+            "namespaceName": "Furstar",
+            "namespaceUrl": "furstar.jp",
+            "path": "/archive/:lang?",
+            "fullPath": "/furstar/archive/:lang?",
+            "name": "已经出售的角色列表",
+            "example": "/furstar/archive/cn",
+            "parameters": {
+                "lang": "语言, 留空为jp, 支持cn, en"
+            },
+            "maintainers": ["NeverBehave"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["furstar.jp/:lang/archive.php", "furstar.jp/archive.php"],
+                    "target": "/archive/:lang"
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "furstar",
+            "namespaceName": "Furstar",
+            "namespaceUrl": "furstar.jp",
+            "path": "/artists/:lang?",
+            "fullPath": "/furstar/artists/:lang?",
+            "name": "画师列表",
+            "example": "/furstar/artists/cn",
+            "parameters": {
+                "lang": "语言, 留空为jp, 支持cn, en"
+            },
+            "maintainers": ["NeverBehave"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["furstar.jp/"],
+                    "target": "/artists"
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "furstar",
+            "namespaceName": "Furstar",
+            "namespaceUrl": "furstar.jp",
+            "path": "/characters/:lang?",
+            "fullPath": "/furstar/characters/:lang?",
+            "name": "最新售卖角色列表",
+            "example": "/furstar/characters/cn",
+            "parameters": {
+                "lang": "语言, 留空为jp, 支持cn, en"
+            },
+            "maintainers": ["NeverBehave"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["furstar.jp/:lang", "furstar.jp/"],
+                    "target": "/characters/:lang"
+                }
+            ],
+            "lang": "ja"
+        },
+        {
+            "namespace": "guangdiu",
+            "namespaceName": "逛丢",
+            "namespaceUrl": "guangdiu.com",
+            "path": "/:query?",
+            "fullPath": "/guangdiu/:query?",
+            "name": "国内折扣 / 海外折扣",
+            "example": "/guangdiu/k=daily",
+            "description": "::: tip\n  海外折扣: [`/guangdiu/k=daily&c=us`](https://rsshub.app/guangdiu/k=daily&c=us)\n:::",
+            "parameters": {
+                "query": "链接参数，对应网址问号后的内容"
+            },
+            "maintainers": ["Fatpandac"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "guangdiu",
+            "namespaceName": "逛丢",
+            "namespaceUrl": "guangdiu.com",
+            "path": "/cheaps/:query?",
+            "fullPath": "/guangdiu/cheaps/:query?",
+            "name": "九块九",
+            "example": "/guangdiu/cheaps/k=clothes",
+            "parameters": {
+                "query": "链接参数，对应网址问号后的内容"
+            },
+            "maintainers": ["fatpandac"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "guangdiu",
+            "namespaceName": "逛丢",
+            "namespaceUrl": "guangdiu.com",
+            "path": "/rank",
+            "fullPath": "/guangdiu/rank",
+            "name": "一小时风云榜",
+            "example": "/guangdiu/rank",
+            "parameters": {},
+            "maintainers": ["fatpandac"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["guangdiu.com/rank"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "guangdiu",
+            "namespaceName": "逛丢",
+            "namespaceUrl": "guangdiu.com",
+            "path": "/search/:query?",
+            "fullPath": "/guangdiu/search/:query?",
+            "name": "关键字搜索",
+            "example": "/guangdiu/search/q=百度网盘",
+            "parameters": {
+                "query": "链接参数，对应网址问号后的内容"
+            },
+            "maintainers": ["Huzhixin00"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "gumroad",
+            "namespaceName": "Gumroad",
+            "namespaceUrl": "gumroad.com",
+            "path": "/:username/:products",
+            "fullPath": "/gumroad/:username/:products",
+            "name": "Products",
+            "example": "/gumroad/afkmaster/Eve10",
+            "description": "`https://afkmaster.gumroad.com/l/Eve10` -> `/gumroad/afkmaster/Eve10`",
+            "parameters": {
+                "username": "username, can be found in URL",
+                "products": "products name, can be found in URL"
+            },
+            "maintainers": ["Fatpandac"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "hkushop",
+            "namespaceName": "環球唱片(香港)官方網上商店",
+            "namespaceUrl": "hkushop.com",
+            "path": "/vinyl/:cat?",
+            "fullPath": "/hkushop/vinyl/:cat?",
+            "name": "HKU Shop 黑胶专区",
+            "example": "/hkushop/vinyl",
+            "description": "常见分类:\n| 華語音樂 | 經典復刻 | 古典跨界 | 爵士音樂 | 國際音樂 | 電影原聲帶 | 黑膠日本音樂 |\n| ---- | ---- | ---- | ---- | ---- | ---- | ---- |\n| 37 | 38 | 40 | 41 | 39 | 170 | 224 |",
+            "parameters": {
+                "cat": "分类，见下表，默认不分类"
+            },
+            "maintainers": ["gideonsenku"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": true,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false,
+                "supportRadar": true
+            },
+            "radar": [
+                {
+                    "source": ["hkushop.com/vinyl-or-picture-lp.html", "hkushop.com/"],
+                    "target": "/vinyl"
+                }
+            ],
+            "lang": "zh-HK"
+        },
+        {
+            "namespace": "hottoys",
+            "namespaceName": "Hot Toys",
+            "namespaceUrl": "www.hottoys.com.hk",
+            "path": "/",
+            "fullPath": "/hottoys/",
+            "name": "Toys List",
+            "example": "/hottoys",
+            "maintainers": ["jw0903"],
+            "categories": ["shopping"],
+            "features": {
+                "requirePuppeteer": true
+            },
+            "radar": [
+                {
+                    "source": ["hottoys.com.hk/"]
+                }
+            ],
+            "lang": "zh-HK"
+        },
+        {
+            "namespace": "hotukdeals",
+            "namespaceName": "hotukdeals",
+            "namespaceUrl": "www.hotukdeals.com",
+            "path": "/:type",
+            "fullPath": "/hotukdeals/:type",
+            "name": "thread",
+            "example": "/hotukdeals/hot",
+            "parameters": {
+                "type": "should be one of highlights, hot, new, discussed"
+            },
+            "maintainers": ["DIYgod"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "hotukdeals",
+            "namespaceName": "hotukdeals",
+            "namespaceUrl": "www.hotukdeals.com",
+            "path": "/hottest",
+            "fullPath": "/hotukdeals/hottest",
+            "name": "hottest",
+            "example": "/hotukdeals/hottest",
+            "parameters": {},
+            "maintainers": ["DIYgod"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.hotukdeals.com/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "ikea",
+            "namespaceName": "IKEA",
+            "namespaceUrl": "ikea.com",
+            "path": "/cn/family_offers",
+            "fullPath": "/ikea/cn/family_offers",
+            "name": "中国 - 会员特惠",
+            "example": "/ikea/cn/family_offers",
+            "parameters": {},
+            "maintainers": ["jzhangdev"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ikea.cn/cn/zh/offers/family-offers", "ikea.cn/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "ikea",
+            "namespaceName": "IKEA",
+            "namespaceUrl": "ikea.com",
+            "path": "/cn/low_price",
+            "fullPath": "/ikea/cn/low_price",
+            "name": "中国 - 低价优选",
+            "example": "/ikea/cn/low_price",
+            "parameters": {},
+            "maintainers": ["jzhangdev"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ikea.cn/cn/zh/campaigns/wo3-men2-de-chao1-zhi2-di1-jia4-pub8b08af40", "ikea.cn/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "ikea",
+            "namespaceName": "IKEA",
+            "namespaceUrl": "ikea.com",
+            "path": "/cn/new",
+            "fullPath": "/ikea/cn/new",
+            "name": "中国 - 当季新品推荐",
+            "example": "/ikea/cn/new",
+            "parameters": {},
+            "maintainers": ["jzhangdev"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ikea.cn/cn/zh/new/", "ikea.cn/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "ikea",
+            "namespaceName": "IKEA",
+            "namespaceUrl": "ikea.com",
+            "path": "/gb/new",
+            "fullPath": "/ikea/gb/new",
+            "name": "UK - New Product Release",
+            "example": "/ikea/gb/new",
+            "parameters": {},
+            "maintainers": ["HenryQW"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ikea.com/gb/en/new/new-products/", "ikea.com/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "ikea",
+            "namespaceName": "IKEA",
+            "namespaceUrl": "ikea.com",
+            "path": "/gb/offer",
+            "fullPath": "/ikea/gb/offer",
+            "name": "UK - Offers",
+            "example": "/ikea/gb/offer",
+            "parameters": {},
+            "maintainers": ["HenryQW"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["ikea.com/gb/en/offers", "ikea.com/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "jd",
+            "namespaceName": "京东",
+            "namespaceUrl": "item.jd.com",
+            "path": "/price/:id",
+            "fullPath": "/jd/price/:id",
+            "name": "商品价格",
+            "example": "/jd/price/526835",
+            "description": "::: tip\n  如商品 `https://item.jd.com/526835.html` 中的 id 为 `526835`，所以路由为 [`/jd/price/526835`](https://rsshub.app/jd/price/526835)\n:::",
+            "parameters": {
+                "id": "商品 id，可在商品详情页 URL 中找到"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "ktown4u",
+            "namespaceName": "Ktown4u",
+            "namespaceUrl": "ktown4u.com",
+            "path": "/artistBrandlist/:grpNo/:grpNo2?",
+            "fullPath": "/ktown4u/artistBrandlist/:grpNo/:grpNo2?",
+            "name": "Get the products on sale",
+            "example": "/ktown4u/artistBrandlist/234590/1723449",
+            "parameters": {
+                "grpNo": "artist id (Get in url)",
+                "grpNo2": "product category id (Get in url), empty for all categories"
+            },
+            "maintainers": ["JamesWDGu"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": [],
+                    "target": "/artistBrandlist/:grpNo/:grpNo2"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "mercari",
+            "namespaceName": "Mercari",
+            "namespaceUrl": "jp.mercari.com",
+            "path": "/:sort/:order/:status/:keyword",
+            "fullPath": "/mercari/:sort/:order/:status/:keyword",
+            "name": "关键词",
+            "example": "/mercari/create_time/desc/default/ふもふも",
+            "parameters": {
+                "sort": {
+                    "description": "排序方式",
+                    "default": "default",
+                    "options": [
+                        {
+                            "value": "default",
+                            "label": "默认排序"
+                        },
+                        {
+                            "value": "create_time",
+                            "label": "发布时间"
+                        },
+                        {
+                            "value": "score",
+                            "label": "评分"
+                        },
+                        {
+                            "value": "like",
+                            "label": "点赞"
+                        },
+                        {
+                            "value": "price",
+                            "label": "价格"
+                        }
+                    ]
+                },
+                "order": {
+                    "description": "排序顺序",
+                    "default": "desc",
+                    "options": [
+                        {
+                            "value": "desc",
+                            "label": "降序"
+                        },
+                        {
+                            "value": "asc",
+                            "label": "升序"
+                        }
+                    ]
+                },
+                "status": {
+                    "description": "商品状态",
+                    "default": "default",
+                    "options": [
+                        {
+                            "value": "default",
+                            "label": "全部"
+                        },
+                        {
+                            "value": "onsale",
+                            "label": "在售"
+                        },
+                        {
+                            "value": "soldout",
+                            "label": "已售"
+                        }
+                    ]
+                },
+                "keyword": {
+                    "description": "关键词"
+                }
+            },
+            "maintainers": ["yana9i"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            }
+        },
+        {
+            "namespace": "mercari",
+            "namespaceName": "Mercari",
+            "namespaceUrl": "jp.mercari.com",
+            "path": "/search/:query",
+            "fullPath": "/mercari/search/:query",
+            "name": "Search",
+            "example": "/mercari/search/keyword=シャツ&7bd3eacc-ae45-4d73-bc57-a611c9432014=340258ac-e220-4722-8c35-7f73b7382831",
+            "description": "::: warning\n此路由僅支援 `jp.mercari.com`，不支援 `tw.mercari.com` 和 `hk.mercari.com`。\n\n**注意：** 不同站點的查詢參數格式不同\n- 日本: `keyword=シャツ&order=desc&sort=created_time&status=on_sale`\n- 台灣: `keyword=シャツ&sort=new&status=in-stock&availability=1`\n:::",
+            "parameters": {
+                "query": "Search parameters in URL query string format."
+            },
+            "maintainers": ["yana9i", "Tsuyumi25"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            }
+        },
+        {
+            "namespace": "mi",
+            "namespaceName": "小米",
+            "namespaceUrl": "mi.com",
+            "path": "/crowdfunding",
+            "fullPath": "/mi/crowdfunding",
+            "name": "小米众筹",
+            "example": "/mi/crowdfunding",
+            "maintainers": ["DIYgod", "nuomi1"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["m.mi.com/crowdfunding/home"],
+                    "target": "/crowdfunding"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "modian",
+            "namespaceName": "摩点",
+            "namespaceUrl": "modian.com",
+            "path": "/zhongchou/:category?/:sort?/:status?",
+            "fullPath": "/modian/zhongchou/:category?/:sort?/:status?",
+            "name": "众筹",
+            "example": "/modian/zhongchou",
+            "description": "分类\n\n| 全部 | 游戏  | 动漫   | 出版       | 桌游       |\n| ---- | ----- | ------ | ---------- | ---------- |\n| all  | games | comics | publishing | tablegames |\n\n| 卡牌  | 潮玩模型 | 影视       | 音乐  | 活动       |\n| ----- | -------- | ---------- | ----- | ---------- |\n| cards | toys     | film-video | music | activities |\n\n| 设计   | 科技       | 食品 | 爱心通道 | 动物救助 |\n| ------ | ---------- | ---- | -------- | -------- |\n| design | technology | food | charity  | animals  |\n\n| 个人愿望 | 其他   |\n| -------- | ------ |\n| wishes   | others |\n\n  排序\n\n| 最新上线  | 金额最高   | 评论最多     |\n| --------- | ---------- | ------------ |\n| top_time | top_money | top_comment |\n\n  状态\n\n| 全部 | 创意 | 预热    | 众筹中 | 众筹成功 |\n| ---- | ---- | ------- | ------ | -------- |\n| all  | idea | preheat | going  | success  |",
+            "parameters": {
+                "category": "分类，见下表，默认为全部",
+                "sort": "排序，见下表，默认为最新上线",
+                "status": "状态，见下表，默认为全部"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["shopping"],
+            "radar": [
+                {
+                    "source": ["zhongchou.modian.com/:category/:sort/:status"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "myfigurecollection",
+            "namespaceName": "MyFigureCollection",
+            "namespaceUrl": "myfigurecollection.net",
+            "path": "/:category?/:language?",
+            "fullPath": "/myfigurecollection/:category?/:language?",
+            "name": "圖片",
+            "example": "/myfigurecollection/potd",
+            "description": "| 每日圖片 | 每週圖片 | 每月圖片 |\n| -------- | -------- | -------- |\n| potd     | potw     | potm     |",
+            "parameters": {
+                "category": "分类，默认为每日圖片",
+                "language": "语言，见上表，默认为空，即 `en`"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["zh.myfigurecollection.net/browse", "zh.myfigurecollection.net/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "myfigurecollection",
+            "namespaceName": "MyFigureCollection",
+            "namespaceUrl": "myfigurecollection.net",
+            "path": "/activity/:category?/:language?/:latestAdditions?/:latestEdits?/:latestAlerts?/:latestPictures?",
+            "fullPath": "/myfigurecollection/activity/:category?/:language?/:latestAdditions?/:latestEdits?/:latestAlerts?/:latestPictures?",
+            "name": "Activity",
+            "example": "/myfigurecollection/activity",
+            "description": "Category\n\n| Figures | Goods | Media |\n| ------- | ----- | ----- |\n| 0       | 1     | 2     |\n\n  Language\n\n| Id | Language   |\n| -- | ---------- |\n|    | en         |\n| de | Deutsch    |\n| es | Español    |\n| fi | Suomeksi   |\n| fr | Français   |\n| it | Italiano   |\n| ja | 日本語     |\n| nl | Nederlands |\n| no | Norsk      |\n| pl | Polski     |\n| pt | Português  |\n| ru | Русский    |\n| sv | Svenska    |\n| zh | 中文       |",
+            "parameters": {
+                "category": "Category, Figures by default",
+                "language": "Language, as above, `en` by default",
+                "latestAdditions": "Latest Additions, on as `1` by default, off as `0`",
+                "latestEdits": "Changes, on as `1` by default, off as `0`",
+                "latestAlerts": "Alerts, on as `1` by default, off as `0`",
+                "latestPictures": "Pictures, on as `1` by default, off as `0`"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["zh.myfigurecollection.net/browse", "zh.myfigurecollection.net/"],
+                    "target": "/:category?/:language?"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "mymusicsheet",
+            "namespaceName": "mymusic5 (MyMusicSheet)",
+            "namespaceUrl": "mymusicfive.com",
+            "path": "/user/sheets/:username/:iso?/:freeOnly?",
+            "fullPath": "/mymusicsheet/user/sheets/:username/:iso?/:freeOnly?",
+            "name": "User Sheets",
+            "example": "/mymusicsheet/user/sheets/HalcyonMusic/USD/1",
+            "description": "Please refer to [Wikipedia](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) for ISO 4217.",
+            "parameters": {
+                "username": "Username, can be found in the URL",
+                "iso": "ISO 4217 currency code for displaying prices, defaults to `USD`",
+                "freeOnly": "Only return free scores, any value to enable"
+            },
+            "maintainers": ["Freddd13"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["mymusicfive.com/:username/*", "mymusicfive.com/:username"],
+                    "target": "/user/sheets/:username"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "openrice",
+            "namespaceName": "Openrice開飯喇",
+            "namespaceUrl": "www.openrice.com",
+            "path": "/:lang/hongkong/explore/chart/:category",
+            "fullPath": "/openrice/:lang/hongkong/explore/chart/:category",
+            "name": "香港餐廳排行榜",
+            "example": "/openrice/zh/hongkong/explore/chart/most-bookmarked",
+            "description": "\n| 简体 | 繁體 | EN |\n| ----- | ------ | ----- |\n| zh-cn | zh | en |\n\n| 最多收藏 | 每周最高评分 | 最高浏览 | 最佳甜品餐厅 |\n| ----- | ------ | ----- | ----- |\n| most-bookmarked | best-rating | most-popular | best-dessert |\n  ",
+            "parameters": {
+                "lang": "语言，缺省为 zh",
+                "category": "类别，缺省为 most-bookmarked"
+            },
+            "maintainers": ["after9"],
+            "categories": ["shopping"],
+            "lang": "zh-HK"
+        },
+        {
+            "namespace": "openrice",
+            "namespaceName": "Openrice開飯喇",
+            "namespaceUrl": "www.openrice.com",
+            "path": "/:lang/hongkong/offers",
+            "fullPath": "/openrice/:lang/hongkong/offers",
+            "name": "香港餐廳精選優惠券",
+            "example": "/openrice/zh/hongkong/offers",
+            "description": "\n| 简体 | 繁體 | EN |\n| ----- | ------ | ----- |\n| zh-cn | zh | en |\n  ",
+            "parameters": {
+                "lang": "语言，缺省为 zh"
+            },
+            "maintainers": ["after9"],
+            "categories": ["shopping"],
+            "lang": "zh-HK"
+        },
+        {
+            "namespace": "openrice",
+            "namespaceName": "Openrice開飯喇",
+            "namespaceUrl": "www.openrice.com",
+            "path": "/:lang/hongkong/promos",
+            "fullPath": "/openrice/:lang/hongkong/promos",
+            "name": "香港餐厅滋讯",
+            "example": "/openrice/zh/hongkong/promos",
+            "description": "\n| 简体 | 繁體 | EN |\n| ----- | ------ | ----- |\n| zh-cn | zh | en |\n  ",
+            "parameters": {
+                "lang": "语言，缺省为 zh"
+            },
+            "maintainers": ["after9"],
+            "categories": ["shopping"],
+            "lang": "zh-HK"
+        },
+        {
+            "namespace": "openrice",
+            "namespaceName": "Openrice開飯喇",
+            "namespaceUrl": "www.openrice.com",
+            "path": "/:lang/hongkong/voting/top/:categoryKey",
+            "fullPath": "/openrice/:lang/hongkong/voting/top/:categoryKey",
+            "name": "OpenRice 開飯熱店 - 年度餐廳投票",
+            "example": "/openrice/zh/hongkong/voting/top/chinese",
+            "description": "\n  lang: 语言，见下方列表\n| 简体 | 繁體 | EN |\n| ----- | ------ | ----- |\n| zh-cn | zh | en |\n\n  categoryKey: 部分类别，见下方列表 (更多的类别可以在页面的link中对照获取)\n| 中菜館 | 上海菜 | 粵菜 | 川菜 | 港式 | 粥粉麵店 | 廚師發辦 | 韓國菜 | 泰國菜 | 越南菜 |\n| -------- | -------- | -------- |  -------- | -------- | -------- | -------- | -------- | -------- | -------- |\n| chinese | shanghainese | guangdong | sichuan | hkstyle | congee_noodles | omakase | korean | thai | vietnamese |\n  ",
+            "parameters": {
+                "lang": "语言，缺省为 zh",
+                "categoryKey": "类别，缺省为 chinese"
+            },
+            "maintainers": ["after9"],
+            "categories": ["shopping"],
+            "lang": "zh-HK"
+        },
+        {
+            "namespace": "patagonia",
+            "namespaceName": "Patagonia",
+            "namespaceUrl": "patagonia.com",
+            "path": "/new-arrivals/:category",
+            "fullPath": "/patagonia/new-arrivals/:category",
+            "name": "New Arrivals",
+            "example": "/patagonia/new-arrivals/mens",
+            "description": "| Men's | Women's | Kids' & Baby | Packs & Gear |\n| ----- | ------- | ------------ | ------------ |\n| mens  | womens  | kids         | luggage      |",
+            "parameters": {
+                "category": "category, see below"
+            },
+            "maintainers": [],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "shcstheatre",
+            "namespaceName": "上海文化广场",
+            "namespaceUrl": "www.shcstheatre.com",
+            "path": "/programs",
+            "fullPath": "/shcstheatre/programs",
+            "name": "节目列表",
+            "example": "/shcstheatre/programs",
+            "parameters": {},
+            "maintainers": ["fuzy112"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.shcstheatre.com/Program/programList.aspx"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "shoac",
+            "namespaceName": "上海东方艺术中心",
+            "namespaceUrl": "shoac.com.cn",
+            "path": "/recent-show",
+            "fullPath": "/shoac/recent-show",
+            "name": "演出月历",
+            "example": "/shoac/recent-show",
+            "parameters": {},
+            "maintainers": ["TonyRL"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["shoac.com.cn/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "shopback",
+            "namespaceName": "ShopBack",
+            "namespaceUrl": "shopback.com.tw",
+            "path": "/:store",
+            "fullPath": "/shopback/:store",
+            "name": "Store",
+            "example": "/shopback/shopee-mart",
+            "parameters": {
+                "store": "Store, can be found in URL"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["shopback.com.tw/:category", "shopback.com.tw/"]
+                }
+            ],
+            "lang": "zh-TW"
+        },
+        {
+            "namespace": "showstart",
+            "namespaceName": "秀动网",
+            "namespaceUrl": "www.showstart.com",
+            "path": "/artist/:id",
+            "fullPath": "/showstart/artist/:id",
+            "name": "按音乐人 - 演出更新",
+            "example": "/showstart/artist/301783",
+            "description": "::: tip\n音乐人 ID 查询: `/showstart/search/artist/:keyword`，如: [https://rsshub.app/showstart/search/artist/周杰伦](https://rsshub.app/showstart/search/artist/周杰伦)\n:::",
+            "parameters": {
+                "id": "音乐人 ID"
+            },
+            "maintainers": ["lchtao26"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.showstart.com/artist/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "showstart",
+            "namespaceName": "秀动网",
+            "namespaceUrl": "www.showstart.com",
+            "path": "/brand/:id",
+            "fullPath": "/showstart/brand/:id",
+            "name": "按厂牌 - 演出更新",
+            "example": "/showstart/brand/34707",
+            "description": "::: tip\n厂牌 ID 查询: `/showstart/search/brand/:keyword`，如: [https://rsshub.app/showstart/search/brand/声场](https://rsshub.app/showstart/search/brand/声场)\n:::",
+            "parameters": {
+                "id": "厂牌 ID"
+            },
+            "maintainers": ["lchtao26"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.showstart.com/host/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "showstart",
+            "namespaceName": "秀动网",
+            "namespaceUrl": "www.showstart.com",
+            "path": "/event/:cityCode/:showStyle?",
+            "fullPath": "/showstart/event/:cityCode/:showStyle?",
+            "name": "按城市 - 演出更新",
+            "example": "/showstart/event/571/3",
+            "description": "::: tip\n-   演出城市 `cityCode` 查询: `/showstart/search/city/:keyword`, 如: [https://rsshub.app/showstart/search/city/杭州](https://rsshub.app/showstart/search/city/杭州)\n\n-   演出风格 `showStyle` 查询: `/showstart/search/style/:keyword`，如: [https://rsshub.app/showstart/search/style/摇滚](https://rsshub.app/showstart/search/style/摇滚)\n:::",
+            "parameters": {
+                "cityCode": "演出城市 (编号)",
+                "showStyle": "演出风格 (编号)"
+            },
+            "maintainers": ["lchtao26"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "showstart",
+            "namespaceName": "秀动网",
+            "namespaceUrl": "www.showstart.com",
+            "path": "/search/:type/:keyword?",
+            "fullPath": "/showstart/search/:type/:keyword?",
+            "name": "演出搜索",
+            "example": "/showstart/search/live",
+            "parameters": {
+                "keyword": "搜索关键词",
+                "type": {
+                    "description": "类别",
+                    "options": [
+                        {
+                            "value": "event",
+                            "label": "演出"
+                        },
+                        {
+                            "value": "artist",
+                            "label": "音乐人"
+                        },
+                        {
+                            "value": "site",
+                            "label": "场地"
+                        },
+                        {
+                            "value": "brand",
+                            "label": "厂牌"
+                        },
+                        {
+                            "value": "city",
+                            "label": "城市"
+                        },
+                        {
+                            "value": "style",
+                            "label": "风格"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["lchtao26"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "showstart",
+            "namespaceName": "秀动网",
+            "namespaceUrl": "www.showstart.com",
+            "path": "/site/:siteId",
+            "fullPath": "/showstart/site/:siteId",
+            "name": "按场地 - 演出更新",
+            "example": "/showstart/site/3583",
+            "description": "::: tip\n-   演出场地 ID 查询: `/showstart/search/site/:keyword`, 如: [https://rsshub.app/showstart/search/site/酒球会](https://rsshub.app/showstart/search/site/酒球会)\n:::",
+            "parameters": {
+                "siteId": "演出场地 (编号)"
+            },
+            "maintainers": ["lchtao26"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["www.showstart.com/venue/:id"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "smzdm",
+            "namespaceName": "什么值得买",
+            "namespaceUrl": "post.smzdm.com",
+            "path": "/article/:uid",
+            "fullPath": "/smzdm/article/:uid",
+            "name": "用户文章",
+            "example": "/smzdm/article/6902738986",
+            "description": "::: tip\n网站也提供了部分 RSS: [https://www.smzdm.com/dingyue](https://www.smzdm.com/dingyue)\n:::",
+            "parameters": {
+                "uid": "用户 id，网址上直接可以看到"
+            },
+            "maintainers": ["xfangbao"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "SMZDM_COOKIE",
+                        "description": "什么值得买登录后的 Cookie 值"
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["zhiyou.smzdm.com/member/:uid/article"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "smzdm",
+            "namespaceName": "什么值得买",
+            "namespaceUrl": "post.smzdm.com",
+            "path": "/baoliao/:uid",
+            "fullPath": "/smzdm/baoliao/:uid",
+            "name": "用户爆料",
+            "example": "/smzdm/baoliao/7367111021",
+            "description": "::: tip\n网站也提供了部分 RSS: [https://www.smzdm.com/dingyue](https://www.smzdm.com/dingyue)\n:::",
+            "parameters": {
+                "uid": "用户id，网址上直接可以看到"
+            },
+            "maintainers": ["nczitzk"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "SMZDM_COOKIE",
+                        "description": "什么值得买登录后的 Cookie 值"
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["zhiyou.smzdm.com/member/:uid/baoliao"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "smzdm",
+            "namespaceName": "什么值得买",
+            "namespaceUrl": "post.smzdm.com",
+            "path": "/haowen/:day?",
+            "fullPath": "/smzdm/haowen/:day?",
+            "name": "好文",
+            "example": "/smzdm/haowen/1",
+            "description": "::: tip\n网站也提供了部分 RSS: [https://www.smzdm.com/dingyue](https://www.smzdm.com/dingyue)\n:::",
+            "parameters": {
+                "day": {
+                    "description": "以天为时间跨度，默认为 `1`",
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": "今日热门"
+                        },
+                        {
+                            "value": "7",
+                            "label": "周热门"
+                        },
+                        {
+                            "value": "30",
+                            "label": "月热门"
+                        }
+                    ],
+                    "default": "1"
+                }
+            },
+            "maintainers": ["LogicJake", "pseudoyu"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "SMZDM_COOKIE",
+                        "description": "什么值得买登录后的 Cookie 值"
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "smzdm",
+            "namespaceName": "什么值得买",
+            "namespaceUrl": "post.smzdm.com",
+            "path": "/haowen/fenlei/:name/:sort?",
+            "fullPath": "/smzdm/haowen/fenlei/:name/:sort?",
+            "name": "好文分类",
+            "example": "/smzdm/haowen/fenlei/shenghuodianqi",
+            "description": "| 最新 | 周排行 | 月排行 |\n| ---- | ------ | ------ |\n| 0    | 7      | 30     |",
+            "parameters": {
+                "name": "分类名，可在 URL 中查看",
+                "sort": "排序方式，默认为最新"
+            },
+            "maintainers": ["LogicJake"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "SMZDM_COOKIE",
+                        "description": "什么值得买登录后的 Cookie 值"
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["post.smzdm.com/fenlei/:name"],
+                    "target": "/haowen/fenlei/:name"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "smzdm",
+            "namespaceName": "什么值得买",
+            "namespaceUrl": "post.smzdm.com",
+            "path": "/keyword/:keyword",
+            "fullPath": "/smzdm/keyword/:keyword",
+            "name": "关键词",
+            "example": "/smzdm/keyword/女装",
+            "description": "::: tip\n网站也提供了部分 RSS: [https://www.smzdm.com/dingyue](https://www.smzdm.com/dingyue)\n:::",
+            "parameters": {
+                "keyword": "你想订阅的关键词"
+            },
+            "maintainers": ["DIYgod", "MeanZhang"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "SMZDM_COOKIE",
+                        "description": "什么值得买登录后的 Cookie 值"
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "smzdm",
+            "namespaceName": "什么值得买",
+            "namespaceUrl": "post.smzdm.com",
+            "path": "/product/:id",
+            "fullPath": "/smzdm/product/:id",
+            "name": "商品",
+            "example": "/smzdm/product/zm5vzpe",
+            "description": "::: tip\n网站也提供了部分 RSS: [https://www.smzdm.com/dingyue](https://www.smzdm.com/dingyue)\n:::",
+            "parameters": {
+                "id": "商品 id，网址上直接可以看到"
+            },
+            "maintainers": ["chesha1"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "SMZDM_COOKIE",
+                        "description": "什么值得买登录后的 Cookie 值"
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["wiki.smzdm.com/p/:id"],
+                    "target": "/product/:id"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "smzdm",
+            "namespaceName": "什么值得买",
+            "namespaceUrl": "post.smzdm.com",
+            "path": "/ranking/:rank_type/:rank_id/:hour",
+            "fullPath": "/smzdm/ranking/:rank_type/:rank_id/:hour",
+            "name": "排行榜",
+            "example": "/smzdm/ranking/pinlei/11/3",
+            "description": "::: tip\n网站也提供了部分 RSS: [https://www.smzdm.com/dingyue](https://www.smzdm.com/dingyue)\n:::",
+            "parameters": {
+                "rank_type": {
+                    "description": "榜单类型",
+                    "options": [
+                        {
+                            "value": "pinlei",
+                            "label": "好价品类榜"
+                        },
+                        {
+                            "value": "dianshang",
+                            "label": "好价电商榜"
+                        },
+                        {
+                            "value": "haitao",
+                            "label": "海淘 TOP 榜"
+                        },
+                        {
+                            "value": "haowen",
+                            "label": "好文排行榜"
+                        },
+                        {
+                            "value": "haowu",
+                            "label": "好物排行榜"
+                        }
+                    ]
+                },
+                "rank_id": {
+                    "description": "榜单ID",
+                    "options": [
+                        {
+                            "label": "好价品类榜-全部",
+                            "value": "11"
+                        },
+                        {
+                            "label": "好价品类榜-食品生鲜",
+                            "value": "12"
+                        },
+                        {
+                            "label": "好价品类榜-电脑数码",
+                            "value": "13"
+                        },
+                        {
+                            "label": "好价品类榜-运动户外",
+                            "value": "14"
+                        },
+                        {
+                            "label": "好价品类榜-家用电器",
+                            "value": "15"
+                        },
+                        {
+                            "label": "好价品类榜-白菜",
+                            "value": "17"
+                        },
+                        {
+                            "label": "好价品类榜-服饰鞋包",
+                            "value": "74"
+                        },
+                        {
+                            "label": "好价品类榜-日用百货",
+                            "value": "75"
+                        },
+                        {
+                            "label": "好价电商榜-券活动",
+                            "value": "24"
+                        },
+                        {
+                            "label": "好价电商榜-京东",
+                            "value": "23"
+                        },
+                        {
+                            "label": "好价电商榜-天猫",
+                            "value": "25"
+                        },
+                        {
+                            "label": "好价电商榜-亚马逊中国",
+                            "value": "26"
+                        },
+                        {
+                            "label": "好价电商榜-国美在线",
+                            "value": "27"
+                        },
+                        {
+                            "label": "好价电商榜-苏宁易购",
+                            "value": "28"
+                        },
+                        {
+                            "label": "好价电商榜-网易",
+                            "value": "29"
+                        },
+                        {
+                            "label": "好价电商榜-西集网",
+                            "value": "30"
+                        },
+                        {
+                            "label": "好价电商榜-美国亚马逊",
+                            "value": "31"
+                        },
+                        {
+                            "label": "好价电商榜-日本亚马逊",
+                            "value": "32"
+                        },
+                        {
+                            "label": "好价电商榜-ebay",
+                            "value": "33"
+                        },
+                        {
+                            "label": "海淘 TOP 榜-全部",
+                            "value": "39"
+                        },
+                        {
+                            "label": "海淘 TOP 榜-海外直邮",
+                            "value": "34"
+                        },
+                        {
+                            "label": "海淘 TOP 榜-美国榜",
+                            "value": "35"
+                        },
+                        {
+                            "label": "海淘 TOP 榜-欧洲榜",
+                            "value": "36"
+                        },
+                        {
+                            "label": "海淘 TOP 榜-澳新榜",
+                            "value": "37"
+                        },
+                        {
+                            "label": "海淘 TOP 榜-亚洲榜",
+                            "value": "38"
+                        },
+                        {
+                            "label": "海淘 TOP 榜-晒物榜",
+                            "value": "hsw"
+                        },
+                        {
+                            "label": "好文排行榜-原创",
+                            "value": "yc"
+                        },
+                        {
+                            "label": "好文排行榜-资讯",
+                            "value": "zx"
+                        },
+                        {
+                            "label": "好物排行榜-新晋榜",
+                            "value": "hwall"
+                        },
+                        {
+                            "label": "好物排行榜-消费众测",
+                            "value": "zc"
+                        },
+                        {
+                            "label": "好物排行榜-新锐品牌",
+                            "value": "nb"
+                        },
+                        {
+                            "label": "好物排行榜-好物榜单",
+                            "value": "hw"
+                        }
+                    ]
+                },
+                "hour": {
+                    "description": "时间跨度",
+                    "options": [
+                        {
+                            "value": "3",
+                            "label": "3 小时"
+                        },
+                        {
+                            "value": "12",
+                            "label": "12 小时"
+                        },
+                        {
+                            "value": "24",
+                            "label": "24 小时"
+                        }
+                    ]
+                }
+            },
+            "maintainers": ["DIYgod"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": [
+                    {
+                        "name": "SMZDM_COOKIE",
+                        "description": "什么值得买登录后的 Cookie 值"
+                    }
+                ],
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "snowpeak",
+            "namespaceName": "Snow Peak",
+            "namespaceUrl": "snowpeak.com",
+            "path": "/us/new-arrivals",
+            "fullPath": "/snowpeak/us/new-arrivals",
+            "name": "New Arrivals(USA)",
+            "example": "/snowpeak/us/new-arrivals",
+            "parameters": {},
+            "maintainers": ["EthanWng97"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["snowpeak.com/collections/new-arrivals", "snowpeak.com/"]
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "taobao",
+            "namespaceName": "淘宝网",
+            "namespaceUrl": "taobao.com",
+            "path": "/zhongchou/:type?",
+            "fullPath": "/taobao/zhongchou/:type?",
+            "name": "众筹项目",
+            "example": "/taobao/zhongchou/all",
+            "description": "| 全部 | 科技 | 食品        | 动漫 | 设计   | 公益 | 娱乐 | 影音  | 书籍 | 游戏 | 其他  |\n| ---- | ---- | ----------- | ---- | ------ | ---- | ---- | ----- | ---- | ---- | ----- |\n| all  | tech | agriculture | acg  | design | love | tele | music | book | game | other |",
+            "parameters": {
+                "type": "类型, 默认为 `all` 全部"
+            },
+            "maintainers": ["xyqfer", "Fatpandac"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "tesla",
+            "namespaceName": "特斯拉中国",
+            "namespaceUrl": "tesla.cn",
+            "path": "/cx/:category?/:city?",
+            "fullPath": "/tesla/cx/:category?/:city?",
+            "name": "权益中心",
+            "example": "/tesla/cx/生活方式/北京",
+            "description": "| 充电免停 | 酒店 | 美食 | 生活方式 |\n| -------- | ---- | ---- | -------- |\n\n::: tip\n  分类为 **充电免停** 时，城市参数不起作用\n:::\n\n<details>\n<summary>可选城市</summary>\n\n| 成都 | 深圳 | 洛阳 | 北京 | 南京 | 绍兴 |\n| ---- | ---- | ---- | ---- | ---- | ---- |\n\n| 西安 | 上海 | 阿坝藏族羌族自治州 | 重庆 | 郑州 | 天津 |\n| ---- | ---- | ------------------ | ---- | ---- | ---- |\n\n| 晋中 | 三亚 | 湖州 | 苏州 | 扬州 | 秦皇岛 |\n| ---- | ---- | ---- | ---- | ---- | ------ |\n\n| 长沙 | 武汉 | 安阳 | 温州 | 瑞安 | 石家庄 |\n| ---- | ---- | ---- | ---- | ---- | ------ |\n\n| 佛山 | 广州 | 杭州 | 烟台 | 沧州 | 张家港 |\n| ---- | ---- | ---- | ---- | ---- | ------ |\n\n| 金华 | 临沧 | 大理 | 南昌 | 贵阳 | 信阳 |\n| ---- | ---- | ---- | ---- | ---- | ---- |\n\n| 张家口 | 铜仁 | 沈阳 | 合肥 | 黔东 | 高邮 |\n| ------ | ---- | ---- | ---- | ---- | ---- |\n\n| 三河 | 安顺 | 莆田 | 阳江 | 南宁 | 台州 |\n| ---- | ---- | ---- | ---- | ---- | ---- |\n\n| 余姚 | 淄博 | 三明 | 中山 | 宁波 | 厦门 |\n| ---- | ---- | ---- | ---- | ---- | ---- |\n\n| 永康 | 慈溪 | 台山 | 福州 | 无锡 | 宜昌 |\n| ---- | ---- | ---- | ---- | ---- | ---- |\n\n| 泉州 | 肇庆 | 太仓 | 珠海 | 邢台 | 衡水 |\n| ---- | ---- | ---- | ---- | ---- | ---- |\n\n| 温岭 | 宜兴 | 东莞 | 威海 | 南通 | 舟山 |\n| ---- | ---- | ---- | ---- | ---- | ---- |\n\n| 都匀 | 长治 | 江阴 | 云浮 | 常州 | 唐山 |\n| ---- | ---- | ---- | ---- | ---- | ---- |\n\n| 平湖 | 商丘 | 保定 | 泰州 | 青岛 | 龙口 |\n| ---- | ---- | ---- | ---- | ---- | ---- |\n\n| 泰安 | 岳阳 | 惠州 | 徐州 | 哈尔滨 | 潍坊 |\n| ---- | ---- | ---- | ---- | ------ | ---- |\n\n| 大同 | 嘉兴 | 毕节 | 临汾 | 江门 | 诸暨 |\n| ---- | ---- | ---- | ---- | ---- | ---- |\n\n| 儋州 | 衢州 | 大连 | 昆山 | 靖江 | 常熟 |\n| ---- | ---- | ---- | ---- | ---- | ---- |\n\n| 罗定 | 丽江 | 晋江 | 乐清 | 茂名 | 福清 |\n| ---- | ---- | ---- | ---- | ---- | ---- |\n\n| 廊坊 | 兰溪 | 汕尾 | 滨州 | 昆明 | 玉环 |\n| ---- | ---- | ---- | ---- | ---- | ---- |\n\n| 绵阳 | 漳州 | 德州 | 聊城 | 龙岩 | 临沂 |\n| ---- | ---- | ---- | ---- | ---- | ---- |\n\n| 新沂 | 桐乡 | 迪庆藏族自治州 | 汕头 | 潮州 | 驻马店 |\n| ---- | ---- | -------------- | ---- | ---- | ------ |\n\n| 曲阜 | 郴州 | 济源 | 兴义 |\n| ---- | ---- | ---- | ---- |\n</details>",
+            "parameters": {
+                "category": "分类，见下表，默认为空，即全部",
+                "city": "城市，默认为空，即全国"
+            },
+            "maintainers": ["simonsmh", "nczitzk"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "tesla",
+            "namespaceName": "特斯拉中国",
+            "namespaceUrl": "tesla.cn",
+            "path": "/price",
+            "fullPath": "/tesla/price",
+            "name": "价格",
+            "example": "/tesla/price",
+            "parameters": {},
+            "maintainers": ["xiaokyo"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["tesla.cn/model3/design", "tesla.cn/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "thegadgetflow",
+            "namespaceName": "Gadget Flow",
+            "namespaceUrl": "thegadgetflow.com",
+            "path": "/:category?",
+            "fullPath": "/thegadgetflow/:category?",
+            "name": "Category",
+            "example": "/thegadgetflow/cool-gadgets-gifts",
+            "parameters": {
+                "category": "category name, can be found in url"
+            },
+            "maintainers": ["EthanWng97"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["thegadgetflow.com/categories/:category"],
+                    "target": "/:category"
+                }
+            ],
+            "lang": "en"
+        },
+        {
+            "namespace": "uniqlo",
+            "namespaceName": "Uniqlo",
+            "namespaceUrl": "www.uniqlo.com",
+            "path": "/new/:country/:category",
+            "fullPath": "/uniqlo/new/:country/:category",
+            "name": "New Arrivals",
+            "example": "/uniqlo/new/sg/men",
+            "parameters": {
+                "country": "currently only supports sg, us, jp",
+                "category": "supports `men` `women`, `kids`, `baby`"
+            },
+            "maintainers": ["DIYgod"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "xianbao",
+            "namespaceName": "线报酷",
+            "namespaceUrl": "new.xianbao.fun",
+            "path": "/:category?",
+            "fullPath": "/xianbao/:category?",
+            "name": "线板酷",
+            "example": "/xianbao",
+            "description": "\n| 分类         | id             |\n| ------------ | -------------- |\n| 最新         | latest         |\n| 赚客吧       | zuankeba       |\n| 赚客吧热帖   | zuankeba-hot   |\n| 新赚吧       | xinzuanba      |\n| 新赚吧热帖   | xinzuanba-hot  |\n| 微博         | weibo          |\n| 微博热帖     | weibo-hot      |\n| 豆瓣线报     | douban         |\n| 豆瓣热帖     | douban-hot     |\n| 酷安         | kuan           |\n| 小嘀咕       | xiaodigu       |\n| 葫芦侠       | huluxia        |\n| 小刀娱乐网   | xiadao         |\n| 技术QQ网     | qqjishu        |\n| YYOK大全     | yyok           |\n| 活动资讯网   | huodong        |\n| 免费赚钱中心 | mianfei        |\n| 一小时       | yixiaoshi      |\n| 三小时       | sanxiaoshi     |\n| 六小时       | liuxiaoshi     |\n| 十二小时     | shierxiaoshi   |\n| 二十四小时   | ershisixiaoshi |\n| 四十八小时   | sishibaxiaoshi |\n| 今天         | jintian        |\n| 昨天         | zuotian        |\n| 前天         | qiantian       |\n| 三天         | santian        |\n| 五天         | wutian         |\n| 七天         | qitian         |\n| 十五天       | shiwutian      |",
+            "parameters": {
+                "category": "类别id，默认为：latest"
+            },
+            "maintainers": ["nashi23"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportRadar": true,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["new.xianbao.fun"],
+                    "target": "/"
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "xiaomiyoupin",
+            "namespaceName": "小米有品",
+            "namespaceUrl": "xiaomiyoupin.com",
+            "path": "/crowdfunding",
+            "fullPath": "/xiaomiyoupin/crowdfunding",
+            "name": "小米有品众筹",
+            "example": "/xiaomiyoupin/crowdfunding",
+            "parameters": {},
+            "maintainers": ["bigfei"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["xiaomiyoupin.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "xiaomiyoupin",
+            "namespaceName": "小米有品",
+            "namespaceUrl": "xiaomiyoupin.com",
+            "path": "/latest",
+            "fullPath": "/xiaomiyoupin/latest",
+            "name": "小米有品每日上新",
+            "example": "/xiaomiyoupin/latest",
+            "parameters": {},
+            "maintainers": ["xyqfer", "DIYgod", "bigfei"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["xiaomiyoupin.com/"]
+                }
+            ],
+            "lang": "zh-CN"
+        },
+        {
+            "namespace": "zagg",
+            "namespaceName": "Zagg",
+            "namespaceUrl": "zagg.com",
+            "path": "/new-arrivals/:query?",
+            "fullPath": "/zagg/new-arrivals/:query?",
+            "name": "New Arrivals",
+            "example": "/zagg/new-arrivals/brand=164&cat=3038,3041",
+            "description": "For instance, in `https://www.zagg.com/en_us/new-arrivals?brand=164&cat=3038%2C3041`, the query is `brand=164&cat=3038%2C3041`",
+            "parameters": {
+                "query": "query, search page querystring"
+            },
+            "maintainers": ["EthanWng97"],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "lang": "en"
+        },
+        {
+            "namespace": "zhuwang",
+            "namespaceName": "中国养猪网",
+            "namespaceUrl": "zhujia.zhuwang.cc",
+            "path": "/zhujia",
+            "fullPath": "/zhuwang/zhujia",
+            "name": "全国今日生猪价格",
+            "example": "/zhuwang/zhujia",
+            "parameters": {},
+            "maintainers": [],
+            "categories": ["shopping"],
+            "features": {
+                "requireConfig": false,
+                "requirePuppeteer": false,
+                "antiCrawler": false,
+                "supportBT": false,
+                "supportPodcast": false,
+                "supportScihub": false
+            },
+            "radar": [
+                {
+                    "source": ["zhujia.zhuwang.cc/"]
+                }
+            ],
+            "lang": "zh-CN"
+        }
+    ]
+}
