@@ -8,6 +8,7 @@ on:
         paths:
             - 'lib/routes/**'
             - 'scripts/export-routes-by-category.ts'
+            - 'exports/**'
     schedule:
         - cron: '0 0 * * *' # Daily at midnight UTC
 
