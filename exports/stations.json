@@ -1130,6 +1130,19 @@
             "order": 110,
             "description": "Big CPOP 華語流行音樂頻道",
             "websiteURL": null
+        },
+        {
+            "id": "bigb-kpop",
+            "name": "纽西兰FM90.6",
+            "streamURL": "https://s26.myradiostream.com/20274/listen.mp3",
+            "country": "New Zealand",
+            "genre": "新聞時事",
+            "logoName": "kiwi906",
+            "bitrateKbps": 128,
+            "isFeatured": false,
+            "order": 111,
+            "description": "FM90.6纽西兰中文广播电台",
+            "websiteURL": "https://fm906.co.nz/"
         }
     ],
     "genres": [
