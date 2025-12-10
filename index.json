@@ -1,0 +1,127 @@
+{
+  "totalCategories": 24,
+  "totalRoutes": 3147,
+  "generatedAt": "2025-12-10T07:41:15.711Z",
+  "categories": [
+    {
+      "category": "University",
+      "count": 439,
+      "file": "university.json"
+    },
+    {
+      "category": "New media",
+      "count": 428,
+      "file": "new-media.json"
+    },
+    {
+      "category": "Uncategorized",
+      "count": 239,
+      "file": "other.json"
+    },
+    {
+      "category": "Social Media",
+      "count": 237,
+      "file": "social-media.json"
+    },
+    {
+      "category": "Programming",
+      "count": 207,
+      "file": "programming.json"
+    },
+    {
+      "category": "Traditional media",
+      "count": 181,
+      "file": "traditional-media.json"
+    },
+    {
+      "category": "Government",
+      "count": 167,
+      "file": "government.json"
+    },
+    {
+      "category": "Multimedia",
+      "count": 155,
+      "file": "multimedia.json"
+    },
+    {
+      "category": "Finance",
+      "count": 150,
+      "file": "finance.json"
+    },
+    {
+      "category": "Gaming",
+      "count": 142,
+      "file": "game.json"
+    },
+    {
+      "category": "ACG",
+      "count": 112,
+      "file": "anime.json"
+    },
+    {
+      "category": "Blog",
+      "count": 107,
+      "file": "blog.json"
+    },
+    {
+      "category": "Application Updates",
+      "count": 102,
+      "file": "program-update.json"
+    },
+    {
+      "category": "BBS",
+      "count": 96,
+      "file": "bbs.json"
+    },
+    {
+      "category": "Picture",
+      "count": 71,
+      "file": "picture.json"
+    },
+    {
+      "category": "Shopping",
+      "count": 70,
+      "file": "shopping.json"
+    },
+    {
+      "category": "Reading",
+      "count": 61,
+      "file": "reading.json"
+    },
+    {
+      "category": "Scientific Journal",
+      "count": 58,
+      "file": "journal.json"
+    },
+    {
+      "category": "Study",
+      "count": 42,
+      "file": "study.json"
+    },
+    {
+      "category": "Forecast and Alerts",
+      "count": 32,
+      "file": "forecast.json"
+    },
+    {
+      "category": "Design",
+      "count": 19,
+      "file": "design.json"
+    },
+    {
+      "category": "Travel",
+      "count": 17,
+      "file": "travel.json"
+    },
+    {
+      "category": "Live",
+      "count": 15,
+      "file": "live.json"
+    },
+    {
+      "category": "Popular",
+      "count": 0,
+      "file": "popular.json"
+    }
+  ]
+}

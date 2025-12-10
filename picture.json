@@ -1,0 +1,3254 @@
+{
+  "category": "picture",
+  "displayName": "Picture",
+  "displayNameZh": "图片",
+  "icon": "🖼️",
+  "count": 71,
+  "routes": [
+    {
+      "namespace": "1x",
+      "namespaceName": "1x.com",
+      "namespaceUrl": "1x.com",
+      "path": "/:category{.+}?",
+      "fullPath": "/1x/:category{.+}?",
+      "name": "Gallery",
+      "example": "/1x/latest/awarded",
+      "description": "::: tip\nFill in the field in the path with the part of the corresponding page URL after `https://1x.com/gallery/` or `https://1x.com/photo/`. Here are the examples:\n\nIf you subscribe to [Abstract Awarded](https://1x.com/gallery/abstract/awarded), you should fill in the path with the part `abstract/awarded` from the page URL `https://1x.com/gallery/abstract/awarded`. In this case, the route will be [`/1x/abstract/awarded`](https://rsshub.app/1x/abstract/awarded).\n\nIf you subscribe to [Wildlife Published](https://1x.com/gallery/wildlife/published), you should fill in the path with the part `wildlife/published` from the page URL `https://1x.com/gallery/wildlife/published`. In this case, the route will be [`/1x/wildlife/published`](https://rsshub.app/1x/wildlife/published).\n:::",
+      "parameters": {
+        "category": "Category, Latest Awarded by default"
+      },
+      "maintainers": [
+        "nczitzk"
+      ],
+      "categories": [
+        "design",
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "/gallery/:category*",
+            "/photos/:category*"
+          ],
+          "target": "/1x/:category"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "4khd",
+      "namespaceName": "4KHD",
+      "namespaceUrl": "www.4khd.com",
+      "path": "/",
+      "fullPath": "/4khd/",
+      "name": "Latest",
+      "example": "/4khd",
+      "description": "4KHD - HD Beautiful Girls",
+      "parameters": {},
+      "maintainers": [
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "www.4khd.com/"
+          ],
+          "target": ""
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "4khd",
+      "namespaceName": "4KHD",
+      "namespaceUrl": "www.4khd.com",
+      "path": "/category/:category",
+      "fullPath": "/4khd/category/:category",
+      "name": "Category",
+      "example": "/4khd/category/cosplay",
+      "description": "4KHD - HD Beautiful Girls",
+      "parameters": {
+        "category": "Category"
+      },
+      "maintainers": [
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "www.4khd.com/pages/:category"
+          ],
+          "target": "/category/:category"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "4kup",
+      "namespaceName": "4KUP",
+      "namespaceUrl": "4kup.net",
+      "path": "/",
+      "fullPath": "/4kup/",
+      "name": "Latest",
+      "example": "/4kup",
+      "description": "4KUP - Beautiful Girls Collection",
+      "parameters": {},
+      "maintainers": [
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "4kup.net/"
+          ],
+          "target": ""
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "4kup",
+      "namespaceName": "4KUP",
+      "namespaceUrl": "4kup.net",
+      "path": "/category/:category",
+      "fullPath": "/4kup/category/:category",
+      "name": "Category",
+      "example": "/4kup/category/coser",
+      "description": "4KUP - Beautiful Girls Collection",
+      "parameters": {
+        "category": "Category"
+      },
+      "maintainers": [
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "4kup.net/category/:category"
+          ],
+          "target": "/category/:category"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "4kup",
+      "namespaceName": "4KUP",
+      "namespaceUrl": "4kup.net",
+      "path": "/popular/:period",
+      "fullPath": "/4kup/popular/:period",
+      "name": "Popular",
+      "example": "/4kup/popular/7",
+      "description": "4KUP - Beautiful Girls Collection",
+      "parameters": {
+        "period": "Days"
+      },
+      "maintainers": [
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "4kup.net/:period"
+          ],
+          "target": "/popular/:period"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "4kup",
+      "namespaceName": "4KUP",
+      "namespaceUrl": "4kup.net",
+      "path": "/tag/:tag",
+      "fullPath": "/4kup/tag/:tag",
+      "name": "Tag",
+      "example": "/4kup/tag/asian",
+      "description": "4KUP - Beautiful Girls Collection",
+      "parameters": {
+        "tag": "Tag"
+      },
+      "maintainers": [
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "4kup.net/tag/:tag"
+          ],
+          "target": "/tag/:tag"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "500px",
+      "namespaceName": "500px 摄影社区",
+      "namespaceUrl": "500px.com.cn",
+      "path": "/tribe/set/:id",
+      "fullPath": "/500px/tribe/set/:id",
+      "name": "部落影集",
+      "example": "/500px/tribe/set/f5de0b8aa6d54ec486f5e79616418001",
+      "parameters": {
+        "id": "部落 ID"
+      },
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "8kcos",
+      "namespaceName": "8KCosplay",
+      "namespaceUrl": "8kcosplay.com",
+      "path": "/",
+      "fullPath": "/8kcos/",
+      "name": "最新",
+      "example": "/8kcos/",
+      "parameters": {},
+      "maintainers": [
+        "KotoriK"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "8kcosplay.com/"
+          ],
+          "target": ""
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "8kcos",
+      "namespaceName": "8KCosplay",
+      "namespaceUrl": "8kcosplay.com",
+      "path": "/cat/:cat{.+}?",
+      "fullPath": "/8kcos/cat/:cat{.+}?",
+      "name": "Unknown",
+      "maintainers": [],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "8kcosplay.com/"
+          ],
+          "target": ""
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "8kcos",
+      "namespaceName": "8KCosplay",
+      "namespaceUrl": "8kcosplay.com",
+      "path": "/tag/:tag",
+      "fullPath": "/8kcos/tag/:tag",
+      "name": "标签",
+      "example": "/8kcos/tag/cosplay",
+      "parameters": {
+        "tag": "标签名"
+      },
+      "maintainers": [
+        "KotoriK"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "8kcosplay.com/tag/:tag"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "95mm",
+      "namespaceName": "MM 范",
+      "namespaceUrl": "95mm.org",
+      "path": "/category/:category",
+      "fullPath": "/95mm/category/:category",
+      "name": "集合",
+      "example": "/95mm/category/1",
+      "description": "| 清纯唯美 | 摄影私房 | 明星写真 | 三次元 | 异域美景 | 性感妖姬 | 游戏主题 | 美女壁纸 |\n| -------- | -------- | -------- | ------ | -------- | -------- | -------- | -------- |\n| 1        | 2        | 4        | 5      | 6        | 7        | 9        | 11       |",
+      "parameters": {
+        "category": "集合，见下表"
+      },
+      "maintainers": [
+        "nczitzk"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "95mm.org/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "95mm",
+      "namespaceName": "MM 范",
+      "namespaceUrl": "95mm.org",
+      "path": "/tab/:tab?",
+      "fullPath": "/95mm/tab/:tab?",
+      "name": "分类",
+      "example": "/95mm/tab/热门",
+      "description": "| 最新 | 热门 | 校花 | 森系 | 清纯 | 童颜 | 嫩模 | 少女 |\n| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |",
+      "parameters": {
+        "tab": "分类，见下表，默认为最新"
+      },
+      "maintainers": [
+        "nczitzk"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "95mm.org/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "95mm",
+      "namespaceName": "MM 范",
+      "namespaceUrl": "95mm.org",
+      "path": "/tag/:tag",
+      "fullPath": "/95mm/tag/:tag",
+      "name": "标签",
+      "example": "/95mm/tag/黑丝",
+      "parameters": {
+        "tag": "标签，可在对应标签页中找到"
+      },
+      "maintainers": [
+        "nczitzk"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "95mm.org/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "artstation",
+      "namespaceName": "ArtStation",
+      "namespaceUrl": "www.artstation.com",
+      "path": "/:handle",
+      "fullPath": "/artstation/:handle",
+      "name": "Artist Profolio",
+      "example": "/artstation/wlop",
+      "parameters": {
+        "handle": "Artist handle, can be found in URL"
+      },
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.artstation.com/:handle"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "baobua",
+      "namespaceName": "BaoBua",
+      "namespaceUrl": "baobua.com",
+      "path": "/",
+      "fullPath": "/baobua/",
+      "name": "Latest",
+      "example": "/baobua",
+      "description": "BaoBua.Com - Hot beauty girl pics, girls photos, free watch online hd photo sets",
+      "parameters": {},
+      "maintainers": [
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "baobua.com/"
+          ],
+          "target": ""
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "baobua",
+      "namespaceName": "BaoBua",
+      "namespaceUrl": "baobua.com",
+      "path": "/category/:category",
+      "fullPath": "/baobua/category/:category",
+      "name": "Category",
+      "example": "/baobua/category/network",
+      "description": "BaoBua.Com - Hot beauty girl pics, girls photos, free watch online hd photo sets",
+      "parameters": {
+        "category": "Category"
+      },
+      "maintainers": [
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "baobua.com/cat/:category"
+          ],
+          "target": "/category/:category"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "baobua",
+      "namespaceName": "BaoBua",
+      "namespaceUrl": "baobua.com",
+      "path": "/search/:keyword",
+      "fullPath": "/baobua/search/:keyword",
+      "name": "Search",
+      "example": "/baobua/search/cos",
+      "description": "BaoBua.Com - Hot beauty girl pics, girls photos, free watch online hd photo sets",
+      "parameters": {
+        "keyword": "Keyword"
+      },
+      "maintainers": [
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "baobua.com/search"
+          ],
+          "target": "/search/:keyword"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "bjp",
+      "namespaceName": "北京天文馆",
+      "namespaceUrl": "www.bjp.org.cn",
+      "path": "/apod",
+      "fullPath": "/bjp/apod",
+      "name": "每日一图",
+      "example": "/bjp/apod",
+      "parameters": {},
+      "maintainers": [
+        "HenryQW"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "bjp.org.cn/APOD/today.shtml",
+            "bjp.org.cn/APOD/list.shtml",
+            "bjp.org.cn/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "booru",
+      "namespaceName": "Booru",
+      "namespaceUrl": "mmda.booru.org",
+      "path": "/mmda/tags/:tags?",
+      "fullPath": "/booru/mmda/tags/:tags?",
+      "name": "MMDArchive 标签查询",
+      "example": "/booru/mmda/tags/full_body%20blue_eyes",
+      "description": "For example:\n\n  -   默认查询 (什么 tag 都不加)：`/booru/mmda/tags`\n  -   默认查询单个 tag：`/booru/mmda/tags/full_body`\n  -   默认查询多个 tag：`/booru/mmda/tags/full_body%20blue_eyes`\n  -   默认查询根据作者查询：`/booru/mmda/tags/user:xxxx`",
+      "parameters": {
+        "tags": "标签，多个标签使用 `%20` 连接，如需根据作者查询则在 `user:` 后接上作者名，如：`user:xxxx`"
+      },
+      "maintainers": [
+        "N78Wy"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "mmda.booru.org/index.php"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "cosplaytele",
+      "namespaceName": "CosplayTele",
+      "namespaceUrl": "cosplaytele.com",
+      "path": "/",
+      "fullPath": "/cosplaytele/",
+      "name": "Latest",
+      "example": "/cosplaytele",
+      "description": "Cosplaytele - Fast - Security - Free",
+      "parameters": {},
+      "maintainers": [
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "cosplaytele.com/"
+          ],
+          "target": ""
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "cosplaytele",
+      "namespaceName": "CosplayTele",
+      "namespaceUrl": "cosplaytele.com",
+      "path": "/category/:category",
+      "fullPath": "/cosplaytele/category/:category",
+      "name": "Category",
+      "example": "/cosplaytele/category/cosplay",
+      "description": "Cosplaytele - Fast - Security - Free",
+      "parameters": {
+        "category": "Category"
+      },
+      "maintainers": [
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "cosplaytele.com/category/:category"
+          ],
+          "target": "/category/:category"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "cosplaytele",
+      "namespaceName": "CosplayTele",
+      "namespaceUrl": "cosplaytele.com",
+      "path": "/popular/:period",
+      "fullPath": "/cosplaytele/popular/:period",
+      "name": "Popular",
+      "example": "/cosplaytele/popular/3",
+      "description": "Cosplaytele - Fast - Security - Free",
+      "parameters": {
+        "period": "Days"
+      },
+      "maintainers": [
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "cosplaytele.com/:period"
+          ],
+          "target": "/popular/:period"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "cosplaytele",
+      "namespaceName": "CosplayTele",
+      "namespaceUrl": "cosplaytele.com",
+      "path": "/tag/:tag",
+      "fullPath": "/cosplaytele/tag/:tag",
+      "name": "Tag",
+      "example": "/cosplaytele/tag/aqua",
+      "description": "Cosplaytele - Fast - Security - Free",
+      "parameters": {
+        "tag": "Tag"
+      },
+      "maintainers": [
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "cosplaytele.com/tag/:tag"
+          ],
+          "target": "/tag/:tag"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "dapenti",
+      "namespaceName": "喷嚏",
+      "namespaceUrl": "dapenti.com",
+      "path": "/subject/:id",
+      "fullPath": "/dapenti/subject/:id",
+      "name": "主题",
+      "example": "/dapenti/subject/184",
+      "parameters": {
+        "id": "主题 id"
+      },
+      "maintainers": [
+        "xyqfer"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "dapenti",
+      "namespaceName": "喷嚏",
+      "namespaceUrl": "dapenti.com",
+      "path": "/tugua",
+      "fullPath": "/dapenti/tugua",
+      "name": "图卦",
+      "example": "/dapenti/tugua",
+      "parameters": {},
+      "maintainers": [
+        "tgly307"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "ehentai",
+      "namespaceName": "E-Hentai",
+      "path": "/favorites/:favcat?/:order?/:page?/:routeParams?",
+      "fullPath": "/ehentai/favorites/:favcat?/:order?/:page?/:routeParams?",
+      "name": "Favorites",
+      "example": "/ehentai/favorites/0/posted/0/bittorrent=true&embed_thumb=false",
+      "description": "For RSS content, specify options in the `routeParams` parameter in query string format to control additional functionality\n\n| Key          | Meaning                                                                         | Accepted keys  | Default value |\n| ------------ | ------------------------------------------------------------------------------- | -------------- | ------------- |\n| bittorrent   | Whether include a link to the latest torrent                                    | 0/1/true/false | false         |\n| embed_thumb | Whether the cover image is embedded in the RSS feed rather than given as a link | 0/1/true/false | false         |",
+      "parameters": {
+        "favcat": "Favorites folder number",
+        "order": "`posted`(Sort by gallery release time) , `favorited`(Sort by time added to favorites)",
+        "page": "Page number, set 0 to get latest",
+        "routeParams": "Additional parameters, see the table above"
+      },
+      "maintainers": [
+        "yindaheng98",
+        "syrinka"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": true,
+        "supportBT": true,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "lang": "en"
+    },
+    {
+      "namespace": "ehentai",
+      "namespaceName": "E-Hentai",
+      "path": "/search/:params?/:page?/:routeParams?",
+      "fullPath": "/ehentai/search/:params?/:page?/:routeParams?",
+      "name": "Search",
+      "example": "/ehentai/search/f_cats=1021/0/bittorrent=true&embed_thumb=false",
+      "description": "For RSS content, specify options in the `routeParams` parameter in query string format to control additional functionality\n\n| Key          | Meaning                                                                         | Accepted keys  | Default value |\n| ------------ | ------------------------------------------------------------------------------- | -------------- | ------------- |\n| bittorrent   | Whether include a link to the latest torrent                                    | 0/1/true/false | false         |\n| embed_thumb | Whether the cover image is embedded in the RSS feed rather than given as a link | 0/1/true/false | false         |",
+      "parameters": {
+        "params": "Search parameters. You can copy the content after `https://e-hentai.org/?`",
+        "page": "Page number, set 0 to get latest",
+        "routeParams": "Additional parameters, see the table above"
+      },
+      "maintainers": [
+        "yindaheng98",
+        "syrinka"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": true,
+        "supportBT": true,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "lang": "en"
+    },
+    {
+      "namespace": "ehentai",
+      "namespaceName": "E-Hentai",
+      "path": "/tag/:tag/:page?/:routeParams?",
+      "fullPath": "/ehentai/tag/:tag/:page?/:routeParams?",
+      "name": "Tag",
+      "example": "/ehentai/tag/language:chinese/0/bittorrent=true&embed_thumb=false",
+      "description": "For RSS content, specify options in the `routeParams` parameter in query string format to control additional functionality\n\n| Key          | Meaning                                                                         | Accepted keys  | Default value |\n| ------------ | ------------------------------------------------------------------------------- | -------------- | ------------- |\n| bittorrent   | Whether include a link to the latest torrent                                    | 0/1/true/false | false         |\n| embed_thumb | Whether the cover image is embedded in the RSS feed rather than given as a link | 0/1/true/false | false         |",
+      "parameters": {
+        "tag": "Tag",
+        "page": "Page number, set 0 to get latest",
+        "routeParams": "Additional parameters, see the table above"
+      },
+      "maintainers": [
+        "yindaheng98",
+        "syrinka"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": true,
+        "supportBT": true,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "lang": "en"
+    },
+    {
+      "namespace": "everia",
+      "namespaceName": "EVERIA.CLUB",
+      "namespaceUrl": "everia.club",
+      "path": "/",
+      "fullPath": "/everia/",
+      "name": "Latest",
+      "example": "/everia",
+      "parameters": {},
+      "maintainers": [
+        "KTachibanaM",
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "everia.club/"
+          ],
+          "target": ""
+        }
+      ]
+    },
+    {
+      "namespace": "everia",
+      "namespaceName": "EVERIA.CLUB",
+      "namespaceUrl": "everia.club",
+      "path": "/category/:category",
+      "fullPath": "/everia/category/:category",
+      "name": "Images with category",
+      "example": "/everia/category/cosplay",
+      "parameters": {
+        "category": "Category of the image stream"
+      },
+      "maintainers": [
+        "KTachibanaM",
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "everia.club/category/:category"
+          ],
+          "target": "/category/:category"
+        }
+      ]
+    },
+    {
+      "namespace": "everia",
+      "namespaceName": "EVERIA.CLUB",
+      "namespaceUrl": "everia.club",
+      "path": "/search/:keyword",
+      "fullPath": "/everia/search/:keyword",
+      "name": "Search",
+      "example": "/everia/search/日向坂46",
+      "parameters": {
+        "keyword": "Keyword"
+      },
+      "maintainers": [
+        "KTachibanaM",
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      }
+    },
+    {
+      "namespace": "everia",
+      "namespaceName": "EVERIA.CLUB",
+      "namespaceUrl": "everia.club",
+      "path": "/tag/:tag",
+      "fullPath": "/everia/tag/:tag",
+      "name": "Images with tag",
+      "example": "/everia/tag/hinatazaka46-日向坂46",
+      "parameters": {
+        "tag": "Tag of the image stream"
+      },
+      "maintainers": [
+        "KTachibanaM",
+        "AiraNadih"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "everia.club/tag/:tag"
+          ],
+          "target": "/tag/:tag"
+        }
+      ]
+    },
+    {
+      "namespace": "fantia",
+      "namespaceName": "Fantia",
+      "namespaceUrl": "fantia.jp",
+      "path": "/search/:type?/:caty?/:period?/:order?/:rating?/:keyword?",
+      "fullPath": "/fantia/search/:type?/:caty?/:period?/:order?/:rating?/:keyword?",
+      "name": "Search",
+      "example": "/fantia/search/posts/all/daily",
+      "description": "Type\n\n| クリエイター | 投稿  | 商品     | コミッション |\n| ------------ | ----- | -------- | ------------ |\n| fanclubs     | posts | products | commissions  |\n\n  Category\n\n| 分类                   | 分类名     |\n| ---------------------- | ---------- |\n| イラスト               | illust     |\n| 漫画                   | comic      |\n| コスプレ               | cosplay    |\n| YouTuber・配信者       | youtuber   |\n| Vtuber                 | vtuber     |\n| 音声作品・ASMR         | voice      |\n| 声優・歌い手           | voiceactor |\n| アイドル               | idol       |\n| アニメ・映像・写真     | anime      |\n| 3D                     | 3d         |\n| ゲーム制作             | game       |\n| 音楽                   | music      |\n| 小説                   | novel      |\n| ドール                 | doll       |\n| アート・デザイン       | art        |\n| プログラム             | program    |\n| 創作・ハンドメイド     | handmade   |\n| 歴史・評論・情報       | history    |\n| 鉄道・旅行・ミリタリー | railroad   |\n| ショップ               | shop       |\n| その他                 | other      |\n\n  Ranking period\n\n| デイリー | ウィークリー | マンスリー | 全期間 |\n| -------- | ------------ | ---------- | ------ |\n| daily    | weekly       | monthly    | all    |\n\n  Sorting\n\n| 更新の新しい順 | 更新の古い順 | 投稿の新しい順 | 投稿の古い順 | お気に入り数順 |\n| -------------- | ------------ | -------------- | ------------ | -------------- |\n| updater        | update_old  | newer          | create_old  | popular        |\n\n  Rating\n\n| すべて | 一般のみ | R18 のみ |\n| ------ | -------- | -------- |\n| all    | general  | adult    |",
+      "parameters": {
+        "type": {
+          "description": "Type, see the table below, `posts` by default",
+          "options": [
+            {
+              "value": "fanclubs",
+              "label": "クリエイター"
+            },
+            {
+              "value": "posts",
+              "label": "投稿"
+            },
+            {
+              "value": "products",
+              "label": "商品"
+            },
+            {
+              "value": "commissions",
+              "label": "コミッション"
+            }
+          ],
+          "default": "posts"
+        },
+        "caty": {
+          "description": "Category, see the table below, can also be found in search page URL, `すべてのクリエイター` by default",
+          "options": [
+            {
+              "value": "all",
+              "label": "すべてのクリエイター"
+            },
+            {
+              "value": "illust",
+              "label": "イラスト"
+            },
+            {
+              "value": "comic",
+              "label": "漫画"
+            },
+            {
+              "value": "cosplay",
+              "label": "コスプレ"
+            },
+            {
+              "value": "youtuber",
+              "label": "YouTuber・配信者"
+            },
+            {
+              "value": "vtuber",
+              "label": "Vtuber"
+            },
+            {
+              "value": "voice",
+              "label": "音声作品・ASMR"
+            },
+            {
+              "value": "voiceactor",
+              "label": "声優・歌い手"
+            },
+            {
+              "value": "idol",
+              "label": "アイドル"
+            },
+            {
+              "value": "anime",
+              "label": "アニメ・映像・写真"
+            },
+            {
+              "value": "3d",
+              "label": "3D"
+            },
+            {
+              "value": "game",
+              "label": "ゲーム制作"
+            },
+            {
+              "value": "music",
+              "label": "音楽"
+            },
+            {
+              "value": "novel",
+              "label": "小説"
+            },
+            {
+              "value": "doll",
+              "label": "ドール"
+            },
+            {
+              "value": "art",
+              "label": "アート・デザイン"
+            },
+            {
+              "value": "program",
+              "label": "プログラム"
+            },
+            {
+              "value": "handmade",
+              "label": "創作・ハンドメイド"
+            },
+            {
+              "value": "history",
+              "label": "歴史・評論・情報"
+            },
+            {
+              "value": "railroad",
+              "label": "鉄道・旅行・ミリタリー"
+            },
+            {
+              "value": "shop",
+              "label": "ショップ"
+            },
+            {
+              "value": "other",
+              "label": "その他"
+            }
+          ],
+          "default": "all"
+        },
+        "period": {
+          "description": "Ranking period, see the table below, empty by default",
+          "options": [
+            {
+              "value": "daily",
+              "label": "デイリー"
+            },
+            {
+              "value": "weekly",
+              "label": "ウィークリー"
+            },
+            {
+              "value": "monthly",
+              "label": "マンスリー"
+            },
+            {
+              "value": "all",
+              "label": "全期間"
+            }
+          ],
+          "default": ""
+        },
+        "order": {
+          "description": "Sorting, see the table below, `更新の新しい順` by default",
+          "options": [
+            {
+              "value": "updater",
+              "label": "更新の新しい順"
+            },
+            {
+              "value": "update_old",
+              "label": "更新の古い順"
+            },
+            {
+              "value": "newer",
+              "label": "投稿の新しい順"
+            },
+            {
+              "value": "create_old",
+              "label": "投稿の古い順"
+            },
+            {
+              "value": "popular",
+              "label": "お気に入り数順"
+            }
+          ],
+          "default": "updater"
+        },
+        "rating": {
+          "description": "Rating, see the table below, `すべて` by default",
+          "options": [
+            {
+              "value": "all",
+              "label": "すべて"
+            },
+            {
+              "value": "general",
+              "label": "一般のみ"
+            },
+            {
+              "value": "adult",
+              "label": "R18 のみ"
+            }
+          ],
+          "default": "all"
+        },
+        "keyword": "Keyword, empty by default"
+      },
+      "maintainers": [
+        "nczitzk"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "lang": "ja"
+    },
+    {
+      "namespace": "fantia",
+      "namespaceName": "Fantia",
+      "namespaceUrl": "fantia.jp",
+      "path": "/user/:id",
+      "fullPath": "/fantia/user/:id",
+      "name": "User Posts",
+      "example": "/fantia/user/3498",
+      "parameters": {
+        "id": "User id, can be found in user profile URL"
+      },
+      "maintainers": [
+        "nczitzk"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "fantia.jp/fanclubs/:id"
+          ]
+        }
+      ],
+      "lang": "ja"
+    },
+    {
+      "namespace": "gelbooru",
+      "namespaceName": "Gelbooru",
+      "namespaceUrl": "gelbooru.com",
+      "path": "/post/:tags?/:quality?",
+      "fullPath": "/gelbooru/post/:tags?/:quality?",
+      "name": "标签查询",
+      "example": "/gelbooru/post/1girl rating:general",
+      "description": "\n- 默认查询: `/gelbooru/post` 功能等同查询 Gelbooru 网站最新的投稿\n- 单标签查询: `/gelbooru/post/1girl` 查询 `1girl` 的最新投稿\n- 多标签查询: `/gelbooru/post/1girl school_uniform rating:general`\n- 指定为原图: `/gelbooru/post/1girl school_uniform rating:general/orig`\n- 更多例子: 请参考 Gelbooru 官方 wiki https://gelbooru.com/index.php?page=wiki&s=&s=view&id=25921\n\n**可选的 URL 参数**\n- limit 页面返回数据量，默认 40，可选 1 ~ 100\n\ne.g.: `/gelbooru/post?limit=20&`\n",
+      "parameters": {
+        "tags": "要搜索的标签，多个标签用 ` `（空格）隔开",
+        "quality": {
+          "description": "图片质量，可选值为 `sample`（压缩后的图片，推荐值） 或 `orig`（原图），默认为 `sample`",
+          "default": "sample"
+        }
+      },
+      "maintainers": [
+        "magicFeirl"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": [
+          {
+            "name": "GELBOORU_API_KEY",
+            "description": "Gelbooru 偶尔会开启 API 认证，需配合 `GELBOORU_USER_ID`，从 `https://gelbooru.com/index.php?page=account&s=options` 获取",
+            "optional": true
+          },
+          {
+            "name": "GELBOORU_USER_ID",
+            "description": "参见 `GELBOORU_API_KEY`",
+            "optional": true
+          }
+        ],
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "gelbooru.com/index.php"
+          ]
+        }
+      ]
+    },
+    {
+      "namespace": "google",
+      "namespaceName": "Google",
+      "namespaceUrl": "www.google.com",
+      "path": "/album/:id",
+      "fullPath": "/google/album/:id",
+      "name": "Public Albums",
+      "example": "/google/album/msFFnAzKmQmWj76EA",
+      "parameters": {
+        "id": "album ID, can be found in URL, for example, `https://photos.app.goo.gl/msFFnAzKmQmWj76EA` to `msFFnAzKmQmWj76EA`"
+      },
+      "maintainers": [
+        "hoilc"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "lang": "en"
+    },
+    {
+      "namespace": "google",
+      "namespaceName": "Google",
+      "namespaceUrl": "www.google.com",
+      "path": "/doodles/:language?",
+      "fullPath": "/google/doodles/:language?",
+      "name": "Update",
+      "example": "/google/doodles/zh-CN",
+      "parameters": {
+        "language": "Language, default to `zh-CN`, for other language values, you can get it from [Google Doodles official website](https://www.google.com/doodles)"
+      },
+      "maintainers": [
+        "xyqfer"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "lang": "en"
+    },
+    {
+      "namespace": "jpxgmn",
+      "namespaceName": "极品性感美女",
+      "namespaceUrl": "www.jpxgmn.com",
+      "path": "/search/:kw",
+      "fullPath": "/jpxgmn/search/:kw",
+      "name": "搜索",
+      "example": "/jpxgmn/search/candy",
+      "parameters": {
+        "kw": "搜索关键词"
+      },
+      "maintainers": [
+        "Urabartin"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "nsfw": true
+      },
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "jpxgmn",
+      "namespaceName": "极品性感美女",
+      "namespaceUrl": "www.jpxgmn.com",
+      "path": "/tab/:tab?",
+      "fullPath": "/jpxgmn/tab/:tab?",
+      "name": "分类",
+      "example": "/jpxgmn/tab",
+      "parameters": {
+        "tab": "分类，默认为`top`，包括`top`、`new`、`hot`，以及[源网站](http://www.jpxgmn.com/)所包含的其他相对路径，比如`Xiuren`、`XiaoYu`等"
+      },
+      "maintainers": [
+        "Urabartin"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "mei5.vip/:tab"
+          ],
+          "target": "/:tab"
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "jpxgmn",
+      "namespaceName": "极品性感美女",
+      "namespaceUrl": "www.jpxgmn.com",
+      "path": "/weekly",
+      "fullPath": "/jpxgmn/weekly",
+      "name": "本周热门",
+      "example": "/jpxgmn/weekly",
+      "maintainers": [
+        "Urabartin"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "mei5.vip/"
+          ],
+          "target": "/weekly"
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "konachan",
+      "namespaceName": "Konachan.com Anime Wallpapers",
+      "namespaceUrl": "konachan.com",
+      "path": "/post/popular_recent/:period?",
+      "fullPath": "/konachan/post/popular_recent/:period?",
+      "name": "Popular Recent Posts",
+      "example": "/konachan/post/popular_recent/1d",
+      "description": "| 最近 24 小时    | 最近一周     | 最近一月    | 最近一年     |\n| ------- | -------- | ------- | -------- |\n| 1d | 1w | 1m | 1y |",
+      "parameters": {
+        "period": {
+          "description": "展示时间",
+          "options": [
+            {
+              "value": "1d",
+              "label": "最近 24 小时"
+            },
+            {
+              "value": "1w",
+              "label": "最近一周"
+            },
+            {
+              "value": "1m",
+              "label": "最近一月"
+            },
+            {
+              "value": "1y",
+              "label": "最近一年"
+            }
+          ],
+          "default": "1d"
+        },
+        "safe_search": {
+          "description": "是否使用无r18的站点konachan.net，若是,则在路径前加上 `/sfw`，如`/konachan/sfw/post/popular_recent/1d`，若否则默认使用 konachan.com",
+          "default": "false"
+        }
+      },
+      "maintainers": [
+        "magic-akari",
+        "NekoAria",
+        "sineeeee"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "konachan.com/post",
+            "konachan.net/post"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "konachan",
+      "namespaceName": "Konachan.com Anime Wallpapers",
+      "namespaceUrl": "konachan.com",
+      "path": "/sfw/post/popular_recent/:period?",
+      "fullPath": "/konachan/sfw/post/popular_recent/:period?",
+      "name": "Popular Recent Posts",
+      "example": "/konachan/post/popular_recent/1d",
+      "description": "| 最近 24 小时    | 最近一周     | 最近一月    | 最近一年     |\n| ------- | -------- | ------- | -------- |\n| 1d | 1w | 1m | 1y |",
+      "parameters": {
+        "period": {
+          "description": "展示时间",
+          "options": [
+            {
+              "value": "1d",
+              "label": "最近 24 小时"
+            },
+            {
+              "value": "1w",
+              "label": "最近一周"
+            },
+            {
+              "value": "1m",
+              "label": "最近一月"
+            },
+            {
+              "value": "1y",
+              "label": "最近一年"
+            }
+          ],
+          "default": "1d"
+        },
+        "safe_search": {
+          "description": "是否使用无r18的站点konachan.net，若是,则在路径前加上 `/sfw`，如`/konachan/sfw/post/popular_recent/1d`，若否则默认使用 konachan.com",
+          "default": "false"
+        }
+      },
+      "maintainers": [
+        "magic-akari",
+        "NekoAria",
+        "sineeeee"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "konachan.com/post",
+            "konachan.net/post"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "kpopping",
+      "namespaceName": "kpopping",
+      "namespaceUrl": "kpopping.com",
+      "path": "/kpics/:filter{.+}?",
+      "fullPath": "/kpopping/kpics/:filter{.+}?",
+      "name": "Pics",
+      "example": "/kpopping/kpics/gender-male/category-all/idol-any/group-any/order",
+      "description": "::: tip\nIf you subscribe to [All male photo albums](https://kpopping.com/kpics/gender-male/category-all/idol-any/group-any/order)，where the URL is `https://kpopping.com/kpics/gender-male/category-all/idol-any/group-any/order`, extract the part `https://kpopping.com/kpics/` to the end, which is `gender-male/category-all/idol-any/group-any/order`, and use it as the parameter to fill in. Therefore, the route will be [`/kpopping/kpics/gender-male/category-all/idol-any/group-any/order`](https://rsshub.app/kpopping/kpics/gender-male/category-all/idol-any/group-any/order).\n:::",
+      "parameters": {
+        "filter": "Filter"
+      },
+      "maintainers": [
+        "nczitzk"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "kpopping.com/kpics/:filter"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "magnumphotos",
+      "namespaceName": "Magnum Photos",
+      "namespaceUrl": "magnumphotos.com",
+      "path": "/magazine",
+      "fullPath": "/magnumphotos/magazine",
+      "name": "Magazine",
+      "example": "/magnumphotos/magazine",
+      "parameters": {},
+      "maintainers": [
+        "EthanWng97"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "magnumphotos.com/"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "misskon",
+      "namespaceName": "MissKON",
+      "namespaceUrl": "misskon.com",
+      "path": "/posts/:routeParams?",
+      "fullPath": "/misskon/posts/:routeParams?",
+      "name": "Posts",
+      "example": "/misskon/posts/search=video&tags_exclude=353,3100&per_page=5",
+      "parameters": {
+        "routeParams": "Additional parameters for filtering posts, refer to [WordPress API Reference](https://developer.wordpress.org/rest-api/reference/posts/#arguments) for details."
+      },
+      "maintainers": [
+        "Urabartin"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "misskon.com/"
+          ],
+          "target": "/posts"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "misskon",
+      "namespaceName": "MissKON",
+      "namespaceUrl": "misskon.com",
+      "path": "/tag/:tag",
+      "fullPath": "/misskon/tag/:tag",
+      "name": "Tag",
+      "example": "/misskon/tag/cosplay",
+      "parameters": {
+        "tag": "Any tag that exists in MissKon"
+      },
+      "maintainers": [
+        "Urabartin"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "misskon.com/tag/:tag/"
+          ],
+          "target": "/tag/:tag"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "misskon",
+      "namespaceName": "MissKON",
+      "namespaceUrl": "misskon.com",
+      "path": "/top/:k",
+      "fullPath": "/misskon/top/:k",
+      "name": "Top k days",
+      "example": "/misskon/top/60",
+      "parameters": {
+        "k": "Top k days, can be 3, 7, 30 or 60"
+      },
+      "maintainers": [
+        "Urabartin"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "title": "Top 3 days",
+          "source": [
+            "misskon.com/top3/"
+          ],
+          "target": "/top/3"
+        },
+        {
+          "title": "Top 7 days",
+          "source": [
+            "misskon.com/top7/"
+          ],
+          "target": "/top/7"
+        },
+        {
+          "title": "Top 30 days",
+          "source": [
+            "misskon.com/top30/"
+          ],
+          "target": "/top/30"
+        },
+        {
+          "title": "Top 60 days",
+          "source": [
+            "misskon.com/top60/"
+          ],
+          "target": "/top/60"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "nasa",
+      "namespaceName": "NASA",
+      "namespaceUrl": "apod.nasa.gov",
+      "path": "/apod",
+      "fullPath": "/nasa/apod",
+      "name": "Astronomy Picture of the Day",
+      "example": "/nasa/apod",
+      "parameters": {},
+      "maintainers": [
+        "nczitzk",
+        "williamgateszhao"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "apod.nasa.govundefined"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "nasa",
+      "namespaceName": "NASA",
+      "namespaceUrl": "apod.nasa.gov",
+      "path": "/apod-cn",
+      "fullPath": "/nasa/apod-cn",
+      "name": "NASA 中文",
+      "example": "/nasa/apod-cn",
+      "description": "::: tip\n  [NASA 中文](https://www.nasachina.cn/) 提供了每日天文图的中英双语图文说明，但在更新上偶尔略有一两天的延迟。\n:::",
+      "parameters": {},
+      "maintainers": [
+        "nczitzk",
+        "williamgateszhao"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "apod.nasa.govundefined"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "nasa",
+      "namespaceName": "NASA",
+      "namespaceUrl": "apod.nasa.gov",
+      "path": "/apod-ncku",
+      "fullPath": "/nasa/apod-ncku",
+      "name": "Cheng Kung University Mirror",
+      "example": "/nasa/apod-ncku",
+      "parameters": {},
+      "maintainers": [
+        "nczitzk",
+        "williamgateszhao"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "apod.nasa.govundefined"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "natgeo",
+      "namespaceName": "National Geographic",
+      "namespaceUrl": "nationalgeographic.com",
+      "path": "/dailyphoto",
+      "fullPath": "/natgeo/dailyphoto",
+      "name": "Daily Photo",
+      "example": "/natgeo/dailyphoto",
+      "parameters": {},
+      "maintainers": [
+        "LogicJake",
+        "OrangeEd1t",
+        "TonyRL",
+        "pseudoyu"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "nationalgeographic.com/photo-of-the-day/*",
+            "nationalgeographic.com/"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "natgeo",
+      "namespaceName": "National Geographic",
+      "namespaceUrl": "nationalgeographic.com",
+      "path": "/dailyselection",
+      "fullPath": "/natgeo/dailyselection",
+      "name": "Daily Selection",
+      "example": "/natgeo/dailyselection",
+      "parameters": {},
+      "maintainers": [
+        "OrangeEd1t"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false
+      },
+      "radar": [
+        {
+          "source": [
+            "nationalgeographic.com/"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "pinterest",
+      "namespaceName": "Pinterest",
+      "namespaceUrl": "www.pinterest.com",
+      "path": "/user/:username/:type?",
+      "fullPath": "/pinterest/user/:username/:type?",
+      "name": "User",
+      "example": "/pinterest/user/howieserious",
+      "parameters": {
+        "username": "Username",
+        "type": {
+          "description": "Type, default to `_created`",
+          "default": "_created",
+          "options": [
+            {
+              "value": "_created",
+              "label": "Created"
+            },
+            {
+              "value": "_saved",
+              "label": "Saved"
+            }
+          ]
+        }
+      },
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "radar": [
+        {
+          "source": [
+            "www.pinterest.com/:id/:type?",
+            "www.pinterest.com/:id"
+          ],
+          "target": "/user/:id/:type?"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "pixabay",
+      "namespaceName": "Pixabay",
+      "namespaceUrl": "pixabay.com",
+      "path": "/search/:q/:order?",
+      "fullPath": "/pixabay/search/:q/:order?",
+      "name": "Search",
+      "example": "/pixabay/search/cat",
+      "parameters": {
+        "q": "Search term",
+        "order": {
+          "description": "Order",
+          "options": [
+            {
+              "value": "popular",
+              "label": "popular"
+            },
+            {
+              "value": "latest",
+              "label": "latest"
+            }
+          ],
+          "default": "latest"
+        }
+      },
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": [
+          {
+            "name": "PIXABAY_KEY",
+            "optional": true,
+            "description": ""
+          }
+        ],
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "pixabay.com/:searchType/search/:q"
+          ],
+          "target": "/search/:q"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "qipamaijia",
+      "namespaceName": "奇葩买家秀",
+      "namespaceUrl": "qipamaijia.com",
+      "path": "/:cate?",
+      "fullPath": "/qipamaijia/:cate?",
+      "name": "频道",
+      "example": "/qipamaijia/fuli",
+      "parameters": {
+        "cate": "频道名，可在对应网址中找到，默认为最新"
+      },
+      "maintainers": [
+        "Fatpandac",
+        "nczitzk"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "qipamaijia.com/",
+            "qipamaijia.com/:cate"
+          ],
+          "target": "/:cate"
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "skeb",
+      "namespaceName": "Skeb",
+      "namespaceUrl": "skeb.jp",
+      "path": "/:category",
+      "fullPath": "/skeb/:category",
+      "name": "Skeb",
+      "example": "/skeb/new_art_works",
+      "parameters": {
+        "category": "Category, the div id of the section title on the homepage."
+      },
+      "maintainers": [
+        "SnowAgar25"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "title": "新着作品 (Illust)",
+          "source": [
+            "skeb.jp"
+          ],
+          "target": "/new_art_works"
+        },
+        {
+          "title": "新着作品 (Voice)",
+          "source": [
+            "skeb.jp"
+          ],
+          "target": "/new_voice_works"
+        },
+        {
+          "title": "新着作品 (Novel)",
+          "source": [
+            "skeb.jp"
+          ],
+          "target": "/new_novel_works"
+        },
+        {
+          "title": "新着作品 (Video)",
+          "source": [
+            "skeb.jp"
+          ],
+          "target": "/new_video_works"
+        },
+        {
+          "title": "新着作品 (Music)",
+          "source": [
+            "skeb.jp"
+          ],
+          "target": "/new_music_works"
+        },
+        {
+          "title": "新着作品 (Advice)",
+          "source": [
+            "skeb.jp"
+          ],
+          "target": "/new_correction_works"
+        },
+        {
+          "title": "新着作品 (Comic)",
+          "source": [
+            "skeb.jp"
+          ],
+          "target": "/new_comic_works"
+        },
+        {
+          "title": "人気の作品 (Popular)",
+          "source": [
+            "skeb.jp"
+          ],
+          "target": "/popular_works"
+        },
+        {
+          "title": "人気クリエイター",
+          "source": [
+            "skeb.jp"
+          ],
+          "target": "/popular_creators"
+        },
+        {
+          "title": "新着クリエイター",
+          "source": [
+            "skeb.jp"
+          ],
+          "target": "/new_creators"
+        }
+      ],
+      "lang": "ja"
+    },
+    {
+      "namespace": "skeb",
+      "namespaceName": "Skeb",
+      "namespaceUrl": "skeb.jp",
+      "path": "/following_creators/:username",
+      "fullPath": "/skeb/following_creators/:username",
+      "name": "Following Creators",
+      "example": "/skeb/following_creators/@brm2_1925",
+      "description": "Get the list of creators the specified user is following on Skeb.",
+      "parameters": {
+        "username": "Skeb Username with @"
+      },
+      "maintainers": [
+        "SnowAgar25"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": [
+          {
+            "name": "SKEB_BEARER_TOKEN",
+            "optional": false,
+            "description": "在瀏覽器開發者工具（F12）的主控台中輸入 `localStorage.getItem(\"token\")` 獲取"
+          }
+        ],
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "title": "Following Creators",
+          "source": [
+            "skeb.jp/:username"
+          ],
+          "target": "/following_creators/:username"
+        }
+      ],
+      "lang": "ja"
+    },
+    {
+      "namespace": "skeb",
+      "namespaceName": "Skeb",
+      "namespaceUrl": "skeb.jp",
+      "path": "/following_works/:username",
+      "fullPath": "/skeb/following_works/:username",
+      "name": "Following Works",
+      "example": "/skeb/following_works/@brm2_1925",
+      "description": "Get the latest works for the specified user's followings on Skeb.",
+      "parameters": {
+        "username": "Skeb Username with @"
+      },
+      "maintainers": [
+        "SnowAgar25"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": [
+          {
+            "name": "SKEB_BEARER_TOKEN",
+            "optional": false,
+            "description": "在瀏覽器開發者工具（F12）的主控台中輸入 `localStorage.getItem(\"token\")` 獲取"
+          }
+        ],
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "title": "Following Works",
+          "source": [
+            "skeb.jp/:username"
+          ],
+          "target": "/following_works/:username"
+        }
+      ],
+      "lang": "ja"
+    },
+    {
+      "namespace": "skeb",
+      "namespaceName": "Skeb",
+      "namespaceUrl": "skeb.jp",
+      "path": "/friend_works/:username",
+      "fullPath": "/skeb/friend_works/:username",
+      "name": "Friend Works",
+      "example": "/skeb/friend_works/@brm2_1925",
+      "description": "Get the latest requests for the specified user's followings on Skeb.",
+      "parameters": {
+        "username": "Skeb Username with @"
+      },
+      "maintainers": [
+        "SnowAgar25"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": [
+          {
+            "name": "SKEB_BEARER_TOKEN",
+            "optional": false,
+            "description": "在瀏覽器開發者工具（F12）的主控台中輸入 `localStorage.getItem(\"token\")` 獲取"
+          }
+        ],
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "title": "Friend Works",
+          "source": [
+            "skeb.jp/:username"
+          ],
+          "target": "/friend_works/:username"
+        }
+      ],
+      "lang": "ja"
+    },
+    {
+      "namespace": "skeb",
+      "namespaceName": "Skeb",
+      "namespaceUrl": "skeb.jp",
+      "path": "/search/:keyword",
+      "fullPath": "/skeb/search/:keyword",
+      "name": "Search Results",
+      "example": "/skeb/search/初音ミク",
+      "description": "Get the search results for works on Skeb",
+      "parameters": {
+        "keyword": "Search keyword"
+      },
+      "maintainers": [
+        "SnowAgar25"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "lang": "ja"
+    },
+    {
+      "namespace": "skeb",
+      "namespaceName": "Skeb",
+      "namespaceUrl": "skeb.jp",
+      "path": "/works/:username",
+      "fullPath": "/skeb/works/:username",
+      "name": "Creator Works",
+      "example": "/skeb/works/@brm2_1925",
+      "description": "Get the latest works of a specific creator on Skeb",
+      "parameters": {
+        "username": "Skeb Username with @"
+      },
+      "maintainers": [
+        "SnowAgar25"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": [
+          {
+            "name": "SKEB_BEARER_TOKEN",
+            "optional": false,
+            "description": "在瀏覽器開發者工具（F12）的主控台中輸入 `localStorage.getItem(\"token\")` 獲取"
+          }
+        ],
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "title": "Creator Works",
+          "source": [
+            "skeb.jp/:username"
+          ],
+          "target": "/works/:username"
+        }
+      ],
+      "lang": "ja"
+    },
+    {
+      "namespace": "voronoiapp",
+      "namespaceName": "Voronoi",
+      "namespaceUrl": "voronoiapp.com",
+      "path": "/author/:username",
+      "fullPath": "/voronoiapp/author/:username",
+      "name": "Author Posts",
+      "example": "/voronoiapp/author/visualcapitalist",
+      "parameters": {
+        "username": "The username of the author"
+      },
+      "maintainers": [
+        "Cesaryuan"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "radar": [
+        {
+          "source": [
+            "www.voronoiapp.com/author/:username"
+          ],
+          "target": "/author/:username"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "voronoiapp",
+      "namespaceName": "Voronoi",
+      "namespaceUrl": "voronoiapp.com",
+      "path": "/editors-pick/:category?",
+      "fullPath": "/voronoiapp/editors-pick/:category?",
+      "name": "Editor's Pick Posts",
+      "example": "/voronoiapp/editors-pick",
+      "parameters": {
+        "category": {
+          "description": "The category of the post",
+          "default": "",
+          "options": [
+            {
+              "value": "",
+              "label": "All categories"
+            },
+            {
+              "value": "Automotive",
+              "label": "Automotive Data Insights - Explore a range of automotive data visualizations showcasing trends, innovations, and market dynamics in the automotive industry."
+            },
+            {
+              "value": "Business",
+              "label": "Business Visualization Trends - Discover business visualizations covering market analysis, corporate strategies, and economic impacts across global industries."
+            },
+            {
+              "value": "Climate",
+              "label": "Climate Data Visualized - Delve into climate change data visualizations that detail weather patterns, environmental impacts, and sustainability efforts worldwide."
+            },
+            {
+              "value": "Demographics",
+              "label": "Demographic Visual Insights - Explore visual demographics data showcasing population trends, societal changes, and demographic analytics across regions."
+            },
+            {
+              "value": "Economy",
+              "label": "Economic Visualization Insights - View economic visualizations illustrating financial markets, economic policies, and global economic health."
+            },
+            {
+              "value": "Energy",
+              "label": "Energy Industry Visual Data - Discover the dynamics of global energy consumption, renewable sources, and energy market trends through vivid visualizations."
+            },
+            {
+              "value": "Entertainment",
+              "label": "Entertainment Industry Data - Explore data visualizations in the entertainment industry, covering everything from box office trends to streaming service analytics."
+            },
+            {
+              "value": "Geopolitics",
+              "label": "Geopolitical Data Visualized - Understand global geopolitical shifts and international relations through comprehensive geopolitical data visualizations."
+            },
+            {
+              "value": "Healthcare",
+              "label": "Healthcare Insights Visualized - Analyze healthcare data visualizations spanning disease trends, healthcare services, and public health policies."
+            },
+            {
+              "value": "Innovation",
+              "label": "Innovation in Data - Dive into innovation data visualizations highlighting technology advancements, R&D investments, and patent trends."
+            },
+            {
+              "value": "Maps",
+              "label": "Cartographic Visual Insights - Discover cartographic visualizations that map everything from socio-economic data to geographical phenomena."
+            },
+            {
+              "value": "Markets",
+              "label": "Market Trends Visualized - Visualize market trends, financial data, and economic forecasts through comprehensive market visualizations."
+            },
+            {
+              "value": "Money",
+              "label": "Financial Data Visualized - Dive into financial visualizations depicting currency trends, investment flows, and banking statistics."
+            },
+            {
+              "value": "Natural Resources",
+              "label": "Natural Resources Data - Explore visualizations of natural resources, detailing extraction, consumption, and conservation data."
+            },
+            {
+              "value": "Politics",
+              "label": "Political Visual Insights - Analyze political trends, election results, and legislative impacts through detailed political visualizations."
+            },
+            {
+              "value": "Public Opinion",
+              "label": "Public Opinion Trends - Discover visualizations of public opinion polls, social trends, and cultural shifts across different regions."
+            },
+            {
+              "value": "Real Estate",
+              "label": "Real Estate Market Insights - Explore real estate market trends, property values, and urban development through targeted data visualizations."
+            },
+            {
+              "value": "Sports",
+              "label": "Sports Data Insights - Analyze sports data visualizations that showcase performance statistics, team rankings, and sports economics."
+            },
+            {
+              "value": "Technology",
+              "label": "Technology Trends Visualized - Dive into technology visualizations highlighting industry trends, tech adoption rates, and innovation impacts."
+            },
+            {
+              "value": "Wealth",
+              "label": "Wealth Distribution Insights - Explore wealth distribution, financial health, and economic disparities through detailed visualizations."
+            },
+            {
+              "value": "Travel",
+              "label": "Travel Trends Visualized - Discover travel trends, tourism statistics, and destination analytics through engaging visualizations."
+            },
+            {
+              "value": "Nature",
+              "label": "Nature and Conservation Data - Delve into visualizations of ecological data, wildlife statistics, and conservation efforts around the globe."
+            },
+            {
+              "value": "Space",
+              "label": "Space Exploration Data - Explore the universe with space data visualizations covering planetary science, space missions, and astronomical discoveries."
+            },
+            {
+              "value": "Diagram",
+              "label": "Diagrammatic Data Insights - Understand complex data through diagrams that simplify information across various topics and industries."
+            },
+            {
+              "value": "Other",
+              "label": "Diverse Data Visualizations - Explore a variety of data visualizations that don't neatly fit into any single category but offer unique insights."
+            }
+          ]
+        }
+      },
+      "maintainers": [
+        "Cesaryuan"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "radar": [
+        {
+          "source": [
+            "www.voronoiapp.com/posts/editors-pick"
+          ],
+          "target": "/editors-pick"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "voronoiapp",
+      "namespaceName": "Voronoi",
+      "namespaceUrl": "voronoiapp.com",
+      "path": "/home/:category?",
+      "fullPath": "/voronoiapp/home/:category?",
+      "name": "Home Posts",
+      "example": "/voronoiapp/home",
+      "description": "This is the home page of Voronoi App",
+      "parameters": {
+        "category": {
+          "description": "The category of the post",
+          "default": "",
+          "options": [
+            {
+              "value": "",
+              "label": "All categories"
+            },
+            {
+              "value": "Automotive",
+              "label": "Automotive Data Insights - Explore a range of automotive data visualizations showcasing trends, innovations, and market dynamics in the automotive industry."
+            },
+            {
+              "value": "Business",
+              "label": "Business Visualization Trends - Discover business visualizations covering market analysis, corporate strategies, and economic impacts across global industries."
+            },
+            {
+              "value": "Climate",
+              "label": "Climate Data Visualized - Delve into climate change data visualizations that detail weather patterns, environmental impacts, and sustainability efforts worldwide."
+            },
+            {
+              "value": "Demographics",
+              "label": "Demographic Visual Insights - Explore visual demographics data showcasing population trends, societal changes, and demographic analytics across regions."
+            },
+            {
+              "value": "Economy",
+              "label": "Economic Visualization Insights - View economic visualizations illustrating financial markets, economic policies, and global economic health."
+            },
+            {
+              "value": "Energy",
+              "label": "Energy Industry Visual Data - Discover the dynamics of global energy consumption, renewable sources, and energy market trends through vivid visualizations."
+            },
+            {
+              "value": "Entertainment",
+              "label": "Entertainment Industry Data - Explore data visualizations in the entertainment industry, covering everything from box office trends to streaming service analytics."
+            },
+            {
+              "value": "Geopolitics",
+              "label": "Geopolitical Data Visualized - Understand global geopolitical shifts and international relations through comprehensive geopolitical data visualizations."
+            },
+            {
+              "value": "Healthcare",
+              "label": "Healthcare Insights Visualized - Analyze healthcare data visualizations spanning disease trends, healthcare services, and public health policies."
+            },
+            {
+              "value": "Innovation",
+              "label": "Innovation in Data - Dive into innovation data visualizations highlighting technology advancements, R&D investments, and patent trends."
+            },
+            {
+              "value": "Maps",
+              "label": "Cartographic Visual Insights - Discover cartographic visualizations that map everything from socio-economic data to geographical phenomena."
+            },
+            {
+              "value": "Markets",
+              "label": "Market Trends Visualized - Visualize market trends, financial data, and economic forecasts through comprehensive market visualizations."
+            },
+            {
+              "value": "Money",
+              "label": "Financial Data Visualized - Dive into financial visualizations depicting currency trends, investment flows, and banking statistics."
+            },
+            {
+              "value": "Natural Resources",
+              "label": "Natural Resources Data - Explore visualizations of natural resources, detailing extraction, consumption, and conservation data."
+            },
+            {
+              "value": "Politics",
+              "label": "Political Visual Insights - Analyze political trends, election results, and legislative impacts through detailed political visualizations."
+            },
+            {
+              "value": "Public Opinion",
+              "label": "Public Opinion Trends - Discover visualizations of public opinion polls, social trends, and cultural shifts across different regions."
+            },
+            {
+              "value": "Real Estate",
+              "label": "Real Estate Market Insights - Explore real estate market trends, property values, and urban development through targeted data visualizations."
+            },
+            {
+              "value": "Sports",
+              "label": "Sports Data Insights - Analyze sports data visualizations that showcase performance statistics, team rankings, and sports economics."
+            },
+            {
+              "value": "Technology",
+              "label": "Technology Trends Visualized - Dive into technology visualizations highlighting industry trends, tech adoption rates, and innovation impacts."
+            },
+            {
+              "value": "Wealth",
+              "label": "Wealth Distribution Insights - Explore wealth distribution, financial health, and economic disparities through detailed visualizations."
+            },
+            {
+              "value": "Travel",
+              "label": "Travel Trends Visualized - Discover travel trends, tourism statistics, and destination analytics through engaging visualizations."
+            },
+            {
+              "value": "Nature",
+              "label": "Nature and Conservation Data - Delve into visualizations of ecological data, wildlife statistics, and conservation efforts around the globe."
+            },
+            {
+              "value": "Space",
+              "label": "Space Exploration Data - Explore the universe with space data visualizations covering planetary science, space missions, and astronomical discoveries."
+            },
+            {
+              "value": "Diagram",
+              "label": "Diagrammatic Data Insights - Understand complex data through diagrams that simplify information across various topics and industries."
+            },
+            {
+              "value": "Other",
+              "label": "Diverse Data Visualizations - Explore a variety of data visualizations that don't neatly fit into any single category but offer unique insights."
+            }
+          ]
+        }
+      },
+      "maintainers": [
+        "Cesaryuan"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "radar": [
+        {
+          "source": [
+            "www.voronoiapp.com",
+            "www.voronoiapp.com/posts/voronoi"
+          ],
+          "target": "/home"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "voronoiapp",
+      "namespaceName": "Voronoi",
+      "namespaceUrl": "voronoiapp.com",
+      "path": "/latest/:category?",
+      "fullPath": "/voronoiapp/latest/:category?",
+      "name": "Latest Posts",
+      "example": "/voronoiapp/latest",
+      "parameters": {
+        "category": {
+          "description": "The category of the post",
+          "default": "",
+          "options": [
+            {
+              "value": "",
+              "label": "All categories"
+            },
+            {
+              "value": "Automotive",
+              "label": "Automotive Data Insights - Explore a range of automotive data visualizations showcasing trends, innovations, and market dynamics in the automotive industry."
+            },
+            {
+              "value": "Business",
+              "label": "Business Visualization Trends - Discover business visualizations covering market analysis, corporate strategies, and economic impacts across global industries."
+            },
+            {
+              "value": "Climate",
+              "label": "Climate Data Visualized - Delve into climate change data visualizations that detail weather patterns, environmental impacts, and sustainability efforts worldwide."
+            },
+            {
+              "value": "Demographics",
+              "label": "Demographic Visual Insights - Explore visual demographics data showcasing population trends, societal changes, and demographic analytics across regions."
+            },
+            {
+              "value": "Economy",
+              "label": "Economic Visualization Insights - View economic visualizations illustrating financial markets, economic policies, and global economic health."
+            },
+            {
+              "value": "Energy",
+              "label": "Energy Industry Visual Data - Discover the dynamics of global energy consumption, renewable sources, and energy market trends through vivid visualizations."
+            },
+            {
+              "value": "Entertainment",
+              "label": "Entertainment Industry Data - Explore data visualizations in the entertainment industry, covering everything from box office trends to streaming service analytics."
+            },
+            {
+              "value": "Geopolitics",
+              "label": "Geopolitical Data Visualized - Understand global geopolitical shifts and international relations through comprehensive geopolitical data visualizations."
+            },
+            {
+              "value": "Healthcare",
+              "label": "Healthcare Insights Visualized - Analyze healthcare data visualizations spanning disease trends, healthcare services, and public health policies."
+            },
+            {
+              "value": "Innovation",
+              "label": "Innovation in Data - Dive into innovation data visualizations highlighting technology advancements, R&D investments, and patent trends."
+            },
+            {
+              "value": "Maps",
+              "label": "Cartographic Visual Insights - Discover cartographic visualizations that map everything from socio-economic data to geographical phenomena."
+            },
+            {
+              "value": "Markets",
+              "label": "Market Trends Visualized - Visualize market trends, financial data, and economic forecasts through comprehensive market visualizations."
+            },
+            {
+              "value": "Money",
+              "label": "Financial Data Visualized - Dive into financial visualizations depicting currency trends, investment flows, and banking statistics."
+            },
+            {
+              "value": "Natural Resources",
+              "label": "Natural Resources Data - Explore visualizations of natural resources, detailing extraction, consumption, and conservation data."
+            },
+            {
+              "value": "Politics",
+              "label": "Political Visual Insights - Analyze political trends, election results, and legislative impacts through detailed political visualizations."
+            },
+            {
+              "value": "Public Opinion",
+              "label": "Public Opinion Trends - Discover visualizations of public opinion polls, social trends, and cultural shifts across different regions."
+            },
+            {
+              "value": "Real Estate",
+              "label": "Real Estate Market Insights - Explore real estate market trends, property values, and urban development through targeted data visualizations."
+            },
+            {
+              "value": "Sports",
+              "label": "Sports Data Insights - Analyze sports data visualizations that showcase performance statistics, team rankings, and sports economics."
+            },
+            {
+              "value": "Technology",
+              "label": "Technology Trends Visualized - Dive into technology visualizations highlighting industry trends, tech adoption rates, and innovation impacts."
+            },
+            {
+              "value": "Wealth",
+              "label": "Wealth Distribution Insights - Explore wealth distribution, financial health, and economic disparities through detailed visualizations."
+            },
+            {
+              "value": "Travel",
+              "label": "Travel Trends Visualized - Discover travel trends, tourism statistics, and destination analytics through engaging visualizations."
+            },
+            {
+              "value": "Nature",
+              "label": "Nature and Conservation Data - Delve into visualizations of ecological data, wildlife statistics, and conservation efforts around the globe."
+            },
+            {
+              "value": "Space",
+              "label": "Space Exploration Data - Explore the universe with space data visualizations covering planetary science, space missions, and astronomical discoveries."
+            },
+            {
+              "value": "Diagram",
+              "label": "Diagrammatic Data Insights - Understand complex data through diagrams that simplify information across various topics and industries."
+            },
+            {
+              "value": "Other",
+              "label": "Diverse Data Visualizations - Explore a variety of data visualizations that don't neatly fit into any single category but offer unique insights."
+            }
+          ]
+        }
+      },
+      "maintainers": [
+        "Cesaryuan"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "radar": [
+        {
+          "source": [
+            "www.voronoiapp.com/posts/latest"
+          ],
+          "target": "/latest"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "voronoiapp",
+      "namespaceName": "Voronoi",
+      "namespaceUrl": "voronoiapp.com",
+      "path": "/popular/:tab?/:time_range?/:category?",
+      "fullPath": "/voronoiapp/popular/:tab?/:time_range?/:category?",
+      "name": "Popular Posts",
+      "example": "/voronoiapp/popular/most-popular/MONTH",
+      "parameters": {
+        "tab": {
+          "description": "The tab to get the popular posts from.",
+          "default": "most-popular",
+          "options": [
+            {
+              "value": "most-popular",
+              "label": "Most Liked"
+            },
+            {
+              "value": "most-discussed",
+              "label": "Most Discussed"
+            },
+            {
+              "value": "most-viewed",
+              "label": "Most Viewed"
+            }
+          ]
+        },
+        "time_range": {
+          "description": "Time range between which the posts are popular.",
+          "default": "MONTH",
+          "options": [
+            {
+              "value": "WEEK",
+              "label": "Last 7 days"
+            },
+            {
+              "value": "MONTH",
+              "label": "Last 30 days"
+            },
+            {
+              "value": "YEAR",
+              "label": "Last 12 months"
+            },
+            {
+              "value": "ALL",
+              "label": "All time"
+            }
+          ]
+        },
+        "category": {
+          "description": "The category of the post",
+          "default": "",
+          "options": [
+            {
+              "value": "",
+              "label": "All categories"
+            },
+            {
+              "value": "Automotive",
+              "label": "Automotive Data Insights - Explore a range of automotive data visualizations showcasing trends, innovations, and market dynamics in the automotive industry."
+            },
+            {
+              "value": "Business",
+              "label": "Business Visualization Trends - Discover business visualizations covering market analysis, corporate strategies, and economic impacts across global industries."
+            },
+            {
+              "value": "Climate",
+              "label": "Climate Data Visualized - Delve into climate change data visualizations that detail weather patterns, environmental impacts, and sustainability efforts worldwide."
+            },
+            {
+              "value": "Demographics",
+              "label": "Demographic Visual Insights - Explore visual demographics data showcasing population trends, societal changes, and demographic analytics across regions."
+            },
+            {
+              "value": "Economy",
+              "label": "Economic Visualization Insights - View economic visualizations illustrating financial markets, economic policies, and global economic health."
+            },
+            {
+              "value": "Energy",
+              "label": "Energy Industry Visual Data - Discover the dynamics of global energy consumption, renewable sources, and energy market trends through vivid visualizations."
+            },
+            {
+              "value": "Entertainment",
+              "label": "Entertainment Industry Data - Explore data visualizations in the entertainment industry, covering everything from box office trends to streaming service analytics."
+            },
+            {
+              "value": "Geopolitics",
+              "label": "Geopolitical Data Visualized - Understand global geopolitical shifts and international relations through comprehensive geopolitical data visualizations."
+            },
+            {
+              "value": "Healthcare",
+              "label": "Healthcare Insights Visualized - Analyze healthcare data visualizations spanning disease trends, healthcare services, and public health policies."
+            },
+            {
+              "value": "Innovation",
+              "label": "Innovation in Data - Dive into innovation data visualizations highlighting technology advancements, R&D investments, and patent trends."
+            },
+            {
+              "value": "Maps",
+              "label": "Cartographic Visual Insights - Discover cartographic visualizations that map everything from socio-economic data to geographical phenomena."
+            },
+            {
+              "value": "Markets",
+              "label": "Market Trends Visualized - Visualize market trends, financial data, and economic forecasts through comprehensive market visualizations."
+            },
+            {
+              "value": "Money",
+              "label": "Financial Data Visualized - Dive into financial visualizations depicting currency trends, investment flows, and banking statistics."
+            },
+            {
+              "value": "Natural Resources",
+              "label": "Natural Resources Data - Explore visualizations of natural resources, detailing extraction, consumption, and conservation data."
+            },
+            {
+              "value": "Politics",
+              "label": "Political Visual Insights - Analyze political trends, election results, and legislative impacts through detailed political visualizations."
+            },
+            {
+              "value": "Public Opinion",
+              "label": "Public Opinion Trends - Discover visualizations of public opinion polls, social trends, and cultural shifts across different regions."
+            },
+            {
+              "value": "Real Estate",
+              "label": "Real Estate Market Insights - Explore real estate market trends, property values, and urban development through targeted data visualizations."
+            },
+            {
+              "value": "Sports",
+              "label": "Sports Data Insights - Analyze sports data visualizations that showcase performance statistics, team rankings, and sports economics."
+            },
+            {
+              "value": "Technology",
+              "label": "Technology Trends Visualized - Dive into technology visualizations highlighting industry trends, tech adoption rates, and innovation impacts."
+            },
+            {
+              "value": "Wealth",
+              "label": "Wealth Distribution Insights - Explore wealth distribution, financial health, and economic disparities through detailed visualizations."
+            },
+            {
+              "value": "Travel",
+              "label": "Travel Trends Visualized - Discover travel trends, tourism statistics, and destination analytics through engaging visualizations."
+            },
+            {
+              "value": "Nature",
+              "label": "Nature and Conservation Data - Delve into visualizations of ecological data, wildlife statistics, and conservation efforts around the globe."
+            },
+            {
+              "value": "Space",
+              "label": "Space Exploration Data - Explore the universe with space data visualizations covering planetary science, space missions, and astronomical discoveries."
+            },
+            {
+              "value": "Diagram",
+              "label": "Diagrammatic Data Insights - Understand complex data through diagrams that simplify information across various topics and industries."
+            },
+            {
+              "value": "Other",
+              "label": "Diverse Data Visualizations - Explore a variety of data visualizations that don't neatly fit into any single category but offer unique insights."
+            }
+          ]
+        }
+      },
+      "maintainers": [
+        "Cesaryuan"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "radar": [
+        {
+          "title": "Most Liked Posts",
+          "source": [
+            "www.voronoiapp.com/posts/most-popular"
+          ],
+          "target": "/popular/most-popular"
+        },
+        {
+          "title": "Most Discussed Posts",
+          "source": [
+            "www.voronoiapp.com/posts/most-discussed"
+          ],
+          "target": "/popular/most-discussed"
+        },
+        {
+          "title": "Most Viewed Posts",
+          "source": [
+            "www.voronoiapp.com/posts/most-viewed"
+          ],
+          "target": "/popular/most-viewed"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "voronoiapp",
+      "namespaceName": "Voronoi",
+      "namespaceUrl": "voronoiapp.com",
+      "path": "/search/:keyword",
+      "fullPath": "/voronoiapp/search/:keyword",
+      "name": "Search Keyword Posts",
+      "example": "/voronoiapp/search/china",
+      "parameters": {
+        "keyword": "The keyword to search for"
+      },
+      "maintainers": [
+        "Cesaryuan"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "radar": [
+        {
+          "source": [
+            "www.voronoiapp.com/explore"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "wallhaven",
+      "namespaceName": "wallhaven",
+      "namespaceUrl": "wallhaven.cc",
+      "path": "/:filter?/:needDetails?",
+      "fullPath": "/wallhaven/:filter?/:needDetails?",
+      "name": "Search",
+      "example": "/wallhaven/search/categories=110&purity=110&sorting=date_added&order=desc",
+      "description": "::: tip\n  Subscribe pages starting with `https://wallhaven.cc/search`, fill the text after `?` as `filter` in the route. The following is an example:\n\n  The text after `?` is `q=id%3A711&sorting=random&ref=fp&seed=8g0dgd` for [Wallpaper Search: #landscape - wallhaven.cc](https://wallhaven.cc/search?q=id%3A711&sorting=random&ref=fp&seed=8g0dgd), so the route is [/wallhaven/q=id%3A711&sorting=random&ref=fp&seed=8g0dgd](https://rsshub.app/wallhaven/q=id%3A711&sorting=random&ref=fp&seed=8g0dgd)\n:::",
+      "parameters": {
+        "filter": "Filter, empty by default",
+        "needDetails": "Need Details, `true`/`yes` as yes, no by default"
+      },
+      "maintainers": [
+        "nczitzk",
+        "Fatpandac"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "wallhaven.cc/"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "wallhaven",
+      "namespaceName": "wallhaven",
+      "namespaceUrl": "wallhaven.cc",
+      "path": "/search/:filter?/:needDetails?",
+      "fullPath": "/wallhaven/search/:filter?/:needDetails?",
+      "name": "Search",
+      "example": "/wallhaven/search/categories=110&purity=110&sorting=date_added&order=desc",
+      "description": "::: tip\n  Subscribe pages starting with `https://wallhaven.cc/search`, fill the text after `?` as `filter` in the route. The following is an example:\n\n  The text after `?` is `q=id%3A711&sorting=random&ref=fp&seed=8g0dgd` for [Wallpaper Search: #landscape - wallhaven.cc](https://wallhaven.cc/search?q=id%3A711&sorting=random&ref=fp&seed=8g0dgd), so the route is [/wallhaven/q=id%3A711&sorting=random&ref=fp&seed=8g0dgd](https://rsshub.app/wallhaven/q=id%3A711&sorting=random&ref=fp&seed=8g0dgd)\n:::",
+      "parameters": {
+        "filter": "Filter, empty by default",
+        "needDetails": "Need Details, `true`/`yes` as yes, no by default"
+      },
+      "maintainers": [
+        "nczitzk",
+        "Fatpandac"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "wallhaven.cc/"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "yande",
+      "namespaceName": "yande.re",
+      "namespaceUrl": "yande.re",
+      "path": "/post/popular_recent/:period?",
+      "fullPath": "/yande/post/popular_recent/:period?",
+      "name": "Popular Recent Posts",
+      "example": "/yande/post/popular_recent/1d",
+      "description": "| 最近 24 小时    | 最近一周     | 最近一月    | 最近一年     |\n| ------- | -------- | ------- | -------- |\n| 1d | 1w | 1m | 1y |",
+      "parameters": {
+        "period": {
+          "description": "展示时间",
+          "options": [
+            {
+              "value": "1d",
+              "label": "最近 24 小时"
+            },
+            {
+              "value": "1w",
+              "label": "最近一周"
+            },
+            {
+              "value": "1m",
+              "label": "最近一月"
+            },
+            {
+              "value": "1y",
+              "label": "最近一年"
+            }
+          ],
+          "default": "1d"
+        }
+      },
+      "maintainers": [
+        "magic-akari",
+        "SettingDust",
+        "fashioncj",
+        "NekoAria"
+      ],
+      "categories": [
+        "picture"
+      ],
+      "features": {
+        "nsfw": true
+      },
+      "radar": [
+        {
+          "source": [
+            "yande.re/post"
+          ]
+        }
+      ],
+      "lang": "en"
+    }
+  ]
+}

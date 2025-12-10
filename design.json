@@ -1,0 +1,728 @@
+{
+  "category": "design",
+  "displayName": "Design",
+  "displayNameZh": "设计",
+  "icon": "🎨️",
+  "count": 19,
+  "routes": [
+    {
+      "namespace": "1x",
+      "namespaceName": "1x.com",
+      "namespaceUrl": "1x.com",
+      "path": "/:category{.+}?",
+      "fullPath": "/1x/:category{.+}?",
+      "name": "Gallery",
+      "example": "/1x/latest/awarded",
+      "description": "::: tip\nFill in the field in the path with the part of the corresponding page URL after `https://1x.com/gallery/` or `https://1x.com/photo/`. Here are the examples:\n\nIf you subscribe to [Abstract Awarded](https://1x.com/gallery/abstract/awarded), you should fill in the path with the part `abstract/awarded` from the page URL `https://1x.com/gallery/abstract/awarded`. In this case, the route will be [`/1x/abstract/awarded`](https://rsshub.app/1x/abstract/awarded).\n\nIf you subscribe to [Wildlife Published](https://1x.com/gallery/wildlife/published), you should fill in the path with the part `wildlife/published` from the page URL `https://1x.com/gallery/wildlife/published`. In this case, the route will be [`/1x/wildlife/published`](https://rsshub.app/1x/wildlife/published).\n:::",
+      "parameters": {
+        "category": "Category, Latest Awarded by default"
+      },
+      "maintainers": [
+        "nczitzk"
+      ],
+      "categories": [
+        "design",
+        "picture"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "/gallery/:category*",
+            "/photos/:category*"
+          ],
+          "target": "/1x/:category"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "apple",
+      "namespaceName": "Apple",
+      "namespaceUrl": "apple.com",
+      "path": "/design",
+      "fullPath": "/apple/design",
+      "name": "Design updates",
+      "example": "/apple/design",
+      "maintainers": [
+        "jean-jacket"
+      ],
+      "categories": [
+        "design"
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "behance",
+      "namespaceName": "Behance",
+      "namespaceUrl": "www.behance.net",
+      "path": "/:user/:type?",
+      "fullPath": "/behance/:user/:type?",
+      "name": "User Works",
+      "example": "/behance/mishapetrick",
+      "description": "Behance user's profile URL, like [https://www.behance.net/mishapetrick](https://www.behance.net/mishapetrick) the username will be `mishapetrick`。",
+      "parameters": {
+        "user": "username",
+        "type": {
+          "description": "type",
+          "options": [
+            {
+              "value": "projects",
+              "label": "projects"
+            },
+            {
+              "value": "appreciated",
+              "label": "appreciated"
+            }
+          ],
+          "default": "projects"
+        }
+      },
+      "maintainers": [
+        "MisteryMonster"
+      ],
+      "categories": [
+        "design"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "lang": "en"
+    },
+    {
+      "namespace": "bossdesign",
+      "namespaceName": "Boss 设计",
+      "namespaceUrl": "bossdesign.cn",
+      "path": "/:category?",
+      "fullPath": "/bossdesign/:category?",
+      "name": "分类",
+      "example": "/bossdesign",
+      "description": "| Boss 笔记 | 电脑日志        | 素材资源         | 设计师神器      | 设计教程        | 设计资讯            |\n| --------- | --------------- | ---------------- | --------------- | --------------- | ------------------- |\n| note      | computer-skills | design-resources | design-software | design-tutorial | design_information |",
+      "parameters": {
+        "category": "分类，可在对应分类页 URL 中找到，留空为全部"
+      },
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "design"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "dribbble",
+      "namespaceName": "Dribbble",
+      "namespaceUrl": "dribbble.com",
+      "path": "/keyword/:keyword",
+      "fullPath": "/dribbble/keyword/:keyword",
+      "name": "Keyword",
+      "example": "/dribbble/keyword/player",
+      "parameters": {
+        "keyword": "desired keyword"
+      },
+      "maintainers": [
+        "DIYgod",
+        "loganrockmore"
+      ],
+      "categories": [
+        "design"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "lang": "en"
+    },
+    {
+      "namespace": "dribbble",
+      "namespaceName": "Dribbble",
+      "namespaceUrl": "dribbble.com",
+      "path": "/popular/:timeframe?",
+      "fullPath": "/dribbble/popular/:timeframe?",
+      "name": "Popular",
+      "example": "/dribbble/popular",
+      "parameters": {
+        "timeframe": "support the following values: week, month, year and ever"
+      },
+      "maintainers": [
+        "DIYgod",
+        "loganrockmore"
+      ],
+      "categories": [
+        "design"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "dribbble.com/"
+          ],
+          "target": "/popular"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "dribbble",
+      "namespaceName": "Dribbble",
+      "namespaceUrl": "dribbble.com",
+      "path": "/user/:name",
+      "fullPath": "/dribbble/user/:name",
+      "name": "User (or team)",
+      "example": "/dribbble/user/google",
+      "parameters": {
+        "name": "username, available in user's homepage URL"
+      },
+      "maintainers": [
+        "DIYgod",
+        "loganrockmore"
+      ],
+      "categories": [
+        "design"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "dribbble.com/:name"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "google",
+      "namespaceName": "Google",
+      "namespaceUrl": "www.google.com",
+      "path": "/fonts/:sort?",
+      "fullPath": "/google/fonts/:sort?",
+      "name": "Google Fonts",
+      "example": "/google/fonts/date",
+      "description": "| Newest | Trending | Most popular |  Name | Number of styles |\n| :----: | :------: | :----------: | :---: | :--------------: |\n|  date  | trending |  popularity  | alpha |       style      |\n\n::: warning\n  This route requires API key, therefore it's only available when self-hosting, refer to the [Deploy Guide](https://docs.rsshub.app/deploy/config#route-specific-configurations) for route-specific configurations.\n:::",
+      "parameters": {
+        "sort": "Sorting type, see below, default to `date`"
+      },
+      "maintainers": [
+        "Fatpandac"
+      ],
+      "categories": [
+        "design"
+      ],
+      "features": {
+        "requireConfig": [
+          {
+            "name": "GOOGLE_FONTS_API_KEY",
+            "description": ""
+          }
+        ],
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "lang": "en"
+    },
+    {
+      "namespace": "iguoguo",
+      "namespaceName": "爱果果",
+      "namespaceUrl": "iguoguo.net",
+      "path": "/html5",
+      "fullPath": "/iguoguo/html5",
+      "name": "最新 H5",
+      "example": "/iguoguo/html5",
+      "parameters": {},
+      "maintainers": [
+        "yuxinliu-alex"
+      ],
+      "categories": [
+        "design"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "jimmyspa",
+      "namespaceName": "幾米 JIMMY S.P.A. Official Website",
+      "namespaceUrl": "www.jimmyspa.com",
+      "path": "/books/:language",
+      "fullPath": "/jimmyspa/books/:language",
+      "name": "Books",
+      "example": "/jimmyspa/books/tw",
+      "description": "\n| language | Description |\n| ---   | ---   |\n| tw | 臺灣正體 |\n| en | English |\n| jp | 日本語 |\n    ",
+      "parameters": {
+        "language": {
+          "description": "语言",
+          "options": [
+            {
+              "value": "tw",
+              "label": "臺灣正體"
+            },
+            {
+              "value": "en",
+              "label": "English"
+            },
+            {
+              "value": "jp",
+              "label": "日本語"
+            }
+          ]
+        }
+      },
+      "maintainers": [
+        "Cedaric"
+      ],
+      "categories": [
+        "design"
+      ],
+      "radar": [
+        {
+          "source": [
+            "www.jimmyspa.com/:language/Books"
+          ]
+        }
+      ],
+      "lang": "zh-TW"
+    },
+    {
+      "namespace": "jimmyspa",
+      "namespaceName": "幾米 JIMMY S.P.A. Official Website",
+      "namespaceUrl": "www.jimmyspa.com",
+      "path": "/news/:language",
+      "fullPath": "/jimmyspa/news/:language",
+      "name": "News",
+      "example": "/jimmyspa/news/tw",
+      "description": "\n| language | Description |\n| ---   | ---   |\n| tw | 臺灣正體 |\n| en | English |\n| jp | 日本語 |\n    ",
+      "parameters": {
+        "language": {
+          "description": "语言",
+          "options": [
+            {
+              "value": "tw",
+              "label": "臺灣正體"
+            },
+            {
+              "value": "en",
+              "label": "English"
+            },
+            {
+              "value": "jp",
+              "label": "日本語"
+            }
+          ]
+        }
+      },
+      "maintainers": [
+        "Cedaric"
+      ],
+      "categories": [
+        "design"
+      ],
+      "radar": [
+        {
+          "source": [
+            "www.jimmyspa.com/:language/News"
+          ]
+        }
+      ],
+      "lang": "zh-TW"
+    },
+    {
+      "namespace": "makerworld",
+      "namespaceName": "MakerWorld",
+      "namespaceUrl": "makerworld.com",
+      "path": "/contests",
+      "fullPath": "/makerworld/contests",
+      "name": "Contests",
+      "example": "/makerworld/contests",
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "design"
+      ],
+      "radar": [
+        {
+          "source": [
+            "makerworld.com/:lang/contests"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "makerworld",
+      "namespaceName": "MakerWorld",
+      "namespaceUrl": "makerworld.com",
+      "path": "/trending",
+      "fullPath": "/makerworld/trending",
+      "name": "Trending Models",
+      "example": "/makerworld/trending",
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "design"
+      ],
+      "radar": [
+        {
+          "source": [
+            "makerworld.com/:lang"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "makerworld",
+      "namespaceName": "MakerWorld",
+      "namespaceUrl": "makerworld.com",
+      "path": "/user/:handle/upload",
+      "fullPath": "/makerworld/user/:handle/upload",
+      "name": "User Uploads",
+      "example": "/makerworld/user/@Wcad00/upload",
+      "parameters": {
+        "handle": "User handle"
+      },
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "design"
+      ],
+      "radar": [
+        {
+          "source": [
+            "makerworld.com/:lang/:handle/upload",
+            "makerworld.com/:lang/:handle"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "notefolio",
+      "namespaceName": "Notefolio",
+      "namespaceUrl": "notefolio.net",
+      "path": "/search/:category?/:order?/:time?/:query?",
+      "fullPath": "/notefolio/search/:category?/:order?/:time?/:query?",
+      "name": "Works",
+      "example": "/notefolio/search/1/pick/all/life",
+      "description": "| Category | Name in Korean     | Name in English         |\n| -------- | ------------------ | ----------------------- |\n| all      | 전체               | All                     |\n| 1        | 영상/모션그래픽    | Video / Motion Graphics |\n| 2        | 그래픽 디자인      | Graphic Design          |\n| 3        | 브랜딩/편집        | Branding / Editing      |\n| 4        | UI/UX              | UI/UX                   |\n| 5        | 일러스트레이션     | Illustration            |\n| 6        | 디지털 아트        | Digital Art             |\n| 7        | 캐릭터 디자인      | Character Design        |\n| 8        | 제품/패키지 디자인 | Product Package Design  |\n| 9        | 포토그래피         | Photography             |\n| 10       | 타이포그래피       | Typography              |\n| 11       | 공예               | Crafts                  |\n| 12       | 파인아트           | Fine Art                |",
+      "parameters": {
+        "category": {
+          "description": "Category, see below",
+          "options": [
+            {
+              "value": "all",
+              "label": "All (전체)"
+            },
+            {
+              "value": "1",
+              "label": "Video / Motion Graphics (영상/모션그래픽)"
+            },
+            {
+              "value": "2",
+              "label": "Graphic Design (그래픽 디자인)"
+            },
+            {
+              "value": "3",
+              "label": "Branding / Editing (브랜딩/편집)"
+            },
+            {
+              "value": "4",
+              "label": "UI/UX (UI/UX)"
+            },
+            {
+              "value": "5",
+              "label": "Illustration (일러스트레이션)"
+            },
+            {
+              "value": "6",
+              "label": "Digital Art (디지털 아트)"
+            },
+            {
+              "value": "7",
+              "label": "Character Design (캐릭터 디자인)"
+            },
+            {
+              "value": "8",
+              "label": "Product Package Design (제품/패키지 디자인)"
+            },
+            {
+              "value": "9",
+              "label": "Photography (포토그래피)"
+            },
+            {
+              "value": "10",
+              "label": "Typography (타이포그래피)"
+            },
+            {
+              "value": "11",
+              "label": "Crafts (공예)"
+            },
+            {
+              "value": "12",
+              "label": "Fine Art (파인아트)"
+            }
+          ],
+          "default": "all"
+        },
+        "order": {
+          "description": "Order, `pick` as Notefolio Pick, `published` as Newest, `like` as like, `pick` by default",
+          "options": [
+            {
+              "value": "pick",
+              "label": "Notefolio Pick"
+            },
+            {
+              "value": "published",
+              "label": "Newest"
+            },
+            {
+              "value": "like",
+              "label": "Like"
+            }
+          ],
+          "default": "pick"
+        },
+        "time": {
+          "description": "Time",
+          "options": [
+            {
+              "value": "all",
+              "label": "All the time"
+            },
+            {
+              "value": "one-day",
+              "label": "Latest 24 hours"
+            },
+            {
+              "value": "week",
+              "label": "Latest week"
+            },
+            {
+              "value": "month",
+              "label": "Latest month"
+            },
+            {
+              "value": "three-month",
+              "label": "Latest 3 months"
+            }
+          ],
+          "default": "all"
+        },
+        "query": "Keyword, empty by default"
+      },
+      "maintainers": [
+        "BianTan"
+      ],
+      "categories": [
+        "design"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "notefolio.net/search"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "shoppingdesign",
+      "namespaceName": "Shopping Design",
+      "namespaceUrl": "www.shoppingdesign.com.tw",
+      "path": "/posts",
+      "fullPath": "/shoppingdesign/posts",
+      "name": "文章列表",
+      "example": "/shoppingdesign/posts",
+      "parameters": {},
+      "maintainers": [
+        "miles170"
+      ],
+      "categories": [
+        "design"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.shoppingdesign.com.tw/post"
+          ]
+        }
+      ],
+      "lang": "zh-TW"
+    },
+    {
+      "namespace": "zcool",
+      "namespaceName": "站酷",
+      "namespaceUrl": "www.zcool.com.cn",
+      "path": "/discover/:query?/:subCate?/:hasVideo?/:city?/:college?/:recommendLevel?/:sort?",
+      "fullPath": "/zcool/discover/:query?/:subCate?/:hasVideo?/:city?/:college?/:recommendLevel?/:sort?",
+      "name": "发现",
+      "example": "/zcool/discover",
+      "description": "查看 **精选** 分类下的全部内容，其他参数选择默认，可直接使用路由 [`/zcool/discover/0`](https://rsshub.app/zcool/discover/0)\n\n  查看 **精选** 分类下的 **运营设计** 子分类全部内容，其他参数选择默认，可直接使用路由 [`/zcool/discover/0/617`](https://rsshub.app/zcool/discover/0/617)\n\n  在 **精选** 分类下的 **运营设计** 子分类全部内容基础上，筛选出有 **视频**，可直接使用路由 [`/zcool/discover/0/617/1`](https://rsshub.app/zcool/discover/0/617/1)\n\n  在 **精选** 分类下的 **运营设计** 子分类全部内容基础上，筛选出有 **视频**，且城市选择 **北京**，可直接使用路由 [`/zcool/discover/0/617/1/北京`](https://rsshub.app/zcool/discover/0/617/1/北京)\n\n::: tip\n  下方仅提供 **分类及其子分类** 参数的代码。**学校** 参数的代码可以在 [站酷发现页](https://www.zcool.com.cn/discover) 中选择跳转后，从浏览器地址栏中找到。\n:::\n\n  分类 cate\n\n| 精选 | 平面 | 插画 | UI | 网页 | 摄影 | 三维 | 影视 | 空间 | 工业 / 产品 | 动漫 | 纯艺术 | 手工艺 | 服装 | 其他 |\n| ---- | ---- | ---- | -- | ---- | ---- | ---- | ---- | ---- | ----------- | ---- | ------ | ------ | ---- | ---- |\n| 0    | 8    | 1    | 17 | 607  | 33   | 24   | 610  | 609  | 499         | 608  | 612    | 611    | 613  | 44   |\n\n  子分类 subCate\n\n  精选 0\n\n| 运营设计 | 包装 | 动画 / 影视 | 人像摄影 | 商业插画 | 电商 | APP 界面 | 艺术插画 | 家装设计 | 海报 | 文章   |\n| -------- | ---- | ----------- | -------- | -------- | ---- | -------- | -------- | -------- | ---- | ------ |\n| 617      | 9    | 30          | 34       | 2        | 616  | 757      | 292      | 637      | 10   | 809824 |\n\n  平面 8\n\n| 包装 | 海报 | 品牌 | IP 形象 | 字体 / 字形 | Logo | 书籍 / 画册 | 宣传物料 | 图案 | 信息图表 | PPT/Keynote | 其他平面 | 文章 |\n| ---- | ---- | ---- | ------- | ----------- | ---- | ----------- | -------- | ---- | -------- | ----------- | -------- | ---- |\n| 9    | 10   | 15   | 779     | 14          | 13   | 12          | 534      | 624  | 625      | 626         | 11       | 809  |\n\n  插画 1\n\n| 商业插画 | 概念设定 | 游戏原画 | 绘本 | 儿童插画 | 艺术插画 | 创作习作 | 新锐潮流插画 | 像素画 | 文章 |\n| -------- | -------- | -------- | ---- | -------- | -------- | -------- | ------------ | ------ | ---- |\n| 2        | 5        | 685      | 631  | 684      | 292      | 7        | 3            | 4      | 819  |\n\n  UI 17\n\n| APP 界面 | 游戏 UI | 软件界面 | 图标 | 主题 / 皮肤 | 交互 / UE | 动效设计 | 闪屏 / 壁纸 | 其他 UI | 文章 |\n| -------- | ------- | -------- | ---- | ----------- | --------- | -------- | ----------- | ------- | ---- |\n| 757      | 692     | 621      | 20   | 19          | 623       | 797      | 21          | 23      | 822  |\n\n  网页 607\n\n| 电商 | 企业官网 | 游戏 / 娱乐 | 运营设计 | 移动端网页 | 门户网站 | 个人网站 | 其他网页 | 文章 |\n| ---- | -------- | ----------- | -------- | ---------- | -------- | -------- | -------- | ---- |\n| 616  | 614      | 693         | 617      | 777        | 615      | 618      | 620      | 823  |\n\n  摄影 33\n\n| 人像摄影 | 风光摄影 | 人文 / 纪实摄影 | 美食摄影 | 产品摄影 | 环境 / 建筑摄影 | 时尚 / 艺术摄影 | 修图 / 后期 | 宠物摄影 | 婚礼摄影 | 其他摄影 | 文章 |\n| -------- | -------- | --------------- | -------- | -------- | --------------- | --------------- | ----------- | -------- | -------- | -------- | ---- |\n| 34       | 35       | 36              | 825      | 686      | 38              | 800             | 687         | 40       | 808      | 43       | 810  |\n\n  三维 24\n\n| 动画 / 影视 | 机械 / 交通 | 人物 / 生物 | 产品 | 场景 | 建筑 / 空间 | 其他三维 | 文章 |\n| ----------- | ----------- | ----------- | ---- | ---- | ----------- | -------- | ---- |\n| 30          | 25          | 27          | 807  | 26   | 29          | 32       | 818  |\n\n  影视 610\n\n| 短片 | Motion Graphic | 宣传片 | 影视后期 | 栏目片头 | MV  | 设定 / 分镜 | 其他影视 | 文章 |\n| ---- | -------------- | ------ | -------- | -------- | --- | ----------- | -------- | ---- |\n| 645  | 649            | 804    | 646      | 647      | 644 | 650         | 651      | 817  |\n\n  空间 609\n\n| 家装设计 | 酒店餐饮设计 | 商业空间设计 | 建筑设计 | 舞台美术 | 展陈设计 | 景观设计 | 其他空间 | 文章 |\n| -------- | ------------ | ------------ | -------- | -------- | -------- | -------- | -------- | ---- |\n| 637      | 811          | 641          | 636      | 638      | 639      | 640      | 642      | 812  |\n\n  工业 / 产品 499\n\n| 生活用品 | 电子产品 | 交通工具 | 工业用品 / 机械 | 人机交互 | 玩具 | 其他工业 / 产品 | 文章 |\n| -------- | -------- | -------- | --------------- | -------- | ---- | --------------- | ---- |\n| 508      | 506      | 509      | 511             | 510      | 689  | 514             | 813  |\n\n  动漫 608\n\n| 短篇 / 格漫 | 中 / 长篇漫画 | 网络表情 | 单幅漫画 | 动画片 | 其他动漫 | 文章 |\n| ----------- | ------------- | -------- | -------- | ------ | -------- | ---- |\n| 628         | 629           | 632      | 627      | 633    | 635      | 820  |\n\n  纯艺术 612\n\n| 绘画 | 雕塑 | 书法 | 实验艺术 | 文章 |\n| ---- | ---- | ---- | -------- | ---- |\n| 659  | 662  | 668  | 657      | 821  |\n\n  手工艺 611\n\n| 工艺品设计 | 手办 / 模玩 | 首饰设计 | 其他手工艺 | 文章 |\n| ---------- | ----------- | -------- | ---------- | ---- |\n| 654        | 656         | 756      | 658        | 816  |\n\n  服装 613\n\n| 休闲 / 流行服饰 | 正装 / 礼服 | 传统 / 民族服饰 | 配饰 | 鞋履设计 | 儿童服饰 | 其他服装 | 文章 |\n| --------------- | ----------- | --------------- | ---- | -------- | -------- | -------- | ---- |\n| 672             | 671         | 814             | 677  | 676      | 673      | 680      | 815  |\n\n  其他 44\n\n| 文案 / 策划 | VR 设计 | 独立游戏 | 其他 | 文章 |\n| ----------- | ------- | -------- | ---- | ---- |\n| 417         | 798     | 683      | 45   | 824  |\n\n  推荐等级 recommendLevel\n\n| 全部 | 编辑精选 | 首页推荐 | 全部推荐 |\n| ---- | -------- | -------- | -------- |\n| 0    | 2        | 3        | 1        |",
+      "parameters": {
+        "query": "查询参数或分类，若填写分类见下表，默认为空 或 `0` 即精选",
+        "subCate": "子分类，见下表，默认为 `0` 即该父分类下全部",
+        "hasVideo": "是否含视频，默认为 `0` 即全部，亦可选 `1` 即含视频",
+        "city": "地区代码，填入发现页中 `选择城市` 中的各级地名，如 `亚洲`、`中国`、`北京`、`纽约`、`巴黎`等",
+        "college": "学校，默认为 `0` 即全部",
+        "recommendLevel": "推荐等级，见下表，默认为 `2` 即编辑精选",
+        "sort": "排序方式，可选 `0` 即最新发布 或 `9` 即默认排序，默认为 `9`"
+      },
+      "maintainers": [
+        "nczitzk"
+      ],
+      "categories": [
+        "design"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zcool",
+      "namespaceName": "站酷",
+      "namespaceUrl": "www.zcool.com.cn",
+      "path": "/top/:type",
+      "fullPath": "/zcool/top/:type",
+      "name": "作品总榜单",
+      "example": "/zcool/top/design",
+      "parameters": {
+        "type": {
+          "description": "推荐类型",
+          "options": [
+            {
+              "value": "design",
+              "label": "作品榜单"
+            },
+            {
+              "value": "article",
+              "label": "文章榜单"
+            }
+          ]
+        }
+      },
+      "maintainers": [
+        "yuuow"
+      ],
+      "categories": [
+        "design"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zcool",
+      "namespaceName": "站酷",
+      "namespaceUrl": "www.zcool.com.cn",
+      "path": "/user/:uid",
+      "fullPath": "/zcool/user/:uid",
+      "name": "用户作品",
+      "example": "/zcool/user/baiyong",
+      "description": "  例如:\n\n    站酷的个人主页 `https://baiyong.zcool.com.cn` 对应 rss 路径 `/zcool/user/baiyong`\n\n    站酷的个人主页 `https://www.zcool.com.cn/u/568339` 对应 rss 路径 `/zcool/user/568339`",
+      "parameters": {
+        "uid": "个性域名前缀或者用户ID"
+      },
+      "maintainers": [
+        "junbaor"
+      ],
+      "categories": [
+        "design"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.zcool.com.cn/u/:id"
+          ],
+          "target": "/user/:id"
+        }
+      ],
+      "lang": "zh-CN"
+    }
+  ]
+}
