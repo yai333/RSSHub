@@ -1171,19 +1171,6 @@
             "websiteURL": "https://chinesemusicworld.com/"
         },
         {
-            "id": "kbs-world",
-            "name": "韩国KBS World",
-            "streamURL": "https://radio.chinesemusicworld.com/chinesemusic.ogg?_=1",
-            "country": "Other",
-            "genre": "新聞時事",
-            "logoName": "kbs",
-            "bitrateKbps": 128,
-            "isFeatured": false,
-            "order": 114,
-            "description": "KBS World Chinese",
-            "websiteURL": "https://world.kbs.co.kr/service/index.htm?lang=c"
-        },
-        {
             "id": "zhongguang-world",
             "name": "中廣新聞網",
             "streamURL": "https://n09.rcs.revma.com/fgtx07f3qtzuv",
