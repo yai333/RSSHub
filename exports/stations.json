@@ -781,16 +781,16 @@
             "websiteURL": "http://ting.jonkerfm.com/home/%E5%90%AC%E8%A7%81%E9%A9%AC%E5%85%AD%E7%94%B2-jonkerfm/"
         },
         {
-            "id": "中国古典音乐-1",
-            "name": "中国古典音乐",
-            "streamURL": "https://radio.chinesemusicworld.com/chinesemusic.mp3",
+            "id": "中国古典音乐-1026",
+            "name": "冰城102.6古典音乐",
+            "streamURL": "https://stream.hrbtv.net/gdpl/sd/live.m3u8",
             "country": "Australia",
             "genre": "古典音樂",
             "logoName": "classic",
             "bitrateKbps": 128,
             "isFeatured": false,
             "order": 79,
-            "description": "24小时中国古典音乐广播",
+            "description": "冰城102.6·哈尔滨古典音乐广播",
             "websiteURL": null
         },
         {
