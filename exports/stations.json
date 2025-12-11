@@ -1160,7 +1160,7 @@
         {
             "id": "chinese-classic-music",
             "name": "Chinese classical music",
-            "streamURL": "https://radio.chinesemusicworld.com/chinesemusic.ogg?_=1",
+            "streamURL": "https://radio.chinesemusicworld.com/chinesemusic.mp3",
             "country": "Other",
             "genre": "古典音樂",
             "logoName": "chinese",
