@@ -1,7 +1,7 @@
 {
   "totalCategories": 24,
-  "totalRoutes": 3147,
-  "generatedAt": "2025-12-12T11:59:38.741Z",
+  "totalRoutes": 3148,
+  "generatedAt": "2025-12-12T11:59:55.363Z",
   "categories": [
     {
       "category": "University",
@@ -80,7 +80,7 @@
     },
     {
       "category": "Shopping",
-      "count": 70,
+      "count": 71,
       "file": "shopping.json"
     },
     {

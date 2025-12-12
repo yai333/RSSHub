@@ -3,7 +3,7 @@
   "displayName": "Shopping",
   "displayNameZh": "购物",
   "icon": "🛍️",
-  "count": 70,
+  "count": 71,
   "routes": [
     {
       "namespace": "0818tuan",
@@ -246,6 +246,124 @@
         }
       ],
       "lang": "zh-TW"
+    },
+    {
+      "namespace": "carousell",
+      "namespaceName": "Carousell",
+      "namespaceUrl": "carousell.com",
+      "path": "/:region/:keyword",
+      "fullPath": "/carousell/:region/:keyword",
+      "name": "Keyword Search",
+      "example": "/carousell/sg/iphone",
+      "parameters": {
+        "region": {
+          "description": "Region code",
+          "options": [
+            {
+              "value": "au",
+              "label": "Australia"
+            },
+            {
+              "value": "ca",
+              "label": "Canada"
+            },
+            {
+              "value": "hk",
+              "label": "Hong Kong"
+            },
+            {
+              "value": "id",
+              "label": "Indonesia"
+            },
+            {
+              "value": "my",
+              "label": "Malaysia"
+            },
+            {
+              "value": "nz",
+              "label": "New Zealand"
+            },
+            {
+              "value": "ph",
+              "label": "Philippines"
+            },
+            {
+              "value": "sg",
+              "label": "Singapore"
+            },
+            {
+              "value": "tw",
+              "label": "Taiwan"
+            }
+          ]
+        },
+        "keyword": {
+          "description": "Search keyword"
+        }
+      },
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "shopping"
+      ],
+      "radar": [
+        {
+          "source": [
+            "au.carousell.com/search/:keyword"
+          ],
+          "target": "/au/:keyword"
+        },
+        {
+          "source": [
+            "ca.carousell.com/search/:keyword"
+          ],
+          "target": "/ca/:keyword"
+        },
+        {
+          "source": [
+            "www.carousell.com.hk/search/:keyword"
+          ],
+          "target": "/hk/:keyword"
+        },
+        {
+          "source": [
+            "id.carousell.com/search/:keyword"
+          ],
+          "target": "/id/:keyword"
+        },
+        {
+          "source": [
+            "www.carousell.com.my/search/:keyword"
+          ],
+          "target": "/my/:keyword"
+        },
+        {
+          "source": [
+            "nz.carousell.com/search/:keyword"
+          ],
+          "target": "/nz/:keyword"
+        },
+        {
+          "source": [
+            "www.carousell.ph/search/:keyword"
+          ],
+          "target": "/ph/:keyword"
+        },
+        {
+          "source": [
+            "www.carousell.sg/search/:keyword"
+          ],
+          "target": "/sg/:keyword"
+        },
+        {
+          "source": [
+            "tw.carousell.com/search/:keyword"
+          ],
+          "target": "/tw/:keyword"
+        }
+      ],
+      "lang": "en"
     },
     {
       "namespace": "ccreports",
