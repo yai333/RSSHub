@@ -274,19 +274,6 @@
             "websiteURL": "http://www.chineseradionetwork.com/schedule.aspx"
         },
         {
-            "id": "希望之声",
-            "name": "希望之声",
-            "streamURL": "http://radio.soundofhope.org:8880/SOH_32K",
-            "country": "USA",
-            "genre": "新聞時事",
-            "logoName": "asg",
-            "bitrateKbps": 128,
-            "isFeatured": false,
-            "order": 23,
-            "description": "節目內容包括全球新聞、時事評論、文化、休閒、醫療等",
-            "websiteURL": "http://www.bayvoice.net/"
-        },
-        {
             "id": "三藩市am1450",
             "name": "三藩市AM1450",
             "streamURL": "http://radiokest.serverroom.us:6670",
@@ -781,19 +768,6 @@
             "websiteURL": "https://www.2cr.com.au/%e6%97%b6%e9%97%b4%e8%a1%a8/"
         },
         {
-            "id": "soh生活台-国",
-            "name": "soh生活台(国)",
-            "streamURL": "http://livecast1.soundofhope.org:2086/SYDNEY",
-            "country": "Australia",
-            "genre": "國語",
-            "logoName": "asg",
-            "bitrateKbps": 128,
-            "isFeatured": false,
-            "order": 62,
-            "description": "澳洲生活台",
-            "websiteURL": "https://ozvoice.org/radio-programs/mandarin-programs"
-        },
-        {
             "id": "粤-悉尼2ac",
             "name": "悉尼2AC(粤)",
             "streamURL": "https://s1.voscast.com:10443/stream",
@@ -843,32 +817,6 @@
             "isFeatured": false,
             "order": 66,
             "description": null,
-            "websiteURL": null
-        },
-        {
-            "id": "soh生活台-粤",
-            "name": "soh生活台(粤)",
-            "streamURL": "http://sohcan.out.airtime.pro:8000/sohcan_a",
-            "country": "Australia",
-            "genre": "粵語",
-            "logoName": "asc",
-            "bitrateKbps": 128,
-            "isFeatured": false,
-            "order": 67,
-            "description": "澳洲生活台",
-            "websiteURL": "https://ozvoice.org/radio-programs/cantonese-programs"
-        },
-        {
-            "id": "中国古典音乐-1",
-            "name": "中国古典音乐",
-            "streamURL": "https://radio.chinesemusicworld.com/chinesemusic.mp3",
-            "country": "Australia",
-            "genre": "古典音樂",
-            "logoName": "classic",
-            "bitrateKbps": 128,
-            "isFeatured": false,
-            "order": 68,
-            "description": "24小时中国古典音乐广播",
             "websiteURL": null
         },
         {
@@ -1195,6 +1143,58 @@
             "order": 93,
             "description": "Chinese classical music",
             "websiteURL": "https://chinesemusicworld.com/"
+        },
+        {
+            "id": "soh生活台-粤",
+            "name": "soh生活台(粤)",
+            "streamURL": "http://sohcan.out.airtime.pro:8000/sohcan_a",
+            "country": "Australia",
+            "genre": "粵語",
+            "logoName": "asc",
+            "bitrateKbps": 128,
+            "isFeatured": false,
+            "order": 129,
+            "description": "澳洲生活台",
+            "websiteURL": "https://ozvoice.org/radio-programs/cantonese-programs"
+        },
+        {
+            "id": "中国古典音乐-1",
+            "name": "中国古典音乐",
+            "streamURL": "https://radio.chinesemusicworld.com/chinesemusic.mp3",
+            "country": "Australia",
+            "genre": "古典音樂",
+            "logoName": "classic",
+            "bitrateKbps": 128,
+            "isFeatured": false,
+            "order": 130,
+            "description": "24小时中国古典音乐广播",
+            "websiteURL": null
+        },
+        {
+            "id": "希望之声",
+            "name": "希望之声",
+            "streamURL": "http://radio.soundofhope.org:8880/SOH_32K",
+            "country": "USA",
+            "genre": "新聞時事",
+            "logoName": "asg",
+            "bitrateKbps": 128,
+            "isFeatured": false,
+            "order": 131,
+            "description": "節目內容包括全球新聞、時事評論、文化、休閒、醫療等",
+            "websiteURL": "http://www.bayvoice.net/"
+        },
+        {
+            "id": "soh生活台-国",
+            "name": "soh生活台(国)",
+            "streamURL": "http://livecast1.soundofhope.org:2086/SYDNEY",
+            "country": "Australia",
+            "genre": "國語",
+            "logoName": "asg",
+            "bitrateKbps": 128,
+            "isFeatured": false,
+            "order": 132,
+            "description": "澳洲生活台",
+            "websiteURL": "https://ozvoice.org/radio-programs/mandarin-programs"
         }
     ],
     "genres": [
