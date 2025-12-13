@@ -1195,6 +1195,19 @@
             "order": 132,
             "description": "澳洲生活台",
             "websiteURL": "https://ozvoice.org/radio-programs/mandarin-programs"
+        },
+        {
+            "id": "Classic-古典音樂台",
+            "name": "Classic古典音樂台",
+            "streamURL": "https://onair.family977.com.tw:8977/live.mp3",
+            "country": "Taiwan",
+            "genre": "Classic古典音樂台",
+            "logoName": "classic",
+            "bitrateKbps": 128,
+            "isFeatured": false,
+            "order": 133,
+            "description": "Classic古典音樂台",
+            "websiteURL": "https://www.family977.com.tw/index.php"
         }
     ],
     "genres": [
