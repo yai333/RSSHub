@@ -3,7 +3,7 @@
   "displayName": "Government",
   "displayNameZh": "政务消息",
   "icon": "📢",
-  "count": 167,
+  "count": 168,
   "routes": [
     {
       "namespace": "12371",
@@ -252,6 +252,62 @@
         "supportScihub": false
       },
       "lang": "zh-CN"
+    },
+    {
+      "namespace": "canada.ca",
+      "namespaceName": "Canada.ca",
+      "namespaceUrl": "www.canada.ca",
+      "path": "/news/:lang/:department?",
+      "fullPath": "/canada.ca/news/:lang/:department?",
+      "name": "News by Department",
+      "example": "/canada.ca/news/en/departmentfinance",
+      "description": "News from specific Canadian government departments",
+      "parameters": {
+        "lang": "Language, en or fr",
+        "department": "dprtmnt query value"
+      },
+      "maintainers": [
+        "elibroftw"
+      ],
+      "categories": [
+        "government"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.canada.ca/:lang/department-finance.html",
+            "www.canada.ca/:lang/ministere-finances.html",
+            "www.canada.ca/:lang/department-finance/news/*",
+            "www.canada.ca/:lang/ministere-finances/nouvelles/*"
+          ],
+          "target": "/news/:lang/departmentfinance"
+        },
+        {
+          "source": [
+            "ised-isde.canada.ca/site/ised/:lang",
+            "ised-isde.canada.ca/site/isde/:lang",
+            "www.canada.ca/:lang/innovation-science-economic-development/news/*",
+            "www.canada.ca/:lang/innovation-sciences-developpement-economique/nouvelles/*"
+          ],
+          "target": "/news/:lang/departmentofindustry"
+        },
+        {
+          "source": [
+            "www.canada.ca/:lang/news/advanced-news-search/news-results.html",
+            "www.canada.ca/:lang/nouvelles/recherche-avancee-de-nouvelles/resultats-de-nouvelles.html"
+          ],
+          "target": "/news/:lang"
+        }
+      ],
+      "lang": "en"
     },
     {
       "namespace": "casssp",

@@ -413,6 +413,7 @@
       "fullPath": "/anthropic/engineering",
       "name": "Engineering",
       "example": "/anthropic/engineering",
+      "parameters": {},
       "maintainers": [
         "TonyRL"
       ],
