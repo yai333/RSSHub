@@ -313,19 +313,6 @@
             "websiteURL": "http://www.hljradio.com/online/"
         },
         {
-            "id": "voa美国之音",
-            "name": "VOA美国之音",
-            "streamURL": "https://voa-ingest.akamaized.net/hls/live/2035206/151_124L/master.m3u8",
-            "country": "USA",
-            "genre": "新聞時事",
-            "logoName": "v0a",
-            "bitrateKbps": 128,
-            "isFeatured": false,
-            "order": 37,
-            "description": "美国最大的华语电台",
-            "websiteURL": "https://www.voachinese.com/a/VOAChinese-program-schedule/3510737.html"
-        },
-        {
             "id": "a1中文電台",
             "name": "A1中文電台",
             "streamURL": "http://s2.voscast.com:9530/",
