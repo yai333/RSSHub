@@ -1199,7 +1199,7 @@
         {
             "id": "Classic-古典音樂台",
             "name": "Classic古典音樂台",
-            "streamURL": "https://onair.family977.com.tw:8977/live.mp3",
+            "streamURL": "http://onair.family977.com.tw:8977/live.mp3",
             "country": "Taiwan",
             "genre": "Classic古典音樂台",
             "logoName": "classic",
