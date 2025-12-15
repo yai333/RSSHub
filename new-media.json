@@ -3,7 +3,7 @@
   "displayName": "New media",
   "displayNameZh": "新媒体",
   "icon": "📱",
-  "count": 428,
+  "count": 429,
   "routes": [
     {
       "namespace": "10000link",
@@ -20588,6 +20588,40 @@
             "the.bi/s/rawdhl9hugdfn9"
           ],
           "target": "/category/rawdhl9hugdfn9"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "thebrain",
+      "namespaceName": "TheBrain",
+      "namespaceUrl": "thebrain.com",
+      "path": "/blog",
+      "fullPath": "/thebrain/blog",
+      "name": "Blog",
+      "example": "/thebrain/blog",
+      "description": "",
+      "maintainers": [
+        "nczitzk"
+      ],
+      "categories": [
+        "new-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.thebrain.com/blog"
+          ],
+          "target": "/blog"
         }
       ],
       "lang": "en"
