@@ -770,8 +770,8 @@
         {
             "id": "中国古典音乐-1026",
             "name": "冰城102.6古典音乐",
-            "streamURL": "https://stream.hrbtv.net/gdpl/sd/live.m3u8",
-            "country": "Australia",
+            "streamURL": "http://stream.hrbtv.net/gdpl/sd/live.m3u8",
+            "country": "China",
             "genre": "古典音樂",
             "logoName": "classic",
             "bitrateKbps": 128,
