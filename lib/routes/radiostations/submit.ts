@@ -1,5 +1,4 @@
 import type { Route } from '@/types';
-
 import { addSubmissionToGitHub } from './submissions';
 
 interface StationSubmission {
@@ -43,14 +42,12 @@ async function handler(ctx) {
             title: 'Submission Error',
             link: 'https://github.com/yai333/RSSHub',
             description: 'Missing required fields: name, streamURL, country, genre',
-            item: [
-                {
-                    title: 'Error: Missing required fields',
-                    description: '<p>Please provide all required fields:</p><ul><li>name</li><li>streamURL</li><li>country</li><li>genre</li></ul>',
-                    link: 'https://github.com/yai333/RSSHub',
-                    guid: `error-${Date.now()}`,
-                },
-            ],
+            item: [{
+                title: 'Error: Missing required fields',
+                description: '<p>Please provide all required fields:</p><ul><li>name</li><li>streamURL</li><li>country</li><li>genre</li></ul>',
+                link: 'https://github.com/yai333/RSSHub',
+                guid: `error-${Date.now()}`,
+            }],
         };
     }
 
@@ -62,20 +59,18 @@ async function handler(ctx) {
             title: 'Submission Error',
             link: 'https://github.com/yai333/RSSHub',
             description: 'Invalid streamURL format',
-            item: [
-                {
-                    title: 'Error: Invalid stream URL',
-                    description: 'The streamURL must be a valid URL (e.g., https://stream.example.com/live.mp3)',
-                    link: 'https://github.com/yai333/RSSHub',
-                    guid: `error-${Date.now()}`,
-                },
-            ],
+            item: [{
+                title: 'Error: Invalid stream URL',
+                description: 'The streamURL must be a valid URL (e.g., https://stream.example.com/live.mp3)',
+                link: 'https://github.com/yai333/RSSHub',
+                guid: `error-${Date.now()}`,
+            }],
         };
     }
 
     // Create submission
     const submission: StationSubmission = {
-        id: `user-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+        id: `user-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`,
         name: name.trim(),
         streamURL: streamURL.trim(),
         country: country.trim(),
@@ -94,19 +89,17 @@ async function handler(ctx) {
             title: 'Submission Received (Pending Sync)',
             link: 'https://github.com/yai333/RSSHub',
             description: `Station "${submission.name}" received but could not be saved to GitHub. It has been logged for manual review.`,
-            item: [
-                {
-                    title: `Received: ${submission.name}`,
-                    description: `
+            item: [{
+                title: `Received: ${submission.name}`,
+                description: `
                     <p><strong>Status:</strong> Received (pending sync)</p>
                     <p><strong>ID:</strong> ${submission.id}</p>
                     <p>Your submission was received but could not be automatically saved. It has been logged for manual review.</p>
                 `,
-                    link: submission.websiteURL || submission.streamURL,
-                    guid: submission.id,
-                    pubDate: new Date().toUTCString(),
-                },
-            ],
+                link: submission.websiteURL || submission.streamURL,
+                guid: submission.id,
+                pubDate: new Date().toUTCString(),
+            }],
         };
     }
 
@@ -114,10 +107,9 @@ async function handler(ctx) {
         title: 'Station Submitted Successfully',
         link: 'https://github.com/yai333/RSSHub',
         description: `Station "${submission.name}" has been submitted and saved for review`,
-        item: [
-            {
-                title: `Submitted: ${submission.name}`,
-                description: `
+        item: [{
+            title: `Submitted: ${submission.name}`,
+            description: `
                 <p><strong>Status:</strong> ${submission.status}</p>
                 <p><strong>ID:</strong> ${submission.id}</p>
                 <p><strong>Name:</strong> ${submission.name}</p>
@@ -127,10 +119,9 @@ async function handler(ctx) {
                 ${submission.websiteURL ? `<p><strong>Website:</strong> <a href="${submission.websiteURL}">${submission.websiteURL}</a></p>` : ''}
                 <p>Your station has been saved and will be reviewed before appearing in the community directory.</p>
             `,
-                link: submission.websiteURL || submission.streamURL,
-                guid: submission.id,
-                pubDate: new Date().toUTCString(),
-            },
-        ],
+            link: submission.websiteURL || submission.streamURL,
+            guid: submission.id,
+            pubDate: new Date().toUTCString(),
+        }],
     };
 }

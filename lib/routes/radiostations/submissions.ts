@@ -113,7 +113,7 @@ export async function addSubmissionToGitHub(submission: StationSubmission): Prom
             json: {
                 message: `Add station submission: ${submission.name}`,
                 content: Buffer.from(JSON.stringify(currentSubmissions, null, 2)).toString('base64'),
-                sha,
+                sha: sha,
             },
         });
 

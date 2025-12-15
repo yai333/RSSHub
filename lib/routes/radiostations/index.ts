@@ -1,7 +1,7 @@
-import { config } from '@/config';
-import type { DataItem, Route } from '@/types';
-import cache from '@/utils/cache';
+import type { Route, DataItem } from '@/types';
 import got from '@/utils/got';
+import cache from '@/utils/cache';
+import { config } from '@/config';
 
 // Station type from the JSON data
 interface Station {
@@ -27,16 +27,16 @@ interface StationsResponse {
 // Map countries to regions
 const countryToRegion: Record<string, string> = {
     'Hong Kong': 'hk',
-    Taiwan: 'tw',
-    China: 'cn',
-    Australia: 'aus',
+    'Taiwan': 'tw',
+    'China': 'cn',
+    'Australia': 'aus',
     'New Zealand': 'aus',
-    USA: 'us',
-    Canada: 'us',
-    Singapore: 'other',
-    Malaysia: 'other',
-    Japan: 'other',
-    Korea: 'other',
+    'USA': 'us',
+    'Canada': 'us',
+    'Singapore': 'other',
+    'Malaysia': 'other',
+    'Japan': 'other',
+    'Korea': 'other',
 };
 
 const regionNames: Record<string, string> = {
@@ -128,13 +128,22 @@ async function handler(ctx) {
         }
 
         // Construct logo URL
-        const logoUrl = station.logoName ? `https://yai333.github.io/RSSHub/exports/logos/${station.logoName}.jpg` : undefined;
+        const logoUrl = station.logoName
+            ? `https://yai333.github.io/RSSHub/exports/logos/${station.logoName}.jpg`
+            : undefined;
 
         // Build description HTML
-        const descriptionParts = [station.description || station.name, '', `Country: ${station.country}`, `Genre: ${station.genre}`, `Bitrate: ${station.bitrateKbps} kbps`];
+        const descriptionParts = [
+            station.description || station.name,
+            '',
+            `Country: ${station.country}`,
+            `Genre: ${station.genre}`,
+            `Bitrate: ${station.bitrateKbps} kbps`,
+        ];
 
         if (station.websiteURL) {
-            descriptionParts.push('', `<a href="${station.websiteURL}">Visit Station Website</a>`);
+            descriptionParts.push('');
+            descriptionParts.push(`<a href="${station.websiteURL}">Visit Station Website</a>`);
         }
 
         return {
