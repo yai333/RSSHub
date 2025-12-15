@@ -3,7 +3,7 @@
   "displayName": "Finance",
   "displayNameZh": "金融",
   "icon": "💰",
-  "count": 150,
+  "count": 151,
   "routes": [
     {
       "namespace": "10jqka",
@@ -6987,6 +6987,41 @@
         {
           "source": [
             "techflowpost.com/newsletter/index.html"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "techflowpost",
+      "namespaceName": "深潮 TechFlow",
+      "namespaceUrl": "techflowpost.com",
+      "path": "/featured/:category?",
+      "fullPath": "/techflowpost/featured/:category?",
+      "name": "精选",
+      "example": "/techflowpost/featured",
+      "description": "| 全部 | 行业 & 项目观察 | 项目简介 | 项目动态 | 赛道解读 | 播客笔记 | 交易观察 | VC洞察 | 实用教程 | 人物故事 & 访谈 | 法律 & 监管动态 | 活动动态 | 交易所动态 |\n  | ---- | --------------- | -------- | -------- | -------- | -------- | -------- | ------ | -------- | --------------- | --------------- | -------- | ---------- |\n  |      | 2040            | 2046     | 2047     | 2045     | 2044     | 2043     | 2042   | 2041     | 2039            | 2033            | 2032     | 2031       |",
+      "parameters": {
+        "category": "分类，见下表，默认为全部"
+      },
+      "maintainers": [
+        "zhenlohuang"
+      ],
+      "categories": [
+        "finance"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "techflowpost.com/article/index.html"
           ]
         }
       ],

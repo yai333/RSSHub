@@ -3,7 +3,7 @@
   "displayName": "Blog",
   "displayNameZh": "博客",
   "icon": "🖊️️",
-  "count": 107,
+  "count": 108,
   "routes": [
     {
       "namespace": "0x80",
@@ -2717,6 +2717,38 @@
         "supportPodcast": false,
         "supportScihub": false
       },
+      "lang": "en"
+    },
+    {
+      "namespace": "readsomethingwonderful",
+      "namespaceName": "Read Something Wonderful",
+      "namespaceUrl": "readsomethingwonderful.com",
+      "path": "/",
+      "fullPath": "/readsomethingwonderful/",
+      "name": "Articles",
+      "example": "/readsomethingwonderful",
+      "parameters": {},
+      "maintainers": [
+        "ttttmr"
+      ],
+      "categories": [
+        "blog"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "readsomethingwonderful.com/"
+          ]
+        }
+      ],
       "lang": "en"
     },
     {
