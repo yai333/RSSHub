@@ -3,7 +3,7 @@
   "displayName": "Uncategorized",
   "displayNameZh": "其他",
   "icon": "🔍",
-  "count": 239,
+  "count": 241,
   "routes": [
     {
       "namespace": "2cycd",
@@ -4552,6 +4552,50 @@
           "target": "/events/:category?/:status_filter?/:community_filter?/:reward_filter?/:chain_filter?/:search?/:count?/:page?"
         }
       ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "radiostations",
+      "namespaceName": "Community Radio Stations",
+      "namespaceUrl": "github.com/yai333/RSSHub",
+      "path": "/submissions",
+      "fullPath": "/radiostations/submissions",
+      "name": "Station Submissions",
+      "example": "/radiostations/submissions",
+      "description": "View pending community station submissions",
+      "maintainers": [
+        "yai333"
+      ],
+      "categories": [
+        "other"
+      ],
+      "features": {
+        "antiCrawler": false,
+        "supportRadar": false
+      },
+      "radar": [],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "radiostations",
+      "namespaceName": "Community Radio Stations",
+      "namespaceUrl": "github.com/yai333/RSSHub",
+      "path": "/submit",
+      "fullPath": "/radiostations/submit",
+      "name": "Submit Station",
+      "example": "/radiostations/submit?name=MyRadio&streamURL=https://stream.example.com/live&country=Hong%20Kong&genre=Music",
+      "description": "Submit a new radio station to the community directory. Submissions are stored in GitHub.",
+      "maintainers": [
+        "yai333"
+      ],
+      "categories": [
+        "other"
+      ],
+      "features": {
+        "antiCrawler": false,
+        "supportRadar": false
+      },
+      "radar": [],
       "lang": "zh-CN"
     },
     {

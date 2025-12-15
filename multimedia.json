@@ -3,7 +3,7 @@
   "displayName": "Multimedia",
   "displayNameZh": "音视频",
   "icon": "🔊",
-  "count": 155,
+  "count": 156,
   "routes": [
     {
       "namespace": "0xxx",
@@ -4646,6 +4646,67 @@
       },
       "maintainers": [
         "nczitzk"
+      ],
+      "categories": [
+        "multimedia"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": true,
+        "supportScihub": false
+      },
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "radiostations",
+      "namespaceName": "Community Radio Stations",
+      "namespaceUrl": "github.com/yai333/RSSHub",
+      "path": "/stations/:region?",
+      "fullPath": "/radiostations/stations/:region?",
+      "name": "Community Radio Stations",
+      "example": "/radiostations/stations/hk",
+      "description": "Subscribe to community-curated radio stations by region. Each station includes a link to the original broadcaster's website.\n\nThis is a community-maintained directory. We do not host or control any audio streams.",
+      "parameters": {
+        "region": {
+          "description": "Region filter",
+          "default": "all",
+          "options": [
+            {
+              "value": "all",
+              "label": "All Regions"
+            },
+            {
+              "value": "hk",
+              "label": "Hong Kong & Macau"
+            },
+            {
+              "value": "tw",
+              "label": "Taiwan"
+            },
+            {
+              "value": "cn",
+              "label": "Mainland China"
+            },
+            {
+              "value": "aus",
+              "label": "Australia & New Zealand"
+            },
+            {
+              "value": "us",
+              "label": "North America"
+            },
+            {
+              "value": "other",
+              "label": "Other Regions"
+            }
+          ]
+        }
+      },
+      "maintainers": [
+        "yai333"
       ],
       "categories": [
         "multimedia"

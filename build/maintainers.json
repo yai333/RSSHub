@@ -6988,6 +6988,15 @@
   "/radio-canada/latest/:language?": [
     "nczitzk"
   ],
+  "/radiostations/stations/:region?": [
+    "yai333"
+  ],
+  "/radiostations/submissions": [
+    "yai333"
+  ],
+  "/radiostations/submit": [
+    "yai333"
+  ],
   "/railway/blog": [
     "jihuayu"
   ],

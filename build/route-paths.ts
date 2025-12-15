@@ -2288,6 +2288,9 @@ export type RoutePath =
   | `/radio/:id`
   | `/radio/album/:id`
   | `/radio/zhibo/:id`
+  | `/radiostations/stations/:region?`
+  | `/radiostations/submissions`
+  | `/radiostations/submit`
   | `/railway/blog`
   | `/rarehistoricalphotos/`
   | `/raspberrypi/magazine`
