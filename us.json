@@ -1,5 +1,5 @@
 {
-    "configVersion": "1.0",
+    "configVersion": "1.1",
     "lastUpdated": "2025-12-16",
     "configs": [
         {
@@ -22,5 +22,7 @@
         "description": "US Radio app configuration",
         "configUrl": "https://community.afox.mobi/exports/us.json",
         "cacheExpiry": 3600
-    }
+    },
+    "blockedStations": [],
+    "reportEmail": "support@afox.mobi"
 }

@@ -1,5 +1,5 @@
 {
-    "configVersion": "1.0",
+    "configVersion": "1.1",
     "lastUpdated": "2025-12-16",
     "configs": [
         {
@@ -19,8 +19,10 @@
         "allowInAppPlayback": false
     },
     "metadata": {
-        "description": "Australia Radio app configuration",
+        "description": "AUS Radio app configuration",
         "configUrl": "https://community.afox.mobi/exports/aus.json",
         "cacheExpiry": 3600
-    }
+    },
+    "blockedStations": [],
+    "reportEmail": "support@afox.mobi"
 }
