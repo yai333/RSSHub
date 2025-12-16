@@ -19,8 +19,8 @@
         "allowInAppPlayback": false
     },
     "metadata": {
-        "description": "",
-        "configUrl": "https://community.afox.mobi/exports/hk.json",
+        "description": "US Radio app configuration",
+        "configUrl": "https://community.afox.mobi/exports/us.json",
         "cacheExpiry": 3600
     }
 }
