@@ -8,8 +8,8 @@
             "minAppVersion": "1.0",
             "maxAppVersion": "99.0",
             "playback": {
-                "defaultMode": "inApp",
-                "allowInAppPlayback": true,
+                "defaultMode": "browser",
+                "allowInAppPlayback": false,
                 "stationOverrides": {}
             }
         }
