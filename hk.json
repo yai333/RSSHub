@@ -1,0 +1,26 @@
+{
+    "configVersion": "1.0",
+    "lastUpdated": "2025-12-16",
+    "configs": [
+        {
+            "appVersion": "1.0",
+            "buildNumber": "*",
+            "minAppVersion": "1.0",
+            "maxAppVersion": "99.0",
+            "playback": {
+                "defaultMode": "inApp",
+                "allowInAppPlayback": true,
+                "stationOverrides": {}
+            }
+        }
+    ],
+    "fallback": {
+        "defaultMode": "browser",
+        "allowInAppPlayback": false
+    },
+    "metadata": {
+        "description": "",
+        "configUrl": "https://rsshub.afox.mobi/exports/hk.json",
+        "cacheExpiry": 3600
+    }
+}
