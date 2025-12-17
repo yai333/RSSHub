@@ -1301,6 +1301,21 @@
             "description": "台灣古典音樂台，西洋古典名曲",
             "websiteURL": "https://www.family977.com.tw/index.php",
             "source": "community"
+        },
+        {
+            "id": "881903",
+            "name": "88190商業電台",
+            "streamURL": "https://www.881903.com/live/881",
+            "country": "Hong Kong",
+            "genre": "財經",
+            "logoName": "881903",
+            "bitrateKbps": 128,
+            "isFeatured": false,
+            "order": 134,
+            "remote": true,
+            "description": "商業電台雷霆881網上直播服務",
+            "websiteURL": "https://www.881903.com/live/881",
+            "source": "community"
         }
     ],
     "genres": [
