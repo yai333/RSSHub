@@ -8,7 +8,7 @@
             "minAppVersion": "6.1",
             "maxAppVersion": "99.0",
             "playback": {
-                "defaultMode": "browser",
+                "defaultMode": "inApp",
                 "allowInAppPlayback": false,
                 "stationOverrides": {}
             }
