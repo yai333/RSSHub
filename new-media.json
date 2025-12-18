@@ -3,7 +3,7 @@
   "displayName": "New media",
   "displayNameZh": "新媒体",
   "icon": "📱",
-  "count": 429,
+  "count": 430,
   "routes": [
     {
       "namespace": "10000link",
@@ -22830,6 +22830,37 @@
         }
       ],
       "lang": "zh-CN"
+    },
+    {
+      "namespace": "x410",
+      "namespaceName": "x410",
+      "path": "/news",
+      "fullPath": "/x410/news",
+      "name": "News",
+      "example": "/x410/news",
+      "maintainers": [
+        "nczitzk"
+      ],
+      "categories": [
+        "new-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "x410.dev"
+          ],
+          "target": "/news"
+        }
+      ]
     },
     {
       "namespace": "x6d",
