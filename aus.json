@@ -4,7 +4,7 @@
     "configs": [
         {
             "appVersion": "6.1",
-            "buildNumber": "5",
+            "buildNumber": "*",
             "minAppVersion": "6.1",
             "maxAppVersion": "99.0",
             "playback": {
