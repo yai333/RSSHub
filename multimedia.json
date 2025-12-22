@@ -3,7 +3,7 @@
   "displayName": "Multimedia",
   "displayNameZh": "音视频",
   "icon": "🔊",
-  "count": 156,
+  "count": 157,
   "routes": [
     {
       "namespace": "0xxx",
@@ -1297,6 +1297,22 @@
         }
       ],
       "lang": "zh-CN"
+    },
+    {
+      "namespace": "btbtla",
+      "namespaceName": "BT影视",
+      "namespaceUrl": "btbtla.com",
+      "path": "/gxlist",
+      "fullPath": "/btbtla/gxlist",
+      "name": "BTBTLA",
+      "example": "/btbtla/gxlist",
+      "description": "BT影视更新列表",
+      "maintainers": [
+        "Hermes1030"
+      ],
+      "categories": [
+        "multimedia"
+      ]
     },
     {
       "namespace": "btzj",

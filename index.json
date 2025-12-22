@@ -1,7 +1,7 @@
 {
   "totalCategories": 24,
-  "totalRoutes": 3156,
-  "generatedAt": "2025-12-22T01:25:57.690Z",
+  "totalRoutes": 3158,
+  "generatedAt": "2025-12-22T11:35:00.200Z",
   "categories": [
     {
       "category": "University",
@@ -40,7 +40,7 @@
     },
     {
       "category": "Multimedia",
-      "count": 156,
+      "count": 157,
       "file": "multimedia.json"
     },
     {
@@ -100,7 +100,7 @@
     },
     {
       "category": "Forecast and Alerts",
-      "count": 32,
+      "count": 33,
       "file": "forecast.json"
     },
     {
