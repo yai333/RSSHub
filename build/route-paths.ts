@@ -823,7 +823,6 @@ export type RoutePath =
   | `/dtcj/datahero/:category?`
   | `/dtcj/datainsight/:id?`
   | `/duckdb/news`
-  | `/duozhi/:category{.+}?`
   | `/duozhuayu/search/:wd`
   | `/dushu/fuzhou`
   | `/dut/*/*`

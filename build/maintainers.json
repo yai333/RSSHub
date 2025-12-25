@@ -2479,9 +2479,6 @@
   "/duckdb/news": [
     "mocusez"
   ],
-  "/duozhi/:category{.+}?": [
-    "nczitzk"
-  ],
   "/duozhuayu/search/:wd": [
     "fengkx"
   ],
