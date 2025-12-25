@@ -3,7 +3,7 @@
   "displayName": "New media",
   "displayNameZh": "新媒体",
   "icon": "📱",
-  "count": 430,
+  "count": 431,
   "routes": [
     {
       "namespace": "10000link",
@@ -8136,6 +8136,190 @@
             "m.dongqiudi.com/home/:id"
           ],
           "target": "/top_news/:id"
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "duozhi",
+      "namespaceName": "多知网",
+      "namespaceUrl": "duozhi.com",
+      "path": "/:category{.+}?",
+      "fullPath": "/duozhi/:category{.+}?",
+      "name": "分类",
+      "example": "/duozhi/industry",
+      "description": ":::tip\n订阅 [行业](http://www.duozhi.com/industry/)，其源网址为 `http://www.duozhi.com/industry/`，请参考该 URL 指定部分构成参数，此时路由为 [`/duozhi/industry`](http://rsshub.app/duozhi/industry)。\n:::\n\n  | [行业](http://www.duozhi.com/industry/)        | [多知商学院](http://www.duozhi.com/DBS/) | [OpenTalk](http://www.duozhi.com/opentalk/)    |\n  | ---------------------------------------------- | ---------------------------------------- | ---------------------------------------------- |\n  | [industry](https://rsshub.app/duozhi/industry) | [DBS](https://rsshub.app/duozhi/DBS)     | [opentalk](https://rsshub.app/duozhi/opentalk) |\n\n  #### [行业](http://www.duozhi.com/industry/)\n\n  | [观察](http://www.duozhi.com/industry/insight/)                | [早幼教](http://www.duozhi.com/industry/preschool/)                | [家庭教育](http://www.duozhi.com/industry/jiatingjiaoyu/)                  | [K12](http://www.duozhi.com/industry/K12/)             | [素质教育](http://www.duozhi.com/industry/qualityedu/)               |\n  | -------------------------------------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------- |\n  | [industry/insight](https://rsshub.app/duozhi/industry/insight) | [industry/preschool](https://rsshub.app/duozhi/industry/preschool) | [industry/jiatingjiaoyu](https://rsshub.app/duozhi/industry/jiatingjiaoyu) | [industry/K12](https://rsshub.app/duozhi/industry/K12) | [industry/qualityedu](https://rsshub.app/duozhi/industry/qualityedu) |\n\n  | [职教/大学生](http://www.duozhi.com/industry/adult/)       | [教育信息化](http://www.duozhi.com/industry/EduInformatization/)                     | [财报](http://www.duozhi.com/industry/earnings/)                 | [民办学校](http://www.duozhi.com/industry/privateschools/)                   | [留学](http://www.duozhi.com/industry/overseas/)                 |\n  | ---------------------------------------------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------- |\n  | [industry/adult](https://rsshub.app/duozhi/industry/adult) | [industry/EduInformatization](https://rsshub.app/duozhi/industry/EduInformatization) | [industry/earnings](https://rsshub.app/duozhi/industry/earnings) | [industry/privateschools](https://rsshub.app/duozhi/industry/privateschools) | [industry/overseas](https://rsshub.app/duozhi/industry/overseas) |\n\n",
+      "parameters": {
+        "category": {
+          "description": "分类，默认为 `industry`，即行业，可在对应分类页 URL 中找到",
+          "options": [
+            {
+              "label": "行业",
+              "value": "industry"
+            },
+            {
+              "label": "多知商学院",
+              "value": "DBS"
+            },
+            {
+              "label": "OpenTalk",
+              "value": "opentalk"
+            },
+            {
+              "label": "行业 - 观察",
+              "value": "industry/insight"
+            },
+            {
+              "label": "行业 - 早幼教",
+              "value": "industry/preschool"
+            },
+            {
+              "label": "行业 - 家庭教育",
+              "value": "industry/jiatingjiaoyu"
+            },
+            {
+              "label": "行业 - K12",
+              "value": "industry/K12"
+            },
+            {
+              "label": "行业 - 素质教育",
+              "value": "industry/qualityedu"
+            },
+            {
+              "label": "行业 - 职教/大学生",
+              "value": "industry/adult"
+            },
+            {
+              "label": "行业 - 教育信息化",
+              "value": "industry/EduInformatization"
+            },
+            {
+              "label": "行业 - 财报",
+              "value": "industry/earnings"
+            },
+            {
+              "label": "行业 - 民办学校",
+              "value": "industry/privateschools"
+            },
+            {
+              "label": "行业 - 留学",
+              "value": "industry/overseas"
+            }
+          ]
+        }
+      },
+      "maintainers": [
+        "nczitzk"
+      ],
+      "categories": [
+        "new-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.duozhi.com/:category"
+          ],
+          "target": "/:category"
+        },
+        {
+          "title": "行业",
+          "source": [
+            "www.duozhi.com/industry/"
+          ],
+          "target": "/industry"
+        },
+        {
+          "title": "多知商学院",
+          "source": [
+            "www.duozhi.com/DBS/"
+          ],
+          "target": "/DBS"
+        },
+        {
+          "title": "OpenTalk",
+          "source": [
+            "www.duozhi.com/opentalk/"
+          ],
+          "target": "/opentalk"
+        },
+        {
+          "title": "行业 - 观察",
+          "source": [
+            "www.duozhi.com/industry/insight/"
+          ],
+          "target": "/industry/insight"
+        },
+        {
+          "title": "行业 - 早幼教",
+          "source": [
+            "www.duozhi.com/industry/preschool/"
+          ],
+          "target": "/industry/preschool"
+        },
+        {
+          "title": "行业 - 家庭教育",
+          "source": [
+            "www.duozhi.com/industry/jiatingjiaoyu/"
+          ],
+          "target": "/industry/jiatingjiaoyu"
+        },
+        {
+          "title": "行业 - K12",
+          "source": [
+            "www.duozhi.com/industry/K12/"
+          ],
+          "target": "/industry/K12"
+        },
+        {
+          "title": "行业 - 素质教育",
+          "source": [
+            "www.duozhi.com/industry/qualityedu/"
+          ],
+          "target": "/industry/qualityedu"
+        },
+        {
+          "title": "行业 - 职教/大学生",
+          "source": [
+            "www.duozhi.com/industry/adult/"
+          ],
+          "target": "/industry/adult"
+        },
+        {
+          "title": "行业 - 教育信息化",
+          "source": [
+            "www.duozhi.com/industry/EduInformatization/"
+          ],
+          "target": "/industry/EduInformatization"
+        },
+        {
+          "title": "行业 - 财报",
+          "source": [
+            "www.duozhi.com/industry/earnings/"
+          ],
+          "target": "/industry/earnings"
+        },
+        {
+          "title": "行业 - 民办学校",
+          "source": [
+            "www.duozhi.com/industry/privateschools/"
+          ],
+          "target": "/industry/privateschools"
+        },
+        {
+          "title": "行业 - 留学",
+          "source": [
+            "www.duozhi.com/industry/overseas/"
+          ],
+          "target": "/industry/overseas"
         }
       ],
       "lang": "zh-CN"
