@@ -3,7 +3,7 @@
   "displayName": "Uncategorized",
   "displayNameZh": "其他",
   "icon": "🔍",
-  "count": 241,
+  "count": 242,
   "routes": [
     {
       "namespace": "2cycd",
@@ -366,6 +366,39 @@
         "other"
       ],
       "lang": "en"
+    },
+    {
+      "namespace": "alwayscontrol",
+      "namespaceName": "Always Control",
+      "namespaceUrl": "alwayscontrol.com.cn",
+      "path": "/news",
+      "fullPath": "/alwayscontrol/news",
+      "name": "最新动态",
+      "example": "/alwayscontrol/news",
+      "description": "Always Control（旭衡电子）智能能源管理系统解决方案专家的最新动态",
+      "maintainers": [
+        "moss-xxh"
+      ],
+      "categories": [
+        "other"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.alwayscontrol.com.cn/zh-CN/news/list"
+          ],
+          "target": "/news"
+        }
+      ],
+      "lang": "zh-CN"
     },
     {
       "namespace": "apple",

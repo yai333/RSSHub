@@ -1894,7 +1894,8 @@
       "description": "",
       "parameters": {},
       "maintainers": [
-        "ocleo1"
+        "ocleo1",
+        "pseudoyu"
       ],
       "categories": [
         "forecast"
@@ -1910,7 +1911,7 @@
       "radar": [
         {
           "source": [
-            "jlwater.com/portal/10000013",
+            "jlwater.com/portal/10000015",
             "jlwater.com/"
           ]
         }

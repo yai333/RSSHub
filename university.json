@@ -3,7 +3,7 @@
   "displayName": "University",
   "displayNameZh": "大学通知",
   "icon": "🎓",
-  "count": 439,
+  "count": 441,
   "routes": [
     {
       "namespace": "ahjzu",
@@ -2496,6 +2496,36 @@
       "namespace": "ecnu",
       "namespaceName": "East China Normal University 华东师范大学",
       "namespaceUrl": "www.ecnu.edu.cn",
+      "path": "/cxcy/:type?",
+      "fullPath": "/ecnu/cxcy/:type?",
+      "name": "本科创新创业教育网",
+      "example": "/ecnu/cxcy",
+      "description": "| 通知公告     | 新闻动态     | 学科竞赛     | 常用资源     |\n| ------------ | ------------ | ------------ | ------------ |\n| announcement | news         | contest      | resources    |",
+      "parameters": {
+        "type": "默认为 announcement"
+      },
+      "maintainers": [
+        "FrozenStarrrr",
+        "ChiyoYuki",
+        "ECNU-minus"
+      ],
+      "categories": [
+        "university"
+      ],
+      "radar": [
+        {
+          "source": [
+            "cxcy.ecnu.edu.cn"
+          ],
+          "target": "/cxcy"
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "ecnu",
+      "namespaceName": "East China Normal University 华东师范大学",
+      "namespaceUrl": "www.ecnu.edu.cn",
       "path": "/dase",
       "fullPath": "/ecnu/dase",
       "name": "数据科学与工程学院通知公告",
@@ -2670,6 +2700,32 @@
             "history.ecnu.edu.cn"
           ],
           "target": "/history"
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "ecnu",
+      "namespaceName": "East China Normal University 华东师范大学",
+      "namespaceUrl": "www.ecnu.edu.cn",
+      "path": "/jiaoliu",
+      "fullPath": "/ecnu/jiaoliu",
+      "name": "本科生交流通知",
+      "example": "/ecnu/jiaoliu",
+      "maintainers": [
+        "FrozenStarrrr",
+        "ChiyoYuki",
+        "ECNU-minus"
+      ],
+      "categories": [
+        "university"
+      ],
+      "radar": [
+        {
+          "source": [
+            "www.jiaoliu.ecnu.edu.cn"
+          ],
+          "target": "/jiaoliu"
         }
       ],
       "lang": "zh-CN"

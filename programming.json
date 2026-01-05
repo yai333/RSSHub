@@ -3,7 +3,7 @@
   "displayName": "Programming",
   "displayNameZh": "编程",
   "icon": "💻",
-  "count": 207,
+  "count": 208,
   "routes": [
     {
       "namespace": "30secondsofcode",
@@ -451,6 +451,29 @@
           "source": [
             "www.anthropic.com/news",
             "www.anthropic.com"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "anthropic",
+      "namespaceName": "Anthropic",
+      "namespaceUrl": "anthropic.com",
+      "path": "/red",
+      "fullPath": "/anthropic/red",
+      "name": "Frontier Red Team",
+      "example": "/anthropic/red",
+      "maintainers": [
+        "shoeper"
+      ],
+      "categories": [
+        "programming"
+      ],
+      "radar": [
+        {
+          "source": [
+            "red.anthropic.com"
           ]
         }
       ],

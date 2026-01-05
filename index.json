@@ -1,21 +1,21 @@
 {
   "totalCategories": 24,
-  "totalRoutes": 3159,
-  "generatedAt": "2026-01-05T01:41:33.621Z",
+  "totalRoutes": 3168,
+  "generatedAt": "2026-01-05T05:46:59.697Z",
   "categories": [
     {
       "category": "University",
-      "count": 439,
+      "count": 441,
       "file": "university.json"
     },
     {
       "category": "New media",
-      "count": 431,
+      "count": 434,
       "file": "new-media.json"
     },
     {
       "category": "Uncategorized",
-      "count": 241,
+      "count": 242,
       "file": "other.json"
     },
     {
@@ -25,7 +25,7 @@
     },
     {
       "category": "Programming",
-      "count": 207,
+      "count": 208,
       "file": "programming.json"
     },
     {
@@ -40,7 +40,7 @@
     },
     {
       "category": "Multimedia",
-      "count": 157,
+      "count": 158,
       "file": "multimedia.json"
     },
     {
@@ -55,7 +55,7 @@
     },
     {
       "category": "ACG",
-      "count": 112,
+      "count": 113,
       "file": "anime.json"
     },
     {

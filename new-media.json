@@ -3,7 +3,7 @@
   "displayName": "New media",
   "displayNameZh": "新媒体",
   "icon": "📱",
-  "count": 431,
+  "count": 434,
   "routes": [
     {
       "namespace": "10000link",
@@ -6249,6 +6249,44 @@
       "lang": "zh-CN"
     },
     {
+      "namespace": "costar",
+      "namespaceName": "CoStar",
+      "namespaceUrl": "costar.com",
+      "path": "/press-releases/:filter{.+}?",
+      "fullPath": "/costar/press-releases/:filter{.+}?",
+      "name": "Press Releases",
+      "example": "/costar/press-releases",
+      "description": ":::tip\nTo subscribe to [Press Releases - Asia Pacific - Preliminary](https://www.costar.com/products/benchmark/resources/press-releases?region=406&tag=581), where the source URL is `https://www.costar.com/products/benchmark/resources/press-releases?region=406&tag=581`, extract the certain parts from this URL to be used as parameters, resulting in the route as [`/costar/press-releases/region=406&tag=581`](https://rsshub.app/costar/press-releases/region=406&tag=581).\n:::\n",
+      "parameters": {
+        "filter": {
+          "description": "Filter"
+        }
+      },
+      "maintainers": [
+        "nczitzk"
+      ],
+      "categories": [
+        "new-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.costar.com"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
       "namespace": "cpcaauto",
       "namespaceName": "cpcaauto.com",
       "namespaceUrl": "中国汽车流通协会汽车市场研究分会",
@@ -9015,7 +9053,7 @@
       "namespaceUrl": "www.foodtalks.cn",
       "path": "/",
       "fullPath": "/foodtalks/",
-      "name": "FoodTalks global food information network",
+      "name": "最新资讯",
       "example": "/foodtalks",
       "description": "FoodTalks全球食品资讯网是一个提供食品饮料行业新闻、资讯、分析和商业资源的领先在线平台。它涵盖行业趋势、市场动态、产品创新、投融资信息以及企业新闻，连接行业内的专业人士、企业和消费者。",
       "maintainers": [
@@ -9028,6 +9066,33 @@
         {
           "source": [
             "www.foodtalks.cn"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "foodtalks",
+      "namespaceName": "FoodTalks全球食品资讯网",
+      "namespaceUrl": "www.foodtalks.cn",
+      "path": "/news/tag/:tagId",
+      "fullPath": "/foodtalks/news/tag/:tagId",
+      "name": "标签",
+      "example": "/foodtalks/news/tag/13335",
+      "description": "FoodTalks全球食品资讯网是一个提供食品饮料行业新闻、资讯、分析和商业资源的领先在线平台。它涵盖行业趋势、市场动态、产品创新、投融资信息以及企业新闻，连接行业内的专业人士、企业和消费者。",
+      "parameters": {
+        "tagId": "标签 ID"
+      },
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "new-media"
+      ],
+      "radar": [
+        {
+          "source": [
+            "www.foodtalks.cn/news/tag/:tagId"
           ]
         }
       ],
@@ -18028,7 +18093,8 @@
       "radar": [
         {
           "source": [
-            "patreon.com/:creator"
+            "patreon.com/:creator",
+            "www.patreon.com/cw/:creator"
           ]
         }
       ],
@@ -19306,6 +19372,45 @@
         {
           "source": [
             "secretsanfrancisco.com/:category"
+          ],
+          "target": "/:category"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "semiconductors",
+      "namespaceName": "Semiconductor Industry Association",
+      "namespaceUrl": "semiconductors.org",
+      "path": "/:category{.+}?",
+      "fullPath": "/semiconductors/:category{.+}?",
+      "name": "Latest News",
+      "example": "/semiconductors/news-events/latest-news",
+      "description": ":::tip\nTo subscribe to [Latest News](https://www.semiconductors.org/news-events/latest-news/), where the source URL is `https://www.semiconductors.org/news-events/latest-news/`, extract the certain parts from this URL to be used as parameters, resulting in the route as [`/semiconductors/news-events/latest-news`](https://rsshub.app/semiconductors/news-events/latest-news).\n:::",
+      "parameters": {
+        "category": {
+          "description": "Category, `news-events/latest-news` by default"
+        }
+      },
+      "maintainers": [
+        "nczitzk"
+      ],
+      "categories": [
+        "new-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.semiconductors.org/:category"
           ],
           "target": "/:category"
         }

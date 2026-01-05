@@ -3,7 +3,7 @@
   "displayName": "Multimedia",
   "displayNameZh": "音视频",
   "icon": "🔊",
-  "count": 157,
+  "count": 158,
   "routes": [
     {
       "namespace": "0xxx",
@@ -1301,12 +1301,39 @@
     {
       "namespace": "btbtla",
       "namespaceName": "BT影视",
-      "namespaceUrl": "btbtla.com",
+      "namespaceUrl": "www.btbtla.com",
+      "path": "/detail/:name",
+      "fullPath": "/btbtla/detail/:name",
+      "name": "BTBTLA | 指定剧名",
+      "example": "/btbtla/detail/雍正王朝",
+      "description": "BT影视的页面内容，最近更新列表，视频种子列表。",
+      "parameters": {
+        "name": "电影 | 电视剧名称"
+      },
+      "maintainers": [
+        "Hermes1030"
+      ],
+      "categories": [
+        "multimedia"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": true,
+        "supportPodcast": false,
+        "supportScihub": false
+      }
+    },
+    {
+      "namespace": "btbtla",
+      "namespaceName": "BT影视",
+      "namespaceUrl": "www.btbtla.com",
       "path": "/gxlist",
       "fullPath": "/btbtla/gxlist",
-      "name": "BTBTLA",
+      "name": "BTBTLA | 最近更新",
       "example": "/btbtla/gxlist",
-      "description": "BT影视更新列表",
+      "description": "BT影视的页面内容，最近更新列表，视频种子列表。",
       "maintainers": [
         "Hermes1030"
       ],

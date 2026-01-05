@@ -173,6 +173,7 @@ export type RoutePath =
   | `/alternativeto/platform/:name/:routeParams?`
   | `/alternativeto/software/:name/:routeParams?`
   | `/altotrain/:language?`
+  | `/alwayscontrol/news`
   | `/amazfitwatchfaces/:device/:sort/:searchParams?`
   | `/amazon/awsblogs/:locale?`
   | `/amazon/kindle/software-updates`
@@ -185,6 +186,7 @@ export type RoutePath =
   | `/anquanke/:category/:fulltext?`
   | `/anthropic/engineering`
   | `/anthropic/news`
+  | `/anthropic/red`
   | `/anthropic/research`
   | `/anytxt/release-notes`
   | `/apache/apisix/blog`
@@ -329,7 +331,7 @@ export type RoutePath =
   | `/bilibili/vsearch/:kw/:order?/:embed?/:tid?`
   | `/bilibili/watchlater/:uid/:embed?`
   | `/bilibili/weekly/:embed?`
-  | `/binance/announcement/:type`
+  | `/binance/announcement/:type?/:lang?`
   | `/binance/launchpool`
   | `/bing/:routeParams?`
   | `/bing/search/:keyword`
@@ -392,6 +394,7 @@ export type RoutePath =
   | `/bsky/profile/:handle/feed/:space/:routeParams?`
   | `/bt0/mv/:number/:domain?`
   | `/bt0/tlist/:sc/:domain?`
+  | `/btbtla/detail/:name`
   | `/btbtla/gxlist`
   | `/btzj/:category?`
   | `/buaa/jiaowu/:cddm?`
@@ -625,6 +628,7 @@ export type RoutePath =
   | `/cosplaytele/category/:category`
   | `/cosplaytele/popular/:period`
   | `/cosplaytele/tag/:tag`
+  | `/costar/press-releases/:filter{.+}?`
   | `/counter-strike/news/:category?/:language?`
   | `/cpcaauto/news/:type?/:id?`
   | `/cpcey/:type?`
@@ -722,6 +726,7 @@ export type RoutePath =
   | `/deepseek/news`
   | `/dehenglaw/:language?/:category?`
   | `/deltaio/blog`
+  | `/denonbu/news/:area?`
   | `/dev.to/guides`
   | `/dev.to/top/:period`
   | `/devolverdigital/blog`
@@ -862,6 +867,7 @@ export type RoutePath =
   | `/ecnu/chinese`
   | `/ecnu/comm`
   | `/ecnu/cs`
+  | `/ecnu/cxcy/:type?`
   | `/ecnu/dase`
   | `/ecnu/dx`
   | `/ecnu/dxb`
@@ -869,6 +875,7 @@ export type RoutePath =
   | `/ecnu/geoai`
   | `/ecnu/ghcollege`
   | `/ecnu/history`
+  | `/ecnu/jiaoliu`
   | `/ecnu/jwc`
   | `/ecnu/mks`
   | `/ecnu/mxcsy`
@@ -972,6 +979,7 @@ export type RoutePath =
   | `/followin/tag/:tagId/:lang?`
   | `/followin/topic/:topicId/:lang?`
   | `/foodtalks/`
+  | `/foodtalks/news/tag/:tagId`
   | `/foreignaffairs/rss`
   | `/foresightnews/`
   | `/foresightnews/article`
@@ -2423,6 +2431,7 @@ export type RoutePath =
   | `/sehuatang/bt/:subforumid?`
   | `/sehuatang/picture/:subforumid`
   | `/sehuatang/user/:uid`
+  | `/semiconductors/:category{.+}?`
   | `/sensortower/blog/:language?`
   | `/setn/:category?`
   | `/seu/cse/:type?`
