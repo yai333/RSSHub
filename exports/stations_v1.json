@@ -1316,6 +1316,21 @@
             "description": "商業電台雷霆881網上直播服務",
             "websiteURL": "https://www.881903.com/live/881",
             "source": "community"
+        },
+        {
+            "id": "listenhub",
+            "name": "知乎24H新年电台",
+            "streamURL": "https://listenhub.ai/zh/radio?utm_source=media&utm_medium=social",
+            "country": "China",
+            "genre": "新聞時事",
+            "logoName": "知乎24H新年电台",
+            "bitrateKbps": 128,
+            "isFeatured": false,
+            "order": 134,
+            "remote": true,
+            "description": "知乎24H新年电台",
+            "websiteURL": "https://listenhub.ai/zh/radio?utm_source=media&utm_medium=social",
+            "source": "community"
         }
     ],
     "genres": [
