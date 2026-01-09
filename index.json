@@ -1,7 +1,7 @@
 {
   "totalCategories": 24,
-  "totalRoutes": 3168,
-  "generatedAt": "2026-01-05T05:46:59.697Z",
+  "totalRoutes": 3170,
+  "generatedAt": "2026-01-09T23:43:53.418Z",
   "categories": [
     {
       "category": "University",
@@ -25,7 +25,7 @@
     },
     {
       "category": "Programming",
-      "count": 208,
+      "count": 209,
       "file": "programming.json"
     },
     {
@@ -35,7 +35,7 @@
     },
     {
       "category": "Government",
-      "count": 168,
+      "count": 169,
       "file": "government.json"
     },
     {

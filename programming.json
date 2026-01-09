@@ -3,7 +3,7 @@
   "displayName": "Programming",
   "displayNameZh": "编程",
   "icon": "💻",
-  "count": 208,
+  "count": 209,
   "routes": [
     {
       "namespace": "30secondsofcode",
@@ -5681,6 +5681,50 @@
             "www.manus.im"
           ],
           "target": "/blog"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "maven",
+      "namespaceName": "Maven",
+      "namespaceUrl": "repo1.maven.org/maven2/",
+      "path": "/central/:group/:artifact",
+      "fullPath": "/maven/central/:group/:artifact",
+      "name": "Maven Central Feed",
+      "example": "/maven/central/org.springframework/spring-core",
+      "description": "Get the latest versions of a Maven artifact from Maven Central Repository.",
+      "parameters": {
+        "group": {
+          "description": "The group ID of the Maven artifact (e.g., org.springframework)"
+        },
+        "artifact": {
+          "description": "The artifact ID of the Maven artifact (e.g., spring-core)"
+        }
+      },
+      "maintainers": [
+        "chrisis58"
+      ],
+      "categories": [
+        "programming"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false,
+        "nsfw": false
+      },
+      "radar": [
+        {
+          "source": [
+            "central.sonatype.com/artifact/:group/:artifact/:suffix",
+            "central.sonatype.com/artifact/:group/:artifact"
+          ],
+          "target": "/maven/central/:group/:artifact"
         }
       ],
       "lang": "en"

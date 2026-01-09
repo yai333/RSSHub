@@ -196,7 +196,9 @@
         "time": "时间范围，同上表，默认为 `a` 即全部",
         "order": "排列顺序，同上表，默认为 `mr` 即最新"
       },
-      "maintainers": [],
+      "maintainers": [
+        "nczitzk"
+      ],
       "categories": [
         "anime"
       ],
