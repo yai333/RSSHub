@@ -25,9 +25,9 @@
             }
         },
         {
-            "appVersion": "6.2",
+            "appVersion": "6.3",
             "buildNumber": "*",
-            "minAppVersion": "6.2",
+            "minAppVersion": "6.3",
             "maxAppVersion": "99.0",
             "playback": {
                 "defaultMode": "browser",
