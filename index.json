@@ -1,7 +1,7 @@
 {
   "totalCategories": 24,
-  "totalRoutes": 3170,
-  "generatedAt": "2026-01-09T23:43:53.418Z",
+  "totalRoutes": 3169,
+  "generatedAt": "2026-01-12T13:44:28.715Z",
   "categories": [
     {
       "category": "University",
@@ -10,7 +10,7 @@
     },
     {
       "category": "New media",
-      "count": 434,
+      "count": 433,
       "file": "new-media.json"
     },
     {

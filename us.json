@@ -23,6 +23,17 @@
                 "allowInAppPlayback": true,
                 "stationOverrides": {}
             }
+        },
+        {
+            "appVersion": "6.3",
+            "buildNumber": "*",
+            "minAppVersion": "6.3",
+            "maxAppVersion": "99.0",
+            "playback": {
+                "defaultMode": "inApp",
+                "allowInAppPlayback": true,
+                "stationOverrides": {}
+            }
         }
     ],
     "fallback": {
