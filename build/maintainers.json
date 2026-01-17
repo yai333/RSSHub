@@ -955,6 +955,24 @@
   "/bilibili/manga/update/:comicid": [
     "hoilc"
   ],
+  "/bilibili/message/at/:uid": [
+    "pilgrimlyieu"
+  ],
+  "/bilibili/message/like/:uid": [
+    "pilgrimlyieu"
+  ],
+  "/bilibili/message/reply/:uid": [
+    "pilgrimlyieu"
+  ],
+  "/bilibili/message/sessions/:uid": [
+    "pilgrimlyieu"
+  ],
+  "/bilibili/message/system/:uid": [
+    "pilgrimlyieu"
+  ],
+  "/bilibili/message/unread/:uid": [
+    "pilgrimlyieu"
+  ],
   "/bilibili/video/page/:bvid/:embed?": [
     "sxzz"
   ],
@@ -2251,6 +2269,9 @@
   "/diershoubing/news": [
     "wushijishan"
   ],
+  "/digg/community/:community": [
+    "TonyRL"
+  ],
   "/digitalcameraworld/news": [
     "EthanWng97"
   ],
@@ -3257,7 +3278,9 @@
     "gz4zzxc"
   ],
   "/gdut/oa_news/:type?": [
-    "jim-kirisame"
+    "jim-kirisame",
+    "GamerNoTitle",
+    "Richard-Zheng"
   ],
   "/geekpark/:column?": [
     "nczitzk"
@@ -4505,9 +4528,6 @@
   "/infoq/topic/:id": [
     "brilon"
   ],
-  "/informedainews/zh-Hans/docs/:type": [
-    "guicaiyue"
-  ],
   "/informs/:category?": [
     "Fatpandac"
   ],
@@ -5067,6 +5087,9 @@
   ],
   "/lala/": [
     "cnkmmk"
+  ],
+  "/lancedb/blog/:category?": [
+    "HUSTERGS"
   ],
   "/landiannews/category/:slug": [
     "cscnk52"
@@ -6125,6 +6148,12 @@
   ],
   "/nowcoder/experience/:tagId": [
     "huyyi"
+  ],
+  "/nowcoder/hots/:type?": [
+    "xia0ne"
+  ],
+  "/nowcoder/interview/:jobId": [
+    "xia0ne"
   ],
   "/nowcoder/jobcenter/:recruitType?/:city?/:type?/:order?/:latest?": [
     "nczitzk"

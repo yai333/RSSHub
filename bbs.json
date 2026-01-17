@@ -3,7 +3,7 @@
   "displayName": "BBS",
   "displayNameZh": "论坛",
   "icon": "💬️",
-  "count": 96,
+  "count": 98,
   "routes": [
     {
       "namespace": "19lou",
@@ -1689,6 +1689,76 @@
             "nowcoder.com/"
           ],
           "target": "/experience"
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "nowcoder",
+      "namespaceName": "牛客网",
+      "namespaceUrl": "nowcoder.com",
+      "path": "/hots/:type?",
+      "fullPath": "/nowcoder/hots/:type?",
+      "name": "牛客热榜",
+      "example": "/nowcoder/hots/1?limit=20",
+      "description": "牛客热榜，包括热议话题和全站热贴",
+      "parameters": {
+        "type": "热榜类型，`1` 指热议话题，`2` 指全站热贴，默认为 `1`"
+      },
+      "maintainers": [
+        "xia0ne"
+      ],
+      "categories": [
+        "bbs"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "mnowpick.nowcoder.com/m/discuss/hot"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "nowcoder",
+      "namespaceName": "牛客网",
+      "namespaceUrl": "nowcoder.com",
+      "path": "/interview/:jobId",
+      "fullPath": "/nowcoder/interview/:jobId",
+      "name": "牛客面试经验",
+      "example": "/nowcoder/interview/11200",
+      "description": "牛客面试经验",
+      "parameters": {
+        "jobId": "岗位 ID，如 11200（全部）、11002（Java）"
+      },
+      "maintainers": [
+        "xia0ne"
+      ],
+      "categories": [
+        "bbs"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.nowcoder.com/interview/"
+          ]
         }
       ],
       "lang": "zh-CN"

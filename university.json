@@ -3,7 +3,7 @@
   "displayName": "University",
   "displayNameZh": "大学通知",
   "icon": "🎓",
-  "count": 441,
+  "count": 442,
   "routes": [
     {
       "namespace": "ahjzu",
@@ -3277,6 +3277,36 @@
             "xwxy.gdufs.edu.cn/xwzx/mtjj"
           ],
           "target": "/xwxy/media"
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "gdut",
+      "namespaceName": "广东工业大学",
+      "namespaceUrl": "oas.gdut.edu.cn",
+      "path": "/oa_news/:type?",
+      "fullPath": "/gdut/oa_news/:type?",
+      "name": "通知公文网",
+      "example": "/gdut/oa_news/notice",
+      "description": "学校可能会因为 IP 来源非学校而做出一定的限制，建议在校内网络环境下使用 RSS 阅读器订阅。\n\n| 类型 | 参数 | 可能需要校内访问 |\n| ---- | ---- | ---------------- |\n| 部处简讯 | department | 是 |\n| 学院简讯 | academy | 是 |\n| 校内通知 | notice | 是 |\n| 公示公告 | announcement | 是 |\n| 招标结果 | tender_result | 否 |\n| 招标公告 | tender_invite | 否 |\n",
+      "parameters": {
+        "type": "通知类型，留空则获取所有分类"
+      },
+      "maintainers": [
+        "jim-kirisame",
+        "GamerNoTitle",
+        "Richard-Zheng"
+      ],
+      "categories": [
+        "university"
+      ],
+      "radar": [
+        {
+          "source": [
+            "oas.gdut.edu.cn/seeyon"
+          ],
+          "target": "/oa_news/"
         }
       ],
       "lang": "zh-CN"

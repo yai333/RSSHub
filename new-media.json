@@ -3,7 +3,7 @@
   "displayName": "New media",
   "displayNameZh": "新媒体",
   "icon": "📱",
-  "count": 433,
+  "count": 432,
   "routes": [
     {
       "namespace": "10000link",
@@ -11371,44 +11371,6 @@
         }
       ],
       "lang": "zh-CN"
-    },
-    {
-      "namespace": "informedainews",
-      "namespaceName": "Informed AI News",
-      "namespaceUrl": "informedainews.com",
-      "path": "/zh-Hans/docs/:type",
-      "fullPath": "/informedainews/zh-Hans/docs/:type",
-      "name": "知闻AI",
-      "example": "/informedainews/zh-Hans/docs/world-news-daily",
-      "description": "\n::: tip\ninformed AI RSS feeds:\n\n-   World News Daily: 'https://rsshub.app/informedainews/zh-Hans/docs/world-news-daily'\n-   Tech Enthusiast Weekly: 'https://rsshub.app/informedainews/zh-Hans/docs/tech-enthusiast-weekly'\n-   AI Enthusiast Weekly: 'https://rsshub.app/informedainews/zh-Hans/docs/ai-enthusiast-daily'\n:::",
-      "parameters": {
-        "type": "world-news-daily|tech-enthusiast-weekly|ai-enthusiast-daily"
-      },
-      "maintainers": [
-        "guicaiyue"
-      ],
-      "categories": [
-        "new-media"
-      ],
-      "features": {
-        "requireConfig": false,
-        "requirePuppeteer": false,
-        "antiCrawler": false,
-        "supportBT": false,
-        "supportPodcast": false,
-        "supportScihub": false
-      },
-      "radar": [
-        {
-          "source": [
-            "informedainews.com",
-            "informedainews.com/zh-Hans/docs/:type",
-            "informedainews.com/docs/:type"
-          ],
-          "target": "/zh-Hans/docs/:type"
-        }
-      ],
-      "lang": "en"
     },
     {
       "namespace": "ithome",

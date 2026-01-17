@@ -1,31 +1,31 @@
 {
   "totalCategories": 24,
-  "totalRoutes": 3169,
-  "generatedAt": "2026-01-12T13:44:28.715Z",
+  "totalRoutes": 3178,
+  "generatedAt": "2026-01-17T12:56:07.411Z",
   "categories": [
     {
       "category": "University",
-      "count": 441,
+      "count": 442,
       "file": "university.json"
     },
     {
       "category": "New media",
-      "count": 433,
+      "count": 432,
       "file": "new-media.json"
     },
     {
-      "category": "Uncategorized",
-      "count": 242,
-      "file": "other.json"
-    },
-    {
       "category": "Social Media",
-      "count": 237,
+      "count": 244,
       "file": "social-media.json"
     },
     {
+      "category": "Uncategorized",
+      "count": 241,
+      "file": "other.json"
+    },
+    {
       "category": "Programming",
-      "count": 209,
+      "count": 210,
       "file": "programming.json"
     },
     {
@@ -70,7 +70,7 @@
     },
     {
       "category": "BBS",
-      "count": 96,
+      "count": 98,
       "file": "bbs.json"
     },
     {

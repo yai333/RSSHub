@@ -3,7 +3,7 @@
   "displayName": "Programming",
   "displayNameZh": "编程",
   "icon": "💻",
-  "count": 209,
+  "count": 210,
   "routes": [
     {
       "namespace": "30secondsofcode",
@@ -5196,6 +5196,43 @@
         }
       ],
       "lang": "zh-CN"
+    },
+    {
+      "namespace": "lancedb",
+      "namespaceName": "LanceDB",
+      "namespaceUrl": "lancedb.com",
+      "path": "/blog/:category?",
+      "fullPath": "/lancedb/blog/:category?",
+      "name": "Blog",
+      "example": "/lancedb/blog",
+      "description": "",
+      "parameters": {
+        "category": "filter blog post by category, return all posts if not specified"
+      },
+      "maintainers": [
+        "HUSTERGS"
+      ],
+      "categories": [
+        "programming"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "lancedb.com/blog",
+            "lancedb.com/blog/category/:category"
+          ],
+          "target": "/blog/:category"
+        }
+      ],
+      "lang": "en"
     },
     {
       "namespace": "lanqiao",

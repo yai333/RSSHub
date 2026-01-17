@@ -3,7 +3,7 @@
   "displayName": "Uncategorized",
   "displayNameZh": "其他",
   "icon": "🔍",
-  "count": 242,
+  "count": 241,
   "routes": [
     {
       "namespace": "2cycd",
@@ -1930,29 +1930,6 @@
         "supportPodcast": false,
         "supportScihub": false
       },
-      "lang": "zh-CN"
-    },
-    {
-      "namespace": "gdut",
-      "namespaceName": "广东工业大学",
-      "namespaceUrl": "oas.gdut.edu.cn",
-      "path": "/oa_news/:type?",
-      "fullPath": "/gdut/oa_news/:type?",
-      "name": "Unknown",
-      "maintainers": [
-        "jim-kirisame"
-      ],
-      "categories": [
-        "other"
-      ],
-      "radar": [
-        {
-          "source": [
-            "oas.gdut.edu.cn/seeyon"
-          ],
-          "target": "/oa_news/"
-        }
-      ],
       "lang": "zh-CN"
     },
     {
