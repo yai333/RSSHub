@@ -1,7 +1,7 @@
 {
   "totalCategories": 24,
-  "totalRoutes": 3178,
-  "generatedAt": "2026-01-17T12:56:07.411Z",
+  "totalRoutes": 3187,
+  "generatedAt": "2026-01-21T07:23:54.811Z",
   "categories": [
     {
       "category": "University",
@@ -10,12 +10,12 @@
     },
     {
       "category": "New media",
-      "count": 432,
+      "count": 433,
       "file": "new-media.json"
     },
     {
       "category": "Social Media",
-      "count": 244,
+      "count": 249,
       "file": "social-media.json"
     },
     {
@@ -60,12 +60,12 @@
     },
     {
       "category": "Blog",
-      "count": 108,
+      "count": 110,
       "file": "blog.json"
     },
     {
       "category": "Application Updates",
-      "count": 102,
+      "count": 103,
       "file": "program-update.json"
     },
     {

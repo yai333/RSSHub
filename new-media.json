@@ -3,7 +3,7 @@
   "displayName": "New media",
   "displayNameZh": "新媒体",
   "icon": "📱",
-  "count": 432,
+  "count": 433,
   "routes": [
     {
       "namespace": "10000link",
@@ -1847,6 +1847,41 @@
             "www.agri.cn/video/whsh/"
           ],
           "target": "/video/whsh"
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "ai-bot",
+      "namespaceName": "AI工具集",
+      "namespaceUrl": "ai-bot.cn",
+      "path": "/daily-ai-news",
+      "fullPath": "/ai-bot/daily-ai-news",
+      "name": "每日AI资讯",
+      "example": "/ai-bot/daily-ai-news",
+      "description": "获取 AI 工具集网站的每日 AI 资讯汇总。",
+      "parameters": {},
+      "maintainers": [
+        "redwood9"
+      ],
+      "categories": [
+        "new-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "ai-bot.cn/daily-ai-news",
+            "ai-bot.cn/daily-ai-news/"
+          ],
+          "target": "/daily-ai-news"
         }
       ],
       "lang": "zh-CN"

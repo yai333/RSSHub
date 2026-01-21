@@ -403,6 +403,9 @@
   "/ahjzu/news": [
     "Yuk-0v0"
   ],
+  "/ai-bot/daily-ai-news": [
+    "redwood9"
+  ],
   "/aiaa/journal/:journalID": [
     "HappyZhu99"
   ],
@@ -1262,6 +1265,9 @@
   ],
   "/bupt/scss/tzgg": [
     "ziri2004"
+  ],
+  "/bvisness/blog": [
+    "raxod502"
   ],
   "/bwsg*": [
     "sk22"
@@ -2284,6 +2290,9 @@
   "/discord/channel/:channelId": [
     "TonyRL"
   ],
+  "/discord/quests": [
+    "TonyRL"
+  ],
   "/discord/search/:guildId/:routeParams": [
     "NekoAria"
   ],
@@ -3230,6 +3239,18 @@
   ],
   "/gamme/:domain/:category?": [],
   "/gamme/:domain/tag/:tag": [],
+  "/ganjingworld/channel/articles/:id": [
+    "yixiangli2001"
+  ],
+  "/ganjingworld/channel/posts/:id": [
+    "yixiangli2001"
+  ],
+  "/ganjingworld/channel/shorts/:id": [
+    "yixiangli2001"
+  ],
+  "/ganjingworld/channel/videos/:id": [
+    "yixiangli2001"
+  ],
   "/gaoyu/blog": [
     "nczitzk"
   ],
@@ -5678,6 +5699,9 @@
   "/mrdx/today": [
     "Dustin-Jiang"
   ],
+  "/mrinalxdev/blog": [
+    "jack-110"
+  ],
   "/mrm/:category?": [
     "TonyRL"
   ],
@@ -6588,6 +6612,9 @@
   ],
   "/people/xjpjh/:keyword?/:year?": [],
   "/peopo/topic/:topicId?": [],
+  "/perplexity/changelog": [
+    "xbot"
+  ],
   "/phoronix/:category?/:topic?": [
     "oppliate",
     "Rongronggg9"

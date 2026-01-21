@@ -3,7 +3,7 @@
   "displayName": "Application Updates",
   "displayNameZh": "程序更新",
   "icon": "🔄",
-  "count": 102,
+  "count": 103,
   "routes": [
     {
       "namespace": "423down",
@@ -3288,6 +3288,40 @@
         "supportPodcast": false,
         "supportScihub": false
       },
+      "lang": "en"
+    },
+    {
+      "namespace": "perplexity",
+      "namespaceName": "Perplexity",
+      "namespaceUrl": "www.perplexity.ai",
+      "path": "/changelog",
+      "fullPath": "/perplexity/changelog",
+      "name": "Changelog",
+      "example": "/perplexity/changelog",
+      "description": "Subscribe to Perplexity changelog for latest updates and releases.",
+      "maintainers": [
+        "xbot"
+      ],
+      "categories": [
+        "program-update"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": true,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.perplexity.ai/changelog"
+          ],
+          "target": "/changelog"
+        }
+      ],
       "lang": "en"
     },
     {

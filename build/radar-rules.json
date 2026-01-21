@@ -3442,6 +3442,17 @@
         "target": "/agora0/pen0"
       }
     ],
+    "mrinalxdev": [
+      {
+        "title": "Blog",
+        "docs": "https://docs.rsshub.app/routes/blog",
+        "source": [
+          "/mrinalxblogs/blogs/blog.html",
+          "/mrinalxblogs/"
+        ],
+        "target": "/mrinalxdev/blog"
+      }
+    ],
     "njuferret": [
       {
         "title": "Blogs",
@@ -3671,6 +3682,20 @@
           "/20/list.htm"
         ],
         "target": "/ahjzu/news"
+      }
+    ]
+  },
+  "ai-bot.cn": {
+    "_name": "AI工具集",
+    ".": [
+      {
+        "title": "每日AI资讯",
+        "docs": "https://docs.rsshub.app/routes/new-media",
+        "source": [
+          "/daily-ai-news",
+          "/daily-ai-news/"
+        ],
+        "target": "/ai-bot/daily-ai-news"
       }
     ]
   },
@@ -8271,6 +8296,19 @@
           "/index/tzgg1.htm"
         ],
         "target": "/bupt/scss/tzgg"
+      }
+    ]
+  },
+  "bvisness.me": {
+    "_name": "Ben Visness",
+    ".": [
+      {
+        "title": "Blog",
+        "docs": "https://docs.rsshub.app/routes/blog",
+        "source": [
+          "/"
+        ],
+        "target": "/bvisness/blog"
       }
     ]
   },
@@ -14740,6 +14778,14 @@
           "/channels/:guildId/:channelId"
         ],
         "target": "/discord/channel/:channelId"
+      },
+      {
+        "title": "Quests",
+        "docs": "https://docs.rsshub.app/routes/social-media",
+        "source": [
+          "/quest-home"
+        ],
+        "target": "/discord/quests"
       }
     ]
   },
@@ -17458,6 +17504,43 @@
           "/review"
         ],
         "target": "/gamersky/review"
+      }
+    ]
+  },
+  "ganjingworld.com": {
+    "_name": "Ganjing World",
+    ".": [
+      {
+        "title": "Articles in a channel",
+        "docs": "https://docs.rsshub.app/routes/social-media",
+        "source": [
+          "/"
+        ],
+        "target": "/ganjingworld/channel/articles/:id"
+      },
+      {
+        "title": "posts in a channel",
+        "docs": "https://docs.rsshub.app/routes/social-media",
+        "source": [
+          "/"
+        ],
+        "target": "/ganjingworld/channel/posts/:id"
+      },
+      {
+        "title": "Shorts in a channel",
+        "docs": "https://docs.rsshub.app/routes/social-media",
+        "source": [
+          "/"
+        ],
+        "target": "/ganjingworld/channel/shorts/:id"
+      },
+      {
+        "title": "Videos in a channel",
+        "docs": "https://docs.rsshub.app/routes/social-media",
+        "source": [
+          "/"
+        ],
+        "target": "/ganjingworld/channel/videos/:id"
       }
     ]
   },
@@ -37557,6 +37640,19 @@
           "/topic/:topicId"
         ],
         "target": "/peopo/topic/:topicId"
+      }
+    ]
+  },
+  "perplexity.ai": {
+    "_name": "Perplexity",
+    "www": [
+      {
+        "title": "Changelog",
+        "docs": "https://docs.rsshub.app/routes/program-update",
+        "source": [
+          "/changelog"
+        ],
+        "target": "/perplexity/changelog"
       }
     ]
   },

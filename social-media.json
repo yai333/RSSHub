@@ -3,7 +3,7 @@
   "displayName": "Social Media",
   "displayNameZh": "社交媒体",
   "icon": "💬",
-  "count": 244,
+  "count": 249,
   "routes": [
     {
       "namespace": "bilibili",
@@ -2454,6 +2454,42 @@
       "namespace": "discord",
       "namespaceName": "Discord",
       "namespaceUrl": "discord.com",
+      "path": "/quests",
+      "fullPath": "/discord/quests",
+      "name": "Quests",
+      "example": "/discord/quests",
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "social-media"
+      ],
+      "features": {
+        "requireConfig": [
+          {
+            "name": "DISCORD_AUTHORIZATION",
+            "description": "Discord authorization header"
+          }
+        ],
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "discord.com/quest-home"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "discord",
+      "namespaceName": "Discord",
+      "namespaceUrl": "discord.com",
       "path": "/search/:guildId/:routeParams",
       "fullPath": "/discord/search/:guildId/:routeParams",
       "name": "Guild Search",
@@ -4070,6 +4106,150 @@
             "furaffinity.net/watchlist/by/:username"
           ],
           "target": "/watching/:username"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "ganjingworld",
+      "namespaceName": "Ganjing World",
+      "namespaceUrl": "www.ganjingworld.com/",
+      "path": "/channel/articles/:id",
+      "fullPath": "/ganjingworld/channel/articles/:id",
+      "name": "Articles in a channel",
+      "example": "/ganjingworld/channel/articles/1fcahpcut9t3gz4zIvYSJR7qd1cs0c",
+      "description": "\"Gan Jing\" means Clean. Through the utilization of technology, Gan Jing World is dedicated to revitalizing traditional connections—fostering a culture of care, kindness, mutual respect, and trust among individuals, within families, and throughout society.",
+      "parameters": {
+        "id": "Channel ID, can be found in channel url"
+      },
+      "maintainers": [
+        "yixiangli2001"
+      ],
+      "categories": [
+        "social-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "ganjingworld.com"
+          ],
+          "target": "/channel/articles/:id"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "ganjingworld",
+      "namespaceName": "Ganjing World",
+      "namespaceUrl": "www.ganjingworld.com/",
+      "path": "/channel/posts/:id",
+      "fullPath": "/ganjingworld/channel/posts/:id",
+      "name": "posts in a channel",
+      "example": "/ganjingworld/channel/posts/1fcahpcut9t3gz4zIvYSJR7qd1cs0c",
+      "description": "\"Gan Jing\" means Clean. Through the utilization of technology, Gan Jing World is dedicated to revitalizing traditional connections—fostering a culture of care, kindness, mutual respect, and trust among individuals, within families, and throughout society.",
+      "parameters": {
+        "id": "Channel ID, can be found in channel url"
+      },
+      "maintainers": [
+        "yixiangli2001"
+      ],
+      "categories": [
+        "social-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "ganjingworld.com"
+          ],
+          "target": "/channel/posts/:id"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "ganjingworld",
+      "namespaceName": "Ganjing World",
+      "namespaceUrl": "www.ganjingworld.com/",
+      "path": "/channel/shorts/:id",
+      "fullPath": "/ganjingworld/channel/shorts/:id",
+      "name": "Shorts in a channel",
+      "example": "/ganjingworld/channel/shorts/1fq5chh3ajo67UNu14uAvfzOp1a80c",
+      "description": "\"Gan Jing\" means Clean. Through the utilization of technology, Gan Jing World is dedicated to revitalizing traditional connections—fostering a culture of care, kindness, mutual respect, and trust among individuals, within families, and throughout society.",
+      "parameters": {
+        "id": "Channel ID, can be found in channel url"
+      },
+      "maintainers": [
+        "yixiangli2001"
+      ],
+      "categories": [
+        "social-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "ganjingworld.com"
+          ],
+          "target": "/channel/shorts/:id"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "ganjingworld",
+      "namespaceName": "Ganjing World",
+      "namespaceUrl": "www.ganjingworld.com/",
+      "path": "/channel/videos/:id",
+      "fullPath": "/ganjingworld/channel/videos/:id",
+      "name": "Videos in a channel",
+      "example": "/ganjingworld/channel/videos/1eiqjdnq7go1OPYtIbLDVMpM61ok0c",
+      "description": "\"Gan Jing\" means Clean. Through the utilization of technology, Gan Jing World is dedicated to revitalizing traditional connections—fostering a culture of care, kindness, mutual respect, and trust among individuals, within families, and throughout society.",
+      "parameters": {
+        "id": "Channel ID, can be found in channel url"
+      },
+      "maintainers": [
+        "yixiangli2001"
+      ],
+      "categories": [
+        "social-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "ganjingworld.com"
+          ],
+          "target": "/channel/videos/:id"
         }
       ],
       "lang": "en"

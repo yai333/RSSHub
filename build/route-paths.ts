@@ -135,6 +135,7 @@ export type RoutePath =
   | `/agora0/pen0`
   | `/agri/:category{.+}?`
   | `/ahjzu/news`
+  | `/ai-bot/daily-ai-news`
   | `/aiaa/journal/:journalID`
   | `/aibase/daily`
   | `/aibase/discover/:id?`
@@ -416,6 +417,7 @@ export type RoutePath =
   | `/bupt/jwc/:type`
   | `/bupt/rczp`
   | `/bupt/scss/tzgg`
+  | `/bvisness/blog`
   | `/bwsg*`
   | `/byau/news/:type_id`
   | `/byteclicks/`
@@ -759,6 +761,7 @@ export type RoutePath =
   | `/digitalpolicyalert/activity-tracker/:filters?`
   | `/dingshao/share/:shortId`
   | `/discord/channel/:channelId`
+  | `/discord/quests`
   | `/discord/search/:guildId/:routeParams`
   | `/discourse/:configId/notifications/:fulltext?`
   | `/discourse/:configId/official/:path{.+}`
@@ -1047,6 +1050,10 @@ export type RoutePath =
   | `/gamersky/review/:type?`
   | `/gamme/:domain/:category?`
   | `/gamme/:domain/tag/:tag`
+  | `/ganjingworld/channel/articles/:id`
+  | `/ganjingworld/channel/posts/:id`
+  | `/ganjingworld/channel/shorts/:id`
+  | `/ganjingworld/channel/videos/:id`
   | `/gaoyu/blog`
   | `/gc.ca/pm/:language?`
   | `/gcores/articles`
@@ -1864,6 +1871,7 @@ export type RoutePath =
   | `/mpaypass/main/:type?`
   | `/mpaypass/news`
   | `/mrdx/today`
+  | `/mrinalxdev/blog`
   | `/mrm/:category?`
   | `/msn/:market/:name/:id`
   | `/musify/:language?`
@@ -2156,6 +2164,7 @@ export type RoutePath =
   | `/people/liuyan/:id/:state?`
   | `/people/xjpjh/:keyword?/:year?`
   | `/peopo/topic/:topicId?`
+  | `/perplexity/changelog`
   | `/phoronix/:category?/:topic?`
   | `/pianyivps/`
   | `/pianyuan/index/:media?`
