@@ -3,7 +3,7 @@
   "displayName": "Multimedia",
   "displayNameZh": "音视频",
   "icon": "🔊",
-  "count": 158,
+  "count": 161,
   "routes": [
     {
       "namespace": "0xxx",
@@ -3179,6 +3179,106 @@
         }
       ],
       "lang": "en"
+    },
+    {
+      "namespace": "maoyan",
+      "namespaceName": "猫眼电影",
+      "namespaceUrl": "maoyan.com",
+      "path": "/box",
+      "fullPath": "/maoyan/box",
+      "name": "实时票房榜",
+      "example": "/maoyan/box",
+      "parameters": {},
+      "maintainers": [
+        "JackyST0"
+      ],
+      "categories": [
+        "multimedia"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "piaofang.maoyan.com/dashboard"
+          ],
+          "target": "/box"
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "maoyan",
+      "namespaceName": "猫眼电影",
+      "namespaceUrl": "maoyan.com",
+      "path": "/coming",
+      "fullPath": "/maoyan/coming",
+      "name": "即将上映",
+      "example": "/maoyan/coming",
+      "parameters": {},
+      "maintainers": [
+        "JackyST0"
+      ],
+      "categories": [
+        "multimedia"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.maoyan.com/films?showType=2",
+            "www.maoyan.com/films"
+          ],
+          "target": "/coming"
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "maoyan",
+      "namespaceName": "猫眼电影",
+      "namespaceUrl": "maoyan.com",
+      "path": "/hot",
+      "fullPath": "/maoyan/hot",
+      "name": "正在热映",
+      "example": "/maoyan/hot",
+      "parameters": {},
+      "maintainers": [
+        "JackyST0"
+      ],
+      "categories": [
+        "multimedia"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.maoyan.com/films?showType=1"
+          ],
+          "target": "/hot"
+        }
+      ],
+      "lang": "zh-CN"
     },
     {
       "namespace": "missav",

@@ -3,7 +3,7 @@
   "displayName": "Social Media",
   "displayNameZh": "社交媒体",
   "icon": "💬",
-  "count": 249,
+  "count": 252,
   "routes": [
     {
       "namespace": "bilibili",
@@ -5334,6 +5334,74 @@
       "lang": "en"
     },
     {
+      "namespace": "mit",
+      "namespaceName": "Massachusetts Institute of Technology",
+      "namespaceUrl": "mit.edu",
+      "path": "/scratch/user-comments/:username",
+      "fullPath": "/mit/scratch/user-comments/:username",
+      "name": "Scratch User Comments",
+      "example": "/mit/scratch/user-comments/skota11",
+      "parameters": {
+        "username": "Scratch username"
+      },
+      "maintainers": [
+        "Skota11"
+      ],
+      "categories": [
+        "social-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "scratch.mit.edu/users/:username/"
+          ],
+          "target": "/scratch/user-comments/:username"
+        }
+      ]
+    },
+    {
+      "namespace": "mit",
+      "namespaceName": "Massachusetts Institute of Technology",
+      "namespaceUrl": "mit.edu",
+      "path": "/scratch/user-projects/:username",
+      "fullPath": "/mit/scratch/user-projects/:username",
+      "name": "Scratch User Projects",
+      "example": "/mit/scratch/user-projects/abee",
+      "parameters": {
+        "username": "Scratch username"
+      },
+      "maintainers": [
+        "Skota11"
+      ],
+      "categories": [
+        "social-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "scratch.mit.edu/users/:username/projects/"
+          ],
+          "target": "/scratch/user-projects/:username"
+        }
+      ]
+    },
+    {
       "namespace": "mixi2",
       "namespaceName": "mixi2",
       "namespaceUrl": "mixi.social",
@@ -6897,6 +6965,41 @@
       "namespace": "tiktok",
       "namespaceName": "TikTok",
       "namespaceUrl": "tiktok.com",
+      "path": "/live/:user",
+      "fullPath": "/tiktok/live/:user",
+      "name": "Live",
+      "example": "/tiktok/live/@shinichifuku",
+      "parameters": {
+        "user": "User ID, including @"
+      },
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "social-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.tiktok.com/:user/live"
+          ],
+          "target": "/live/:user"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "tiktok",
+      "namespaceName": "TikTok",
+      "namespaceUrl": "tiktok.com",
       "path": "/user/:user/:iframe?",
       "fullPath": "/tiktok/user/:user/:iframe?",
       "name": "User",
@@ -6922,7 +7025,7 @@
       "radar": [
         {
           "source": [
-            "tiktok.com/:user"
+            "www.tiktok.com/:user"
           ],
           "target": "/user/:user"
         }

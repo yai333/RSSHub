@@ -3,7 +3,7 @@
   "displayName": "University",
   "displayNameZh": "大学通知",
   "icon": "🎓",
-  "count": 442,
+  "count": 458,
   "routes": [
     {
       "namespace": "ahjzu",
@@ -8160,13 +8160,14 @@
       "path": "/bulletin/:category?",
       "fullPath": "/nuist/bulletin/:category?",
       "name": "南信大信息公告栏",
-      "example": "/nuist/bulletin/791",
-      "description": "| 全部 | 文件公告 | 学术报告 | 招标信息 | 会议通知 | 党政事务 | 组织人事 |\n| ---- | -------- | -------- | -------- | -------- | -------- | -------- |\n| 791  | 792      | xsbgw    | 779      | 780      | 781      | 782      |\n\n| 科研信息 | 招生就业 | 教学考试 | 专题讲座 | 校园活动 | 学院动态 | 其他 |\n| -------- | -------- | -------- | -------- | -------- | -------- | ---- |\n| 783      | 784      | 785      | 786      | 788      | 789      | qt   |\n\n::: warning\n  全文内容需使用 校园网或[VPN](http://vpn.nuist.edu.cn) 获取\n:::",
+      "example": "/nuist/bulletin/wjgg",
+      "description": "\n| 参数 | 含义 |\n| :--- | :--- |\n| default | 全部 |\n| wjgg | 文件公告 |\n| kyxx | 科研信息 |\n| zbxx | 招标信息 |\n| jxks | 教学考试 |\n| dzsw | 党政事务 |\n| ... | (支持官网对应栏目的拼音简写) |\n\n::: warning\n  全文内容需使用 校园网或[VPN](http://vpn.nuist.edu.cn) 获取\n:::",
       "parameters": {
-        "category": "默认为 `791`"
+        "category": "分类名，默认为 `default` (全部)，支持 wjgg, kyxx 等拼音缩写"
       },
       "maintainers": [
-        "gylidian"
+        "gylidian",
+        "QianYu-u"
       ],
       "categories": [
         "university"
@@ -8182,9 +8183,8 @@
       "radar": [
         {
           "source": [
-            "bulletin.nuist.edu.cn/:category/list.htm"
-          ],
-          "target": "/bulletin/:category"
+            "bulletin.nuist.edu.cn/:filename"
+          ]
         }
       ],
       "lang": "zh-CN"
@@ -14746,6 +14746,44 @@
       "lang": "zh-CN"
     },
     {
+      "namespace": "xjtlu",
+      "namespaceName": "Xi'an Jiaotong-Liverpool University",
+      "namespaceUrl": "www.xjtlu.edu.cn",
+      "path": "/news/:lang?/:category?",
+      "fullPath": "/xjtlu/news/:lang?/:category?",
+      "name": "News",
+      "example": "/xjtlu/news/en/technology",
+      "description": "Categories:\n\n| Category | English Name | Chinese Name |\n| -------- | ------------ | ------------ |\n| `all` | All | 全部 |\n| `anniversary` | XJTLU 20th Anniversary | 西浦20周年 |\n| `technology` | Science and Technology | 科技 |\n| `business` | Business | 商业管理 |\n| `environment` | Built Environment | 建筑环境 |\n| `humanities` | Humanities and Social Sciences | 人文社科 |\n| `community` | Community | 校园与社区 |\n| `about` | About XJTLU | 要闻聚焦 |\n| `stories` | XJTLU Stories | 招生专区 |",
+      "parameters": {
+        "lang": "Language, `en` or `zh`, default: `en`",
+        "category": "Category, see table below, default: `all`"
+      },
+      "maintainers": [
+        "Circloud"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.xjtlu.edu.cn/:lang/about/news/all-news",
+            "www.xjtlu.edu.cn/:lang/news"
+          ],
+          "target": "/news/:lang"
+        }
+      ],
+      "lang": "en"
+    },
+    {
       "namespace": "xjtu",
       "namespaceName": "西安交通大学",
       "namespaceUrl": "2yuan.xjtu.edu.cn",
@@ -15642,6 +15680,531 @@
           "source": [
             "wap.zuel.edu.cn/",
             "wap.zuel.edu.cn/notice/list.htm"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/dwzzb/:type",
+      "fullPath": "/zzu/dwzzb/:type",
+      "name": "郑大党委组织部",
+      "example": "/zzu/dwzzb/djgz",
+      "description": "| 党建工作 | 干部工作 | 人才工作 | 乡村振兴工作 |\n| -------- | -------- | -------- | -------- |\n| djgz     | gbgz     | rcgz     | fpgz     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "dwzzb.v.zzu.edu.cn/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/dzb/:type",
+      "fullPath": "/zzu/dzb/:type",
+      "name": "郑大党政办",
+      "example": "/zzu/dzb/xwzx",
+      "description": "| 新闻资讯 | 通知公告 |\n| -------- | -------- |\n| xwzx     | tzgg     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www5.zzu.edu.cn/dzb/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/gs/:type",
+      "fullPath": "/zzu/gs/:type",
+      "name": "郑大研究生院",
+      "example": "/zzu/gs/xwzx",
+      "description": "| 新闻资讯 | 通知公告 |\n| -------- | -------- |\n| xwzx     | tzgg     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "gs.zzu.edu.cn/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/jwc/:type",
+      "fullPath": "/zzu/jwc/:type",
+      "name": "郑大教务部",
+      "example": "/zzu/jwc/xwkd",
+      "description": "| 新闻快递 | 通知公告 |\n| -------- | -------- |\n| xwkd     | tzgg     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www5.zzu.edu.cn/jwc/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/kjc/:type",
+      "fullPath": "/zzu/kjc/:type",
+      "name": "郑大科研院",
+      "example": "",
+      "description": "| 新闻资讯 | 通知公告 |\n| -------- | -------- |\n| xwzx     | tzgg     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www7.zzu.edu.cn/kjc/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/math/:type",
+      "fullPath": "/zzu/math/:type",
+      "name": "郑大数学与统计学院",
+      "example": "/zzu/math/xyxw",
+      "description": "| 学院新闻 | 通知公告 | 党工团学 | 学术报告 |\n| -------- | -------- | -------- | -------- |\n| xyxw     | tzgg     | dgtx     | xsbg     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www5.zzu.edu.cn/math/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/news/:type",
+      "fullPath": "/zzu/news/:type",
+      "name": "郑大新闻网",
+      "example": "/zzu/news/ywsd",
+      "description": "| 要闻速递 | 教学科研 | 基层动态 | 媒体郑大 |\n| -------- | -------- | -------- | -------- |\n| ywsd     | jxky     | jcdt     | mtzd     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "news.zzu.edu.cn/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/rsc/:type",
+      "fullPath": "/zzu/rsc/:type",
+      "name": "郑大人事部",
+      "example": "/zzu/rsc/rsyw",
+      "description": "| 人事要闻 | 通知公告 | 招聘公告 |\n| -------- | -------- | -------- |\n| rsyw     | tzgg     | zpxx     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www5.zzu.edu.cn/rsc/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/ss/:type",
+      "fullPath": "/zzu/ss/:type",
+      "name": "郑大社科院",
+      "example": "/zzu/ss/xwzx",
+      "description": "| 新闻资讯 | 通知公告 |\n| -------- | -------- |\n| xwzx     | tzgg     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www5.zzu.edu.cn/ss/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/student/:type",
+      "fullPath": "/zzu/student/:type",
+      "name": "郑大学生处",
+      "example": "/zzu/student/xwzx",
+      "description": "| 新闻资讯 | 通知公告 |\n| -------- | -------- |\n| xwzx     | tzgg     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www5.zzu.edu.cn/student/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/sxy/:type",
+      "fullPath": "/zzu/sxy/:type",
+      "name": "郑大商学院",
+      "example": "/zzu/sxy/xyxw",
+      "description": "| 学院新闻 | 通知公告 | 教学科研 | 党工团学 | 讲座报告 | 学者观点 |\n| -------- | -------- | -------- | -------- | -------- | -------- |\n| xyxw     | tzgg     | jxky     | dgtx     | jzbg     | xzgd     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www5.zzu.edu.cn/sxy/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/tzhb/:type",
+      "fullPath": "/zzu/tzhb/:type",
+      "name": "郑大党委统战部",
+      "example": "/zzu/tzhb/gzdt",
+      "description": "| 工作动态 | 通知公告 |\n| -------- | -------- |\n| gzdt     | tzgg     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www5.zzu.edu.cn/tzhb/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/xbx/:type",
+      "fullPath": "/zzu/xbx/:type",
+      "name": "郑大校长办",
+      "example": "/zzu/xbx/xwzx",
+      "description": "| 新闻资讯 | 通知公告 |\n| -------- | -------- |\n| xwzx     | tzgg     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www5.zzu.edu.cn/xbx/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/xuan/:type",
+      "fullPath": "/zzu/xuan/:type",
+      "name": "郑大党委宣传部",
+      "example": "/zzu/xuan/gzdt",
+      "description": "| 工作动态 | 通知公告 |\n| -------- | -------- |\n| gzdt     | tzgg     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www5.zzu.edu.cn/xuan/"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "zzu",
+      "namespaceName": "郑州大学",
+      "namespaceUrl": "www.zzu.edu.cn",
+      "path": "/zcycwb/:type",
+      "fullPath": "/zzu/zcycwb/:type",
+      "name": "郑大资产与财务部",
+      "example": "/zzu/zcycwb/xwzx",
+      "description": "| 新闻资讯 | 通知公告 |\n| -------- | -------- |\n| xwzx     | tzgg     |",
+      "parameters": {
+        "type": "分类名"
+      },
+      "maintainers": [
+        "amandus1990"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www5.zzu.edu.cn/zcycwb/"
           ]
         }
       ],

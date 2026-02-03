@@ -3,7 +3,7 @@
   "displayName": "New media",
   "displayNameZh": "新媒体",
   "icon": "📱",
-  "count": 433,
+  "count": 435,
   "routes": [
     {
       "namespace": "10000link",
@@ -18868,6 +18868,41 @@
       "lang": "zh-CN"
     },
     {
+      "namespace": "quantamagazine",
+      "namespaceName": "Quanta Magazine",
+      "namespaceUrl": "quantamagazine.org",
+      "path": "/archive",
+      "fullPath": "/quantamagazine/archive",
+      "name": "Archive",
+      "example": "/quantamagazine/archive",
+      "description": "Get the latest articles from Quanta Magazine.",
+      "parameters": {},
+      "maintainers": [
+        "emdoe"
+      ],
+      "categories": [
+        "new-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "quantamagazine.org"
+          ],
+          "target": "/archive"
+        }
+      ],
+      "lang": "en"
+    },
+    {
       "namespace": "questmobile",
       "namespaceName": "QuestMobile",
       "namespaceUrl": "questmobile.com.cn",
@@ -19698,6 +19733,68 @@
         "supportPodcast": false,
         "supportScihub": false
       },
+      "lang": "en"
+    },
+    {
+      "namespace": "slashdot",
+      "namespaceName": "Slashdot",
+      "namespaceUrl": "slashdot.org",
+      "path": "/:section?",
+      "fullPath": "/slashdot/:section?",
+      "name": "News",
+      "example": "/slashdot",
+      "parameters": {
+        "section": "Section name, can be found in the URL host, leave empty for the main page"
+      },
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "new-media"
+      ],
+      "radar": [
+        {
+          "source": [
+            "slashdot.org"
+          ]
+        },
+        {
+          "source": [
+            "devices.slashdot.org"
+          ],
+          "target": "/devices"
+        },
+        {
+          "source": [
+            "build.slashdot.org"
+          ],
+          "target": "/build"
+        },
+        {
+          "source": [
+            "entertainment.slashdot.org"
+          ],
+          "target": "/entertainment"
+        },
+        {
+          "source": [
+            "technology.slashdot.org"
+          ],
+          "target": "/technology"
+        },
+        {
+          "source": [
+            "science.slashdot.org"
+          ],
+          "target": "/science"
+        },
+        {
+          "source": [
+            "yro.slashdot.org"
+          ],
+          "target": "/yro"
+        }
+      ],
       "lang": "en"
     },
     {

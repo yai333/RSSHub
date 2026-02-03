@@ -165,7 +165,8 @@
       "example": "/baoyu/blog",
       "description": "宝玉 - 博客文章",
       "maintainers": [
-        "liyaozhong"
+        "liyaozhong",
+        "Circloud"
       ],
       "categories": [
         "blog"

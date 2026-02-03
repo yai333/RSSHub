@@ -3,7 +3,7 @@
   "displayName": "Application Updates",
   "displayNameZh": "程序更新",
   "icon": "🔄",
-  "count": 103,
+  "count": 106,
   "routes": [
     {
       "namespace": "423down",
@@ -2201,6 +2201,41 @@
       "lang": "en"
     },
     {
+      "namespace": "gitkraken",
+      "namespaceName": "GitKraken",
+      "namespaceUrl": "gitkraken.com",
+      "path": "/release-note",
+      "fullPath": "/gitkraken/release-note",
+      "name": "Release Notes",
+      "example": "/gitkraken/release-note",
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "program-update"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "help.gitkraken.com/gitkraken-desktop/current/"
+          ]
+        },
+        {
+          "source": [
+            "www.gitkraken.com/"
+          ]
+        }
+      ]
+    },
+    {
       "namespace": "gofans",
       "namespaceName": "GoFans",
       "namespaceUrl": "gofans.cn",
@@ -3271,12 +3306,37 @@
       "namespace": "openai",
       "namespaceName": "OpenAI",
       "namespaceUrl": "openai.com",
+      "path": "/chatgpt-atlas/release-notes",
+      "fullPath": "/openai/chatgpt-atlas/release-notes",
+      "name": "ChatGPT Atlas - Release Notes",
+      "example": "/openai/chatgpt-atlas/release-notes",
+      "maintainers": [
+        "xbot"
+      ],
+      "categories": [
+        "program-update"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "lang": "en"
+    },
+    {
+      "namespace": "openai",
+      "namespaceName": "OpenAI",
+      "namespaceUrl": "openai.com",
       "path": "/chatgpt/release-notes",
       "fullPath": "/openai/chatgpt/release-notes",
       "name": "ChatGPT - Release Notes",
       "example": "/openai/chatgpt/release-notes",
-      "parameters": {},
-      "maintainers": [],
+      "maintainers": [
+        "xbot"
+      ],
       "categories": [
         "program-update"
       ],
@@ -3792,6 +3852,31 @@
             "tradingview.com/pine-script-docs/en/:version/Release_notes.html"
           ],
           "target": "/pine/:version"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "typeless",
+      "namespaceName": "Typeless",
+      "namespaceUrl": "typeless.com",
+      "path": "/changelog",
+      "fullPath": "/typeless/changelog",
+      "name": "Changelog",
+      "example": "/typeless/changelog",
+      "maintainers": [
+        "TonyRL"
+      ],
+      "categories": [
+        "program-update"
+      ],
+      "radar": [
+        {
+          "source": [
+            "www.typeless.com/help/release-notes/*",
+            "www.typeless.com/help/release-notes",
+            "www.typeless.com"
+          ]
         }
       ],
       "lang": "en"

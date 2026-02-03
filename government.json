@@ -3,7 +3,7 @@
   "displayName": "Government",
   "displayNameZh": "政务消息",
   "icon": "📢",
-  "count": 169,
+  "count": 170,
   "routes": [
     {
       "namespace": "12371",
@@ -2869,6 +2869,41 @@
       "namespace": "gov",
       "namespaceName": "深圳市罗湖区人民政府",
       "namespaceUrl": "www.szlh.gov.cn",
+      "path": "/guizhou/jyt/tzgg",
+      "fullPath": "/gov/guizhou/jyt/tzgg",
+      "name": "贵州省教育厅 - 通知公告",
+      "example": "/gov/guizhou/jyt/tzgg",
+      "description": "贵州省教育厅官方网站通知公告RSS源",
+      "parameters": {},
+      "maintainers": [
+        "sheetung"
+      ],
+      "categories": [
+        "government"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "jyt.guizhou.gov.cn/zwgk/tzgg/",
+            "jyt.guizhou.gov.cn/zwgk/tzgg/index.html"
+          ],
+          "target": "/guizhou/jyt/tzgg"
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "gov",
+      "namespaceName": "深圳市罗湖区人民政府",
+      "namespaceUrl": "www.szlh.gov.cn",
       "path": "/gz/:channel/:category",
       "fullPath": "/gov/gz/:channel/:category",
       "name": "Unknown",
@@ -5204,12 +5239,70 @@
       "namespace": "gov",
       "namespaceName": "深圳市罗湖区人民政府",
       "namespaceUrl": "www.szlh.gov.cn",
-      "path": "/nea/sjzz/ghs",
-      "fullPath": "/gov/nea/sjzz/ghs",
-      "name": "发展规划司",
+      "path": "/nea/sjzz/:bureau",
+      "fullPath": "/gov/nea/sjzz/:bureau",
+      "name": "司工作进展",
       "example": "/gov/nea/sjzz/ghs",
       "description": "",
-      "parameters": {},
+      "parameters": {
+        "bureau": {
+          "description": "司局",
+          "options": [
+            {
+              "value": "zhs",
+              "label": "综合司"
+            },
+            {
+              "value": "fgs",
+              "label": "法改司"
+            },
+            {
+              "value": "ghs",
+              "label": "规划司"
+            },
+            {
+              "value": "kjs",
+              "label": "科技司"
+            },
+            {
+              "value": "dls",
+              "label": "电力司"
+            },
+            {
+              "value": "hds",
+              "label": "核电司"
+            },
+            {
+              "value": "mts",
+              "label": "煤炭司"
+            },
+            {
+              "value": "yqs",
+              "label": "油气司"
+            },
+            {
+              "value": "xny",
+              "label": "新能源司"
+            },
+            {
+              "value": "jgs",
+              "label": "监管司"
+            },
+            {
+              "value": "aqs",
+              "label": "安全司"
+            },
+            {
+              "value": "gjs",
+              "label": "国际司"
+            },
+            {
+              "value": "jgdw",
+              "label": "机关党委（人事司）"
+            }
+          ]
+        }
+      },
       "maintainers": [
         "nczitzk",
         "pseudoyu"
@@ -5228,9 +5321,9 @@
       "radar": [
         {
           "source": [
-            "nea.gov.cn/sjzz/ghs/"
+            "nea.gov.cn/sjzz/:bureau/index.htm"
           ],
-          "target": "/nea/sjzz/ghs"
+          "target": "/nea/sjzz/:bureau"
         }
       ],
       "lang": "zh-CN"
