@@ -479,6 +479,7 @@ export type RoutePath =
   | `/ccf/tfbd/:caty/:id`
   | `/ccfa/:type?`
   | `/ccg/:category?`
+  | `/ccmn/price-adjustment/:category`
   | `/ccnu/career`
   | `/ccnu/cs`
   | `/ccnu/wu`
@@ -915,6 +916,7 @@ export type RoutePath =
   | `/ehentai/search/:params?/:page?/:routeParams?`
   | `/ehentai/tag/:tag/:page?/:routeParams?`
   | `/ekantipur/:channel?`
+  | `/elamigos/games`
   | `/elasticsearch-cn/:params?`
   | `/elecfans/article/:atype`
   | `/elecfans/soft/:atype`
@@ -942,6 +944,8 @@ export type RoutePath =
   | `/everia/tag/:tag`
   | `/expats/czech-news/:category?`
   | `/f-droid/apprelease/:app`
+  | `/f95zone/post/:thread/:postId`
+  | `/f95zone/thread/:thread`
   | `/famitsu/category/:category?`
   | `/fanbox/:creator`
   | `/fangchan/list/:id?`
@@ -1416,6 +1420,7 @@ export type RoutePath =
   | `/huggingface/daily-papers/:cycle?/:voteFliter?`
   | `/huggingface/models/:group`
   | `/huijin-inv/news`
+  | `/huitun/xiaohongshu/:user_id`
   | `/hunanpea/rsks/:guid`
   | `/hunau/gfxy/:category?/:page?`
   | `/hunau/ied/:type?/:category?/:page?`
@@ -2509,6 +2514,7 @@ export type RoutePath =
   | `/sina/csj`
   | `/sina/discovery/:type`
   | `/sina/finance/china/:lid?`
+  | `/sina/finance/rollnews/:lid?`
   | `/sina/finance/stock/usstock/:cids?`
   | `/sina/rollnews/:lid?`
   | `/sina/sports/:type?`
@@ -2543,6 +2549,9 @@ export type RoutePath =
   | `/smzdm/keyword/:keyword`
   | `/smzdm/product/:id`
   | `/smzdm/ranking/:rank_type/:rank_id/:hour`
+  | `/snnu/`
+  | `/snnu/ccs/:type?`
+  | `/snnu/yjs`
   | `/snowpeak/us/new-arrivals`
   | `/sobooks/:category?`
   | `/sobooks/date/:date?`
@@ -2675,6 +2684,7 @@ export type RoutePath =
   | `/taptap/review/:id/:order?/:lang?`
   | `/taptap/topic/:id/:type?/:sort?/:lang?`
   | `/tass/:category?`
+  | `/tctmd/conference-news`
   | `/techcrunch/category/:categoryId`
   | `/techcrunch/news`
   | `/techflowpost/`

@@ -3,7 +3,7 @@
   "displayName": "Scientific Journal",
   "displayNameZh": "科学期刊",
   "icon": "🔬",
-  "count": 59,
+  "count": 60,
   "routes": [
     {
       "namespace": "academia",
@@ -2782,6 +2782,39 @@
         {
           "source": [
             "www.springer.com/journal/:journal/*"
+          ]
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "namespace": "tctmd",
+      "namespaceName": "TCTMD",
+      "namespaceUrl": "www.tctmd.com",
+      "path": "/conference-news",
+      "fullPath": "/tctmd/conference-news",
+      "name": "Conference News",
+      "example": "/tctmd/conference-news",
+      "description": "Cardiovascular news, education, and clinical trial coverage from the Cardiovascular Research Foundation",
+      "parameters": {},
+      "maintainers": [
+        "ChuYinan2023"
+      ],
+      "categories": [
+        "journal"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.tctmd.com/news/conference-news"
           ]
         }
       ],

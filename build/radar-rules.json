@@ -9989,6 +9989,75 @@
       }
     ]
   },
+  "ccmn.cn": {
+    "_name": "长江有色网",
+    "copper": [
+      {
+        "title": "调价动态",
+        "docs": "https://docs.rsshub.app/routes/other",
+        "source": [
+          "/:suffix",
+          "/:suffix/:subsuffix"
+        ],
+        "target": "/ccmn/price-adjustment/copper"
+      }
+    ],
+    "alu": [
+      {
+        "title": "调价动态",
+        "docs": "https://docs.rsshub.app/routes/other",
+        "source": [
+          "/:suffix",
+          "/:suffix/:subsuffix"
+        ],
+        "target": "/ccmn/price-adjustment/alu"
+      }
+    ],
+    "zn": [
+      {
+        "title": "调价动态",
+        "docs": "https://docs.rsshub.app/routes/other",
+        "source": [
+          "/:suffix",
+          "/:suffix/:subsuffix"
+        ],
+        "target": "/ccmn/price-adjustment/zn"
+      }
+    ],
+    "sn": [
+      {
+        "title": "调价动态",
+        "docs": "https://docs.rsshub.app/routes/other",
+        "source": [
+          "/:suffix",
+          "/:suffix/:subsuffix"
+        ],
+        "target": "/ccmn/price-adjustment/sn"
+      }
+    ],
+    "pb": [
+      {
+        "title": "调价动态",
+        "docs": "https://docs.rsshub.app/routes/other",
+        "source": [
+          "/:suffix",
+          "/:suffix/:subsuffix"
+        ],
+        "target": "/ccmn/price-adjustment/pb"
+      }
+    ],
+    "ni": [
+      {
+        "title": "调价动态",
+        "docs": "https://docs.rsshub.app/routes/other",
+        "source": [
+          "/:suffix",
+          "/:suffix/:subsuffix"
+        ],
+        "target": "/ccmn/price-adjustment/ni"
+      }
+    ]
+  },
   "91wllm.com": {
     "_name": "华中师范大学",
     "ccnu": [
@@ -16024,6 +16093,20 @@
       }
     ]
   },
+  "elamigos.site": {
+    "_name": "ElAmigos",
+    ".": [
+      {
+        "title": "Releases",
+        "docs": "https://docs.rsshub.app/routes/game",
+        "source": [
+          "/",
+          "/index.html"
+        ],
+        "target": "/elamigos/games"
+      }
+    ]
+  },
   "elasticsearch.cn": {
     "_name": "Elastic 中文社区",
     ".": [
@@ -16441,6 +16524,19 @@
           "/en/packages/:app/"
         ],
         "target": "/f-droid/apprelease/:app"
+      }
+    ]
+  },
+  "f95zone.to": {
+    "_name": "F95zone",
+    ".": [
+      {
+        "title": "Thread",
+        "docs": "https://docs.rsshub.app/routes/game",
+        "source": [
+          "/threads/:thread/*"
+        ],
+        "target": "/f95zone/thread/:thread"
       }
     ]
   },
@@ -41568,6 +41664,15 @@
         "target": "/sina/finance/china"
       },
       {
+        "title": "财经－滚动新闻",
+        "docs": "https://docs.rsshub.app/routes/new-media",
+        "source": [
+          "/roll",
+          "/"
+        ],
+        "target": "/sina/finance/rollnews"
+      },
+      {
         "title": "美股",
         "docs": "https://docs.rsshub.app/routes/new-media",
         "source": [
@@ -41995,6 +42100,55 @@
           "/p/:id"
         ],
         "target": "/smzdm/product/:id"
+      }
+    ]
+  },
+  "snnu.edu.cn": {
+    "_name": "Shaanxi Normal University",
+    "ccs": [
+      {
+        "title": "计算机科学学院",
+        "docs": "https://docs.rsshub.app/routes/university",
+        "source": [
+          "/tzgg/zhgl1.htm"
+        ],
+        "target": "/snnu/ccs/tzgg"
+      },
+      {
+        "title": "计算机科学学院",
+        "docs": "https://docs.rsshub.app/routes/university",
+        "source": [
+          "/xydt/zhxw1.htm"
+        ],
+        "target": "/snnu/ccs/news"
+      },
+      {
+        "title": "计算机科学学院",
+        "docs": "https://docs.rsshub.app/routes/university",
+        "source": [
+          "/xssq/xshd.htm"
+        ],
+        "target": "/snnu/ccs/xshd"
+      }
+    ],
+    "www": [
+      {
+        "title": "学校官网 - 通知公告",
+        "docs": "https://docs.rsshub.app/routes/university",
+        "source": [
+          "/tzgg.htm"
+        ],
+        "target": "/snnu/"
+      }
+    ],
+    "newyjs": [
+      {
+        "title": "研究生院通知公告",
+        "docs": "https://docs.rsshub.app/routes/university",
+        "source": [
+          "/tzgg1.htm"
+        ],
+        "target": "/snnu/yjs"
       }
     ]
   },
@@ -44485,6 +44639,19 @@
           "/:category"
         ],
         "target": "/tass/:category"
+      }
+    ]
+  },
+  "tctmd.com": {
+    "_name": "TCTMD",
+    "www": [
+      {
+        "title": "Conference News",
+        "docs": "https://docs.rsshub.app/routes/journal",
+        "source": [
+          "/news/conference-news"
+        ],
+        "target": "/tctmd/conference-news"
       }
     ]
   },

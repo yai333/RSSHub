@@ -3052,7 +3052,8 @@
         "multimedia"
       ],
       "features": {
-        "nsfw": true
+        "nsfw": true,
+        "requirePuppeteer": true
       },
       "radar": [
         {
@@ -3081,7 +3082,8 @@
         "multimedia"
       ],
       "features": {
-        "nsfw": true
+        "nsfw": true,
+        "requirePuppeteer": true
       },
       "radar": [
         {
@@ -3110,7 +3112,8 @@
         "multimedia"
       ],
       "features": {
-        "nsfw": true
+        "nsfw": true,
+        "requirePuppeteer": true
       },
       "radar": [
         {

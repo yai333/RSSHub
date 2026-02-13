@@ -3,7 +3,7 @@
   "displayName": "University",
   "displayNameZh": "大学通知",
   "icon": "🎓",
-  "count": 458,
+  "count": 461,
   "routes": [
     {
       "namespace": "ahjzu",
@@ -11938,6 +11938,117 @@
         "supportScihub": false
       },
       "lang": "zh-CN"
+    },
+    {
+      "namespace": "snnu",
+      "namespaceName": "Shaanxi Normal University",
+      "namespaceUrl": "snnu.edu.cn",
+      "path": "/",
+      "fullPath": "/snnu/",
+      "name": "学校官网 - 通知公告",
+      "example": "/snnu",
+      "maintainers": [
+        "alterkeyy"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "www.snnu.edu.cn/tzgg.htm"
+          ],
+          "target": "/"
+        }
+      ]
+    },
+    {
+      "namespace": "snnu",
+      "namespaceName": "Shaanxi Normal University",
+      "namespaceUrl": "snnu.edu.cn",
+      "path": "/ccs/:type?",
+      "fullPath": "/snnu/ccs/:type?",
+      "name": "计算机科学学院",
+      "example": "/snnu/ccs",
+      "parameters": {
+        "type": "类型，默认为通知公告 (tzgg)，可选学院动态 (news)、学术活动 (xshd)"
+      },
+      "maintainers": [
+        "alterkeyy"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "ccs.snnu.edu.cn/tzgg/zhgl1.htm"
+          ],
+          "target": "/ccs/tzgg"
+        },
+        {
+          "source": [
+            "ccs.snnu.edu.cn/xydt/zhxw1.htm"
+          ],
+          "target": "/ccs/news"
+        },
+        {
+          "source": [
+            "ccs.snnu.edu.cn/xssq/xshd.htm"
+          ],
+          "target": "/ccs/xshd"
+        }
+      ]
+    },
+    {
+      "namespace": "snnu",
+      "namespaceName": "Shaanxi Normal University",
+      "namespaceUrl": "snnu.edu.cn",
+      "path": "/yjs",
+      "fullPath": "/snnu/yjs",
+      "name": "研究生院通知公告",
+      "example": "/snnu/yjs",
+      "maintainers": [
+        "alterkeyy"
+      ],
+      "categories": [
+        "university"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportRadar": true,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "newyjs.snnu.edu.cn/tzgg1.htm"
+          ],
+          "target": "/yjs"
+        }
+      ]
     },
     {
       "namespace": "sqmc",

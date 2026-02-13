@@ -1,26 +1,26 @@
 {
   "totalCategories": 24,
-  "totalRoutes": 3219,
-  "generatedAt": "2026-02-03T08:58:47.752Z",
+  "totalRoutes": 3229,
+  "generatedAt": "2026-02-13T05:52:49.440Z",
   "categories": [
     {
       "category": "University",
-      "count": 458,
+      "count": 461,
       "file": "university.json"
     },
     {
       "category": "New media",
-      "count": 435,
+      "count": 436,
       "file": "new-media.json"
     },
     {
       "category": "Social Media",
-      "count": 252,
+      "count": 253,
       "file": "social-media.json"
     },
     {
       "category": "Uncategorized",
-      "count": 241,
+      "count": 242,
       "file": "other.json"
     },
     {
@@ -50,7 +50,7 @@
     },
     {
       "category": "Gaming",
-      "count": 142,
+      "count": 145,
       "file": "game.json"
     },
     {
@@ -90,7 +90,7 @@
     },
     {
       "category": "Scientific Journal",
-      "count": 59,
+      "count": 60,
       "file": "journal.json"
     },
     {

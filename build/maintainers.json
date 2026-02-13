@@ -1448,6 +1448,9 @@
   "/ccg/:category?": [
     "nczitzk"
   ],
+  "/ccmn/price-adjustment/:category": [
+    "chrisis58"
+  ],
   "/ccnu/career": [
     "jackyu1996"
   ],
@@ -2811,6 +2814,9 @@
   "/ekantipur/:channel?": [
     "maniche04"
   ],
+  "/elamigos/games": [
+    "Kylon92"
+  ],
   "/elasticsearch-cn/:params?": [
     "nczitzk"
   ],
@@ -2892,6 +2898,12 @@
   ],
   "/f-droid/apprelease/:app": [
     "garywill"
+  ],
+  "/f95zone/post/:thread/:postId": [
+    "wsmbsbbz"
+  ],
+  "/f95zone/thread/:thread": [
+    "wsmbsbbz"
   ],
   "/famitsu/category/:category?": [
     "TonyRL"
@@ -4320,6 +4332,9 @@
   ],
   "/huijin-inv/news": [
     "la3rence"
+  ],
+  "/huitun/xiaohongshu/:user_id": [
+    "Skylwn"
   ],
   "/hunanpea/rsks/:guid": [
     "TonyRL"
@@ -7700,6 +7715,9 @@
   "/sina/finance/china/:lid?": [
     "yubinbai"
   ],
+  "/sina/finance/rollnews/:lid?": [
+    "betterandbetterii"
+  ],
   "/sina/finance/stock/usstock/:cids?": [
     "TonyRL"
   ],
@@ -7801,6 +7819,15 @@
   ],
   "/smzdm/ranking/:rank_type/:rank_id/:hour": [
     "DIYgod"
+  ],
+  "/snnu/ccs/:type?": [
+    "alterkeyy"
+  ],
+  "/snnu/": [
+    "alterkeyy"
+  ],
+  "/snnu/yjs": [
+    "alterkeyy"
   ],
   "/snowpeak/us/new-arrivals": [
     "EthanWng97"
@@ -8213,6 +8240,9 @@
   ],
   "/tass/:category?": [
     "TonyRL"
+  ],
+  "/tctmd/conference-news": [
+    "ChuYinan2023"
   ],
   "/techcrunch/category/:categoryId": [
     "MilliumOrion"
