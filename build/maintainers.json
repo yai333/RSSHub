@@ -184,6 +184,9 @@
   "/423down/:category{.+}?": [
     "nczitzk"
   ],
+  "/4chan/:board/catalog/:routeParams?": [
+    "heisenshark"
+  ],
   "/4gamers/": [
     "TonyRL"
   ],
@@ -274,7 +277,9 @@
   "/7mmtv/:language?/:category?/:type?": [
     "nczitzk"
   ],
-  "/8kcos/cat/:cat{.+}?": [],
+  "/8kcos/cat/:cat?": [
+    "KotoriK"
+  ],
   "/8kcos/": [
     "KotoriK"
   ],
@@ -672,6 +677,9 @@
   "/artstation/:handle": [
     "TonyRL"
   ],
+  "/aschmelyun/blog": [
+    "raxod502"
+  ],
   "/asiafruitchina/categories/:category?": [
     "nczitzk"
   ],
@@ -844,6 +852,15 @@
   "/bbc/learningenglish/:channel?": [
     "Blank0120"
   ],
+  "/bbc/sport/:sport": [
+    "TonyRL"
+  ],
+  "/bbc/zhongwen/topics/:topic/:variant?": [
+    "TonyRL"
+  ],
+  "/bbc/topics/:topic": [
+    "TonyRL"
+  ],
   "/bbcnewslabs/news": [
     "elxy"
   ],
@@ -867,6 +884,9 @@
   ],
   "/bestblogs/feeds/:category?": [
     "zhenlohuang"
+  ],
+  "/bestblogs/newsletter": [
+    "occam-7"
   ],
   "/bestofjs/rankings/monthly": [
     "ztkuaikuai"
@@ -1860,6 +1880,12 @@
   "/collabo-cafe/tag/:tag": [
     "cokemine"
   ],
+  "/comic-fuz/magazine/:id": [
+    "xiaobailoves"
+  ],
+  "/comic-fuz/manga/:id": [
+    "xiaobailoves"
+  ],
   "/comicat/search/:keyword": [
     "Cyang39"
   ],
@@ -2501,6 +2527,9 @@
   ],
   "/douban/people/:userid/wish/:routeParams?": [
     "exherb"
+  ],
+  "/douban/tv/coming/:sortBy?/:count?": [
+    "honue"
   ],
   "/douyin/hashtag/:cid/:routeParams?": [
     "TonyRL"
@@ -3262,6 +3291,9 @@
   "/gamersky/review/:type?": [
     "yy4382"
   ],
+  "/gamersky/user/:userId/:detail?": [
+    "hualiong"
+  ],
   "/gamme/:domain/:category?": [],
   "/gamme/:domain/tag/:tag": [],
   "/ganjingworld/channel/articles/:id": [
@@ -3312,6 +3344,12 @@
   ],
   "/gcores/topics/recommend": [
     "nczitzk"
+  ],
+  "/gcores/users/:id/radios": [
+    "DzmingLi"
+  ],
+  "/gcores/users/:id/talks": [
+    "DzmingLi"
   ],
   "/gcores/videos": [
     "nczitzk"
@@ -4695,6 +4733,9 @@
   "/iwara/users/:username/:type?": [
     "Fatpandac"
   ],
+  "/iwara/ranking/:type?/:sort?/:rating?": [
+    "CaoMeiYouRen233"
+  ],
   "/iwara/subscriptions": [
     "FeCCC"
   ],
@@ -5211,6 +5252,9 @@
   "/lens/profile/:handle": [
     "DIYgod"
   ],
+  "/lephoceen/chrono": [
+    "Loopy03"
+  ],
   "/letterboxd/:username/watchlist": [
     "johan456789"
   ],
@@ -5551,6 +5595,9 @@
   "/mercari/search/:query": [
     "yana9i",
     "Tsuyumi25"
+  ],
+  "/meritalk/articles": [
+    "superguyDiluc"
   ],
   "/meta/ai/blog": [
     "TonyRL"
@@ -5904,7 +5951,8 @@
     "LyleLee"
   ],
   "/ncu/jwc": [
-    "ywh555hhh"
+    "ywh555hhh",
+    "jixiuweilan"
   ],
   "/ncwu/notice": [],
   "/ndss-symposium/ndss": [
@@ -6482,7 +6530,8 @@
     "nczitzk"
   ],
   "/openai/research": [
-    "yuguorui"
+    "yuguorui",
+    "chesha1"
   ],
   "/openalex/:journals/:type?/:ids?": [
     "emdoe"
@@ -7151,15 +7200,6 @@
   ],
   "/radio-canada/latest/:language?": [
     "nczitzk"
-  ],
-  "/radiostations/stations/:region?": [
-    "yai333"
-  ],
-  "/radiostations/submissions": [
-    "yai333"
-  ],
-  "/radiostations/submit": [
-    "yai333"
   ],
   "/railway/blog": [
     "jihuayu"
@@ -8412,6 +8452,9 @@
     "HenryQW",
     "nczitzk",
     "bigfei"
+  ],
+  "/thepaper/gov/:pphId": [
+    "occam-7"
   ],
   "/thepaper/list/:id": [
     "nczitzk",
