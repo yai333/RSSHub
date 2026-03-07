@@ -3,7 +3,7 @@
   "displayName": "Programming",
   "displayNameZh": "编程",
   "icon": "💻",
-  "count": 213,
+  "count": 209,
   "routes": [
     {
       "namespace": "30secondsofcode",
@@ -1032,79 +1032,6 @@
       "lang": "en"
     },
     {
-      "namespace": "codefather",
-      "namespaceName": "编程导航",
-      "namespaceUrl": "www.codefather.cn",
-      "path": "/posts/:category?/:sort?",
-      "fullPath": "/codefather/posts/:category?/:sort?",
-      "name": "帖子",
-      "example": "/codefather/posts",
-      "description": "获取编程导航社区的帖子，支持按热门、最新、推荐排序，支持按分类筛选。",
-      "parameters": {
-        "category": "分类，可选 `交流`、`学习`、`项目`、`资源`、`经验`，默认为全部",
-        "sort": "排序方式，可选 `new`（最新）、`hot`（热门）、`recommend`（推荐），默认为 `new`"
-      },
-      "maintainers": [
-        "JackyST0"
-      ],
-      "categories": [
-        "programming"
-      ],
-      "features": {
-        "requireConfig": false,
-        "requirePuppeteer": false,
-        "antiCrawler": false,
-        "supportBT": false,
-        "supportPodcast": false,
-        "supportScihub": false
-      },
-      "radar": [
-        {
-          "source": [
-            "www.codefather.cn/",
-            "www.codefather.cn"
-          ],
-          "target": "/posts"
-        }
-      ]
-    },
-    {
-      "namespace": "codefather",
-      "namespaceName": "编程导航",
-      "namespaceUrl": "www.codefather.cn",
-      "path": "/questions/:sort?",
-      "fullPath": "/codefather/questions/:sort?",
-      "name": "问答",
-      "example": "/codefather/questions",
-      "description": "获取编程导航社区的问答内容，支持按最新、热门排序。",
-      "parameters": {
-        "sort": "排序方式，可选 `new`（最新）、`hot`（热门），默认为 `new`"
-      },
-      "maintainers": [
-        "JackyST0"
-      ],
-      "categories": [
-        "programming"
-      ],
-      "features": {
-        "requireConfig": false,
-        "requirePuppeteer": false,
-        "antiCrawler": false,
-        "supportBT": false,
-        "supportPodcast": false,
-        "supportScihub": false
-      },
-      "radar": [
-        {
-          "source": [
-            "www.codefather.cn/qa",
-            "www.codefather.cn"
-          ],
-          "target": "/questions"
-        }
-      ]
-    },
-    {
       "namespace": "codeforces",
       "namespaceName": "Codeforces",
       "namespaceUrl": "codeforces.com",
@@ -1417,110 +1344,6 @@
           ],
           "target": "/news/mergers-and-acquisitions-report",
           "title": "M&A Tracker"
-        }
-      ],
-      "lang": "en"
-    },
-    {
-      "namespace": "dailypush",
-      "namespaceName": "DailyPush",
-      "namespaceUrl": "dailypush.dev",
-      "path": "/:sort?",
-      "fullPath": "/dailypush/:sort?",
-      "name": "All",
-      "example": "/dailypush/latest",
-      "description": "DailyPush aggregates trending dev articles from 200+ blogs, ranked by community signals from Hacker News, Reddit, X & more.",
-      "parameters": {
-        "sort": {
-          "description": "Sort order: `` (trending, default) or `latest`",
-          "default": "",
-          "options": [
-            {
-              "value": "",
-              "label": "Trending"
-            },
-            {
-              "value": "latest",
-              "label": "Latest"
-            }
-          ]
-        }
-      },
-      "maintainers": [
-        "TheGeeKing"
-      ],
-      "categories": [
-        "programming"
-      ],
-      "features": {
-        "requireConfig": false,
-        "requirePuppeteer": false,
-        "antiCrawler": false,
-        "supportBT": false,
-        "supportPodcast": false,
-        "supportScihub": false
-      },
-      "radar": [
-        {
-          "source": [
-            "dailypush.dev/",
-            "dailypush.dev/latest"
-          ],
-          "target": "/"
-        }
-      ],
-      "lang": "en"
-    },
-    {
-      "namespace": "dailypush",
-      "namespaceName": "DailyPush",
-      "namespaceUrl": "dailypush.dev",
-      "path": "/tag/:tag/:sort?",
-      "fullPath": "/dailypush/tag/:tag/:sort?",
-      "name": "Tag",
-      "example": "/dailypush/tag/backend/trending",
-      "description": "DailyPush aggregates trending dev articles from 200+ blogs, ranked by community signals from Hacker News, Reddit, X & more.",
-      "parameters": {
-        "tag": {
-          "description": "Tag name"
-        },
-        "sort": {
-          "description": "Sort order: `trending` (default) or `latest`",
-          "default": "trending",
-          "options": [
-            {
-              "value": "trending",
-              "label": "Trending"
-            },
-            {
-              "value": "latest",
-              "label": "Latest"
-            }
-          ]
-        }
-      },
-      "maintainers": [
-        "TheGeeKing"
-      ],
-      "categories": [
-        "programming"
-      ],
-      "features": {
-        "requireConfig": false,
-        "requirePuppeteer": false,
-        "antiCrawler": false,
-        "supportBT": false,
-        "supportPodcast": false,
-        "supportScihub": false
-      },
-      "radar": [
-        {
-          "source": [
-            "dailypush.dev/:tag/trending",
-            "dailypush.dev/:tag/latest",
-            "dailypush.dev/:tag"
-          ],
-          "target": "/tag/:tag/:sort?"
         }
       ],
       "lang": "en"
@@ -5375,43 +5198,6 @@
       "lang": "zh-CN"
     },
     {
-      "namespace": "lancedb",
-      "namespaceName": "LanceDB",
-      "namespaceUrl": "lancedb.com",
-      "path": "/blog/:category?",
-      "fullPath": "/lancedb/blog/:category?",
-      "name": "Blog",
-      "example": "/lancedb/blog",
-      "description": "",
-      "parameters": {
-        "category": "filter blog post by category, return all posts if not specified"
-      },
-      "maintainers": [
-        "HUSTERGS"
-      ],
-      "categories": [
-        "programming"
-      ],
-      "features": {
-        "requireConfig": false,
-        "requirePuppeteer": false,
-        "antiCrawler": false,
-        "supportBT": false,
-        "supportPodcast": false,
-        "supportScihub": false
-      },
-      "radar": [
-        {
-          "source": [
-            "lancedb.com/blog",
-            "lancedb.com/blog/category/:category"
-          ],
-          "target": "/blog/:category"
-        }
-      ],
-      "lang": "en"
-    },
-    {
       "namespace": "lanqiao",
       "namespaceName": "蓝桥云课",
       "namespaceUrl": "lanqiao.cn",
@@ -6494,99 +6280,10 @@
       "path": "/news/:category?",
       "fullPath": "/oschina/news/:category?",
       "name": "资讯",
-      "example": "/oschina/news",
-      "description": "OSCHINA",
+      "example": "/oschina/news/project",
+      "description": "| [综合资讯][osc_gen] | [软件更新资讯][osc_proj] | [行业资讯][osc_ind] | [编程语言资讯][osc_pl] |\n| ------------------- | ------------------------ | ------------------- | ---------------------- |\n| industry            | project                  | industry-news       | programming            |\n\n  订阅 [全部板块资讯][osc_all] 可以使用 [https://rsshub.app/oschina/news](https://rsshub.app/oschina/news)\n\n  [osc_all]: https://www.oschina.net/news \"开源中国 - 全部资讯\"\n\n  [osc_gen]: https://www.oschina.net/news/industry \"开源中国 - 综合资讯\"\n\n  [osc_proj]: https://www.oschina.net/news/project \"开源中国 - 软件更新资讯\"\n\n  [osc_ind]: https://www.oschina.net/news/industry-news \"开源中国 - 行业资讯\"\n\n  [osc_pl]: https://www.oschina.net/news/programming \"开源中国 - 编程语言资讯\"",
       "parameters": {
-        "category": {
-          "description": "板块名",
-          "default": "0",
-          "options": [
-            {
-              "value": "0",
-              "label": "全部"
-            },
-            {
-              "value": "1",
-              "label": "开源治理"
-            },
-            {
-              "value": "2",
-              "label": "区块链 & Web3 & 元宇宙"
-            },
-            {
-              "value": "3",
-              "label": "云原生"
-            },
-            {
-              "value": "4",
-              "label": "AI & 大模型"
-            },
-            {
-              "value": "5",
-              "label": "数据库"
-            },
-            {
-              "value": "6",
-              "label": "硬件 & IoT"
-            },
-            {
-              "value": "7",
-              "label": "信息安全"
-            },
-            {
-              "value": "8",
-              "label": "程序人生"
-            },
-            {
-              "value": "9",
-              "label": "DevOps"
-            },
-            {
-              "value": "10",
-              "label": "软件架构"
-            },
-            {
-              "value": "11",
-              "label": "开发技能"
-            },
-            {
-              "value": "12",
-              "label": "大前端"
-            },
-            {
-              "value": "13",
-              "label": "信息安全"
-            },
-            {
-              "value": "14",
-              "label": "软件测试 & 运维"
-            },
-            {
-              "value": "15",
-              "label": "网络技术"
-            },
-            {
-              "value": "16",
-              "label": "游戏开发"
-            },
-            {
-              "value": "17",
-              "label": "多媒体处理"
-            },
-            {
-              "value": "19",
-              "label": "操作系统"
-            },
-            {
-              "value": "9998",
-              "label": "开源资讯"
-            },
-            {
-              "value": "9999",
-              "label": "软件资讯"
-            }
-          ]
-        }
+        "category": "板块名"
       },
       "maintainers": [
         "tgly307",
@@ -6606,9 +6303,9 @@
       "radar": [
         {
           "source": [
-            "oschina.net"
+            "oschina.net/news/:category"
           ],
-          "target": "/news"
+          "target": "/news/:category"
         }
       ],
       "lang": "zh-CN"
@@ -6654,15 +6351,13 @@
       "namespaceUrl": "oschina.net",
       "path": "/u/:uid",
       "fullPath": "/oschina/u/:uid",
-      "name": "用户博客",
+      "name": "数字型账号用户博客",
       "example": "/oschina/u/3920392",
       "description": "OSCHINA",
       "parameters": {
         "uid": "用户 id，可通过查看用户博客网址得到，以 u/数字结尾，数字即为 id"
       },
-      "maintainers": [
-        "dxmpalb"
-      ],
+      "maintainers": [],
       "categories": [
         "programming"
       ],
@@ -6677,8 +6372,40 @@
       "radar": [
         {
           "source": [
-            "my.oschina.net/u/:uid",
-            "my.oschina.net/:uid"
+            "my.oschina.net/u/:uid"
+          ]
+        }
+      ],
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "oschina",
+      "namespaceName": "开源中国",
+      "namespaceUrl": "oschina.net",
+      "path": "/user/:id",
+      "fullPath": "/oschina/user/:id",
+      "name": "数字型账号用户博客",
+      "example": "/oschina/u/3920392",
+      "description": "OSCHINA",
+      "parameters": {
+        "uid": "用户 id，可通过查看用户博客网址得到，以 u/数字结尾，数字即为 id"
+      },
+      "maintainers": [],
+      "categories": [
+        "programming"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "my.oschina.net/u/:uid"
           ]
         }
       ],

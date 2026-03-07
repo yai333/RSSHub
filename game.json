@@ -3,7 +3,7 @@
   "displayName": "Gaming",
   "displayNameZh": "游戏",
   "icon": "🎮",
-  "count": 145,
+  "count": 142,
   "routes": [
     {
       "namespace": "163",
@@ -1009,41 +1009,6 @@
       }
     },
     {
-      "namespace": "elamigos",
-      "namespaceName": "ElAmigos",
-      "namespaceUrl": "elamigos.site",
-      "path": "/games",
-      "fullPath": "/elamigos/games",
-      "name": "Releases",
-      "example": "/elamigos/games",
-      "description": "Latest game releases from ElAmigos",
-      "parameters": {},
-      "maintainers": [
-        "Kylon92"
-      ],
-      "categories": [
-        "game"
-      ],
-      "features": {
-        "requireConfig": false,
-        "requirePuppeteer": false,
-        "antiCrawler": false,
-        "supportBT": false,
-        "supportPodcast": false,
-        "supportScihub": false
-      },
-      "radar": [
-        {
-          "source": [
-            "elamigos.site/",
-            "elamigos.site/index.html"
-          ],
-          "target": "/games"
-        }
-      ],
-      "lang": "en-gb"
-    },
-    {
       "namespace": "epicgames",
       "namespaceName": "Epic Games Store",
       "namespaceUrl": "store.epicgames.com",
@@ -1089,84 +1054,6 @@
         }
       ],
       "lang": "en"
-    },
-    {
-      "namespace": "f95zone",
-      "namespaceName": "F95zone",
-      "namespaceUrl": "f95zone.to",
-      "path": "/post/:thread/:postId",
-      "fullPath": "/f95zone/post/:thread/:postId",
-      "name": "Post",
-      "example": "/f95zone/post/vicineko-collection-2025-06-14-vicineko.84596/post-5909830",
-      "description": "Track content changes of a specific post. Uses the date `[yyyy-mm-dd]` in title for update detection.\n\nURL format: `https://f95zone.to/threads/{thread}/#post-{id}` → replace `#` with `/` to get `/f95zone/post/{thread}/post-{id}`\n\nExample: `https://f95zone.to/threads/vicineko-collection-2025-06-14-vicineko.84596/#post-5909830` → `/f95zone/post/vicineko-collection-2025-06-14-vicineko.84596/post-5909830`\n\nNote: This route does not support Radar auto-detection because the post ID is in the URL hash (after `#`), which cannot be extracted by Radar. You need to manually construct the subscription URL.",
-      "parameters": {
-        "thread": "Thread slug with ID",
-        "postId": "Post ID with `post-` prefix, replace `#` with `/` from browser URL"
-      },
-      "maintainers": [
-        "wsmbsbbz"
-      ],
-      "categories": [
-        "game"
-      ],
-      "features": {
-        "requireConfig": [
-          {
-            "name": "F95ZONE_COOKIE",
-            "optional": true,
-            "description": "F95zone cookie for accessing restricted content."
-          }
-        ],
-        "requirePuppeteer": false,
-        "antiCrawler": false,
-        "supportBT": false,
-        "supportPodcast": false,
-        "supportScihub": false,
-        "nsfw": true
-      },
-      "radar": []
-    },
-    {
-      "namespace": "f95zone",
-      "namespaceName": "F95zone",
-      "namespaceUrl": "f95zone.to",
-      "path": "/thread/:thread",
-      "fullPath": "/f95zone/thread/:thread",
-      "name": "Thread",
-      "example": "/f95zone/thread/ubermation-collection-2026-01-19-uebermation-uebermation.231247",
-      "description": "Track replies in a thread. Fetches the first page and the last page.\n\nURL format: `https://f95zone.to/threads/{thread}/` → use `{thread}` as the parameter.\n\nExample: `https://f95zone.to/threads/ubermation-collection-2026-01-19-uebermation-uebermation.231247/` → `/f95zone/thread/ubermation-collection-2026-01-19-uebermation-uebermation.231247`\n\nNote: If you want to track a specific post's content changes (e.g., first post with download links), use the `/f95zone/post` route instead.",
-      "parameters": {
-        "thread": "Thread slug with ID, copy from browser URL after `/threads/`"
-      },
-      "maintainers": [
-        "wsmbsbbz"
-      ],
-      "categories": [
-        "game"
-      ],
-      "features": {
-        "requireConfig": [
-          {
-            "name": "F95ZONE_COOKIE",
-            "optional": true,
-            "description": "F95zone cookie for accessing restricted content."
-          }
-        ],
-        "requirePuppeteer": false,
-        "antiCrawler": false,
-        "supportBT": false,
-        "supportPodcast": false,
-        "supportScihub": false,
-        "nsfw": true
-      },
-      "radar": [
-        {
-          "source": [
-            "f95zone.to/threads/:thread/*"
-          ],
-          "target": "/thread/:thread"
-        }
-      ]
     },
     {
       "namespace": "famitsu",

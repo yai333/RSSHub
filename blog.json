@@ -3,7 +3,7 @@
   "displayName": "Blog",
   "displayNameZh": "博客",
   "icon": "🖊️️",
-  "count": 110,
+  "count": 108,
   "routes": [
     {
       "namespace": "0x80",
@@ -165,8 +165,7 @@
       "example": "/baoyu/blog",
       "description": "宝玉 - 博客文章",
       "maintainers": [
-        "liyaozhong",
-        "Circloud"
+        "liyaozhong"
       ],
       "categories": [
         "blog"
@@ -297,29 +296,6 @@
         }
       ],
       "lang": "zh-CN"
-    },
-    {
-      "namespace": "bvisness",
-      "namespaceName": "Ben Visness",
-      "namespaceUrl": "bvisness.me",
-      "path": "/blog",
-      "fullPath": "/bvisness/blog",
-      "name": "Blog",
-      "example": "/bvisness/blog",
-      "maintainers": [
-        "raxod502"
-      ],
-      "categories": [
-        "blog"
-      ],
-      "radar": [
-        {
-          "source": [
-            "bvisness.me"
-          ],
-          "target": "/blog"
-        }
-      ]
     },
     {
       "namespace": "caixin",
@@ -2403,31 +2379,6 @@
           ]
         }
       ]
-    },
-    {
-      "namespace": "mrinalxdev",
-      "namespaceName": "Mrinal Pramanick",
-      "namespaceUrl": "mrinalxdev.github.io",
-      "path": "/blog",
-      "fullPath": "/mrinalxdev/blog",
-      "name": "Blog",
-      "example": "/mrinalxdev/blog",
-      "maintainers": [
-        "jack-110"
-      ],
-      "categories": [
-        "blog"
-      ],
-      "radar": [
-        {
-          "source": [
-            "mrinalxdev.github.io/mrinalxblogs/blogs/blog.html",
-            "mrinalxdev.github.io/mrinalxblogs/"
-          ],
-          "target": "/blog"
-        }
-      ],
-      "lang": "en"
     },
     {
       "namespace": "nielsberglund",

@@ -951,108 +951,6 @@
       "lang": "zh-CN"
     },
     {
-      "namespace": "ccmn",
-      "namespaceName": "长江有色网",
-      "namespaceUrl": "www.ccmn.cn",
-      "path": "/price-adjustment/:category",
-      "fullPath": "/ccmn/price-adjustment/:category",
-      "name": "调价动态",
-      "example": "/ccmn/price-adjustment/copper",
-      "description": "长江有色网的金属调价动态，包括铜、铝、锌、锡、铅、镍等金属。",
-      "parameters": {
-        "category": {
-          "description": "金属类别",
-          "options": [
-            {
-              "label": "铜",
-              "value": "copper"
-            },
-            {
-              "label": "铝",
-              "value": "alu"
-            },
-            {
-              "label": "锌",
-              "value": "zn"
-            },
-            {
-              "label": "锡",
-              "value": "sn"
-            },
-            {
-              "label": "铅",
-              "value": "pb"
-            },
-            {
-              "label": "镍",
-              "value": "ni"
-            }
-          ]
-        }
-      },
-      "maintainers": [
-        "chrisis58"
-      ],
-      "categories": [
-        "other"
-      ],
-      "features": {
-        "supportRadar": true,
-        "requireConfig": false,
-        "requirePuppeteer": false,
-        "antiCrawler": false,
-        "supportBT": false,
-        "supportPodcast": false,
-        "supportScihub": false,
-        "nsfw": false
-      },
-      "radar": [
-        {
-          "source": [
-            "copper.ccmn.cn/:suffix",
-            "copper.ccmn.cn/:suffix/:subsuffix?"
-          ],
-          "target": "/price-adjustment/copper"
-        },
-        {
-          "source": [
-            "alu.ccmn.cn/:suffix",
-            "alu.ccmn.cn/:suffix/:subsuffix?"
-          ],
-          "target": "/price-adjustment/alu"
-        },
-        {
-          "source": [
-            "zn.ccmn.cn/:suffix",
-            "zn.ccmn.cn/:suffix/:subsuffix?"
-          ],
-          "target": "/price-adjustment/zn"
-        },
-        {
-          "source": [
-            "sn.ccmn.cn/:suffix",
-            "sn.ccmn.cn/:suffix/:subsuffix?"
-          ],
-          "target": "/price-adjustment/sn"
-        },
-        {
-          "source": [
-            "pb.ccmn.cn/:suffix",
-            "pb.ccmn.cn/:suffix/:subsuffix?"
-          ],
-          "target": "/price-adjustment/pb"
-        },
-        {
-          "source": [
-            "ni.ccmn.cn/:suffix",
-            "ni.ccmn.cn/:suffix/:subsuffix?"
-          ],
-          "target": "/price-adjustment/ni"
-        }
-      ],
-      "lang": "zh-CN"
-    },
-    {
       "namespace": "cdzjryb",
       "namespaceName": "成都住建蓉 e 办",
       "namespaceUrl": "zw.cdzjryb.com",
@@ -2032,6 +1930,29 @@
         "supportPodcast": false,
         "supportScihub": false
       },
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "gdut",
+      "namespaceName": "广东工业大学",
+      "namespaceUrl": "oas.gdut.edu.cn",
+      "path": "/oa_news/:type?",
+      "fullPath": "/gdut/oa_news/:type?",
+      "name": "Unknown",
+      "maintainers": [
+        "jim-kirisame"
+      ],
+      "categories": [
+        "other"
+      ],
+      "radar": [
+        {
+          "source": [
+            "oas.gdut.edu.cn/seeyon"
+          ],
+          "target": "/oa_news/"
+        }
+      ],
       "lang": "zh-CN"
     },
     {

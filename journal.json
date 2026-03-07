@@ -3,7 +3,7 @@
   "displayName": "Scientific Journal",
   "displayNameZh": "科学期刊",
   "icon": "🔬",
-  "count": 60,
+  "count": 58,
   "routes": [
     {
       "namespace": "academia",
@@ -1060,45 +1060,6 @@
           "source": [
             "censorbib.nymity.ch/"
           ]
-        }
-      ],
-      "lang": "en"
-    },
-    {
-      "namespace": "openalex",
-      "namespaceName": "OpenAlex",
-      "namespaceUrl": "openalex.org",
-      "path": "/:journals/:type?/:ids?",
-      "fullPath": "/openalex/:journals/:type?/:ids?",
-      "name": "Works",
-      "example": "/openalex/s64187185/subfield/2604",
-      "description": "Get recent scientific publications from OpenAlex filtered by journal and optionally by topic classification (last 2 weeks).\n\nExamples:\n- /openalex/s64187185 - All works from a journal (no topic filter)\n- /openalex/s64187185/subfield/2604 - Filter by subfield\n- /openalex/s64187185|s123456/topic/T10001|T10002 - Filter by topic with multiple journals\n- /openalex/s64187185/field/19 - Filter by field\n- /openalex/s64187185/domain/1 - Filter by domain",
-      "parameters": {
-        "journals": "Pipe-separated journal source IDs (e.g., s64187185|s123456789)",
-        "type": "Optional filter type: subfield, topic, field, or domain",
-        "ids": "Optional pipe-separated filter IDs matching the type (e.g., 2604|2605 for subfields)"
-      },
-      "maintainers": [
-        "emdoe"
-      ],
-      "categories": [
-        "journal"
-      ],
-      "features": {
-        "requireConfig": false,
-        "requirePuppeteer": false,
-        "antiCrawler": false,
-        "supportRadar": true,
-        "supportBT": false,
-        "supportPodcast": false,
-        "supportScihub": false
-      },
-      "radar": [
-        {
-          "source": [
-            "openalex.org/works"
-          ],
-          "target": "/:journals/:type?/:ids?"
         }
       ],
       "lang": "en"
@@ -2782,39 +2743,6 @@
         {
           "source": [
             "www.springer.com/journal/:journal/*"
-          ]
-        }
-      ],
-      "lang": "en"
-    },
-    {
-      "namespace": "tctmd",
-      "namespaceName": "TCTMD",
-      "namespaceUrl": "www.tctmd.com",
-      "path": "/conference-news",
-      "fullPath": "/tctmd/conference-news",
-      "name": "Conference News",
-      "example": "/tctmd/conference-news",
-      "description": "Cardiovascular news, education, and clinical trial coverage from the Cardiovascular Research Foundation",
-      "parameters": {},
-      "maintainers": [
-        "ChuYinan2023"
-      ],
-      "categories": [
-        "journal"
-      ],
-      "features": {
-        "requireConfig": false,
-        "requirePuppeteer": false,
-        "antiCrawler": false,
-        "supportBT": false,
-        "supportPodcast": false,
-        "supportScihub": false
-      },
-      "radar": [
-        {
-          "source": [
-            "www.tctmd.com/news/conference-news"
           ]
         }
       ],

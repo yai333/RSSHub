@@ -1,22 +1,17 @@
 {
   "totalCategories": 24,
-  "totalRoutes": 3229,
-  "generatedAt": "2026-02-13T05:52:49.440Z",
+  "totalRoutes": 3170,
+  "generatedAt": "2026-03-07T04:39:15.683Z",
   "categories": [
     {
       "category": "University",
-      "count": 461,
+      "count": 441,
       "file": "university.json"
     },
     {
       "category": "New media",
-      "count": 436,
+      "count": 434,
       "file": "new-media.json"
-    },
-    {
-      "category": "Social Media",
-      "count": 253,
-      "file": "social-media.json"
     },
     {
       "category": "Uncategorized",
@@ -24,8 +19,13 @@
       "file": "other.json"
     },
     {
+      "category": "Social Media",
+      "count": 237,
+      "file": "social-media.json"
+    },
+    {
       "category": "Programming",
-      "count": 213,
+      "count": 209,
       "file": "programming.json"
     },
     {
@@ -35,12 +35,12 @@
     },
     {
       "category": "Government",
-      "count": 170,
+      "count": 169,
       "file": "government.json"
     },
     {
       "category": "Multimedia",
-      "count": 161,
+      "count": 158,
       "file": "multimedia.json"
     },
     {
@@ -50,7 +50,7 @@
     },
     {
       "category": "Gaming",
-      "count": 145,
+      "count": 142,
       "file": "game.json"
     },
     {
@@ -60,17 +60,17 @@
     },
     {
       "category": "Blog",
-      "count": 110,
+      "count": 108,
       "file": "blog.json"
     },
     {
       "category": "Application Updates",
-      "count": 106,
+      "count": 102,
       "file": "program-update.json"
     },
     {
       "category": "BBS",
-      "count": 98,
+      "count": 96,
       "file": "bbs.json"
     },
     {
@@ -90,7 +90,7 @@
     },
     {
       "category": "Scientific Journal",
-      "count": 60,
+      "count": 58,
       "file": "journal.json"
     },
     {
