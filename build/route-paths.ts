@@ -2201,12 +2201,12 @@ export type RoutePath =
   | `/pnas/:topicPath{.+}?`
   | `/podwise/explore`
   | `/podwise/explore/:type`
-  | `/pornhub/category/:caty`
-  | `/pornhub/category_url/:url?/:language?`
-  | `/pornhub/model/:username/:language?/:sort?`
-  | `/pornhub/pornstar/:username/:language?/:sort?`
-  | `/pornhub/search/:keyword`
-  | `/pornhub/users/:username/:language?`
+  | `/pornhub/category/:caty/:img?`
+  | `/pornhub/category_url/:url?/:language?/:img?`
+  | `/pornhub/model/:username/:language?/:sort?/:img?`
+  | `/pornhub/pornstar/:username/:language?/:sort?/:img?`
+  | `/pornhub/search/:keyword/:img?`
+  | `/pornhub/users/:username/:language?/:img?`
   | `/postman/release-notes`
   | `/priconne-redive/news/:server?`
   | `/producereport/:category{.+}?`
@@ -2276,6 +2276,7 @@ export type RoutePath =
   | `/qq/kg/:userId`
   | `/qq/kg/reply/:playId`
   | `/qq/lol/news/:category?`
+  | `/qq/news/:uid/:detail?`
   | `/qq/pd/guild/:id/:sub?/:sort?`
   | `/qq/weread/:category`
   | `/qq88/:category?`

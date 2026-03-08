@@ -4015,14 +4015,15 @@
       "namespace": "pornhub",
       "namespaceName": "PornHub",
       "namespaceUrl": "pornhub.com",
-      "path": "/category_url/:url?/:language?",
-      "fullPath": "/pornhub/category_url/:url?/:language?",
+      "path": "/category_url/:url?/:language?/:img?",
+      "fullPath": "/pornhub/category_url/:url?/:language?/:img?",
       "name": "Video List",
       "example": "/pornhub/category_url/video%3Fc%3D15%26o%3Dmv%26t%3Dw%26cc%3Djp",
       "description": "**`language`**\n\n  Refer to [Pornhub F.A.Qs](https://help.pornhub.com/hc/en-us/articles/360044327034-How-do-I-change-the-language-), English by default. For example:\n\n  -   `cn` (Chinese), for Pornhub in China [https://cn.pornhub.com](https://cn.pornhub.com)；\n\n  -   `jp` (Japanese), for Pornhub in Japan [https://jp.pornhub.com](https://jp.pornhub.com) etc.",
       "parameters": {
-        "language": "language, see below",
-        "url": "relative path after `pornhub.com/`, need to be URL encoded"
+        "language": "language, see below. defaults to `www` (English)",
+        "url": "relative path after `pornhub.com/`, need to be URL encoded",
+        "img": "show images, set to `img=1` to enable"
       },
       "maintainers": [
         "I2IMk",
@@ -4046,12 +4047,13 @@
       "namespace": "pornhub",
       "namespaceName": "PornHub",
       "namespaceUrl": "pornhub.com",
-      "path": "/category/:caty",
-      "fullPath": "/pornhub/category/:caty",
+      "path": "/category/:caty/:img?",
+      "fullPath": "/pornhub/category/:caty/:img?",
       "name": "Category",
       "example": "/pornhub/category/popular-with-women",
       "parameters": {
-        "caty": "category, see [categories](https://www.pornhub.com/webmasters/categories)"
+        "caty": "category, see [categories](https://www.pornhub.com/webmasters/categories)",
+        "img": "show images, set to `img=1` to enable"
       },
       "maintainers": [
         "nczitzk"
@@ -4074,14 +4076,15 @@
       "namespace": "pornhub",
       "namespaceName": "PornHub",
       "namespaceUrl": "pornhub.com",
-      "path": "/model/:username/:language?/:sort?",
-      "fullPath": "/pornhub/model/:username/:language?/:sort?",
+      "path": "/model/:username/:language?/:sort?/:img?",
+      "fullPath": "/pornhub/model/:username/:language?/:sort?/:img?",
       "name": "Model",
       "example": "/pornhub/model/stacy-starando",
       "parameters": {
-        "language": "language, see below",
+        "language": "language, see below. defaults to www",
         "username": "username, part of the url e.g. `pornhub.com/model/stacy-starando`",
-        "sort": "sorting method, see below"
+        "sort": "sorting method, see below. Defaults to mr (most recent)",
+        "img": "show images, set to `img=1` to enable"
       },
       "maintainers": [
         "I2IMk",
@@ -4191,8 +4194,8 @@
       "namespace": "pornhub",
       "namespaceName": "PornHub",
       "namespaceUrl": "pornhub.com",
-      "path": "/pornstar/:username/:language?/:sort?",
-      "fullPath": "/pornhub/pornstar/:username/:language?/:sort?",
+      "path": "/pornstar/:username/:language?/:sort?/:img?",
+      "fullPath": "/pornhub/pornstar/:username/:language?/:sort?/:img?",
       "name": "Pornstar",
       "example": "/pornhub/pornstar/june-liu/www/mr",
       "parameters": {
@@ -4200,7 +4203,7 @@
           "description": "username, part of the url e.g. `pornhub.com/pornstar/june-liu`"
         },
         "language": {
-          "description": "language",
+          "description": "language, defaults to `www` (English)",
           "options": [
             {
               "value": "www",
@@ -4254,7 +4257,7 @@
           "default": "www"
         },
         "sort": {
-          "description": "sorting method, leave empty for `Best`",
+          "description": "sorting method, defaults to `mr` (Most Recent)",
           "options": [
             {
               "label": "Most Recent",
@@ -4273,7 +4276,8 @@
               "value": "lg"
             }
           ]
-        }
+        },
+        "img": "show images, set to `img=1` to enable"
       },
       "maintainers": [
         "I2IMk",
@@ -4383,12 +4387,13 @@
       "namespace": "pornhub",
       "namespaceName": "PornHub",
       "namespaceUrl": "pornhub.com",
-      "path": "/search/:keyword",
-      "fullPath": "/pornhub/search/:keyword",
+      "path": "/search/:keyword/:img?",
+      "fullPath": "/pornhub/search/:keyword/:img?",
       "name": "Keyword Search",
       "example": "/pornhub/search/stepsister",
       "parameters": {
-        "keyword": "keyword"
+        "keyword": "keyword",
+        "img": "show images, set to `img=1` to enable"
       },
       "maintainers": [
         "nczitzk"
@@ -4411,13 +4416,14 @@
       "namespace": "pornhub",
       "namespaceName": "PornHub",
       "namespaceUrl": "pornhub.com",
-      "path": "/users/:username/:language?",
-      "fullPath": "/pornhub/users/:username/:language?",
+      "path": "/users/:username/:language?/:img?",
+      "fullPath": "/pornhub/users/:username/:language?/:img?",
       "name": "Users",
       "example": "/pornhub/users/pornhubmodels",
       "parameters": {
-        "language": "language, see below",
-        "username": "username, part of the url e.g. `pornhub.com/users/pornhubmodels`"
+        "language": "language, see below. defaults to `www` (English)",
+        "username": "username, part of the url e.g. `pornhub.com/users/pornhubmodels`",
+        "img": "show images, set to `img=1` to enable"
       },
       "maintainers": [
         "I2IMk",

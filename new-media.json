@@ -20945,7 +20945,7 @@
     },
     {
       "namespace": "theinitium",
-      "namespaceName": "端传媒",
+      "namespaceName": "The Initium",
       "namespaceUrl": "theinitium.com",
       "path": "/app/:category?",
       "fullPath": "/theinitium/app/:category?",
@@ -20975,79 +20975,20 @@
           ],
           "target": "/app/:category"
         }
-      ],
-      "lang": "zh-HK"
+      ]
     },
     {
       "namespace": "theinitium",
-      "namespaceName": "端传媒",
+      "namespaceName": "The Initium",
       "namespaceUrl": "theinitium.com",
       "path": "/author/:type/:language?",
       "fullPath": "/theinitium/author/:type/:language?",
       "name": "作者",
-      "example": "/theinitium/author/ninghuilulu/zh-hans",
-      "description": "通过提取文章全文，以提供比官方源更佳的阅读体验。\n\n::: warning\n付费内容全文可能需要登陆获取，详情见部署页面的配置模块。\n:::",
+      "example": "/theinitium/author/initium-newsroom",
+      "description": ":::tip\nSet the environment variable `INITIUM_MEMBER_COOKIE` to get the full text of paid articles. After logging in to theinitium.com, copy the Cookie from the browser developer tools.\n\nOld environment variables `INITIUM_USERNAME`, `INITIUM_PASSWORD`, and `INITIUM_BEARER_TOKEN` are no longer used since the site migrated to Ghost CMS.\n:::",
       "parameters": {
-        "type": "作者 ID，可从作者主页 URL 中获取，如 `https://theinitium.com/author/ninghuilulu`",
-        "language": "语言，简体`zh-hans`，繁体`zh-hant`，缺省为简体"
-      },
-      "maintainers": [
-        "AgFlore"
-      ],
-      "categories": [
-        "new-media"
-      ],
-      "radar": [
-        {
-          "source": [
-            "theinitium.com/author/:type"
-          ],
-          "target": "/author/:type"
-        }
-      ],
-      "lang": "zh-HK"
-    },
-    {
-      "namespace": "theinitium",
-      "namespaceName": "端传媒",
-      "namespaceUrl": "theinitium.com",
-      "path": "/channel/:type?/:language?",
-      "fullPath": "/theinitium/channel/:type?/:language?",
-      "name": "专题・栏目",
-      "example": "/theinitium/channel/latest/zh-hans",
-      "description": "Type 栏目：\n\n| 最新   | 深度    | What’s New | 广场              | 科技       | 风物    | 特约     | ... |\n| ------ | ------- | ---------- | ----------------- | ---------- | ------- | -------- | --- |\n| latest | feature | news-brief | notes-and-letters | technology | culture | pick_up | ... |",
-      "parameters": {
-        "type": "栏目，缺省为最新",
-        "language": "语言，简体`zh-hans`，繁体`zh-hant`，缺省为简体"
-      },
-      "maintainers": [
-        "prnake",
-        "mintyfrankie"
-      ],
-      "categories": [
-        "new-media"
-      ],
-      "radar": [
-        {
-          "source": [
-            "theinitium.com/channel/:type"
-          ],
-          "target": "/channel/:type"
-        }
-      ],
-      "lang": "zh-HK"
-    },
-    {
-      "namespace": "theinitium",
-      "namespaceName": "端传媒",
-      "namespaceUrl": "theinitium.com",
-      "path": "/follow/articles/:language?",
-      "fullPath": "/theinitium/follow/articles/:language?",
-      "name": "个人订阅追踪动态",
-      "example": "/theinitium/author/ninghuilulu/zh-hans",
-      "description": "需填入 Web 版认证 token, 也可选择直接在环境设置中填写明文的用户名和密码",
-      "parameters": {
-        "language": "语言，简体`zh-hans`，繁体`zh-hant`，缺省为简体"
+        "type": "作者 slug，可从作者主页 URL 中获取，如 `https://theinitium.com/author/initium-newsroom/`",
+        "language": "语言，简体`zh-hans`，繁体`zh-hant`，缺省为不限"
       },
       "maintainers": [
         "AgFlore"
@@ -21058,45 +20999,86 @@
       "features": {
         "requireConfig": [
           {
-            "name": "INITIUM_BEARER_TOKEN",
+            "name": "INITIUM_MEMBER_COOKIE",
             "optional": true,
-            "description": "端传媒 Web 版认证 token。获取方式：登陆后打开端传媒站内任意页面，打开浏览器开发者工具中 “网络”(Network) 选项卡，筛选 URL 找到任一个地址为 `api.initium.com` 开头的请求，点击检查其 “消息头”，在 “请求头” 中找到Authorization字段，将其值复制填入配置即可。你的配置应该形如 `INITIUM_BEARER_TOKEN: 'Bearer eyJxxxx......xx_U8'`。使用 token 部署的好处是避免占据登陆设备数的额度，但这个 token 一般有效期为两周，因此只可作临时测试使用。"
-          },
-          {
-            "name": "INITIUM_USERNAME",
-            "optional": true,
-            "description": "端传媒用户名 （邮箱）"
-          },
-          {
-            "name": "INITIUM_PASSWORD",
-            "optional": true,
-            "description": "端传媒密码"
+            "description": "端传媒会员登录后的 Cookie，用于获取付费文章全文。"
           }
-        ]
+        ],
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
       },
       "radar": [
         {
-          "title": "作者",
           "source": [
             "theinitium.com/author/:type"
           ],
           "target": "/author/:type"
         }
-      ],
-      "lang": "zh-HK"
+      ]
     },
     {
       "namespace": "theinitium",
-      "namespaceName": "端传媒",
+      "namespaceName": "The Initium",
       "namespaceUrl": "theinitium.com",
-      "path": "/tags/:type/:language?",
-      "fullPath": "/theinitium/tags/:type/:language?",
-      "name": "话题・标签",
-      "example": "/theinitium/tags/2019_10/zh-hans",
-      "description": "通过提取文章全文，以提供比官方源更佳的阅读体验。\n\n::: warning\n付费内容全文可能需要登陆获取，详情见部署页面的配置模块。\n:::",
+      "path": "/channel/:type?/:language?",
+      "fullPath": "/theinitium/channel/:type?/:language?",
+      "name": "栏目",
+      "example": "/theinitium/channel/latest",
+      "description": "Type 栏目（对应 Ghost 标签）：\n\n| 最新   | 速递     | 评论    | 国际          | 大陆     | 香港     | 台湾   | 科技       | 专题   | 日报        | 周报   |\n| ------ | -------- | ------- | ------------- | -------- | -------- | ------ | ---------- | ------ | ----------- | ------ |\n| latest | whatsnew | opinion | international | mainland | hongkong | taiwan | technology | feature | daily-brief | weekly |\n\n:::tip\n设置环境变量 `INITIUM_MEMBER_COOKIE` 可获取付费文章全文。\n:::",
       "parameters": {
-        "type": "话题 ID，可从话题页 URL 中获取，如 `https://theinitium.com/tags/2019_10/`",
-        "language": "语言，简体`zh-hans`，繁体`zh-hant`，缺省为简体"
+        "type": "栏目，缺省为最新（latest）",
+        "language": "语言，简体`zh-hans`，繁体`zh-hant`，缺省为不限"
+      },
+      "maintainers": [
+        "prnake",
+        "mintyfrankie"
+      ],
+      "categories": [
+        "new-media"
+      ],
+      "features": {
+        "requireConfig": [
+          {
+            "name": "INITIUM_MEMBER_COOKIE",
+            "optional": true,
+            "description": "端传媒会员登录后的 Cookie，用于获取付费文章全文。获取方式：登录 theinitium.com 后，从浏览器开发者工具中复制 Cookie。"
+          }
+        ],
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "theinitium.com/latest/"
+          ],
+          "target": "/channel/latest"
+        },
+        {
+          "source": [
+            "theinitium.com/tag/:type"
+          ],
+          "target": "/channel/:type"
+        }
+      ]
+    },
+    {
+      "namespace": "theinitium",
+      "namespaceName": "The Initium",
+      "namespaceUrl": "theinitium.com",
+      "path": "/follow/articles/:language?",
+      "fullPath": "/theinitium/follow/articles/:language?",
+      "name": "个人订阅追踪动态（已停用）",
+      "example": "/theinitium/follow/articles",
+      "description": ":::warning\n此路由已停用。端传媒已迁移到 Ghost CMS，不再支持通过 API 获取个人追踪内容。请改用标签或栏目订阅。\n:::",
+      "parameters": {
+        "language": "语言"
       },
       "maintainers": [
         "AgFlore"
@@ -21104,15 +21086,49 @@
       "categories": [
         "new-media"
       ],
+      "radar": []
+    },
+    {
+      "namespace": "theinitium",
+      "namespaceName": "The Initium",
+      "namespaceUrl": "theinitium.com",
+      "path": "/tags/:type/:language?",
+      "fullPath": "/theinitium/tags/:type/:language?",
+      "name": "话题・标签",
+      "example": "/theinitium/tags/south-korea",
+      "description": ":::tip\nSet the environment variable `INITIUM_MEMBER_COOKIE` to get the full text of paid articles. After logging in to theinitium.com, copy the Cookie from the browser developer tools.\n\nOld environment variables `INITIUM_USERNAME`, `INITIUM_PASSWORD`, and `INITIUM_BEARER_TOKEN` are no longer used since the site migrated to Ghost CMS.\n:::",
+      "parameters": {
+        "type": "标签 slug，可从标签页 URL 中获取，如 `https://theinitium.com/tag/south-korea/` 则为 `south-korea`",
+        "language": "语言，简体`zh-hans`，繁体`zh-hant`，缺省为不限"
+      },
+      "maintainers": [
+        "AgFlore"
+      ],
+      "categories": [
+        "new-media"
+      ],
+      "features": {
+        "requireConfig": [
+          {
+            "name": "INITIUM_MEMBER_COOKIE",
+            "optional": true,
+            "description": "端传媒会员登录后的 Cookie，用于获取付费文章全文。"
+          }
+        ],
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": false,
+        "supportScihub": false
+      },
       "radar": [
         {
           "source": [
-            "theinitium.com/tags/:type"
+            "theinitium.com/tag/:type"
           ],
           "target": "/tags/:type"
         }
-      ],
-      "lang": "zh-HK"
+      ]
     },
     {
       "namespace": "thepaper",

@@ -3,7 +3,7 @@
   "displayName": "Social Media",
   "displayNameZh": "社交媒体",
   "icon": "💬",
-  "count": 237,
+  "count": 238,
   "routes": [
     {
       "namespace": "bilibili",
@@ -5945,7 +5945,7 @@
       "namespaceUrl": "qq.com",
       "path": "/kg/:userId",
       "fullPath": "/qq/kg/:userId",
-      "name": "用户作品列表",
+      "name": "全民K歌 - 用户作品列表",
       "example": "/qq/kg/639a9a86272c308e33",
       "description": "",
       "parameters": {
@@ -5973,7 +5973,7 @@
       "namespaceUrl": "qq.com",
       "path": "/kg/reply/:playId",
       "fullPath": "/qq/kg/reply/:playId",
-      "name": "用户作品评论动态",
+      "name": "全民K歌 - 用户作品评论动态",
       "example": "/qq/kg/reply/OhXHMdO1VxLWQOOm",
       "description": "",
       "parameters": {
@@ -5993,6 +5993,43 @@
         "supportPodcast": false,
         "supportScihub": false
       },
+      "lang": "zh-CN"
+    },
+    {
+      "namespace": "qq",
+      "namespaceName": "腾讯网",
+      "namespaceUrl": "qq.com",
+      "path": "/news/:uid/:detail?",
+      "fullPath": "/qq/news/:uid/:detail?",
+      "name": "用户主页列表",
+      "example": "/qq/news/8QMZ2X5a5YUeujw=",
+      "description": "",
+      "parameters": {
+        "uid": "用户 ID, 用户主页 URL 中的最后一段部分",
+        "detail": "是否抓取全文，该值只要不为空就抓取全文返回，否则只返回摘要"
+      },
+      "maintainers": [
+        "hualiong"
+      ],
+      "categories": [
+        "social-media"
+      ],
+      "features": {
+        "requireConfig": false,
+        "requirePuppeteer": false,
+        "antiCrawler": false,
+        "supportBT": false,
+        "supportPodcast": true,
+        "supportScihub": false
+      },
+      "radar": [
+        {
+          "source": [
+            "news.qq.com/omn/author/:uid"
+          ],
+          "target": "/qq/news/:uid"
+        }
+      ],
       "lang": "zh-CN"
     },
     {
