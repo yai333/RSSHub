@@ -18,6 +18,7 @@ overrides:
   safe-buffer: npm:@nolyfill/safe-buffer@^1
   safer-buffer: npm:@nolyfill/safer-buffer@^1
   side-channel: npm:@nolyfill/side-channel@^1
+  ellipsize: 0.6.2
 
 patchedDependencies:
   rss-parser@3.13.0:
@@ -3554,9 +3555,8 @@ packages:
   electron-to-chromium@1.5.313:
     resolution: {integrity: sha512-QBMrTWEf00GXZmJyx2lbYD45jpI3TUFnNIzJ5BBc8piGUDwMPa1GV6HJWTZVvY/eiN3fSopl7NRbgGp9sZ9LTA==}
 
-  ellipsize@0.7.0:
-    resolution: {integrity: sha512-zxc0AigE4HMvuiqEk7//BjwCSFBXseJCuGNxfjo6wz1BoCSrJDj8tYnIgn/Z7lQ2T89ZypvGyJvPCCVf9uErBA==}
-    engines: {node: ^20.19.0 || >= 22.12.0}
+  ellipsize@0.6.2:
+    resolution: {integrity: sha512-zB4m5iEETalVrrP8RzcF0Qzqyw3MkUQ4R43NiczRAp0Hpp0+0bRdwKnoaFXyJoVJCipm2/3xc7Hkg0OOAorUPw==}
 
   emoji-regex@10.6.0:
     resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
@@ -6982,7 +6982,7 @@ snapshots:
       cheerio: 1.2.0
       dayjs: 1.11.20
       difflib: https://codeload.github.com/postlight/difflib.js/tar.gz/32e8e38c7fcd935241b9baab71bb432fd9b166ed
-      ellipsize: 0.7.0
+      ellipsize: 0.6.2
       iconv-lite: 0.7.2
       postman-request: 2.88.1-postman.48
       string-direction: 0.1.2
@@ -9053,7 +9053,7 @@ snapshots:
 
   electron-to-chromium@1.5.313: {}
 
-  ellipsize@0.7.0: {}
+  ellipsize@0.6.2: {}
 
   emoji-regex@10.6.0: {}
 
