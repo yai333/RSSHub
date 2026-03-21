@@ -3,9 +3,9 @@
     "lastUpdated": "2025-12-16",
     "configs": [
         {
-            "appVersion": "6.1",
+            "appVersion": "6.3",
             "buildNumber": "*",
-            "minAppVersion": "6.1",
+            "minAppVersion": "6.3",
             "maxAppVersion": "99.0",
             "playback": {
                 "defaultMode": "inApp",
@@ -17,7 +17,7 @@
             "appVersion": "1.0",
             "buildNumber": "*",
             "minAppVersion": "1.0",
-            "maxAppVersion": "6.0",
+            "maxAppVersion": "6.2",
             "playback": {
                 "defaultMode": "inApp",
                 "allowInAppPlayback": true,
