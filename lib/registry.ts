@@ -1,19 +1,19 @@
-import path from 'node:path';
+import path from "node:path";
 
-import { serveStatic } from '@hono/node-server/serve-static';
-import type { Handler } from 'hono';
-import { Hono } from 'hono';
-import { routePath } from 'hono/route';
+import { serveStatic } from "@hono/node-server/serve-static";
+import type { Handler } from "hono";
+import { Hono } from "hono";
+import { routePath } from "hono/route";
 
-import { config } from '@/config';
-import healthz from '@/routes/healthz';
-import index from '@/routes/index';
-import metrics from '@/routes/metrics';
-import robotstxt from '@/routes/robots.txt';
-import type { APIRoute, Namespace, Route } from '@/types';
-import { directoryImport } from '@/utils/directory-import';
-import { isWorker } from '@/utils/is-worker';
-import logger from '@/utils/logger';
+import { config } from "@/config";
+import healthz from "@/routes/healthz";
+import index from "@/routes/index";
+import metrics from "@/routes/metrics";
+import robotstxt from "@/routes/robots.txt";
+import type { APIRoute, Namespace, Route } from "@/types";
+import { directoryImport } from "@/utils/directory-import";
+import { isWorker } from "@/utils/is-worker";
+import logger from "@/utils/logger";
 
 const __dirname = import.meta.dirname;
 
@@ -57,25 +57,25 @@ export type NamespacesType = Record<
 let namespaces: NamespacesType = {};
 
 if (config.isPackage) {
-    namespaces = (await import('../assets/build/routes.js')).default;
+    namespaces = (await import("../assets/build/routes.js")).default;
 } else {
     switch (process.env.NODE_ENV || process.env.VERCEL_ENV) {
-        case 'production':
-            namespaces = (await import('../assets/build/routes.js')).default;
+        case "production":
+            namespaces = (await import("../assets/build/routes.js")).default;
             break;
-        case 'test':
+        case "test":
             // @ts-expect-error
-            namespaces = await import('../assets/build/routes.json');
+            namespaces = await import("../assets/build/routes.json");
             if (namespaces.default) {
                 // @ts-ignore
                 namespaces = namespaces.default;
             }
             break;
         default:
-            modules = directoryImport({
-                targetDirectoryPath: path.join(__dirname, './routes'),
+            modules = (await directoryImport({
+                targetDirectoryPath: path.join(__dirname, "./routes"),
                 importPattern: /\.tsx?$/,
-            }) as typeof modules;
+            })) as typeof modules;
     }
 }
 
@@ -96,15 +96,16 @@ if (Object.keys(modules).length) {
                   apiRoute: APIRoute;
               };
         const namespace = module.split(/[/\\]/)[1];
-        if ('namespace' in content) {
+        if ("namespace" in content) {
             namespaces[namespace] = Object.assign(
                 {
                     routes: {},
+                    apiRoutes: {},
                 },
                 namespaces[namespace],
-                content.namespace
+                content.namespace,
             );
-        } else if ('route' in content) {
+        } else if ("route" in content) {
             if (!namespaces[namespace]) {
                 namespaces[namespace] = {
                     name: namespace,
@@ -116,16 +117,16 @@ if (Object.keys(modules).length) {
                 for (const path of content.route.path) {
                     namespaces[namespace].routes[path] = {
                         ...content.route,
-                        location: module.split(/[/\\]/).slice(2).join('/'),
+                        location: module.split(/[/\\]/).slice(2).join("/"),
                     };
                 }
             } else {
                 namespaces[namespace].routes[content.route.path] = {
                     ...content.route,
-                    location: module.split(/[/\\]/).slice(2).join('/'),
+                    location: module.split(/[/\\]/).slice(2).join("/"),
                 };
             }
-        } else if ('apiRoute' in content) {
+        } else if ("apiRoute" in content) {
             if (!namespaces[namespace]) {
                 namespaces[namespace] = {
                     name: namespace,
@@ -137,13 +138,13 @@ if (Object.keys(modules).length) {
                 for (const path of content.apiRoute.path) {
                     namespaces[namespace].apiRoutes[path] = {
                         ...content.apiRoute,
-                        location: module.split(/[/\\]/).slice(2).join('/'),
+                        location: module.split(/[/\\]/).slice(2).join("/"),
                     };
                 }
             } else {
                 namespaces[namespace].apiRoutes[content.apiRoute.path] = {
                     ...content.apiRoute,
-                    location: module.split(/[/\\]/).slice(2).join('/'),
+                    location: module.split(/[/\\]/).slice(2).join("/"),
                 };
             }
         }
@@ -160,11 +161,11 @@ const sortRoutes = (
             location: string;
             module?: () => Promise<{ route: Route }>;
         }
-    >
+    >,
 ) =>
     Object.entries(routes).toSorted(([pathA], [pathB]) => {
-        const segmentsA = pathA.split('/');
-        const segmentsB = pathB.split('/');
+        const segmentsA = pathA.split("/");
+        const segmentsB = pathB.split("/");
         const lenA = segmentsA.length;
         const lenB = segmentsB.length;
         const minLen = Math.min(lenA, lenB);
@@ -174,8 +175,8 @@ const sortRoutes = (
             const segmentB = segmentsB[i];
 
             // Literal segments have priority over parameter segments
-            if (segmentA.startsWith(':') !== segmentB.startsWith(':')) {
-                return segmentA.startsWith(':') ? 1 : -1;
+            if (segmentA.startsWith(":") !== segmentB.startsWith(":")) {
+                return segmentA.startsWith(":") ? 1 : -1;
             }
         }
 
@@ -195,10 +196,12 @@ for (const namespace in namespaces) {
     for (const [path, routeData] of sortedRoutes) {
         const wrappedHandler: Handler = async (ctx) => {
             logger.debug(`Matched route: ${routePath(ctx)}`);
-            if (!ctx.get('data')) {
-                if (typeof routeData.handler !== 'function') {
-                    if (process.env.NODE_ENV === 'test') {
-                        const { route } = await import(`./routes/${namespace}/${routeData.location}`);
+            if (!ctx.get("data")) {
+                if (typeof routeData.handler !== "function") {
+                    if (process.env.NODE_ENV === "test") {
+                        const { route } = await import(
+                            `./routes/${namespace}/${routeData.location}`
+                        );
                         routeData.handler = route.handler;
                     } else if (routeData.module) {
                         const { route } = await routeData.module();
@@ -209,7 +212,7 @@ for (const namespace in namespaces) {
                 if (response instanceof Response) {
                     return response;
                 }
-                ctx.set('data', response);
+                ctx.set("data", response);
             }
         };
         subApp.get(path, wrappedHandler);
@@ -236,10 +239,12 @@ for (const namespace in namespaces) {
 
     for (const [path, routeData] of sortedRoutes) {
         const wrappedHandler: Handler = async (ctx) => {
-            if (!ctx.get('apiData')) {
-                if (typeof routeData.handler !== 'function') {
-                    if (process.env.NODE_ENV === 'test') {
-                        const { apiRoute } = await import(`./routes/${namespace}/${routeData.location}`);
+            if (!ctx.get("apiData")) {
+                if (typeof routeData.handler !== "function") {
+                    if (process.env.NODE_ENV === "test") {
+                        const { apiRoute } = await import(
+                            `./routes/${namespace}/${routeData.location}`
+                        );
                         routeData.handler = apiRoute.handler;
                     } else if (routeData.module) {
                         const { apiRoute } = await routeData.module();
@@ -247,27 +252,27 @@ for (const namespace in namespaces) {
                     }
                 }
                 const data = await routeData.handler(ctx);
-                ctx.set('apiData', data);
+                ctx.set("apiData", data);
             }
         };
         subApp.get(path, wrappedHandler);
     }
 }
 
-app.get('/', index);
-app.get('/healthz', healthz);
-app.get('/robots.txt', robotstxt);
+app.get("/", index);
+app.get("/healthz", healthz);
+app.get("/robots.txt", robotstxt);
 if (config.debugInfo) {
     // Only enable tracing in debug mode
-    app.get('/metrics', metrics);
+    app.get("/metrics", metrics);
 }
 if (!config.isPackage && !process.env.VERCEL_ENV && !isWorker) {
     app.use(
-        '/*',
+        "/*",
         serveStatic({
-            root: path.join(__dirname, 'assets'),
-            rewriteRequestPath: (path) => (path === '/favicon.ico' ? '/favicon.png' : path),
-        })
+            root: path.join(__dirname, "assets"),
+            rewriteRequestPath: (path) => (path === "/favicon.ico" ? "/favicon.png" : path),
+        }),
     );
 }
 

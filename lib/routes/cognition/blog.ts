@@ -1,17 +1,17 @@
-import { load } from 'cheerio';
+import { load } from "cheerio";
 
-import type { Data, DataItem, Route } from '@/types';
-import { ViewType } from '@/types';
-import ofetch from '@/utils/ofetch';
-import { parseDate } from '@/utils/parse-date';
+import type { DataItem, Route } from "@/types";
+import { ViewType } from "@/types";
+import ofetch from "@/utils/ofetch";
+import { parseDate } from "@/utils/parse-date";
 
 export const route: Route = {
-    path: '/blog',
-    name: 'Blog',
-    url: 'cognition.ai/blog',
-    maintainers: ['Loongphy'],
-    example: '/cognition/blog',
-    categories: ['programming'],
+    path: "/blog/:category?",
+    name: "Blog",
+    url: "cognition.ai/blog",
+    maintainers: ["Loongphy", "ttttmr"],
+    example: "/cognition/blog",
+    categories: ["programming"],
     features: {
         requireConfig: false,
         requirePuppeteer: false,
@@ -23,21 +23,24 @@ export const route: Route = {
     },
     radar: [
         {
-            source: ['cognition.ai/blog/1'],
-            target: '/blog',
+            source: ["cognition.ai/blog/1", "cognition.ai/blog/:category/1"],
+            target: "/blog/:category?",
         },
     ],
     view: ViewType.Articles,
     handler,
+    parameters: {
+        category: "Category name, e.g., Research, Tutorials",
+    },
 };
 
-const splitAuthors = (text: string | undefined): DataItem['author'] => {
+const splitAuthors = (text: string | undefined): DataItem["author"] => {
     if (!text) {
         return undefined;
     }
 
     const names = text
-        .split(',')
+        .split(",")
         .map((name) => name.trim())
         .filter(Boolean);
 
@@ -50,37 +53,38 @@ const splitAuthors = (text: string | undefined): DataItem['author'] => {
     }));
 };
 
-export async function handler(): Promise<Data> {
-    const baseUrl = 'https://cognition.ai';
-    const listPath = '/blog/1';
+export async function handler(ctx) {
+    const baseUrl = "https://cognition.ai";
+    const { category } = ctx.req.param();
+    const listPath = category ? `/blog/${category}/1` : "/blog/1";
     const targetUrl = new URL(listPath, baseUrl).href;
     const html = await ofetch(targetUrl);
     const $ = load(html);
 
-    const items = $('#blog-post-list__list li.blog-post-list__list-item')
+    const items = $("#blog-post-list__list li.blog-post-list__list-item")
         .toArray()
         .map((el) => {
             const element = $(el);
-            const linkElement = element.find('a.o-blog-preview').first();
+            const linkElement = element.find("a.o-blog-preview").first();
 
-            const href = linkElement.attr('href');
+            const href = linkElement.attr("href");
             const link = href ? new URL(href, baseUrl).href : undefined;
 
             if (!link) {
                 return;
             }
 
-            const title = linkElement.find('h3.o-blog-preview__title').text().trim();
+            const title = linkElement.find("h3.o-blog-preview__title").text().trim();
             if (!title) {
                 return;
             }
 
-            const summary = linkElement.find('p.o-blog-preview__intro').text().trim();
+            const summary = linkElement.find("p.o-blog-preview__intro").text().trim();
 
-            const dateNode = linkElement.find('.o-blog-preview__meta-date').clone();
-            dateNode.find('.o-blog-preview__meta').remove();
+            const dateNode = linkElement.find(".o-blog-preview__meta-date").clone();
+            dateNode.find(".o-blog-preview__meta").remove();
             const dateText = dateNode.text().trim();
-            const authorText = linkElement.find('.o-blog-preview__meta-author').text().trim();
+            const authorText = linkElement.find(".o-blog-preview__meta-author").text().trim();
 
             const dataItem: DataItem = {
                 title,
@@ -101,12 +105,12 @@ export async function handler(): Promise<Data> {
         })
         .filter((item): item is DataItem => item !== undefined);
 
-    const imageAttr = $('meta[property="og:image"]').attr('content');
+    const imageAttr = $('meta[property="og:image"]').attr("content");
     const image = imageAttr ? new URL(imageAttr, baseUrl).href : undefined;
 
     return {
-        title: $('title').text(),
-        description: $('meta[name="description"]').attr('content'),
+        title: $("title").text(),
+        description: $('meta[name="description"]').attr("content"),
         link: targetUrl,
         allowEmpty: true,
         item: items,

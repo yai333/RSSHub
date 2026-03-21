@@ -1,18 +1,18 @@
-import { config } from '@/config';
-import type { Route } from '@/types';
-import ofetch from '@/utils/ofetch';
+import { config } from "@/config";
+import type { Route } from "@/types";
+import ofetch from "@/utils/ofetch";
 
 export const route: Route = {
-    path: '/user/:id',
-    categories: ['shopping'],
-    example: '/dianping/user/808259118',
-    parameters: { id: 'User id，打开网页端从 URL 中获取，在 `/member/:id` 中' },
+    path: "/user/:id",
+    categories: ["shopping"],
+    example: "/dianping/user/808259118",
+    parameters: { id: "User id，打开网页端从 URL 中获取，在 `/member/:id` 中" },
     features: {
         requireConfig: [
             {
-                name: 'DIANPING_COOKIE',
+                name: "DIANPING_COOKIE",
                 optional: false,
-                description: '大众点评的 Cookie',
+                description: "大众点评的 Cookie",
             },
         ],
         requirePuppeteer: false,
@@ -23,43 +23,50 @@ export const route: Route = {
     },
     radar: [
         {
-            source: ['dianping.com/member/:id', 'm.dianping.com/userprofile/:id'],
-            target: '/dianping/user/:id',
+            source: ["dianping.com/member/:id"],
+            target: "/dianping/user/:id",
+        },
+        {
+            source: ["m.dianping.com/userprofile/:id"],
+            target: "/dianping/user/:id",
         },
     ],
-    name: '用户动态',
-    maintainers: ['pseudoyu'],
+    name: "用户动态",
+    maintainers: ["pseudoyu"],
     handler,
-    description: '获取用户点评、签到、攻略等动态。',
+    description: "获取用户点评、签到、攻略等动态。",
 };
 
 function addPictureAndVideo(item: any) {
-    let content = '';
-    content += item.pictureList ? item.pictureList.map((ele: any) => `<img src="${ele.picUrl}" />`).join('<br>') : '';
-    content += item.videoUrl ? `<img src="${item.videoUrl}" />` : '';
+    let content = "";
+    content += item.pictureList
+        ? item.pictureList.map((ele: any) => `<img src="${ele.picUrl}" />`).join("<br>")
+        : "";
+    content += item.videoUrl ? `<img src="${item.videoUrl}" />` : "";
     return content;
 }
 
 const starMap: Record<number, string> = {
-    0: '无',
-    10: '一星',
-    20: '二星',
-    30: '三星',
-    35: '三星半',
-    40: '四星',
-    45: '四星半',
-    50: '五星',
+    0: "无",
+    10: "一星",
+    20: "二星",
+    30: "三星",
+    35: "三星半",
+    40: "四星",
+    45: "四星半",
+    50: "五星",
 };
 
 async function handler(ctx) {
-    const id = ctx.req.param('id');
+    const id = ctx.req.param("id");
 
-    const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1';
+    const userAgent =
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1";
     const userPage = `https://m.dianping.com/userprofile/${id}`;
     const cookie = config.dianping.cookie;
 
     const headers: Record<string, string> = {
-        'User-Agent': userAgent,
+        "User-Agent": userAgent,
         Referer: userPage,
     };
 
@@ -74,19 +81,24 @@ async function handler(ctx) {
     const nickNameReg = /window\.nickName = "(.*?)"/g;
     const nickName = nickNameReg.exec(pageResponse as string)?.[1];
 
-    const response = await ofetch(`https://m.dianping.com/member/ajax/NobleUserFeeds?userId=${id}`, {
-        headers,
-    });
+    const response = await ofetch(
+        `https://m.dianping.com/member/ajax/NobleUserFeeds?userId=${id}`,
+        {
+            headers,
+        },
+    );
 
     const data = response.data;
 
     const items = data.map((item: any) => {
-        let link = '';
-        let title = '';
-        let content = '';
+        let link = "";
+        let title = "";
+        let content = "";
 
-        const poi = item.poi ? `地点：<a href="http://www.dianping.com/shop/${item.poi.shopId}">${item.poi.name} - ${item.poi.regionCategory}</a>` : '';
-        const poiName = item.poi ? item.poi.name : '';
+        const poi = item.poi
+            ? `地点：<a href="http://www.dianping.com/shop/${item.poi.shopId}">${item.poi.name} - ${item.poi.regionCategory}</a>`
+            : "";
+        const poiName = item.poi ? item.poi.name : "";
 
         switch (item.feedType) {
             case 1101:
@@ -100,9 +112,9 @@ async function handler(ctx) {
             case 101:
                 // 对商户、地点发布点评
                 link = `https://m.dianping.com/ugcdetail/${item.mainId}?sceneType=0&bizType=1`;
-                content = item.content.replaceAll(/\n+/g, '<br>') + '<br>';
+                content = item.content.replaceAll(/\n+/g, "<br>") + "<br>";
                 content += `评分：${starMap[item.star]}<br>`;
-                content += poi + '<br>';
+                content += poi + "<br>";
                 content += addPictureAndVideo(item);
                 title = `发布点评: ${poiName}`;
 
@@ -111,7 +123,7 @@ async function handler(ctx) {
             case 131:
                 // 发布点评
                 link = `https://m.dianping.com/ugcdetail/${item.mainId}?sceneType=0&bizType=29`;
-                content = item.content.replaceAll(/\n+/g, '<br>') + '<br>';
+                content = item.content.replaceAll(/\n+/g, "<br>") + "<br>";
                 content += addPictureAndVideo(item);
                 title = `发布点评: ${content}`;
 
@@ -120,9 +132,9 @@ async function handler(ctx) {
             case 4208:
                 // 发布攻略
                 link = `https://m.dianping.com/cityinsight/${item.mainId}`;
-                content = item.content.replaceAll(/\n+/g, '<br>') + '<br>';
-                content += poi + '<br>';
-                content += item.moreDesc ? `<a href='${link}'>${item.moreDesc}</a><br>` : '';
+                content = item.content.replaceAll(/\n+/g, "<br>") + "<br>";
+                content += poi + "<br>";
+                content += item.moreDesc ? `<a href='${link}'>${item.moreDesc}</a><br>` : "";
                 content += addPictureAndVideo(item);
                 title = `发布攻略: ${poiName}`;
 

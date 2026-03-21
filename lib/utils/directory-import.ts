@@ -1,8 +1,6 @@
-import fs from 'node:fs';
-import { createRequire } from 'node:module';
-import path from 'node:path';
-
-const require = createRequire(import.meta.url);
+import fs from "node:fs";
+import path from "node:path";
+import { pathToFileURL } from "node:url";
 
 export type DirectoryImportOptions = {
     targetDirectoryPath: string;
@@ -10,7 +8,7 @@ export type DirectoryImportOptions = {
     includeSubdirectories?: boolean;
 };
 
-const VALID_IMPORT_EXTENSIONS = new Set(['.js', '.mjs', '.cjs', '.ts', '.tsx', '.json']);
+const VALID_IMPORT_EXTENSIONS = new Set([".js", ".mjs", ".cjs", ".ts", ".tsx", ".json"]);
 
 const readDirectory = (targetDirectoryPath: string, includeSubdirectories: boolean): string[] => {
     const entries = fs.readdirSync(targetDirectoryPath, { withFileTypes: true });
@@ -33,23 +31,29 @@ const readDirectory = (targetDirectoryPath: string, includeSubdirectories: boole
     return files;
 };
 
-export const directoryImport = ({ targetDirectoryPath, importPattern = /.*/, includeSubdirectories = true }: DirectoryImportOptions) => {
+export const directoryImport = async ({
+    targetDirectoryPath,
+    importPattern = /.*/,
+    includeSubdirectories = true,
+}: DirectoryImportOptions) => {
     const modules: Record<string, unknown> = {};
     const filesPaths = readDirectory(targetDirectoryPath, includeSubdirectories);
 
-    for (const filePath of filesPaths) {
-        const { ext: fileExtension } = path.parse(filePath);
-        const isValidModuleExtension = VALID_IMPORT_EXTENSIONS.has(fileExtension);
-        const isDeclarationFile = filePath.endsWith('.d.ts') || filePath.endsWith('.d.tsx');
-        const isValidFilePath = importPattern.test(filePath);
+    await Promise.all(
+        filesPaths.map(async (filePath) => {
+            const { ext: fileExtension } = path.parse(filePath);
+            const isValidModuleExtension = VALID_IMPORT_EXTENSIONS.has(fileExtension);
+            const isDeclarationFile = filePath.endsWith(".d.ts") || filePath.endsWith(".d.tsx");
+            const isValidFilePath = importPattern.test(filePath);
 
-        if (!isValidModuleExtension || isDeclarationFile || !isValidFilePath) {
-            continue;
-        }
+            if (!isValidModuleExtension || isDeclarationFile || !isValidFilePath) {
+                return;
+            }
 
-        const relativeModulePath = filePath.slice(targetDirectoryPath.length);
-        modules[relativeModulePath] = require(filePath);
-    }
+            const relativeModulePath = filePath.slice(targetDirectoryPath.length);
+            modules[relativeModulePath] = await import(pathToFileURL(filePath).href);
+        }),
+    );
 
     return modules;
 };

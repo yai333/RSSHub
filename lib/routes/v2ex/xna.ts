@@ -1,14 +1,15 @@
-import { load } from 'cheerio';
+import { load } from "cheerio";
 
-import type { Route } from '@/types';
-import { ViewType } from '@/types';
-import got from '@/utils/got';
+import type { Route } from "@/types";
+import { ViewType } from "@/types";
+import got from "@/utils/got";
+import { parseRelativeDate } from "@/utils/parse-date";
 
 export const route: Route = {
-    path: '/xna',
-    categories: ['bbs', 'blog'],
+    path: "/xna",
+    categories: ["bbs", "blog"],
     view: ViewType.Articles,
-    example: '/v2ex/xna',
+    example: "/v2ex/xna",
     parameters: {},
     features: {
         requireConfig: false,
@@ -18,33 +19,35 @@ export const route: Route = {
         supportPodcast: false,
         supportScihub: false,
     },
-    name: 'XNA',
-    maintainers: ['luckyscript'],
+    name: "XNA",
+    maintainers: ["luckyscript"],
     handler,
 };
 
 async function handler(ctx) {
-    const host = 'https://v2ex.com';
+    const host = "https://v2ex.com";
     const pageUrl = `${host}/xna`;
 
     const response = await got({
-        method: 'get',
+        method: "get",
         url: pageUrl,
     });
 
     const $ = load(response.data);
-    const items = $('div.xna-entry-main-container')
+    const items = $("div.xna-entry-main-container")
         .toArray()
-        .slice(0, ctx.req.query('limit') ? Number.parseInt(ctx.req.query('limit')) : 50)
+        .slice(0, ctx.req.query("limit") ? Number.parseInt(ctx.req.query("limit")) : 50)
         .map((dom) => {
-            const link = $(dom).find('.xna-entry-title > a');
-            const author = $(dom).find('.xna-source-author > a').text();
+            const link = $(dom).find(".xna-entry-title > a");
+            const author = $(dom).find(".xna-source-author > a").text();
+            const dateText = $(dom).find(".xna-entry-date").text().trim();
 
             return {
                 title: $(link).text(),
-                link: $(link).attr('href'),
+                link: $(link).attr("href"),
                 description: $(link).text(),
                 author,
+                pubDate: dateText ? parseRelativeDate(dateText) : undefined,
             };
         });
 

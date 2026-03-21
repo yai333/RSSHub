@@ -1,10 +1,13 @@
-import { defineConfig } from 'tsdown';
+import { defineConfig } from "tsdown";
 
 export default defineConfig({
-    entry: ['./lib/pkg.ts'],
+    entry: ["./lib/pkg.ts"],
     shims: true,
     clean: true,
     dts: true,
-    copy: ['lib/assets'],
-    outDir: 'dist-lib',
+    copy: ["lib/assets"],
+    outDir: "dist-lib",
+    deps: {
+        onlyBundle: false,
+    },
 });

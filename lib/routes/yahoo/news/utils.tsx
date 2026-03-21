@@ -1,9 +1,9 @@
-import { load } from 'cheerio';
-import { renderToString } from 'hono/jsx/dom/server';
+import { load } from "cheerio";
+import { renderToString } from "hono/jsx/dom/server";
 
-import { config } from '@/config';
-import got from '@/utils/got';
-import { parseDate } from '@/utils/parse-date';
+import { config } from "@/config";
+import got from "@/utils/got";
+import { parseDate } from "@/utils/parse-date";
 
 const getArchive = async (region, limit, tag, providerId?) => {
     const { data: response } = await got(
@@ -16,14 +16,16 @@ const getArchive = async (region, limit, tag, providerId?) => {
                     providerid: providerId,
                     tag,
                 },
-            })
-        )}`
+            }),
+        )}`,
     );
     return response;
 };
 
 const getList = async (region, listId) => {
-    const { data: response } = await got(`https://${region}.news.yahoo.com/_td-news/api/resource/StreamService;category=LISTID%3A${listId};useNCP=true`);
+    const { data: response } = await got(
+        `https://${region}.news.yahoo.com/_td-news/api/resource/StreamService;category=LISTID%3A${listId};useNCP=true`,
+    );
     return response;
 };
 
@@ -32,11 +34,11 @@ const getCategories = (region, tryGet) =>
         const { PageStore } = await getStores(region, tryGet);
 
         const { Col1: col1 } = PageStore.pagesConfigRaw.base.section.regions;
-        const { categoryMap } = col1.find((c) => c.name === 'ArchiveFilterBar').props;
+        const { categoryMap } = col1.find((c) => c.name === "ArchiveFilterBar").props;
         for (const [key, value] of Object.entries(categoryMap)) {
             categoryMap[key] = {
                 name: value,
-                yctMap: col1.find((c) => c.name === 'StreamContainerArchive').props.yctMap[key],
+                yctMap: col1.find((c) => c.name === "StreamContainerArchive").props.yctMap[key],
             };
         }
 
@@ -52,7 +54,7 @@ const getProviderList = (region, tryGet) =>
                 title: `${list.title} - ${provider.title}`,
                 key: provider.key,
                 link: new URL(provider.url, `https://${region}.news.yahoo.com`).href,
-            }))
+            })),
         );
     });
 
@@ -64,7 +66,7 @@ const getStores = (region, tryGet) =>
         const appData = JSON.parse(
             $('script:contains("root.App.main")')
                 .text()
-                .match(/root.App.main\s+=\s+({.+});/)?.[1] as string
+                .match(/root.App.main\s+=\s+({.+});/)?.[1] as string,
         );
 
         return appData.context.dispatcher.stores;
@@ -73,16 +75,18 @@ const getStores = (region, tryGet) =>
 const parseList = (region, response) =>
     response.map((item) => ({
         title: item.title,
-        link: item.url.startsWith('http') ? item.url : new URL(item.url, `https://${region}.news.yahoo.com`).href,
+        link: item.url.startsWith("http")
+            ? item.url
+            : new URL(item.url, `https://${region}.news.yahoo.com`).href,
         description: item.summary,
-        pubDate: parseDate(item.published_at, 'X'),
+        pubDate: parseDate(item.published_at, "X"),
     }));
 
 const parseItem = (item, tryGet) =>
     tryGet(item.link, async () => {
         const { data: response } = await got(item.link, {
             headers: {
-                'User-Agent': config.trueUA,
+                "User-Agent": config.trueUA,
             },
         });
         const $ = load(response);
@@ -90,53 +94,58 @@ const parseItem = (item, tryGet) =>
         const ldJson = JSON.parse(
             $('script[type="application/ld+json"]')
                 .toArray()
-                .find((ele) => $(ele).text().includes('"@type":"NewsArticle"'))?.children[0].data
+                .find((ele) => $(ele).text().includes('"@type":"NewsArticle"'))?.children[0].data,
         );
         const author = ldJson.author.name;
-        const body = $('.atoms');
+        const body = $(".atoms");
 
-        body.find('noscript, .text-gandalf, [id^="sda-inbody-"]').remove();
+        body.find(
+            'noscript, .recommendation-contents, .text-gandalf, [id^="sda-inbody-"]',
+        ).remove();
         // remove padding
-        body.find('.caas-figure-with-pb, .caas-img-container').each((_, ele) => {
+        body.find(".caas-figure-with-pb, .caas-img-container").each((_, ele) => {
             const $ele = $(ele);
-            $ele.removeAttr('style');
+            $ele.removeAttr("style");
         });
 
-        body.find('img').each((_, ele) => {
+        body.find("img").each((_, ele) => {
             const $ele = $(ele);
-            let dataSrc = $ele.data('src') as string;
+            let dataSrc = $ele.data("src") as string;
 
             if (dataSrc) {
                 const match = dataSrc.match(/.*--\/.*--\/(.*)/);
                 if (match?.[1]) {
                     dataSrc = match?.[1];
                 }
-                $ele.attr('src', dataSrc);
-                $ele.removeAttr('data-src');
+                $ele.attr("src", dataSrc);
+                $ele.removeAttr("data-src");
             }
         });
         // fix blockquote iframe
-        body.find('.caas-iframe').each((_, ele) => {
+        body.find(".caas-iframe").each((_, ele) => {
             const $ele = $(ele);
-            if ($ele.data('type') === 'youtube') {
-                const blockquoteSrc = $ele.find('blockquote').data('src') as string;
+            if ($ele.data("type") === "youtube") {
+                const blockquoteSrc = $ele.find("blockquote").data("src") as string;
                 $ele.replaceWith(
                     renderToString(
                         <iframe
                             width="560"
                             height="315"
-                            src={`https://www.youtube-nocookie.com/embed/${blockquoteSrc.split('/').pop()?.split('?')?.[0]}`}
+                            src={`https://www.youtube-nocookie.com/embed/${blockquoteSrc.split("/").pop()?.split("?")?.[0]}`}
                             frameborder="0"
                             allow="encrypted-media; picture-in-picture; web-share"
                             allowfullscreen
                             referrerpolicy="strict-origin-when-cross-origin"
-                        ></iframe>
-                    )
+                        ></iframe>,
+                    ),
                 );
             }
         });
 
-        item.description = body.html();
+        item.description = body
+            .toArray()
+            .map((ele) => $(ele).html())
+            .join("");
         item.author = author;
         item.category = ldJson.keywords;
         item.pubDate = parseDate(ldJson.datePublished);

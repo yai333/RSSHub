@@ -1,16 +1,16 @@
-import dayjs from 'dayjs';
-import { renderToString } from 'hono/jsx/dom/server';
+import dayjs from "dayjs";
+import { renderToString } from "hono/jsx/dom/server";
 
-import { parseRelativeDate } from '@/utils/parse-date';
+import { parseRelativeDate } from "@/utils/parse-date";
 
-const defaultDomain = 'https://www.pornhub.com';
+const defaultDomain = "https://www.pornhub.com";
 
 const headers = {
     accessAgeDisclaimerPH: 1,
     hasVisited: 1,
 };
 
-const renderDescription = (data): string =>
+const renderDescription = (data, showImages = false): string =>
     renderToString(
         <>
             {data.previewVideo ? (
@@ -18,25 +18,35 @@ const renderDescription = (data): string =>
                     <source src={data.previewVideo} type="video/webm" />
                 </video>
             ) : null}
-            {data.thumbs?.map((thumb, index) => (
-                <img key={`${thumb.src}-${index}`} src={thumb.src} />
-            ))}
-        </>
+            {showImages &&
+                (data.thumbs ? (
+                    data.thumbs.map((thumb, index) => (
+                        <img key={`${thumb.src}-${index}`} src={thumb.src} />
+                    ))
+                ) : (
+                    <img src={data.poster} />
+                ))}
+        </>,
     );
 const extractDateFromImageUrl = (imageUrl) => {
     const matchResult = imageUrl.match(/(\d{6})\/(\d{2})/);
-    return matchResult ? matchResult.slice(1, 3).join('') : null;
+    return matchResult ? matchResult.slice(1, 3).join("") : null;
 };
 
-const parseItems = (e) => ({
-    title: e.find('span.title a').text().trim(),
-    link: defaultDomain + e.find('span.title a').attr('href'),
-    description: renderDescription({
-        poster: e.find('img').data('mediumthumb'),
-        previewVideo: e.find('img').data('mediabook'),
-    }),
-    author: e.find('.usernameWrap a').text(),
-    pubDate: dayjs(extractDateFromImageUrl(e.find('img').data('mediumthumb'))).toDate() || parseRelativeDate(e.find('.added').text()),
+const parseItems = (e, showImages = false) => ({
+    title: e.find("span.title a").text().trim(),
+    link: defaultDomain + e.find("span.title a").attr("href"),
+    description: renderDescription(
+        {
+            poster: e.find("img").data("mediumthumb"),
+            previewVideo: e.find("img").data("mediabook"),
+        },
+        showImages,
+    ),
+    author: e.find(".usernameWrap a").text(),
+    pubDate:
+        dayjs(extractDateFromImageUrl(e.find("img").data("mediumthumb"))).toDate() ||
+        parseRelativeDate(e.find(".added").text()),
 });
 
 const getRadarDomin = (path: string) => [
@@ -44,7 +54,7 @@ const getRadarDomin = (path: string) => [
         source: [`www.pornhub.com${path}`, `www.pornhub.com${path}/*`],
         target: path,
     },
-    ...['de', 'fr', 'es', 'it', 'pt', 'pl', 'rt', 'jp', 'nl', 'cz', 'cn'].map((language) => ({
+    ...["de", "fr", "es", "it", "pt", "pl", "rt", "jp", "nl", "cz", "cn"].map((language) => ({
         source: [`${language}.pornhub.com${path}`, `${language}.pornhub.com${path}/*`],
         target: `${path}/${language}`,
     })),

@@ -1,16 +1,16 @@
-import { JSDOM } from 'jsdom';
+import { JSDOM } from "jsdom";
 
-import type { Route } from '@/types';
-import got from '@/utils/got';
-import { parseDate } from '@/utils/parse-date';
+import type { Route } from "@/types";
+import got from "@/utils/got";
+import { parseDate } from "@/utils/parse-date";
 
-import cache from './cache';
+import cache from "./cache";
 
 export const route: Route = {
-    path: '/kg/:userId',
-    categories: ['social-media'],
-    example: '/qq/kg/639a9a86272c308e33',
-    parameters: { userId: '用户 ID, 可在对应页面的 URL 中找到' },
+    path: "/kg/:userId",
+    categories: ["social-media"],
+    example: "/qq/kg/639a9a86272c308e33",
+    parameters: { userId: "用户 ID, 可在对应页面的 URL 中找到" },
     features: {
         requireConfig: false,
         requirePuppeteer: false,
@@ -19,18 +19,18 @@ export const route: Route = {
         supportPodcast: true,
         supportScihub: false,
     },
-    name: '用户作品列表',
-    maintainers: ['zhangxiang012'],
+    name: "全民K歌 - 用户作品列表",
+    maintainers: ["zhangxiang012"],
     handler,
 };
 
 async function handler(ctx) {
-    const userId = ctx.req.param('userId');
+    const userId = ctx.req.param("userId");
     const url = `https://node.kg.qq.com/personal?uid=${userId}`;
     const response = await got(url);
 
     const { window } = new JSDOM(response.data, {
-        runScripts: 'dangerously',
+        runScripts: "dangerously",
     });
     const data = window.__DATA__;
     const author = data.data.nickname;
@@ -43,19 +43,19 @@ async function handler(ctx) {
             const item_info = await cache.getPlayInfo(ctx, item.shareid, item.ksong_mid);
 
             const single = {
-                title: item.title || '',
+                title: item.title || "",
                 description: item_info.description,
                 link,
                 guid: `ksong:${item.ksong_mid}`,
                 author,
-                pubDate: parseDate(item_info.ctime * 1000) || parseDate(item.ctime, 'X'),
+                pubDate: parseDate(item_info.ctime * 1000) || parseDate(item.ctime, "X"),
                 itunes_item_image: item_info.itunes_item_image || item.avatar,
                 enclosure_url: item_info.enclosure_url,
-                enclosure_type: 'audio/x-m4a',
+                enclosure_type: "audio/x-m4a",
             };
 
             return single;
-        })
+        }),
     );
 
     return {
@@ -66,6 +66,6 @@ async function handler(ctx) {
         item: items,
         image: authorimg,
         itunes_author: author,
-        itunes_category: '全民K歌',
+        itunes_category: "全民K歌",
     };
 }

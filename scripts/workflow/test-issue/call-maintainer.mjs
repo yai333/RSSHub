@@ -1,19 +1,25 @@
-import remarkParse from 'remark-parse';
-import { unified } from 'unified';
+import remarkParse from "remark-parse";
+import { unified } from "unified";
 
 // @TODO maybe we could use label or some other better ways to distinguish bug/feature issues
-const matchTitle = ['路由地址', 'Routes'];
-const maintainerURL = 'https://raw.githubusercontent.com/DIYgod/RSSHub/gh-pages/build/maintainers.json';
-const successTag = 'bug ping: pinged';
-const parseFailTag = 'bug ping: parsing failed';
-const failTag = 'bug ping: not found';
-const deprecatedRoute = 'route: deprecated';
-const route = 'route';
+const matchTitle = ["路由地址", "Routes"];
+const maintainerURL =
+    "https://raw.githubusercontent.com/DIYgod/RSSHub/gh-pages/build/maintainers.json";
+const successTag = "bug ping: pinged";
+const parseFailTag = "bug ping: parsing failed";
+const failTag = "bug ping: not found";
+const deprecatedRoute = "route: deprecated";
+const route = "route";
 
 // DnD (do-not-disturb) usernames, add yours here to avoid being notified
 // eslint-disable-next-line unicorn/no-useless-collection-argument
 const dndUsernames = new Set([]);
 
+/**
+ * @param {string} body
+ * @param {typeof import('@actions/core')} core
+ * @returns {Promise<string[] | null>}
+ */
 async function parseBodyRoutes(body, core) {
     const ast = await unified().use(remarkParse).parse(body);
 
@@ -26,7 +32,7 @@ async function parseBodyRoutes(body, core) {
 
     let routes = ast.children[1].value.trim();
     core.debug(`routes: ${JSON.stringify(routes)}`);
-    if (routes.localeCompare('NOROUTE') === 0) {
+    if (routes.localeCompare("NOROUTE") === 0) {
         return null;
     }
 
@@ -34,15 +40,20 @@ async function parseBodyRoutes(body, core) {
         routes = routes.split(/\r?\n/).filter(Boolean);
         const dedup = [...new Set(routes)];
         if (dedup.length !== routes.length) {
-            core.warning('Duplication detected.');
+            core.warning("Duplication detected.");
         }
         core.debug(dedup);
         return dedup;
     }
 
-    throw new Error('unable to parse the issue body: route does not exist');
+    throw new Error("unable to parse the issue body: route does not exist");
 }
 
+/**
+ * @param {string[]} routes
+ * @param {typeof import('@actions/core')} core
+ * @returns {Promise<(string[] | undefined)[]>}
+ */
 async function getMaintainersByRoutes(routes, core) {
     const response = await fetch(maintainerURL);
     const maintainers = await response.json();
@@ -57,6 +68,10 @@ async function getMaintainersByRoutes(routes, core) {
     });
 }
 
+/**
+ * @param {{ github: ReturnType<typeof import('@actions/github').getOctokit>, context: typeof import('@actions/github').context, core: typeof import('@actions/core') }} githubScript
+ * @returns {Promise<void>}
+ */
 export default async function callMaintainer({ github, context, core }) {
     const body = context.payload.issue.body;
     const issueFacts = {
@@ -65,6 +80,7 @@ export default async function callMaintainer({ github, context, core }) {
         repo: context.repo.repo,
     };
 
+    /** @param {string[]} labels */
     const addLabels = (labels) =>
         github.rest.issues
             .addLabels({
@@ -74,6 +90,7 @@ export default async function callMaintainer({ github, context, core }) {
             .catch((error) => {
                 core.warning(error);
             });
+    /** @param {'open' | 'closed'} state */
     const updateIssueState = (state) =>
         github.rest.issues
             .update({
@@ -84,8 +101,8 @@ export default async function callMaintainer({ github, context, core }) {
                 core.warning(error);
             });
 
-    if (context.payload.issue.state === 'closed') {
-        await updateIssueState('open');
+    if (context.payload.issue.state === "closed") {
+        await updateIssueState("open");
     }
 
     const routes = await parseBodyRoutes(body, core).catch((error) => {
@@ -106,7 +123,7 @@ export default async function callMaintainer({ github, context, core }) {
     let successCount = 0;
     let emptyCount = 0;
     let failedCount = 0;
-    let comments = '##### Searching for maintainers: \n\n';
+    let comments = "##### Searching for maintainers: \n\n";
 
     for (const [i, route] of routes.entries()) {
         const main = maintainers[i];
@@ -130,13 +147,13 @@ export default async function callMaintainer({ github, context, core }) {
                     }
                     return `@${e}`;
                 })
-                .join(' ');
+                .join(" ");
             comments += `- \`${route}\`: ${pingStr}\n`;
             successCount += 1;
         }
     }
 
-    const labels = [''];
+    const labels = [""];
 
     if (failedCount > 0) {
         labels.push(failTag);
@@ -173,6 +190,6 @@ If all routes can not be found, the issue will be closed automatically. Please u
         });
 
     if (failedCount && emptyCount === 0 && successCount === 0) {
-        await updateIssueState('closed');
+        await updateIssueState("closed");
     }
 }

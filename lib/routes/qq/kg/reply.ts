@@ -1,13 +1,13 @@
-import type { Route } from '@/types';
-import { parseDate } from '@/utils/parse-date';
+import type { Route } from "@/types";
+import { parseDate } from "@/utils/parse-date";
 
-import cache from './cache';
+import cache from "./cache";
 
 export const route: Route = {
-    path: '/kg/reply/:playId',
-    categories: ['social-media'],
-    example: '/qq/kg/reply/OhXHMdO1VxLWQOOm',
-    parameters: { playId: '音频页 ID, 可在对应页面的 URL 中找到' },
+    path: "/kg/reply/:playId",
+    categories: ["social-media"],
+    example: "/qq/kg/reply/OhXHMdO1VxLWQOOm",
+    parameters: { playId: "音频页 ID, 可在对应页面的 URL 中找到" },
     features: {
         requireConfig: false,
         requirePuppeteer: false,
@@ -16,15 +16,15 @@ export const route: Route = {
         supportPodcast: false,
         supportScihub: false,
     },
-    name: '用户作品评论动态',
-    maintainers: ['zhangxiang012'],
+    name: "全民K歌 - 用户作品评论动态",
+    maintainers: ["zhangxiang012"],
     handler,
 };
 
 async function handler(ctx) {
-    const playId = ctx.req.param('playId');
+    const playId = ctx.req.param("playId");
     const url = `https://node.kg.qq.com/play?s=${playId}`;
-    const play_item = await cache.getPlayInfo(ctx, playId, '');
+    const play_item = await cache.getPlayInfo(ctx, playId, "");
 
     return {
         title: `${play_item.name} - ${play_item.author} 的评论`,
