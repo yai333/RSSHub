@@ -341,7 +341,7 @@
         {
             "id": "温哥华fm96-1",
             "name": "温哥华FM96.1",
-            "streamURL": "https://stream.eseenet.com/radio/fm961.stream/playlist.m3u8",
+            "streamURL": "https://stream.eseenet.com/radio/fm961.stream/chunklist_w435353709.m3u8",
             "country": "Canada",
             "genre": "國語",
             "logoName": "1470",
@@ -367,7 +367,7 @@
         {
             "id": "温哥华华侨之声",
             "name": "温哥华华侨之声",
-            "streamURL": "https://stream.radiojar.com/60sqadqu97zuv.mp3",
+            "streamURL": "https://stream.radiojar.com/nugqupcv8qzuv.mp3",
             "country": "Canada",
             "genre": "新聞時事",
             "logoName": "huaqiao",
