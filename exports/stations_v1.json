@@ -87,8 +87,8 @@
         {
             "id": "卡加利fm94-7",
             "name": "卡加利FM94.7",
-            "streamURL": "https://stream.eseenet.com/radio/am1470.stream/playlist.m3u8",
-            "country": "USA",
+            "streamURL": "https://stream.eseenet.com/radio/am1430.stream/chunklist_w713768624.m3u8",
+            "country": "Canada",
             "genre": "國語",
             "logoName": "1470",
             "bitrateKbps": 128,
@@ -171,7 +171,7 @@
         {
             "id": "国语-生命广播网",
             "name": "生命广播网(国)",
-            "streamURL": "https://cgbcorgaudio.blob.core.windows.net/radioprogram/02%20%E7%AC%AC%E4%BA%8C%E9%80%B1/%E8%8F%AF%E8%AA%9E%E5%8F%B0/02%20%E7%A6%AE%E6%8B%9C%E4%BA%8C/04%20EnglishWorld486_1434_HLS/04%20EnglishWorld486_1434.m3u8",
+            "streamURL": "https://cgbcorgaudio.blob.core.windows.net/radioprogram/06%206%E6%9C%88%E4%BB%BD/%E7%AC%AC%E5%9B%9B%E5%91%A8/%E5%8D%8E%E8%AF%AD%E5%8F%B0/04%20%E7%A4%BC%E6%8B%9C%E5%9B%9B/06%20acts3-24_HLS/06%20acts3-24.m3u8",
             "country": "USA",
             "genre": "新聞時事",
             "logoName": "cgbc",
@@ -185,7 +185,7 @@
         {
             "id": "粤语-生命广播网",
             "name": "生命广播网(粤)",
-            "streamURL": "https://cgbcorgaudio.blob.core.windows.net/radioprogram/02%20%E7%AC%AC%E4%BA%8C%E9%80%B1/%E7%B2%B5%E8%AA%9E%E5%8F%B0/02%20%E7%A6%AE%E6%8B%9C%E4%BA%8C/04%2030%E6%AF%8F%E6%97%A5%E9%9D%88%E7%B3%A76_HLS/04%2030%E6%AF%8F%E6%97%A5%E9%9D%88%E7%B3%A76.m3u",
+            "streamURL": "https://cgbcorgaudio.blob.core.windows.net/radioprogram/06%206%E6%9C%88%E4%BB%BD/%E7%AC%AC%E5%9B%9B%E5%91%A8/%E7%B2%A4%E8%AF%AD%E5%8F%B0/04%20%E7%A4%BC%E6%8B%9C%E5%9B%9B/06%20df48_HLS/06%20df48.m3u8",
             "country": "USA",
             "genre": "新聞時事",
             "logoName": "cgbc",
@@ -199,7 +199,7 @@
         {
             "id": "诗歌-生命广播网",
             "name": "生命广播网(诗歌)",
-            "streamURL": "https://cgbcorgaudio.blob.core.windows.net/radioprogram/01%20%E7%AC%AC%E4%B8%80%E9%80%B1/%E8%A9%A9%E6%AD%8C%E5%8F%B0/Prg01_Msc_1558_HLS/Prg01_Msc_1558.m3u8",
+            "streamURL": "https://cgbcorgaudio.blob.core.windows.net/radioprogram/06%206%E6%9C%88%E4%BB%BD/%E7%AC%AC%E5%9B%9B%E5%91%A8/%E8%AF%97%E6%AD%8C%E5%8F%B0/Prg02_Msc1521_HLS/Prg02_Msc1521.m3u8",
             "country": "USA",
             "genre": "宗教",
             "logoName": "cgbc1",
@@ -227,7 +227,7 @@
         {
             "id": "湾区新城电台",
             "name": "湾区新城电台",
-            "streamURL": "https://listen.mixlr.com/1ddcab237a2dc22a35b5138fec72508d",
+            "streamURL": "https://listen.mixlr.com/ecc01428350660222563d41790c805e0",
             "country": "USA",
             "genre": "國語",
             "logoName": "huayu",
