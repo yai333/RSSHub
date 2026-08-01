@@ -67,7 +67,6 @@ async function handler(ctx) {
                 imgHtml.removeAttr('zoomfile');
                 imgHtml.removeAttr('file');
                 imgHtml.removeAttr('onmouseover');
-                imgHtml.removeAttr('onclick');
             }
         }
         contentHtml.find('div.aimg_tip').remove();

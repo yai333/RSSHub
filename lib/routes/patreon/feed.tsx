@@ -1,4 +1,4 @@
-import * as cheerio from 'cheerio';
+import { load } from 'cheerio';
 import { raw } from 'hono/html';
 import { renderToString } from 'hono/jsx/dom/server';
 
@@ -116,7 +116,7 @@ async function handler(ctx) {
     const creatorData = (await cache.tryGet(`patreon:creator:${creator}`, async () => {
         const response = await ofetch(link);
 
-        const $ = cheerio.load(response);
+        const $ = load(response);
 
         const ogUrl = $('meta[property="og:url"]').attr('content');
         if (ogUrl?.startsWith(`${baseUrl}/cw/`)) {

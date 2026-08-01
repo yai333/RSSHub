@@ -68,7 +68,7 @@ export const route: Route = {
                                 $el.attr(attr, new URL(val, baseUrl).toString());
                             }
                         });
-                        item.description = $read.html()?.trim();
+                        item.description = $read.html();
                         return item;
                     } else {
                         // file to download

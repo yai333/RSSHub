@@ -1235,7 +1235,7 @@
         {
             "id": "soh生活台-粤",
             "name": "soh生活台(粤)",
-            "streamURL": "http://sohcan.out.airtime.pro:8000/sohcan_a",
+            "streamURL": "https://sohcan.out.airtime.pro/sohcan_a",
             "country": "Australia",
             "genre": "粵語",
             "logoName": "asc",
@@ -1277,7 +1277,7 @@
         {
             "id": "soh生活台-国",
             "name": "soh生活台(国)",
-            "streamURL": "http://livecast1.soundofhope.org:2086/SYDNEY",
+            "streamURL": "https://ozvoice.out.airtime.pro:8000/ozvoice_a",
             "country": "Australia",
             "genre": "國語",
             "logoName": "asg",

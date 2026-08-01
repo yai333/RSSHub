@@ -2,21 +2,24 @@ import { load } from 'cheerio';
 
 import type { Route } from '@/types';
 import cache from '@/utils/cache';
+import { getSubPath } from '@/utils/common-utils';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
 
 import { renderDescription } from './templates/description';
 
 export const route: Route = {
-    path: '/:category{.+}?',
+    path: '/',
+    categories: ['picture'],
+    example: '/asiantolick',
     radar: [
         {
             source: ['asiantolick.com/'],
-            target: '',
+            target: '/',
         },
     ],
-    name: 'Unknown',
-    maintainers: [],
+    name: 'Top rated',
+    maintainers: ['nczitzk'],
     handler,
     url: 'asiantolick.com/',
     features: {
@@ -24,23 +27,21 @@ export const route: Route = {
     },
 };
 
-async function handler(ctx) {
-    const category = ctx.req.param('category');
-    const limit = ctx.req.query('limit') ? Number.parseInt(ctx.req.query('limit'), 10) : 24;
+export async function handler(ctx) {
+    const category = getSubPath(ctx).slice(1);
+    const limit = ctx.req.query('limit') ? Number(ctx.req.query('limit')) : 24;
 
     const rootUrl = 'https://asiantolick.com';
     const apiUrl = new URL('ajax/buscar_posts.php', rootUrl).href;
-    const currentUrl = new URL(category?.replace(/^(tag|category)?\/(\d+)/, '$1-$2') ?? '', rootUrl).href;
+    const currentUrl = new URL(category.replace(/^(tag|category)?\/(\d+)/, '$1-$2'), rootUrl).href;
 
     const searchParams = {};
-    const matches = category?.match(/^(tag|category|search|page)?[/-]?(\w+)/) ?? undefined;
+    const matches = category.match(/^(tag|category|search|page)?[/-]?(\w+)/);
 
     if (matches) {
         const key = matches[1] === 'category' ? 'cat' : matches[1];
         const value = matches[2];
         searchParams[key] = value;
-    } else if (category) {
-        searchParams.page = 'news';
     }
 
     const { data: response } = await got(apiUrl, {
@@ -64,7 +65,7 @@ async function handler(ctx) {
                     images: image
                         ? [
                               {
-                                  src: image.prop('data-src').split(/\?/)[0],
+                                  src: image.prop('data-src').split(/\?/, 1)[0],
                                   alt: image.prop('alt'),
                               },
                           ]
@@ -86,7 +87,7 @@ async function handler(ctx) {
 
                 const content = load(detailResponse);
 
-                item.title = content('h1').first().text();
+                item.title = content('h1').text();
                 item.description = renderDescription({
                     description: content('#metadata_qrcode').html(),
                     images: content('div.miniatura')
@@ -115,7 +116,7 @@ async function handler(ctx) {
 
     $ = load(currentResponse);
 
-    const title = $('title').text().split(/-/)[0].trim();
+    const title = $('title').text().split(/-/, 1)[0].trim();
     const icon = $('link[rel="icon"]').first().prop('href');
 
     return {

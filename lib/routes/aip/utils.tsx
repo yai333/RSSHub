@@ -10,7 +10,7 @@ const puppeteerGet = async (url, browser) => {
     await page.goto(url, {
         waitUntil: 'domcontentloaded',
     });
-    const html = await page.evaluate(() => document.documentElement.innerHTML);
+    const html = await page.evaluate(() => document.documentElement.getHTML());
     return html;
 };
 

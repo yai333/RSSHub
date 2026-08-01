@@ -25,7 +25,7 @@ const PuppeterGetter = async (ctx, browser, link) => {
         await page.goto(link, {
             waitUntil: 'domcontentloaded',
         });
-        const response = await page.evaluate(() => document.querySelector('body').innerHTML);
+        const response = await page.evaluate(() => document.querySelector('body').getHTML());
         return response;
     });
     return result;

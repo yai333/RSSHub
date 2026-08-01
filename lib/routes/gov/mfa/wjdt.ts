@@ -19,8 +19,13 @@ const categories = {
 };
 
 export const route: Route = {
-    path: ['/fmprc/:category?', '/mfa/wjdt/:category?'],
-    name: 'Unknown',
+    path: '/wjdt/:category?',
+    categories: ['government'],
+    example: '/gov/mfa/wjdt/fyrbt',
+    parameters: {
+        category: '分类，见下表，默认为领导人活动',
+    },
+    name: '外交动态',
     maintainers: ['nicolaszf', 'nczitzk'],
     handler,
     description: `| 分类       | category |
@@ -57,7 +62,7 @@ async function handler(ctx) {
 
             return {
                 title: item.text(),
-                link: item.attr('href').replace(/^\./, currentUrl),
+                link: item.attr('href').replace(/^\./, () => currentUrl),
             };
         });
 
@@ -72,7 +77,7 @@ async function handler(ctx) {
                 const content = load(detailResponse.data);
 
                 item.description = content('#News_Body_Txt_A').html();
-                item.pubDate = timezone(parseDate(content('.time span').last().text()), +8);
+                item.pubDate = timezone(parseDate(content('.time span').text()), 8);
                 item.category = content('meta[name="Keywords"]').attr('content')?.split(';') ?? [];
 
                 return item;

@@ -32,14 +32,7 @@ export const route: Route = {
 async function handler(ctx) {
     const { category = 'tzgg' } = ctx.req.param();
     const url = `${baseUrl}/${category}.htm`;
-    const response = await got(url, {
-        headers: {
-            referer: baseUrl,
-        },
-        https: {
-            rejectUnauthorized: false,
-        },
-    });
+    const response = await got(url);
     const $ = load(response.data);
 
     let items = $('.list ul li')
@@ -59,9 +52,6 @@ async function handler(ctx) {
                 const detailResponse = await got(item.link, {
                     headers: {
                         referer: url,
-                    },
-                    https: {
-                        rejectUnauthorized: false,
                     },
                 });
                 const content = load(detailResponse.data);

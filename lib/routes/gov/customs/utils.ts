@@ -11,7 +11,7 @@ const puppeteerGet = async (url, browser) => {
         waitUntil: 'domcontentloaded',
     });
     await page.waitForSelector('.pubCon');
-    const html = await page.evaluate(() => document.documentElement.innerHTML);
+    const html = await page.evaluate(() => document.documentElement.getHTML());
     return html;
 };
 

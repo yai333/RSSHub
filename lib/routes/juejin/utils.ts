@@ -1,6 +1,6 @@
 import crypto from 'node:crypto';
 
-import * as cheerio from 'cheerio';
+import { load } from 'cheerio';
 
 import cache from '@/utils/cache';
 import ofetch from '@/utils/ofetch';
@@ -39,7 +39,7 @@ export const generateUuid = () => {
 
 export const getArticle = async (link) => {
     let response = await ofetch(link);
-    let $ = cheerio.load(response);
+    let $ = load(response);
     if ($('script').text().includes('_wafchallengeid')) {
         const cs = $('script:contains("_wafchallengeid")')
             .text()
@@ -52,7 +52,7 @@ export const getArticle = async (link) => {
             },
         });
 
-        $ = cheerio.load(response);
+        $ = load(response);
     }
 
     return $('.article-viewer').html();

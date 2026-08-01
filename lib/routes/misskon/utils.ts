@@ -14,7 +14,6 @@ const getPosts = async (searchParams) => {
         $('input').each(function () {
             $(this).replaceWith($(this).attr('value') || '');
         });
-        $('script').remove();
         return {
             title: item.title.rendered,
             link: item.link,

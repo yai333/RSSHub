@@ -69,9 +69,6 @@ async function handler(ctx) {
     let response = null;
     try {
         response = await got(yzb_base_url + path, {
-            headers: {
-                Referer: yzb_base_url,
-            },
             responseType: 'buffer',
         });
     } catch {

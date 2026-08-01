@@ -29,21 +29,20 @@ export const route: Route = {
     maintainers: ['Chi-hong22'],
     handler,
     description: `| 学院要闻 | 学术活动 | 通知公告 | 学科方向 |
-| :------: | :------: |:------: | :------: |
-|   xyyw   |   xshd   |  229   |   xkfx   |`,
+| :------: | :------: | :------: | :------: |
+|   xyyw   |   xshd   |    229   |   xkfx   |`,
 };
 
 async function handler(ctx) {
     const id = ctx.req.param('id');
-    const response = await got(`${rootUrl}/${id}/list.htm`, {
-        headers: {
-            Referer: rootUrl,
-        },
-    });
+    const response = await got(`${rootUrl}/${id}/list.htm`);
 
     const $ = load(response.data);
 
-    const bigTitle = $('div [class=lanmuInnerMiddleBigClass_right]').find('div [portletmode=simpleColumnAttri]').text().replaceAll(/[\s·]/g, '').trim();
+    const bigTitle = $('div [class=lanmuInnerMiddleBigClass_right]')
+        .find('div [portletmode=simpleColumnAttri]')
+        .text()
+        .replaceAll(/[\s·]/g, '');
 
     const list = $('li.list_item')
         .toArray()

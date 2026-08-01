@@ -1,4 +1,4 @@
-import * as cheerio from 'cheerio';
+import { load } from 'cheerio';
 import CryptoJS from 'crypto-js';
 
 import ofetch from '@/utils/ofetch';
@@ -52,7 +52,7 @@ const getPost = (item, tryGet) =>
             throw new Error(post.message);
         }
 
-        const $ = cheerio.load(post.data.body, null, false);
+        const $ = load(post.data.body, null, false);
 
         $('img').each((_, img) => {
             img = $(img);

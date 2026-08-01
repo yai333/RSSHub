@@ -1,16 +1,16 @@
-import { load } from "cheerio";
+import { load } from 'cheerio';
 
-import type { Route } from "@/types";
-import ofetch from "@/utils/ofetch";
-import { parseDate } from "@/utils/parse-date";
+import type { Route } from '@/types';
+import ofetch from '@/utils/ofetch';
+import { parseDate } from '@/utils/parse-date';
 
 const getEpisodes = (obj: any) => obj?.result || obj?.items || (Array.isArray(obj) ? obj : []);
 
 export const route: Route = {
-    path: "/manga/:id",
-    categories: ["anime"],
-    example: "/comic-walker/manga/KC_006778_S",
-    parameters: { id: "カドコミ(Kadocomi)中对应的作品workCode，例如 KC_006778_S" },
+    path: '/manga/:id',
+    categories: ['anime'],
+    example: '/comic-walker/manga/KC_006778_S',
+    parameters: { id: 'カドコミ(Kadocomi)中对应的作品workCode，例如 KC_006778_S' },
     features: {
         requireConfig: false,
         requirePuppeteer: false,
@@ -21,58 +21,56 @@ export const route: Route = {
     },
     radar: [
         {
-            source: ["comic-walker.com/detail/:id"],
-            target: "/manga/:id",
+            source: ['comic-walker.com/detail/:id'],
+            target: '/manga/:id',
+        },
+        {
+            source: ['comic-walker.com/detail/:id/episodes/:episodeId'],
+            target: '/manga/:id',
         },
     ],
-    name: "漫画详情",
-    maintainers: ["xiaobailoves"],
+    name: '漫画详情',
+    maintainers: ['xiaobailoves'],
 
     handler: async (ctx) => {
         const { id } = ctx.req.param();
-        const baseUrl = "https://comic-walker.com";
+        const baseUrl = 'https://comic-walker.com';
 
         const fetchUrl = `${baseUrl}/detail/${id}?episodeType=first`;
         const openUrl = `${baseUrl}/detail/${id}`;
 
         const response = await ofetch<string>(fetchUrl, {
             headers: {
-                Referer: baseUrl,
-                "Accept-Language": "ja,en-US;q=0.9,en;q=0.8",
+                'Accept-Language': 'ja,en-US;q=0.9,en;q=0.8',
             },
         });
 
         const $ = load(response);
-        const nextDataText = $("#__NEXT_DATA__").text();
+        const nextDataText = $('#__NEXT_DATA__').text();
 
         if (!nextDataText) {
-            throw new Error("无法解析页面 HTML 数据，可能触发了反爬策略或页面结构巨变");
+            throw new Error('无法解析页面 HTML 数据，可能触发了反爬策略或页面结构巨变');
         }
 
         const nextData = JSON.parse(nextDataText);
         const queries = nextData.props?.pageProps?.dehydratedState?.queries || [];
 
-        const workQuery = queries.find(
-            (q: any) =>
-                q.queryKey?.includes("/api/contents/details/work") ||
-                (Array.isArray(q.queryKey) &&
-                    q.queryKey.some((k: any) => typeof k === "string" && k.includes("work"))),
-        );
+        const workQuery = queries.find((q: any) => q.queryKey?.includes('/api/contents/details/work') || (Array.isArray(q.queryKey) && q.queryKey.some((k: any) => typeof k === 'string' && k.includes('work'))));
 
         if (!workQuery || !workQuery.state?.data) {
-            throw new Error("无法在 HTML 缓存中提取核心数据对象");
+            throw new Error('无法在 HTML 缓存中提取核心数据对象');
         }
 
         const data = workQuery.state.data;
         const work = data.work;
 
         if (!work) {
-            throw new Error("成功获取数据对象，但未找到作品基本信息");
+            throw new Error('成功获取数据对象，但未找到作品基本信息');
         }
 
-        const mangaTitle = work.title || $("title").text().trim();
-        const mangaAuthor = work.authors?.map((author: any) => author.name).join(", ") || "";
-        const mangaDescription = work.summary || "";
+        const mangaTitle = work.title || $('title').text();
+        const mangaAuthor = work.authors?.map((author: any) => author.name).join(', ');
+        const mangaDescription = work.summary || '';
         const coverImage = work.bookCover || work.thumbnail;
 
         const firstEpisodes = getEpisodes(data.firstEpisodes);
@@ -88,18 +86,16 @@ export const route: Route = {
                 }
                 return false;
             })
-            .toSorted(
-                (a: any, b: any) => (b.internal?.episodeNo || 0) - (a.internal?.episodeNo || 0),
-            );
+            .toSorted((a: any, b: any) => (b.internal?.episodeNo || 0) - (a.internal?.episodeNo || 0));
 
         if (allChapters.length === 0) {
-            throw new Error("HTML 缓存中无章节!");
+            throw new Error('HTML 缓存中无章节!');
         }
 
         const items = allChapters.map((chapter: any) => {
-            const epType = chapter.type === "normal" ? "正篇" : "特别篇/PR";
-            const isReadStatus = chapter.isActive ? "" : " (未解锁/仍需等待)";
-            const fullTitle = `${chapter.title}${chapter.subTitle ? ` - ${chapter.subTitle}` : ""}${isReadStatus}`;
+            const epType = chapter.type === 'normal' ? '正篇' : '特别篇/PR';
+            const isReadStatus = chapter.isActive ? '' : ' (未解锁/仍需等待)';
+            const fullTitle = `${chapter.title}${chapter.subTitle ? ` - ${chapter.subTitle}` : ''}${isReadStatus}`;
             const thumb = chapter.originalThumbnail || chapter.thumbnail;
 
             const currentPubDate = chapter.updateDate ? parseDate(chapter.updateDate) : undefined;
@@ -108,7 +104,7 @@ export const route: Route = {
                 title: fullTitle,
                 link: `${baseUrl}/detail/${id}/episodes/${chapter.code}`,
                 description: `
-                    ${thumb ? `<img src="${thumb}" style="max-width: 100%;"><br>` : ""}
+                    ${thumb ? `<img src="${thumb}" style="max-width: 100%;"><br>` : ''}
                 `,
                 guid: `Kadocomi-manga-${chapter.code}`,
                 category: epType,
@@ -123,7 +119,7 @@ export const route: Route = {
             description: mangaDescription,
             image: coverImage,
             item: items,
-            language: "ja",
+            language: 'ja',
         };
     },
 };

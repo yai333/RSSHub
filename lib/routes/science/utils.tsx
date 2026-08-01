@@ -20,7 +20,7 @@ const fetchDesc = (list, browser, tryGet) =>
                     waitUntil: 'domcontentloaded',
                 });
                 await page.waitForSelector('section#bodymatter, .news-article-content, .news-article-content--featured');
-                const res = await page.evaluate(() => document.documentElement.innerHTML);
+                const res = await page.evaluate(() => document.documentElement.getHTML());
                 await page.close();
 
                 const $ = load(res);

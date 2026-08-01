@@ -33,28 +33,24 @@ async function sync_detail(link) {
         .each(function (i) {
             authors[i] = $(this).text();
             authors[i].replace(' ', ''); // 去空格
-            authors[i].trim(); // 去首尾空格
         });
     $(sec_page_selector)
         .find(origins_selector)
         .each(function (i) {
             origins[i] = $(this).text();
             origins[i].replace(' ', '');
-            origins[i].trim();
         });
     $(sec_page_selector)
         .find(characters_selector)
         .each(function (i) {
             characters[i] = $(this).text();
             characters[i].replace(' ', '');
-            characters[i].trim();
         });
     $(sec_page_selector)
         .find(tags_selector)
         .each(function (i) {
             tags[i] = $(this).text();
             tags[i].replace(' ', '');
-            tags[i].trim();
         });
     // 筛选
     const desc = $(sec_page_selector).find(desc_selector).text();

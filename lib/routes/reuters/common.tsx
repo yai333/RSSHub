@@ -196,7 +196,6 @@ async function handler(ctx) {
     const browserHeaders = {
         Accept: 'application/json, text/plain, */*',
         'Accept-Language': 'en-US,en;q=0.9',
-        Referer: 'https://www.reuters.com/',
     };
 
     try {

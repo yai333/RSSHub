@@ -1,17 +1,17 @@
-import { load } from "cheerio";
-import pMap from "p-map";
+import { load } from 'cheerio';
+import pMap from 'p-map';
 
-import type { DataItem, Route } from "@/types";
-import cache from "@/utils/cache";
-import ofetch from "@/utils/ofetch";
-import { parseDate } from "@/utils/parse-date";
+import type { DataItem, Route } from '@/types';
+import cache from '@/utils/cache';
+import ofetch from '@/utils/ofetch';
+import { parseDate } from '@/utils/parse-date';
 
-const baseUrl = "https://claude.com";
+const baseUrl = 'https://claude.com';
 
 export const route: Route = {
-    path: "/blog",
-    categories: ["programming"],
-    example: "/claude/blog",
+    path: '/blog',
+    categories: ['programming'],
+    example: '/claude/blog',
     parameters: {},
     features: {
         requireConfig: false,
@@ -23,42 +23,39 @@ export const route: Route = {
     },
     radar: [
         {
-            source: ["claude.com/blog"],
-            target: "/blog",
+            source: ['claude.com/blog'],
+            target: '/blog',
         },
     ],
-    name: "Blog",
-    maintainers: ["zhenlohuang"],
+    name: 'Blog',
+    maintainers: ['zhenlohuang'],
     handler,
-    url: "claude.com/blog",
+    url: 'claude.com/blog',
 };
 
 async function handler(ctx) {
     const link = `${baseUrl}/blog`;
     const response = await ofetch(link);
     const $ = load(response);
-    const limit = ctx.req.query("limit") ? Number.parseInt(ctx.req.query("limit"), 10) : 15;
+    const limit = ctx.req.query('limit') ? Number(ctx.req.query('limit')) : 15;
 
-    const list: DataItem[] = $(".blog_cms_list article.card_blog_list_wrap")
+    const list: DataItem[] = $('.blog_cms_list article.card_blog_list_wrap')
         .toArray()
         .slice(0, limit)
         .map((el) => {
             const $el = $(el);
-            const title = $el.find(".card_blog_list_title").text().trim();
-            const href = $el.find("a.clickable_link").attr("href") ?? "";
-            const pubDateText = $el
-                .find('[fs-list-fieldtype="date"][fs-list-field="date"]')
-                .text()
-                .trim();
+            const title = $el.find('.card_blog_list_title').text();
+            const href = $el.find('a.clickable_link').attr('href') ?? '';
+            const pubDateText = $el.find('[fs-list-fieldtype="date"][fs-list-field="date"]').text();
             const category = $el
                 .find('[fs-list-field="category"]')
                 .toArray()
-                .map((c) => $(c).text().trim())
+                .map((c) => $(c).text())
                 .filter(Boolean);
 
             return {
                 title,
-                link: href.startsWith("http") ? href : `${baseUrl}${href}`,
+                link: href.startsWith('http') ? href : `${baseUrl}${href}`,
                 pubDate: pubDateText ? parseDate(pubDateText) : undefined,
                 category,
             };
@@ -71,22 +68,22 @@ async function handler(ctx) {
                 const response = await ofetch(item.link!);
                 const $ = load(response);
 
-                const content = $(".blog_post_content_wrap");
+                const content = $('.blog_post_content_wrap');
 
-                content.find("style, script").remove();
+                content.find('style').remove();
 
-                item.description = content.html() ?? undefined;
+                item.description = content.html();
 
                 return item;
             }),
-        { concurrency: 3 },
+        { concurrency: 3 }
     );
 
     return {
-        title: "Claude Blog",
+        title: 'Claude Blog',
         link,
-        description: "Product news and best practices for teams building with Claude.",
-        language: "en",
+        description: 'Product news and best practices for teams building with Claude.',
+        language: 'en',
         item: items,
     };
 }

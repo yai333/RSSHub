@@ -73,7 +73,7 @@ async function handler(ctx) {
                     }
                 });
 
-                item.description = content.html() ?? undefined;
+                item.description = content.html();
 
                 return item;
             }),

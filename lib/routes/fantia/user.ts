@@ -68,7 +68,6 @@ async function handler(ctx) {
                         Cookie: config.fantia.cookies ?? '',
                         'X-CSRF-Token': csrfToken,
                         Accept: 'application/json, text/plain, */*',
-                        Referer: `${rootUrl}/`,
                         'X-Requested-With': 'XMLHttpRequest',
                     },
                 });
