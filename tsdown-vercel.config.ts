@@ -11,5 +11,7 @@ export default defineConfig({
     // copy: [{ from: 'lib/assets', to: 'dist' }],
     deps: {
         onlyBundle: false,
+        // Vercel's loader cannot require ESM dependencies from CommonJS packages.
+        alwaysBundle: ['sanitize-html', 'htmlparser2'],
     },
 });
