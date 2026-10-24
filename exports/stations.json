@@ -16,7 +16,7 @@
         {
             "id": "soh生活台-国",
             "name": "soh生活台(国)",
-            "streamURL": "https://ozvoice.out.airtime.pro:8000/ozvoice_a",
+            "streamURL": "https://ozvoice.out.airtime.pro/ozvoice_a",
             "country": "Australia",
             "genre": "國語",
             "logoName": "asg",
@@ -55,7 +55,7 @@
         {
             "id": "sbs-popasia",
             "name": "SBS PopAsia",
-            "streamURL": "http://sbs-ice.streamguys1.com/sbs-popasia",
+            "streamURL": "https://sbs-ice.streamguys1.com/sbs-popasia",
             "country": "Australia",
             "genre": "流行音樂",
             "logoName": "sbspop",
@@ -68,7 +68,7 @@
         {
             "id": "sbs中文频道",
             "name": "SBS中文频道",
-            "streamURL": "http://sbs-ice.streamguys1.com/sbs1",
+            "streamURL": "https://sbs-ice.streamguys1.com/sbs1",
             "country": "Australia",
             "genre": "國語",
             "logoName": "sbs",

@@ -865,13 +865,13 @@
             "isFeatured": false,
             "order": 65,
             "description": "SBS PopAsia，亞洲流行音樂24小時",
-            "websiteURL": "http://www.sbs.com.au/popasia/",
+            "websiteURL": "https://www.sbs.com.au/popasia/",
             "source": "community"
         },
         {
             "id": "sbs中文频道",
             "name": "SBS中文频道",
-            "streamURL": "http://sbs-ice.streamguys1.com/sbs1",
+            "streamURL": "https://sbs-ice.streamguys1.com/sbs1",
             "country": "Australia",
             "genre": "國語",
             "logoName": "sbs",
@@ -1277,7 +1277,7 @@
         {
             "id": "soh生活台-国",
             "name": "soh生活台(国)",
-            "streamURL": "https://ozvoice.out.airtime.pro:8000/ozvoice_a",
+            "streamURL": "https://ozvoice.out.airtime.pro/ozvoice_a",
             "country": "Australia",
             "genre": "國語",
             "logoName": "asg",
