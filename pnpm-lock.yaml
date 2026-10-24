@@ -24,7 +24,7 @@ patchedDependencies:
     hash: 4812d3969aa7556a2a52094a00be1d5f5e38f768b5f7df238e0128415253c171
     path: patches/@mswjs__interceptors@0.41.9.patch
   rss-parser@3.13.0:
-    hash: afac79a31a3db94c953d49680bc5528468f051957d461e913d2e2dbf5cd22a8d
+    hash: e1697dd9dde771024b5d0669a3eff6237e75fbac78381a6127012b67593bb2b7
     path: patches/rss-parser@3.13.0.patch
 
 importers:
@@ -219,7 +219,7 @@ importers:
         version: 1.5.4
       rss-parser:
         specifier: 3.13.0
-        version: 3.13.0(patch_hash=afac79a31a3db94c953d49680bc5528468f051957d461e913d2e2dbf5cd22a8d)
+        version: 3.13.0(patch_hash=e1697dd9dde771024b5d0669a3eff6237e75fbac78381a6127012b67593bb2b7)
       sanitize-html:
         specifier: 2.17.6
         version: 2.17.6
@@ -3714,7 +3714,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
 
   difflib@https://codeload.github.com/postlight/difflib.js/tar.gz/32e8e38c7fcd935241b9baab71bb432fd9b166ed:
-    resolution: {tarball: https://codeload.github.com/postlight/difflib.js/tar.gz/32e8e38c7fcd935241b9baab71bb432fd9b166ed}
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/postlight/difflib.js/tar.gz/32e8e38c7fcd935241b9baab71bb432fd9b166ed}
     version: 0.2.6
 
   discord-api-types@0.38.52:
@@ -11466,7 +11466,7 @@ snapshots:
       '@rollup/rollup-win32-x64-msvc': 4.62.3
       fsevents: 2.3.3
 
-  rss-parser@3.13.0(patch_hash=afac79a31a3db94c953d49680bc5528468f051957d461e913d2e2dbf5cd22a8d):
+  rss-parser@3.13.0(patch_hash=e1697dd9dde771024b5d0669a3eff6237e75fbac78381a6127012b67593bb2b7):
     dependencies:
       entities: 7.0.1
       xml2js: 0.6.2
