@@ -1,13 +1,15 @@
-import type { Route } from "@/types";
-import cache from "@/utils/cache";
-import ofetch from "@/utils/ofetch";
+import type { Route } from '@/types';
+import cache from '@/utils/cache';
+import ofetch from '@/utils/ofetch';
+import { parseDate } from '@/utils/parse-date';
+import timezone from '@/utils/timezone';
 
-const rootUrl = "https://api.openalex.org";
+const rootUrl = 'https://api.openalex.org';
 
 // Reconstruct abstract from inverted index
 const reconstructAbstract = (invertedIndex: Record<string, number[]>): string => {
     if (!invertedIndex) {
-        return "";
+        return '';
     }
 
     const words: string[] = [];
@@ -17,15 +19,15 @@ const reconstructAbstract = (invertedIndex: Record<string, number[]>): string =>
         }
     }
 
-    return words.filter(Boolean).join(" ");
+    return words.filter(Boolean).join(' ');
 };
 
 // Map filter types to their API field names
 const filterTypeMap = {
-    subfield: "primary_topic.subfield.id",
-    topic: "primary_topic.id",
-    field: "primary_topic.field.id",
-    domain: "primary_topic.domain.id",
+    subfield: 'primary_topic.subfield.id',
+    topic: 'primary_topic.id',
+    field: 'primary_topic.field.id',
+    domain: 'primary_topic.domain.id',
 };
 
 export const handler = async (ctx) => {
@@ -34,110 +36,81 @@ export const handler = async (ctx) => {
     // Get date 14 days ago (2 weeks)
     const twoWeeksAgo = new Date();
     twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
-    const twoWeeksAgoStr = twoWeeksAgo.toISOString().split("T")[0];
+    const twoWeeksAgoStr = twoWeeksAgo.toISOString().split('T', 1)[0];
 
     // Build filter parameters
-    const filters = [
-        `publication_date:>${twoWeeksAgoStr}`,
-        "has_abstract:true",
-        `primary_location.source.id:${journals}`,
-    ];
+    const filters = [`publication_date:>${twoWeeksAgoStr}`, 'has_abstract:true', `primary_location.source.id:${journals}`];
 
     // Add type filter if provided
     if (type && ids) {
-        if (!filterTypeMap[type]) {
-            throw new Error(
-                `Invalid type: ${type}. Must be one of: ${Object.keys(filterTypeMap).join(", ")}`,
-            );
+        if (!Object.hasOwn(filterTypeMap, type)) {
+            throw new Error(`Invalid type: ${type}. Must be one of: ${Object.keys(filterTypeMap).join(', ')}`);
         }
         const typeField = filterTypeMap[type];
         filters.push(`${typeField}:${ids}`);
     }
 
-    const filter = filters.join(",");
+    const filter = filters.join(',');
 
     const apiUrl = `${rootUrl}/works`;
     const response = await ofetch(apiUrl, {
         query: {
             filter,
-            sort: "publication_date:desc",
-            "per-page": 100,
+            sort: 'publication_date:desc',
+            'per-page': 100,
         },
     });
 
-    const seenTitleKeys = new Set<string>();
+    const seenWorkIds = new Set<string>();
 
     const items = response.results
-        .filter((work) => {
-            const abstract = reconstructAbstract(work.abstract_inverted_index).trim();
-            if (!abstract) {
-                return false;
-            }
-
-            // Exclude likely news/briefing entries that usually do not have institution metadata.
-            return (
-                work.authorships?.some((authorship) => authorship.institutions?.length > 0) ?? false
-            );
-        })
+        .filter((work) => reconstructAbstract(work.abstract_inverted_index).trim())
         .map((work) => {
             const abstract = reconstructAbstract(work.abstract_inverted_index);
-            const authors = work.authorships?.map((a) => a.author.display_name).join(", ") || "";
-            const doiUrl = work.doi
-                ? `https://doi.org/${work.doi.replace("https://doi.org/", "")}`
-                : work.id;
-            const normalizedTitle = (work.title || "Untitled").trim().toLowerCase();
+            const authors = work.authorships?.map((a) => a.author.display_name).join(', ') || '';
+            const doiUrl = work.doi ? `https://doi.org/${work.doi.replace('https://doi.org/', '')}` : work.id;
 
-            const pubDate = work.publication_date ? new Date(work.publication_date) : undefined;
+            const publicationDate = work.publication_date ? timezone(parseDate(work.publication_date, 'YYYY-MM-DD', true), 0) : undefined;
+            const pubDate = publicationDate && !Number.isNaN(publicationDate.getTime()) ? publicationDate : undefined;
 
             return {
-                title: work.title || "Untitled",
+                title: work.title || 'Untitled',
                 link: doiUrl,
                 description: abstract,
                 author: authors,
                 pubDate,
                 // OpenAlex id is immutable and stable across metadata updates.
                 guid: work.id,
-                normalizedTitle,
-                category: work.primary_topic?.subfield?.display_name
-                    ? [work.primary_topic.subfield.display_name]
-                    : [],
+                category: work.primary_topic?.subfield?.display_name ? [work.primary_topic.subfield.display_name] : [],
             };
         })
         .filter((item) => {
-            const day =
-                item.pubDate instanceof Date ? item.pubDate.toISOString().split("T")[0] : "";
-            const titleKey = `${item.normalizedTitle}::${day}`;
-            if (seenTitleKeys.has(titleKey)) {
+            if (seenWorkIds.has(item.guid)) {
                 return false;
             }
-            seenTitleKeys.add(titleKey);
+            seenWorkIds.add(item.guid);
             return true;
-        })
-        .map(({ normalizedTitle: _normalizedTitle, ...item }) => ({
-            ...item,
-        }));
+        });
 
     // Get journal and filter type names for title
-    const journalIdArray = journals.split("|");
+    const journalIdArray = journals.split('|');
 
-    let feedTitle = "OpenAlex Works";
+    let feedTitle = 'OpenAlex Works';
     try {
         // Get all journal names
         const journalNames = await Promise.all(journalIdArray.map((id) => getJournalName(id)));
-        const journalPart = journalNames.join(", ");
+        const journalPart = journalNames.join(', ');
 
         // Build title with optional filter part
         if (type && ids) {
-            const filterIdArray = ids.split("|");
+            const filterIdArray = ids.split('|');
             // Get up to 3 filter names, then show "Compiled" if more
             let filterPart;
             if (filterIdArray.length <= 3) {
-                const filterNames = await Promise.all(
-                    filterIdArray.map((id) => getFilterName(type, id)),
-                );
-                filterPart = filterNames.join(", ");
+                const filterNames = await Promise.all(filterIdArray.map((id) => getFilterName(type, id)));
+                filterPart = filterNames.join(', ');
             } else {
-                filterPart = "Compiled";
+                filterPart = 'Compiled';
             }
             feedTitle = `OpenAlex: ${journalPart} | ${filterPart}`;
         } else {
@@ -147,14 +120,11 @@ export const handler = async (ctx) => {
         // Fallback to default title
     }
 
-    const description =
-        type && ids
-            ? `Recent publications from OpenAlex filtered by ${type} (last 2 weeks)`
-            : "Recent publications from OpenAlex (last 2 weeks)";
+    const description = type && ids ? `Recent publications from OpenAlex filtered by ${type} (last 2 weeks)` : 'Recent publications from OpenAlex (last 2 weeks)';
 
     return {
         title: feedTitle,
-        link: "https://openalex.org",
+        link: 'https://openalex.org',
         description,
         item: items,
     };
@@ -175,14 +145,7 @@ async function getJournalName(journalId: string): Promise<string> {
 async function getFilterName(type: string, id: string): Promise<string> {
     return await cache.tryGet(`openalex:${type}:${id}`, async () => {
         try {
-            const endpoint =
-                type === "subfield"
-                    ? "subfields"
-                    : type === "topic"
-                      ? "topics"
-                      : type === "field"
-                        ? "fields"
-                        : "domains";
+            const endpoint = type === 'subfield' ? 'subfields' : type === 'topic' ? 'topics' : type === 'field' ? 'fields' : 'domains';
             const response = await ofetch(`${rootUrl}/${endpoint}/${id}`);
             return response.display_name || id;
         } catch {
@@ -192,26 +155,27 @@ async function getFilterName(type: string, id: string): Promise<string> {
 }
 
 export const route: Route = {
-    path: "/:journals/:type?/:ids?",
-    name: "Works",
-    url: "openalex.org",
-    maintainers: ["emdoe"],
+    path: '/:journals/:type?/:ids?',
+    name: 'Works',
+    url: 'openalex.org',
+    maintainers: ['emdoe'],
     handler,
-    example: "/openalex/s64187185/subfield/2604",
+    example: '/openalex/s64187185/subfield/2604',
     parameters: {
-        journals: "Pipe-separated journal source IDs (e.g., s64187185|s123456789)",
-        type: "Optional filter type: subfield, topic, field, or domain",
-        ids: "Optional pipe-separated filter IDs matching the type (e.g., 2604|2605 for subfields)",
+        journals: 'Pipe-separated journal source IDs (e.g., s64187185|s123456789)',
+        type: 'Optional filter type: subfield, topic, field, or domain',
+        ids: 'Optional pipe-separated filter IDs matching the type (e.g., 2604|2605 for subfields)',
     },
     description: `Get recent scientific publications from OpenAlex filtered by journal and optionally by topic classification (last 2 weeks).
 
 Examples:
+
 - /openalex/s64187185 - All works from a journal (no topic filter)
 - /openalex/s64187185/subfield/2604 - Filter by subfield
 - /openalex/s64187185|s123456/topic/T10001|T10002 - Filter by topic with multiple journals
 - /openalex/s64187185/field/19 - Filter by field
 - /openalex/s64187185/domain/1 - Filter by domain`,
-    categories: ["journal"],
+    categories: ['journal'],
 
     features: {
         requireConfig: false,
@@ -224,8 +188,8 @@ Examples:
     },
     radar: [
         {
-            source: ["openalex.org/works"],
-            target: "/:journals/:type?/:ids?",
+            source: ['openalex.org/works'],
+            target: '/:journals/:type?/:ids?',
         },
     ],
 };

@@ -28,16 +28,27 @@ updates:
           cloudflare:
               patterns:
                   - '@cloudflare/*'
+                  - 'cf'
                   - 'wrangler'
           eslint:
               patterns:
                   - 'eslint'
                   - '@eslint/*'
+          hono:
+              patterns:
+                  - '@hono/*'
+                  - '@scalar/hono-api-reference'
+                  - 'hono'
+          msw:
+              patterns:
+                  - '@mswjs/*'
+                  - 'msw'
           opentelemetry:
               patterns:
                   - '@opentelemetry/*'
           oxc:
               patterns:
+                  - '@oxc-parser/*'
                   - '@oxlint/*'
                   - 'oxc-parser'
                   - 'oxfmt'
@@ -65,6 +76,10 @@ updates:
       open-pull-requests-limit: 100
       labels:
           - dependencies
+      groups:
+          nix:
+              patterns:
+                  - '*'
 
     - package-ecosystem: 'github-actions'
       directory: '/'

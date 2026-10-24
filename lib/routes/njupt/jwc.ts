@@ -1,6 +1,8 @@
 import { load } from 'cheerio';
+import pMap from 'p-map';
 
-import type { Route } from '@/types';
+import InvalidParameterError from '@/errors/types/invalid-parameter';
+import type { DataItem, Route } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
@@ -37,6 +39,9 @@ export const route: Route = {
 
 async function handler(ctx) {
     const type = ctx.req.param('type') ?? 'notice';
+    if (!Object.hasOwn(map, type)) {
+        throw new InvalidParameterError('Unsupported type. Use notice or news.');
+    }
     const link = host + map[type] + '/list.htm';
     const response = await got({
         method: 'get',
@@ -46,7 +51,7 @@ async function handler(ctx) {
 
     const list = $('.news_list li')
         .toArray()
-        .map((item) => {
+        .map((item): DataItem & { link: string } => {
             const $item = $(item);
 
             return {
@@ -56,19 +61,21 @@ async function handler(ctx) {
             };
         });
 
-    const items = await Promise.all(
-        list.map((item) => {
-            if (new URL(item.link).host === 'mp.weixin.qq.com') {
+    const items = await pMap(
+        list,
+        (item) => {
+            if (new URL(item.link!).host === 'mp.weixin.qq.com') {
                 return finishArticleItem({ ...item, guid: item.link });
             }
 
-            return cache.tryGet(item.link, async () => {
+            return cache.tryGet(item.link!, async () => {
                 const detailResponse = await got(item.link);
                 const $ = load(detailResponse.data);
                 item.description = $('.wp_articlecontent').html() ?? '该通知无法直接预览，请点击原文链接查看';
                 return item;
             });
-        })
+        },
+        { concurrency: 6 }
     );
 
     return {

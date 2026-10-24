@@ -3,27 +3,28 @@ import { load } from 'cheerio';
 import type { Element } from 'domhandler';
 import type { Context } from 'hono';
 
-import type { Data, DataItem, Route } from '@/types';
+import type { Data, DataItem, Language, Route } from '@/types';
 import { ViewType } from '@/types';
 import ofetch from '@/utils/ofetch';
 import { parseDate } from '@/utils/parse-date';
+import { getRouteLimit } from '@/utils/route-limit';
 
 export const handler = async (ctx: Context): Promise<Data> => {
-    const limit = Number(ctx.req.query('limit') ?? '30');
+    const limit = getRouteLimit(ctx, 30);
 
     const baseUrl = 'https://anytxt.net';
     const targetUrl: string = new URL('download/', baseUrl).href;
 
     const response = await ofetch(targetUrl);
     const $: CheerioAPI = load(response);
-    const language = $('html').attr('lang') ?? 'en-US';
+    const language = ($('html').attr('lang') ?? 'en-US') as Language;
 
     const image: string | undefined = $('meta[property="og:image"]').attr('content');
 
     const items: DataItem[] = $('p.has-medium-font-size')
         .slice(0, limit)
         .toArray()
-        .map((el): Element => {
+        .map((el) => {
             const $el: Cheerio<Element> = $(el);
 
             const title: string = $el.text();
@@ -34,6 +35,7 @@ export const handler = async (ctx: Context): Promise<Data> => {
 
             const processedItem: DataItem = {
                 title,
+                guid: `${targetUrl}#${encodeURIComponent(title)}`,
                 description,
                 pubDate: pubDateStr ? parseDate(pubDateStr) : undefined,
                 link: linkUrl,
@@ -86,7 +88,7 @@ export const route: Route = {
     radar: [
         {
             source: ['anytxt.net'],
-            target: '/anytxt/release-notes',
+            target: '/release-notes',
         },
     ],
     view: ViewType.Articles,

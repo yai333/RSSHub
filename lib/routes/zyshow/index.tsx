@@ -40,16 +40,16 @@ async function handler(ctx) {
         .find('tr td a img.icon-play')
         .toArray()
         .map((item) => {
-            item = $(item).parentsUntil('tbody');
+            const $item = $(item).parentsUntil('tbody');
 
-            const a = item.find('a[title]').first();
-            const guests = item.find('td').eq(2).text();
+            const a = $item.find('a[title]').first();
+            const guests = $item.find('td').eq(2).text();
 
             return {
                 title: a.text(),
-                link: `${currentUrl}v/${a.attr('href').split('/v/').pop()}`,
-                pubDate: parseDate(a.text().match(/(\d{8})$/)[1], 'YYYYMMDD'),
-                description: renderToString(<ZyshowDescription date={item.find('td').first().text()} subject={item.find('td').eq(1).text()} guests={guests} link={`${currentUrl}v/${a.attr('href').split('/v/').pop()}`} />),
+                link: `${currentUrl}v/${a.attr('href')!.split('/v/').pop()}`,
+                pubDate: getBroadcastDate(a.text()),
+                description: renderToString(<ZyshowDescription subject={$item.find('td').eq(1).text()} />),
                 category: guests.split(/,|;/),
             };
         });
@@ -61,29 +61,13 @@ async function handler(ctx) {
     };
 }
 
-const ZyshowDescription = ({ link, date, subject, guests }: { link: string; date: string; subject: string; guests: string }) => (
-    <table>
-        <tbody>
-            <tr>
-                <td>播出日期：</td>
-                <td>
-                    <b>
-                        <a href={link}>{date}</a>
-                    </b>
-                </td>
-            </tr>
-            <tr>
-                <td>节目主题：</td>
-                <td>
-                    <b>{subject}</b>
-                </td>
-            </tr>
-            <tr>
-                <td>节目来宾：</td>
-                <td>
-                    <b>{guests}</b>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-);
+function getBroadcastDate(title: string) {
+    const sourceDate = title.match(/(\d{8})$/)?.[1];
+    if (!sourceDate) {
+        return;
+    }
+    const date = parseDate(sourceDate, 'YYYYMMDD', true);
+    return Number.isFinite(date.getTime()) ? date : undefined;
+}
+
+const ZyshowDescription = ({ subject }: { subject: string }) => <p>{subject}</p>;

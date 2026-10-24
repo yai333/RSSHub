@@ -1,6 +1,6 @@
 import { load } from 'cheerio';
 
-import type { Route } from '@/types';
+import type { Data, Route } from '@/types';
 import ofetch from '@/utils/ofetch';
 import { parseDate } from '@/utils/parse-date';
 
@@ -29,7 +29,7 @@ export const route: Route = {
     url: 'sw.kovidgoyal.net/kitty/changelog/',
 };
 
-async function handler() {
+async function handler(): Promise<Data> {
     const url = 'https://sw.kovidgoyal.net/kitty/changelog/';
     const response = await ofetch(url);
     const $ = load(response);
@@ -68,11 +68,11 @@ async function handler() {
                 title: `Kitty ${version}`,
                 description,
                 link: `${url}#${$section.attr('id')}`,
-                pubDate: parseDate(dateStr, 'YYYY-MM-DD'),
+                pubDate: parseDate(`${dateStr}T00:00:00Z`),
                 guid: `kitty-${version}`,
             };
         })
-        .filter(Boolean);
+        .filter((item) => item !== null);
 
     return {
         title: 'Kitty Changelog',

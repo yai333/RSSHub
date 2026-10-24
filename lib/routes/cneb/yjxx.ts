@@ -2,6 +2,7 @@ import type { Route } from '@/types';
 import { getSubPath } from '@/utils/common-utils';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
+import { getRouteLimit } from '@/utils/route-limit';
 import timezone from '@/utils/timezone';
 
 export const route: Route = {
@@ -51,7 +52,7 @@ export const route: Route = {
 };
 
 async function handler(ctx) {
-    const limit = ctx.req.query('limit') ? Number.parseInt(ctx.req.query('limit')) : 200;
+    const limit = getRouteLimit(ctx, 200);
 
     const options = decodeURI(getSubPath(ctx))
         .replace(/\/yjxx/, '')
@@ -86,7 +87,7 @@ async function handler(ctx) {
         link: item.docpuburl,
         author: item.chnlname,
         description: item.doccontent,
-        pubDate: timezone(parseDate(item.docpubtime), +8),
+        pubDate: timezone(parseDate(item.docpubtime), 8),
     }));
 
     return {

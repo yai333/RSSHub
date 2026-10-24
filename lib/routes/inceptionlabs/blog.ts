@@ -1,6 +1,7 @@
 import { load } from 'cheerio';
+import pMap from 'p-map';
 
-import type { DataItem, Route } from '@/types';
+import type { Route } from '@/types';
 import cache from '@/utils/cache';
 import ofetch from '@/utils/ofetch';
 import { parseDate } from '@/utils/parse-date';
@@ -38,7 +39,7 @@ async function handler() {
     // avoiding duplicate entries from SSR breakpoint rendering (desktop/mobile).
     const posts = $('a[href^="./blog/"][data-framer-name="Desktop"]')
         .toArray()
-        .map((el): DataItem | null => {
+        .map((el) => {
             const $el = $(el);
             const href = $el.attr('href') ?? '';
 
@@ -78,19 +79,22 @@ async function handler() {
             // Date: featured cards have a single Date block (the date itself); standard cards have it at index 1
             const pubDate = dateBlocks.length >= 2 ? dateBlocks[1] : (dateBlocks[0] ?? '');
 
+            const dateTime = $el.find('[data-framer-name="Date"] time[datetime]').last().attr('datetime');
+
             return {
                 title,
                 link,
                 category: category ? [category] : [],
-                pubDate,
+                pubDate: dateTime ? parseDate(dateTime) : pubDate ? parseDate(`${pubDate} +0000`, 'MMM D, YYYY ZZ') : undefined,
             };
         })
-        .filter((post): post is DataItem => post !== null);
+        .filter((post) => post !== null);
 
-    const items = await Promise.all(
-        posts.map((post) =>
-            cache.tryGet(post.link!, async () => {
-                const postHtml = await ofetch(post.link!);
+    const items = await pMap(
+        posts,
+        (post) =>
+            cache.tryGet(post.link, async () => {
+                const postHtml = await ofetch(post.link);
                 const $post = load(postHtml);
 
                 // Full article content
@@ -103,10 +107,9 @@ async function handler() {
                     ...post,
                     description: contentHtml,
                     author,
-                    pubDate: parseDate(post.pubDate as string),
-                } as DataItem;
-            })
-        )
+                };
+            }),
+        { concurrency: 3 }
     );
 
     return {

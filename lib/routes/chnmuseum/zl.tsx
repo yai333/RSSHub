@@ -7,21 +7,22 @@ import type { Data, DataItem, Route } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
+import timezone from '@/utils/timezone';
 
 import { namespace } from './namespace';
 
-const titleTagMap: Record<string, string> = {
-    zhanlanyugao: '正在展出',
-    jbcl: '基本陈列',
-    ztcl: '专题展览',
-    lszl: '临时展览',
-    'lszl/lswh': '临时展览 - 历史文化',
-    'lszl/gjjl': '临时展览 - 国际交流',
-    'lszl/zdzt': '临时展览 - 重大主题',
-    'lszl/yscx': '临时展览 - 艺术创新',
-    gjzl: '国家展览',
-    gbxz: '国博巡展',
-};
+const titleTagMap = new Map<string, string>([
+    ['zhanlanyugao', '正在展出'],
+    ['jbcl', '基本陈列'],
+    ['ztcl', '专题展览'],
+    ['lszl', '临时展览'],
+    ['lszl/lswh', '临时展览 - 历史文化'],
+    ['lszl/gjjl', '临时展览 - 国际交流'],
+    ['lszl/zdzt', '临时展览 - 重大主题'],
+    ['lszl/yscx', '临时展览 - 艺术创新'],
+    ['gjzl', '国家展览'],
+    ['gbxz', '国博巡展'],
+]);
 
 // Formatting Function: Returns YYYY-MM-DD when there are 3 valid numeric segments that are formatted by parseExhibitionDate; otherwise, returns undefined.
 const formatExhibitionDate = (dateStr: string | undefined): string | undefined => {
@@ -86,7 +87,7 @@ const resolveRouteConfig = (type: string | undefined, subtype: string | undefine
     return {
         cleanType,
         url,
-        titleTag: titleTagMap[cleanType] || '展览',
+        titleTag: titleTagMap.get(cleanType) || '展览',
     };
 };
 
@@ -111,24 +112,29 @@ const fetchTargetElements = async (cleanType: string, subtype: string | undefine
 
         for (const el of pageElements) {
             const $item = $(el).closest('li');
-            if ($item.length > 0) {
-                const rawLink = $(el).attr('href') || '';
-                const rawZtzl = $(el).attr('ztzlurl') || ''; // some exhibition links have a separate detailed page, use ztzlurl to get the detailed exhibition link if available
-
-                // Use exhibitionLink to remove the repeat ones
-                const itemLink = buildItemLink(rawLink, contextUrl, baseUrl);
-                const exhibitionLink = buildExhibitionLink(rawZtzl, itemLink, baseUrl);
-
-                if (exhibitionLink && !seenLinks.has(exhibitionLink)) {
-                    seenLinks.add(exhibitionLink);
-                    items.push({ $item, contextUrl, itemLink, exhibitionLink, rawZtzl });
-                }
+            if ($item.length === 0) {
+                continue;
             }
+            const rawLink = $(el).attr('href') || '';
+            const rawZtzl = $(el).attr('ztzlurl') || ''; // some exhibition links have a separate detailed page, use ztzlurl to get the detailed exhibition link if available
+
+            // Use exhibitionLink to remove the repeat ones
+            const itemLink = buildItemLink(rawLink, contextUrl, baseUrl);
+            const exhibitionLink = buildExhibitionLink(rawZtzl, itemLink, baseUrl);
+
+            if (!exhibitionLink || seenLinks.has(exhibitionLink)) {
+                continue;
+            }
+            seenLinks.add(exhibitionLink);
+            items.push({ $item, contextUrl, itemLink, exhibitionLink, rawZtzl });
         }
     };
 
     if (cleanType === 'lszl') {
-        const subKeys = Object.keys(titleTagMap).filter((key) => key.startsWith('lszl/'));
+        const subKeys = titleTagMap
+            .keys()
+            .filter((key) => key.startsWith('lszl/'))
+            .toArray();
         const pagesData = await Promise.all(
             subKeys.map(async (subKey) => {
                 const targetSubUrl = `${baseUrl}/zl/${subKey}/`;
@@ -174,19 +180,21 @@ export const route: Route = {
         const list = (
             await Promise.all(
                 itemsToParse.map(({ $item, contextUrl }) => {
-                    const aTag = $item.find('a').first();
+                    const aTag = $item.find('a');
 
                     const rawLink = aTag.attr('href') || '';
                     const itemLink = buildItemLink(rawLink, contextUrl, baseUrl);
 
-                    return cache.tryGet(itemLink, async () => {
+                    return cache.tryGet(itemLink, async (): Promise<DataItem> => {
+                        const detailResponse = await got(itemLink);
+                        const $detail = load(detailResponse.data);
                         // for detailed exhibition page if available, different from base exhibition page.
                         const rawZtzl = aTag.attr('ztzlurl') || '';
                         const exhibitionLink = buildExhibitionLink(rawZtzl, itemLink, baseUrl);
 
                         // title may not have full display on the page, use the img alt information instead
                         const imgTag = $item.find('img');
-                        let title = $item.find('.hide_title').text() || '';
+                        let title = $item.find('.hide_title').text();
 
                         const rawSrc = imgTag.attr('src')!;
                         const imgUrl = new URL(rawSrc, contextUrl).href;
@@ -204,8 +212,6 @@ export const route: Route = {
                         let fullDuration = findValue('展期');
 
                         if (!title || title.endsWith('...')) {
-                            const detailResponse = await got(itemLink);
-                            const $detail = load(detailResponse.data);
                             const detailTitle = $detail('.crumb_mod_box .title').text();
                             title =
                                 detailTitle ||
@@ -227,8 +233,8 @@ export const route: Route = {
 
                         const { startDate, endDate } = parseExhibitionDuration(fullDuration);
 
-                        // CHN museum didnot have pubDate on the page, use exhibition startDate instead.
-                        const pubDate = startDate ? parseDate(startDate) : undefined;
+                        const publicationDate = $detail('meta[name="PubDate"]').attr('content');
+                        const pubDate = publicationDate ? timezone(parseDate(publicationDate, 'YYYY-MM-DD HH:mm:ss'), 8) : undefined;
 
                         const description = renderToString(
                             <div>
@@ -269,8 +275,8 @@ export const route: Route = {
                                 startDate,
                                 endDate,
                             },
-                        } as DataItem;
-                    }) as Promise<DataItem>;
+                        };
+                    });
                 })
             )
         ).filter((i): i is DataItem => i !== null);

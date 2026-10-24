@@ -1,42 +1,44 @@
-import { load } from "cheerio";
-import type { Context } from "hono";
+import { load } from 'cheerio';
+import type { Context } from 'hono';
+import pMap from 'p-map';
 
-import { config } from "@/config";
-import InvalidParameterError from "@/errors/types/invalid-parameter";
-import cache from "@/utils/cache";
-import logger from "@/utils/logger";
-import ofetch from "@/utils/ofetch";
-import { parseDate } from "@/utils/parse-date";
+import { config } from '@/config';
+import InvalidParameterError from '@/errors/types/invalid-parameter';
+import type { Data } from '@/types';
+import cache from '@/utils/cache';
+import logger from '@/utils/logger';
+import ofetch from '@/utils/ofetch';
+import { parseDate } from '@/utils/parse-date';
 
 // Strip '-zh-hans' suffix from display names for cleanliness
-const stripLangSuffix = (name: string) => name.replace(/-zh-hans$/i, "");
+const stripLangSuffix = (name: string) => name.replace(/-zh-hans$/i, '');
 
-const GHOST_API_BASE = "https://production-initium-media.ghost.io/ghost/api/content";
-const GHOST_CONTENT_KEY = "a44a0409c222328d39e2c75293";
+const GHOST_API_BASE = 'https://production-initium-media.ghost.io/ghost/api/content';
+const GHOST_CONTENT_KEY = 'a44a0409c222328d39e2c75293';
 
 // Old channel slugs → Ghost tag slugs mapping
-const CHANNEL_TAG_MAP: Record<string, string> = {
-    latest: "", // no filter = latest
-    whatsnew: "whatsnew",
-    "news-brief": "whatsnew",
-    opinion: "opinion",
-    international: "international",
-    mainland: "mainland",
-    hongkong: "hong-kong",
-    taiwan: "taiwan",
-    technology: "technology",
-    feature: "report",
-    report: "report",
-    "daily-brief": "daily-brief",
-    weekly: "weekly",
-};
+export const CHANNEL_TAG_MAP = {
+    latest: '', // no filter = latest
+    whatsnew: 'whatsnew',
+    'news-brief': 'whatsnew',
+    opinion: 'opinion',
+    international: 'international',
+    mainland: 'mainland',
+    hongkong: 'hong-kong',
+    taiwan: 'taiwan',
+    technology: 'technology',
+    feature: 'report',
+    report: 'report',
+    'daily-brief': 'daily-brief',
+    weekly: 'weekly',
+} satisfies Record<string, string>;
 
 // Ghost uses a language-based tagging system:
 //   - zh-hant (Traditional Chinese): uses base tag slug, e.g. "whatsnew", with internal tag #zh-hant
 //   - zh-hans (Simplified Chinese): uses suffixed tag slug, e.g. "whatsnew-zh-hans", with internal tag #zh-hans
 // When no language is specified, we return all posts (both zh-hans and zh-hant mixed).
-function applyLanguageToTagSlug(tagSlug: string, language: string): string {
-    if (language === "zh-hans") {
+export function applyLanguageToTagSlug(tagSlug: string, language: string): string {
+    if (language === 'zh-hans') {
         return `${tagSlug}-zh-hans`;
     }
     // zh-hant uses the base slug
@@ -64,7 +66,7 @@ interface GhostPost {
     primary_tag?: { name: string; slug: string };
 }
 
-interface GhostResponse {
+type GhostResponse = {
     posts: GhostPost[];
     meta: {
         pagination: {
@@ -74,15 +76,15 @@ interface GhostResponse {
             total: number;
         };
     };
-}
+};
 
-async function ghostFetch(endpoint: string, params: Record<string, string> = {}): Promise<any> {
+export async function ghostFetch(endpoint: string, params: Record<string, string> = {}): Promise<GhostResponse> {
     const url = new URL(`${GHOST_API_BASE}/${endpoint}/`);
-    url.searchParams.set("key", GHOST_CONTENT_KEY);
+    url.searchParams.set('key', GHOST_CONTENT_KEY);
     for (const [k, v] of Object.entries(params)) {
         url.searchParams.set(k, v);
     }
-    return await ofetch(url.href);
+    return await ofetch<GhostResponse>(url.href);
 }
 
 async function scrapeFullArticle(url: string, cookie: string): Promise<string | null> {
@@ -94,12 +96,9 @@ async function scrapeFullArticle(url: string, cookie: string): Promise<string | 
             parseResponse: (txt) => txt,
         });
         const $ = load(response);
-        const article = $("article");
-        if (article.length === 0) {
-            return null;
-        }
+        const article = $('article');
         // If paywall CTA present, cookie didn't work — fall back to Ghost preview
-        if (article.find(".gh-post-upgrade-cta").length > 0) {
+        if (article.length === 0 || article.find('.gh-post-upgrade-cta').length > 0) {
             return null;
         }
         return article.html();
@@ -118,42 +117,40 @@ function cleanGhostHtml(html: string): string {
     const $ = load(html, null, false);
 
     // Convert kg-bookmark-card to a simple link
-    $("a.kg-bookmark-container, a.kg-bookmark-card").each((_, el) => {
+    $('a.kg-bookmark-container, a.kg-bookmark-card').each((_, el) => {
         const $el = $(el);
-        const href = $el.attr("href") || "";
-        const title = $el.find(".kg-bookmark-title").text().trim();
-        const desc = $el.find(".kg-bookmark-description").text().trim();
-        const replacement = title
-            ? `<p><a href="${href}">${title}</a>${desc ? ` — ${desc}` : ""}</p>`
-            : `<p><a href="${href}">${href}</a></p>`;
+        const href = $el.attr('href') || '';
+        const title = $el.find('.kg-bookmark-title').text().trim();
+        const desc = $el.find('.kg-bookmark-description').text().trim();
+        const replacement = title ? `<p><a href="${href}">${title}</a>${desc ? ` — ${desc}` : ''}</p>` : `<p><a href="${href}">${href}</a></p>`;
         $el.replaceWith(replacement);
     });
 
     // Convert kg-callout-card: keep text, strip wrapper
-    $(".kg-callout-card").each((_, el) => {
+    $('.kg-callout-card').each((_, el) => {
         const $el = $(el);
-        const text = $el.find(".kg-callout-text").html() || $el.html() || "";
+        const text = $el.find('.kg-callout-text').html() || $el.html() || '';
         $el.replaceWith(`<blockquote>${text}</blockquote>`);
     });
 
     // Convert kg-toggle-card: heading + content
-    $(".kg-toggle-card").each((_, el) => {
+    $('.kg-toggle-card').each((_, el) => {
         const $el = $(el);
-        const heading = $el.find(".kg-toggle-heading-text").text().trim();
-        const content = $el.find(".kg-toggle-content").html() || "";
-        $el.replaceWith(`${heading ? `<p><strong>${heading}</strong></p>` : ""}${content}`);
+        const heading = $el.find('.kg-toggle-heading-text').text().trim();
+        const content = $el.find('.kg-toggle-content').html() || '';
+        $el.replaceWith(`${heading ? `<p><strong>${heading}</strong></p>` : ''}${content}`);
     });
 
     // Unwrap remaining kg-card divs (keep inner content)
-    $(".kg-card").each((_, el) => {
+    $('.kg-card').each((_, el) => {
         const $el = $(el);
-        $el.replaceWith($el.html() || "");
+        $el.replaceWith($el.html() || '');
     });
 
     // Remove figure wrapping around bookmark cards that we already replaced
-    $("figure.kg-bookmark-card").each((_, el) => {
+    $('figure.kg-bookmark-card').each((_, el) => {
         const $el = $(el);
-        $el.replaceWith($el.html() || "");
+        $el.replaceWith($el.html() || '');
     });
 
     // Strip members-only paywall markers
@@ -162,26 +159,20 @@ function cleanGhostHtml(html: string): string {
     return $.html();
 }
 
-async function postsToItems(posts: GhostPost[]) {
+export async function postsToItems(posts: GhostPost[]) {
     const memberCookie = config.initium?.memberCookie;
 
-    const items = await Promise.all(
-        posts.map(async (post) => {
+    const items = await pMap(
+        posts,
+        async (post) => {
             const authors = post.authors?.map((a) => stripLangSuffix(a.name)) ?? [];
-            const categories =
-                post.tags
-                    ?.filter((t) => t.visibility === "public")
-                    .map((t) => stripLangSuffix(t.name)) ?? [];
+            const categories = post.tags?.filter((t) => t.visibility === 'public').map((t) => stripLangSuffix(t.name)) ?? [];
 
             let description = post.html ? cleanGhostHtml(post.html) : post.html;
 
             // For paid articles with truncated content, scrape full text if cookie available
             if (!post.access && memberCookie) {
-                const fullHtml = (await cache.tryGet(
-                    `theinitium:full:${post.slug}`,
-                    () => scrapeFullArticle(post.url, memberCookie),
-                    config.cache.contentExpire,
-                )) as string | null;
+                const fullHtml = await cache.tryGet(`theinitium:full:${post.slug}`, () => scrapeFullArticle(post.url, memberCookie), config.cache.contentExpire);
                 if (fullHtml) {
                     description = cleanGhostHtml(fullHtml);
                 }
@@ -189,58 +180,56 @@ async function postsToItems(posts: GhostPost[]) {
 
             return {
                 title: post.title,
-                author: authors.join(", ") || post.primary_author?.name || "",
+                author: authors.join(', ') || post.primary_author?.name,
                 category: categories,
                 description,
                 link: post.url,
-                pubDate: parseDate(post.published_at),
-                updated: parseDate(post.updated_at),
+                pubDate: post.published_at ? parseDate(post.published_at) : undefined,
+                updated: post.updated_at ? parseDate(post.updated_at) : undefined,
                 guid: post.uuid,
-                banner: post.feature_image ?? undefined,
+                banner: post.feature_image,
             };
-        }),
+        },
+        { concurrency: 3 }
     );
 
     return items;
 }
 
-export const processFeed = async (model: string, ctx: Context) => {
-    const type = ctx.req.param("type") ?? "latest";
-    const language = ctx.req.param("language") ?? "";
+export const processFeed = async (model: string, ctx: Context): Promise<Data> => {
+    const type = ctx.req.param('type') ?? 'latest';
+    const language = ctx.req.param('language') ?? '';
 
-    let filter = "";
-    let listLink: string;
-    let feedName: string;
+    let filter = '';
+    let listLink = '';
+    let feedName = '';
 
     switch (model) {
-        case "channel": {
+        case 'channel': {
             const baseTag = CHANNEL_TAG_MAP[type] ?? type;
-            if (baseTag === "") {
+            if (baseTag === '') {
                 // "latest" = no tag filter, but we can still filter by language via internal tag
-                if (language === "zh-hans" || language === "zh-hant") {
+                if (language === 'zh-hans' || language === 'zh-hant') {
                     filter = `tag:hash-${language}`;
                 }
             } else {
                 const tagSlug = language ? applyLanguageToTagSlug(baseTag, language) : baseTag;
                 filter = `tag:${tagSlug}`;
             }
-            listLink =
-                type === "latest"
-                    ? "https://theinitium.com/latest/"
-                    : `https://theinitium.com/tag/${baseTag}/`;
+            listLink = type === 'latest' ? 'https://theinitium.com/latest/' : `https://theinitium.com/tag/${baseTag}/`;
             feedName = type;
             break;
         }
-        case "tags": {
+        case 'tags': {
             const tagSlug = language ? applyLanguageToTagSlug(type, language) : type;
             filter = `tag:${tagSlug}`;
             listLink = `https://theinitium.com/tag/${type}/`;
             feedName = type;
             break;
         }
-        case "author": {
+        case 'author': {
             // Author slugs also have -zh-hans suffixed versions for simplified Chinese
-            const authorSlug = language === "zh-hans" ? `${type}-zh-hans` : type;
+            const authorSlug = language === 'zh-hans' ? `${type}-zh-hans` : type;
             filter = `author:${authorSlug}`;
             listLink = `https://theinitium.com/author/${type}/`;
             feedName = type;
@@ -252,21 +241,18 @@ export const processFeed = async (model: string, ctx: Context) => {
 
     const cacheKey = `theinitium:ghost:${model}:${type}:${language}`;
     // Use routeExpire (5 min default) and refresh=false so cache actually expires
-    const data = (await cache.tryGet(
+    const data = await cache.tryGet(
         cacheKey,
         async () => {
-            const params: Record<string, string> = {
-                include: "tags,authors",
-                limit: "20",
+            const baseParams = {
+                include: 'tags,authors',
+                limit: '20',
             };
-            if (filter) {
-                params.filter = filter;
-            }
-            return await ghostFetch("posts", params);
+            return await ghostFetch('posts', filter ? { ...baseParams, filter } : baseParams);
         },
         config.cache.routeExpire,
-        false,
-    )) as GhostResponse;
+        false
+    );
 
     const items = await postsToItems(data.posts);
 
@@ -274,38 +260,32 @@ export const processFeed = async (model: string, ctx: Context) => {
     let displayName = feedName;
     if (data.posts.length > 0) {
         switch (model) {
-            case "channel": {
+            case 'channel': {
                 const baseTag = CHANNEL_TAG_MAP[type] ?? type;
                 if (baseTag) {
-                    const langTag = language === "zh-hans" ? `${baseTag}-zh-hans` : baseTag;
-                    const matchedTag = data.posts[0].tags?.find(
-                        (t) => t.slug === langTag || t.slug === baseTag,
-                    );
+                    const langTag = language === 'zh-hans' ? `${baseTag}-zh-hans` : baseTag;
+                    const matchedTag = data.posts[0].tags?.find((t) => t.slug === langTag || t.slug === baseTag);
                     if (matchedTag) {
                         displayName = stripLangSuffix(matchedTag.name);
                     }
                 } else {
-                    displayName = "最新";
+                    displayName = '最新';
                 }
 
                 break;
             }
-            case "tags": {
-                const langTag = language === "zh-hans" ? `${type}-zh-hans` : type;
-                const matchedTag = data.posts[0].tags?.find(
-                    (t) => t.slug === langTag || t.slug === type,
-                );
+            case 'tags': {
+                const langTag = language === 'zh-hans' ? `${type}-zh-hans` : type;
+                const matchedTag = data.posts[0].tags?.find((t) => t.slug === langTag || t.slug === type);
                 if (matchedTag) {
                     displayName = stripLangSuffix(matchedTag.name);
                 }
 
                 break;
             }
-            case "author": {
-                const authorSlug = language === "zh-hans" ? `${type}-zh-hans` : type;
-                const matchedAuthor = data.posts[0].authors?.find(
-                    (a) => a.slug === authorSlug || a.slug === type,
-                );
+            case 'author': {
+                const authorSlug = language === 'zh-hans' ? `${type}-zh-hans` : type;
+                const matchedAuthor = data.posts[0].authors?.find((a) => a.slug === authorSlug || a.slug === type);
                 if (matchedAuthor) {
                     displayName = stripLangSuffix(matchedAuthor.name);
                 }
@@ -320,8 +300,8 @@ export const processFeed = async (model: string, ctx: Context) => {
     return {
         title: `端傳媒 - ${displayName}`,
         link: listLink,
-        icon: "https://theinitium.com/favicon.ico",
-        language: language === "zh-hans" ? "zh-CN" : "zh-TW",
+        icon: 'https://theinitium.com/favicon.ico',
+        language: language === 'zh-hans' ? 'zh-CN' : 'zh-TW',
         item: items,
     };
 };

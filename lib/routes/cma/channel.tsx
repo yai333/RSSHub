@@ -4,6 +4,7 @@ import { load } from 'cheerio';
 import { raw } from 'hono/html';
 import { renderToString } from 'hono/jsx/dom/server';
 
+import NotFoundError from '@/errors/types/not-found';
 import type { Route } from '@/types';
 import got from '@/utils/got';
 import ofetch from '@/utils/ofetch';
@@ -104,7 +105,10 @@ async function handler(ctx) {
         },
     });
 
-    const article = response?.data?.pop() ?? {};
+    const article = response?.data?.at(-1);
+    if (!article) {
+        throw new NotFoundError(`No weather bulletin is available for channel ${id}. Check the channel ID on weather.cma.cn.`);
+    }
 
     article.image = article.image?.replace(/\?.*$/, '');
 
@@ -121,8 +125,8 @@ async function handler(ctx) {
         ),
     ].join(' > ');
     const descriptionHtml = $('div.xml').html();
-    const image = new URL($('li.active a img').prop('src'), rootUrl).href;
-    const icon = new URL($('link[rel="shortcut icon"]').prop('href'), rootUrl).href;
+    const image = new URL($('li.active a img').prop('src')!, rootUrl).href;
+    const icon = new URL($('link[rel="shortcut icon"]').prop('href')!, rootUrl).href;
     const sourceElement = $('div.col-xs-8 span')
         .toArray()
         .findLast((element) => $(element).text().startsWith('来源'));
@@ -145,8 +149,8 @@ async function handler(ctx) {
             author: itemAuthor,
             guid: `cma${article.link}#${article.releaseTime.replaceAll(/\s/g, '-')}`,
             pubDate: timezone(parseDate(article.releaseTime), 8),
-            enclosure_url: new URL(article.image, rootUrl).href,
-            enclosure_type: article.image ? `image/${article.image.split(/\./).pop()}` : undefined,
+            enclosure_url: article.image ? new URL(article.image, rootUrl).href : undefined,
+            enclosure_type: article.image ? `image/${article.image.split(/\./).pop()?.toLowerCase().replace(/^jpg$/, 'jpeg')}` : undefined,
         },
     ];
 
@@ -155,12 +159,11 @@ async function handler(ctx) {
         title: `${author} - ${title}`,
         link: currentUrl,
         description: $('meta[name="description"]').prop('content'),
-        language: 'zh',
+        language: 'zh' as const,
         image,
         icon,
         logo: icon,
         subtitle: $('meta[name="keywords"]').prop('content'),
         author,
-        allowEmpty: true,
     };
 }

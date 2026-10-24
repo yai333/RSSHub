@@ -4,7 +4,7 @@ import type { Route } from '@/types';
 import cache from '@/utils/cache';
 import { parseDate } from '@/utils/parse-date';
 
-import { baseUrl, puppeteerGet } from './utils';
+import { baseUrl, get } from './utils';
 
 export const route: Route = {
     path: '/topic/:topic',
@@ -32,8 +32,7 @@ export const route: Route = {
 async function handler(ctx) {
     const url = `${baseUrl}/topic/${ctx.req.param('topic')}`;
 
-    // use Puppeteer due to the obstacle by cloudflare challenge
-    const html = await puppeteerGet(url, cache);
+    const html = await get(url, cache);
 
     const $ = load(html);
     const list = $('div.aw-item');
@@ -44,7 +43,7 @@ async function handler(ctx) {
         item: list.toArray().map((item) => ({
             title: $(item).find('h4 a').text().trim(),
             link: baseUrl + $(item).find('h4 a').attr('href'),
-            pubDate: parseDate($(item).attr('data-created-at') * 1000),
+            pubDate: parseDate(Number($(item).attr('data-created-at')) * 1000),
         })),
     };
 }

@@ -55,7 +55,13 @@ export const route: Route = {
     radar: [
         {
             source: ['github.com/trending'],
-            target: '/trending/:since',
+            title: 'Daily Trending',
+            target: '/trending/daily/any',
+        },
+        {
+            source: ['github.com/trending/:language'],
+            title: 'Daily Trending',
+            target: '/trending/daily/:language',
         },
     ],
     name: 'Trending',
@@ -98,7 +104,7 @@ async function handler(ctx) {
             Authorization: `bearer ${config.github.access_token}`,
         },
         json: {
-            query: `
+            query: /* GraphQL */ `
             query {
             ${trendingRepos
                 .map(
@@ -125,7 +131,7 @@ async function handler(ctx) {
         },
     });
 
-    const repos = Object.values(repoData.data).map((repo) => {
+    const repos = Object.values<any>(repoData.data).map((repo) => {
         const found = trendingRepos.find((r) => `${r.owner}/${r.name}` === repo.nameWithOwner);
         return { ...found, ...repo };
     });

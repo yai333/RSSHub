@@ -1,8 +1,9 @@
 import { load } from 'cheerio';
 
-import type { DataItem, Route } from '@/types';
+import type { Route } from '@/types';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
+import timezone from '@/utils/timezone';
 
 import { namespace } from './namespace';
 
@@ -45,7 +46,7 @@ export const route: Route = {
                 return {
                     title,
                     link,
-                    pubDate: parseDate(dateStr),
+                    pubDate: dateStr ? timezone(parseDate(dateStr, 'YYYY-MM-DD'), 8) : undefined,
                 };
             });
 
@@ -53,7 +54,7 @@ export const route: Route = {
             title: `${museumName} - 最新公告`,
             link: apiUrl,
             language: 'zh-CN',
-            item: items as DataItem[],
+            item: items,
         };
     },
 };

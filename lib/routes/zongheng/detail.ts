@@ -20,11 +20,11 @@ export const route: Route = {
     },
     radar: [
         {
-            source: ['www.zongheng.org/detail/:id'],
+            source: ['www.zongheng.com/detail/:id'],
         },
     ],
     name: '章节更新',
-    maintainers: ['TonyRL'],
+    maintainers: ['georeth', 'TonyRL'],
     handler,
     url: 'www.zongheng.com',
 };
@@ -71,7 +71,6 @@ async function handler(ctx) {
         title: `${$('.book-info--title span').text()}（${author}）- 纵横中文网`,
         description: `${$('.book-info--nums').text()} ${description}`,
         link,
-        allowEmpty: true,
         image: $('.book-info--coverImage-img').attr('src'),
         item: items,
     };

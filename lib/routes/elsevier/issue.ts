@@ -1,7 +1,7 @@
 import { load } from 'cheerio';
 import { CookieJar } from 'tough-cookie';
 
-import type { Route } from '@/types';
+import type { DataItem, Route } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
 
@@ -41,7 +41,7 @@ async function handler(ctx) {
     const jrnlName = $('.anchor.js-title-link').text();
     const list = $('.js-article')
         .toArray()
-        .map((item) => {
+        .map((item): DataItem => {
             const title = $(item).find('.js-article-title').text();
             const authors = $(item).find('.js-article__item__authors').text();
             const link = $(item).find('.article-content-title').attr('href');
@@ -50,24 +50,21 @@ async function handler(ctx) {
                 title,
                 link,
                 id,
-                authors,
-                issue,
+                author: authors,
             };
         });
 
-    const renderDesc = (item) => renderDescription(item);
     const items = await Promise.all(
         list.map((item) =>
-            cache.tryGet(item.link, async () => {
+            cache.tryGet(item.link!, async () => {
                 const response2 = await got(`${host}/science/article/pii/${item.id}`, {
                     cookieJar,
                 });
 
                 const $2 = load(response2.data);
                 $2('.section-title').remove();
-                item.doi = $2('.doi').attr('href').replace('https://doi.org/', '');
-                item.abstract = $2('.abstract.author').text();
-                item.description = renderDesc(item);
+                item.doi = $2('.doi').attr('href')!.replace('https://doi.org/', '');
+                item.description = renderDescription({ abstract: $2('.abstract.author').text() });
                 return item;
             })
         )

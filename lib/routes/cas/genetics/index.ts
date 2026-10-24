@@ -3,6 +3,7 @@ import { load } from 'cheerio';
 import type { Route } from '@/types';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
+import timezone from '@/utils/timezone';
 
 const baseUrl = 'https://genetics.cas.cn';
 
@@ -37,39 +38,40 @@ async function handler(ctx) {
         items = $('li.box-s.h16')
             .toArray()
             .map((item) => {
-                item = $(item);
-                const a = item.find('a').first();
-                const date = item.find('.box-date');
+                const $item = $(item);
+                const a = $item.find('a').first();
+                const date = $item.find('.box-date');
                 return {
-                    title: a.text(),
-                    link: new URL(a.attr('href'), currentUrl).href,
-                    pubDate: parseDate(date.text(), 'YYYY-MM-DD'),
+                    title: a.attr('title') || a.text(),
+                    link: new URL(a.attr('href')!, currentUrl).href,
+                    pubDate: timezone(parseDate(date.text(), 'YYYY-MM-DD'), 8),
                 };
             });
     } else if (path.slice(0, 4) === 'dqyd') {
         items = $('div.list-tab ul li')
+            .filter((_, item) => ($(item).find('a').first().attr('href') ?? '') !== '')
             .toArray()
             .map((item) => {
-                item = $(item);
-                const a = item.find('a').first();
-                const date = item.find('.right').first();
+                const $item = $(item);
+                const a = $item.find('a').first();
+                const date = $item.find('.right').first();
                 return {
-                    title: a.text(),
-                    link: new URL(a.attr('href'), currentUrl).href,
-                    pubDate: parseDate(date.text(), 'YYYY-MM-DD'),
+                    title: a.attr('title') || a.text(),
+                    link: new URL(a.attr('href')!, currentUrl).href,
+                    pubDate: timezone(parseDate(date.text(), 'YYYY-MM-DD'), 8),
                 };
             });
     } else {
         items = $('li.row.no-gutters.py-1')
             .toArray()
             .map((item) => {
-                item = $(item);
-                const a = item.find('a').first();
-                const date = item.find('.col-news-date');
+                const $item = $(item);
+                const a = $item.find('a').first();
+                const date = $item.find('.col-news-date');
                 return {
-                    title: a.text(),
-                    link: new URL(a.attr('href'), currentUrl).href,
-                    pubDate: parseDate(date.text(), 'YYYY.MM.DD'),
+                    title: a.attr('title') || a.text(),
+                    link: new URL(a.attr('href')!, currentUrl).href,
+                    pubDate: timezone(parseDate(date.text(), 'YYYY.MM.DD'), 8),
                 };
             });
     }

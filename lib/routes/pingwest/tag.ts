@@ -1,5 +1,6 @@
 import { load } from 'cheerio';
 
+import InvalidParameterError from '@/errors/types/invalid-parameter';
 import type { Route } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
@@ -28,17 +29,20 @@ export const route: Route = {
 | ---- | ---- |
 | 1    | 2    |
 
-  参数
+参数
 
-  -   \`fulltext\`，全文输出，例如：\`/pingwest/tag/ChinaJoy/1/fulltext\`
+- \`fulltext\`，全文输出，例如：\`/pingwest/tag/ChinaJoy/1/fulltext\`
 
 ::: tip
-  该路由一次最多显示 30 条文章
+该路由一次最多显示 30 条文章
 :::`,
 };
 
 async function handler(ctx) {
     const { tag, type, option } = ctx.req.param();
+    if (type !== '1' && type !== '2') {
+        throw new InvalidParameterError('Invalid type: use 1 for latest articles or 2 for popular articles.');
+    }
     const needFullText = option === 'fulltext';
 
     const baseUrl = 'https://www.pingwest.com';

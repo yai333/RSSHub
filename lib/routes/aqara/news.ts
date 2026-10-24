@@ -4,6 +4,7 @@ import type { Route } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
+import { getRouteLimit } from '@/utils/route-limit';
 
 export const route: Route = {
     path: '/cn/news',
@@ -15,7 +16,7 @@ export const route: Route = {
 };
 
 async function handler(ctx) {
-    const limit = ctx.req.query('limit') ? Number.parseInt(ctx.req.query('limit'), 10) : 35;
+    const limit = getRouteLimit(ctx, 35);
 
     const rootUrl = 'https://www.aqara.cn';
     const currentUrl = new URL('news', rootUrl).href;
@@ -25,7 +26,7 @@ async function handler(ctx) {
     const $ = load(response);
 
     let items = response
-        .match(/(parm\.newsTitle[\S\s]*?arr\.push\(parm\))/g)
+        .match(/(parm\.newsTitle[\s\S]*?arr\.push\(parm\))/g)
         .slice(0, limit)
         .map((item) => ({
             title: item.match(/parm\.newsTitle = '(.*?)'/)[1],
@@ -49,14 +50,14 @@ async function handler(ctx) {
         )
     );
 
-    const icon = $('link[rel="shortcut icon"]').prop('href').split('?')[0];
+    const icon = $('link[rel="shortcut icon"]').prop('href')!.split('?', 1)[0];
 
     return {
         item: items,
         title: $('title').text(),
         link: currentUrl,
         description: $('meta[name="description"]').prop('content'),
-        language: 'zh-cn',
+        language: 'zh-CN' as const,
         image: $('meta[property="og:image"]').prop('content'),
         icon,
         logo: icon,

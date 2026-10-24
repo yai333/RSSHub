@@ -4,13 +4,14 @@ import type { Data, DataItem, Route } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
+import { getRouteLimit } from '@/utils/route-limit';
 import timezone from '@/utils/timezone';
 
 const rootUrl = 'https://www.cugb.edu.cn';
 
-const channels: Record<string, string> = {
+const channels = {
     bdxw: '北地新闻',
-};
+} satisfies Record<string, string>;
 
 export const route: Route = {
     path: '/news/:channel?',
@@ -38,7 +39,7 @@ export const route: Route = {
 
 async function handler(ctx): Promise<Data> {
     const channel = ctx.req.param('channel') ?? 'bdxw';
-    const limit = ctx.req.query('limit') ? Number(ctx.req.query('limit')) : 20;
+    const limit = getRouteLimit(ctx, 20);
     const listUrl = `${rootUrl}/${channel}.jhtml`;
 
     const { data: response } = await got(listUrl);
@@ -46,7 +47,6 @@ async function handler(ctx): Promise<Data> {
 
     const list: DataItem[] = $('li a.con')
         .toArray()
-        .slice(0, limit)
         .map((el) => {
             const item = $(el);
             const [date, author] = item
@@ -56,22 +56,24 @@ async function handler(ctx): Promise<Data> {
                 .map((s) => s.trim());
             return {
                 title: item.find('h3.tit').text(),
-                link: new URL(item.attr('href') as string, rootUrl).href,
+                link: new URL(item.attr('href')!, rootUrl).href,
                 pubDate: timezone(parseDate(date), 8),
                 author,
             };
         });
 
-    const items = (await Promise.all(
-        list.map((item) =>
-            cache.tryGet(item.link as string, async () => {
-                const { data: detailResponse } = await got(item.link as string);
+    const uniqueItems = new Map(list.map((item) => [item.link, item])).values().toArray();
+    const articles = ctx.req.query('sorted') === 'false' ? uniqueItems : [...uniqueItems].sort((a, b) => Number(b.pubDate) - Number(a.pubDate));
+    const items = await Promise.all(
+        articles.slice(0, limit).map((item) =>
+            cache.tryGet(item.link!, async () => {
+                const { data: detailResponse } = await got(item.link!);
                 const content = load(detailResponse);
                 item.description = content('div.postbody').html();
                 return item;
             })
         )
-    )) as DataItem[];
+    );
 
     return {
         title: `中国地质大学（北京） - ${channels[channel] ?? channel}`,

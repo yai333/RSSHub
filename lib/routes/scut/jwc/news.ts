@@ -1,5 +1,4 @@
 import querystring from 'node:querystring';
-import * as url from 'node:url';
 
 import type { Route } from '@/types';
 import cache from '@/utils/cache';
@@ -28,7 +27,7 @@ const generateArticlePubDate = (createDateStr) => {
 
 const isRedirectPage = (data) => !!data.link;
 
-const resolveRelativeUrl = (html) => html.replaceAll('src="/', `src="${url.resolve(baseUrl, '.')}`).replaceAll('href="/', `href="${url.resolve(baseUrl, '.')}`);
+const resolveRelativeUrl = (html) => html.replaceAll('src="/', () => `src="${new URL('.', baseUrl).href}`).replaceAll('href="/', () => `href="${new URL('.', baseUrl).href}`);
 
 const apiSuccessAssert = (data) => {
     if (!data.success) {
@@ -101,7 +100,7 @@ async function handler() {
             const articleData = articleApiResponse.data.data;
             articleData.id = articleMeta.id;
 
-            let articleFullText = null;
+            let articleFullText: string | null = null;
             if (!isRedirectPage(articleData)) {
                 articleFullText = generateArticleFullText(articleData);
             }

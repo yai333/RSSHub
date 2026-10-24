@@ -129,7 +129,7 @@ const Index: FC<{ debugQuery: string | undefined }> = ({ debugQuery }) => {
     return (
         <Layout>
             <div
-                className="pointer-events-none absolute w-full min-h-screen"
+                className="pointer-events-none absolute w-full min-h-screen dark:invert"
                 style={{
                     backgroundImage: `url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMiAzMicgd2lkdGg9JzMyJyBoZWlnaHQ9JzMyJyBmaWxsPSdub25lJyBzdHJva2U9J3JnYigxNSAyMyA0MiAvIDAuMDQpJz48cGF0aCBkPSdNMCAuNUgzMS41VjMyJy8+PC9zdmc+')`,
                     maskImage: 'linear-gradient(transparent, black, transparent)',
@@ -181,20 +181,20 @@ const Index: FC<{ debugQuery: string | undefined }> = ({ debugQuery }) => {
                 <p className="space-x-4">
                     <a target="_blank" href="https://github.com/DIYgod/RSSHub">
                         <picture>
-                            <source srcset="https://icons.ly/github/_/fff" media="(prefers-color-scheme: dark)" />
-                            <img className="inline" src="https://icons.ly/github" alt="github" width="20" height="20" />
+                            <source srcset="https://cdn.simpleicons.org/github/_/fff" media="(prefers-color-scheme: dark)" />
+                            <img className="inline" src="https://cdn.simpleicons.org/github" alt="github" width="20" height="20" />
                         </picture>
                     </a>
                     <a target="_blank" href="https://t.me/rsshub">
-                        <img className="inline" src="https://icons.ly/telegram" alt="telegram group" width="20" height="20" />
+                        <img className="inline" src="https://cdn.simpleicons.org/telegram" alt="telegram group" width="20" height="20" />
                     </a>
                     <a target="_blank" href="https://t.me/awesomeRSSHub">
-                        <img className="inline" src="https://icons.ly/telegram" alt="telegram channel" width="20" height="20" />
+                        <img className="inline" src="https://cdn.simpleicons.org/telegram" alt="telegram channel" width="20" height="20" />
                     </a>
                     <a target="_blank" href="https://x.com/intent/follow?screen_name=_RSSHub" className="text-[#F5712C]">
                         <picture>
-                            <source srcset="https://icons.ly/x/_/fff" media="(prefers-color-scheme: dark)" />
-                            <img className="inline" src="https://icons.ly/x" alt="X" width="20" height="20" />
+                            <source srcset="https://cdn.simpleicons.org/x/_/fff" media="(prefers-color-scheme: dark)" />
+                            <img className="inline" src="https://cdn.simpleicons.org/x" alt="X" width="20" height="20" />
                         </picture>
                     </a>
                 </p>

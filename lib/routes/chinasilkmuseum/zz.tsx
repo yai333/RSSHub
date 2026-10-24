@@ -2,10 +2,11 @@ import { load } from 'cheerio';
 import dayjs from 'dayjs';
 import { renderToString } from 'hono/jsx/dom/server';
 
-import type { Data, DataItem, Route } from '@/types';
+import type { DataItem, Route } from '@/types';
 import cache from '@/utils/cache';
 import ofetch from '@/utils/ofetch';
 import { parseDate } from '@/utils/parse-date';
+import timezone from '@/utils/timezone';
 
 import { namespace } from './namespace';
 
@@ -19,7 +20,7 @@ const fmtExhibitionDate = (raw: string | undefined) => {
 };
 
 // used for 2026年6月24日 - 2026年9月1日
-const parseExhibitionDuration = (fullDuration: string): { startDate: string | undefined; endDate: string | undefined } => {
+const parseExhibitionDuration = (fullDuration: string) => {
     const [startRaw, endRaw] = fullDuration.split(' - ', 2);
     return { startDate: fmtExhibitionDate(startRaw), endDate: fmtExhibitionDate(endRaw) };
 };
@@ -61,13 +62,13 @@ export const route: Route = {
 
         const list = await Promise.all(
             items.map((item) =>
-                cache.tryGet(item.link, async () => {
+                cache.tryGet(item.link, async (): Promise<DataItem> => {
                     const detailRes = await ofetch(item.link);
                     const $d = load(detailRes);
                     const location = $d('div.detail_text p').first().text().replace('展览地点：', '').trim();
                     const fullDuration = $d('div.detail_text p').eq(1).text().replace('展览时间：', '').trim();
                     const { startDate, endDate } = parseExhibitionDuration(fullDuration);
-                    const pubDate = startDate ? parseDate(startDate) : undefined;
+                    const pubDate = startDate ? timezone(parseDate(startDate, 'YYYY-MM-DD'), 8) : undefined;
 
                     const description = renderToString(
                         <div>
@@ -104,7 +105,7 @@ export const route: Route = {
                             startDate,
                             endDate,
                         },
-                    } as DataItem;
+                    };
                 })
             )
         );
@@ -114,6 +115,6 @@ export const route: Route = {
             link: listUrl,
             language: 'zh-CN',
             item: list,
-        } as Data;
+        };
     },
 };

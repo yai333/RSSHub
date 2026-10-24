@@ -1,9 +1,13 @@
 import { load } from 'cheerio';
+import pMap from 'p-map';
 
-import type { Route } from '@/types';
+import InvalidParameterError from '@/errors/types/invalid-parameter';
+import type { DataItem, Language, Route } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
-import { parseDate } from '@/utils/parse-date';
+import { parseDateInTimezone } from '@/utils/parse-date-in-timezone';
+import { getRouteLimit } from '@/utils/route-limit';
+import { isValidHost } from '@/utils/valid-host';
 
 export const route: Route = {
     path: '/pe/:id?',
@@ -67,7 +71,11 @@ export const route: Route = {
 
 async function handler(ctx) {
     const { id = '342' } = ctx.req.param();
-    const limit = ctx.req.query('limit') ? Number.parseInt(ctx.req.query('limit'), 10) : 30;
+    if (!isValidHost(id)) {
+        throw new InvalidParameterError('Invalid id');
+    }
+
+    const limit = getRouteLimit(ctx, 30);
 
     const rootUrl = 'https://pe2016.sspu.edu.cn';
     const currentUrl = new URL(`${id}/list.htm`, rootUrl).href;
@@ -79,47 +87,52 @@ async function handler(ctx) {
     let items = $('table.wp_article_list_table a[title]')
         .slice(0, limit)
         .toArray()
-        .map((item) => {
-            item = $(item);
+        .map((item): DataItem => {
+            const $item = $(item);
 
             return {
-                title: item.text(),
-                link: new URL(item.prop('href'), rootUrl).href,
-                pubDate: parseDate(item.prev().text()),
+                title: $item.attr('title') || $item.text(),
+                link: new URL($item.prop('href')!, rootUrl).href,
+                pubDate: $item.prev().text() ? parseDateInTimezone($item.prev().text(), 8) : undefined,
             };
         });
 
-    items = await Promise.all(
-        items.map((item) =>
-            cache.tryGet(item.link, async () => {
-                if (item.link.endsWith('htm')) {
+    items = await pMap(
+        items,
+        async (item) => {
+            const { pubDate, ...details } = await cache.tryGet(`sspu:pe:detail:v2:${item.link}`, async () => {
+                if (item.link!.endsWith('htm')) {
                     const { data: detailResponse } = await got(item.link);
 
                     const content = load(detailResponse);
 
                     const info = content('div.time').text();
 
-                    item.title = content('div.title').text();
-                    item.description = content('div.wp_articlecontent').html();
-                    item.author = info.match(/来源：(.*?)\s/)?.[1] ?? undefined;
-                    item.pubDate = info.match(/发布时间：(\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2})\s/)?.[1] ?? undefined;
+                    const published = info.match(/发布时间：(\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2})\s/)?.[1];
+                    return {
+                        description: content('div.wp_articlecontent').html(),
+                        author: info.match(/来源：(.*?)\s/)?.[1],
+                        pubDate: published ? parseDateInTimezone(published, 8) : undefined,
+                    };
                 }
 
-                return item;
-            })
-        )
+                return {};
+            });
+            return { ...item, ...details, pubDate: pubDate ?? item.pubDate };
+        },
+        { concurrency: 3 }
     );
 
     const author = '上海第二工业大学';
     const subtitle = $('title').text();
-    const icon = new URL($('link[rel="shortcut icon"]').prop('href'), rootUrl).href;
+    const icon = new URL($('link[rel="shortcut icon"]').prop('href')!, rootUrl).href;
 
     return {
         item: items,
         title: `${author} - ${subtitle}`,
         link: currentUrl,
         description: $('div.tyb_headtitle1').text(),
-        language: $('html').prop('lang'),
+        language: $('html').prop('lang') as Language,
         icon,
         logo: icon,
         subtitle,

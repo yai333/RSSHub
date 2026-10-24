@@ -4,6 +4,7 @@ import type { Route } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
+import { getRouteLimit } from '@/utils/route-limit';
 import timezone from '@/utils/timezone';
 
 export const route: Route = {
@@ -68,7 +69,7 @@ export const route: Route = {
 
 async function handler(ctx) {
     const { id = 'main/noticeannouncement/cfmmcnotice' } = ctx.req.param();
-    const limit = ctx.req.query('limit') ? Number.parseInt(ctx.req.query('limit'), 10) : 10;
+    const limit = getRouteLimit(ctx, 10);
 
     const rootUrl = 'http://www.cfmmc.com';
     const apiUrl = new URL('servlet/json', rootUrl).href;
@@ -100,7 +101,7 @@ async function handler(ctx) {
         response.results?.[0].data.slice(0, limit).map((item) => ({
             title: item.title,
             link: new URL(item.url, rootUrl).href,
-            pubDate: timezone(parseDate(item.publish_date), +8),
+            pubDate: timezone(parseDate(item.publish_date), 8),
         })) ?? [];
 
     items = await Promise.all(
@@ -119,14 +120,14 @@ async function handler(ctx) {
     );
 
     const author = '中国期货市场监控中心';
-    const image = new URL($('a.logo img').prop('src'), rootUrl).href;
+    const image = new URL($('a.logo img').prop('src')!, rootUrl).href;
 
     return {
         item: items,
         title: `${author} - ${$('h3.SubPage_t3').text()}`,
         link: currentUrl,
         description: $('meta[name="Description"]').prop('content'),
-        language: 'zh',
+        language: 'zh' as const,
         image,
         subtitle: $('meta[name="Keywords"]').prop('content'),
         author,

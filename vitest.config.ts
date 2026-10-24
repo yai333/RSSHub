@@ -2,12 +2,13 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import { configDefaults, defineConfig } from 'vitest/config';
 
 export default defineConfig({
-    plugins: [tsconfigPaths()],
+    plugins: [tsconfigPaths({ root: '.' })],
     test: {
         watch: false,
         coverage: {
             include: ['lib/**/*.ts', 'lib/**/*.tsx'],
-            exclude: ['lib/routes/**', 'lib/routes-deprecated/**'],
+            exclude: ['lib/routes/**'],
+            reporter: ['text', 'html', 'clover', 'json', 'cobertura'],
         },
         testTimeout: 10000,
         setupFiles: ['./lib/setup.test.ts'],

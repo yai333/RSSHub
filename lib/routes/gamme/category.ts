@@ -1,9 +1,10 @@
 import { load } from 'cheerio';
 
 import InvalidParameterError from '@/errors/types/invalid-parameter';
-import type { Route } from '@/types';
+import type { DataItem, Route } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
+import { parseDate } from '@/utils/parse-date';
 import parser from '@/utils/rss-parser';
 import { isValidHost } from '@/utils/valid-host';
 
@@ -29,39 +30,44 @@ async function handler(ctx) {
     const feed = await parser.parseURL(`${baseUrl + (category ? `/category/${category}` : '')}/feed`);
 
     const items = await Promise.all(
-        feed.items.map((item) =>
-            cache.tryGet(item.link, async () => {
+        feed.items.map(async (item) => {
+            const detail = await cache.tryGet(`${item.link}#gamme-category-detail`, async () => {
                 const { data } = await got(item.link);
                 const $ = load(data);
 
                 $('.entry img').each((_, img) => {
-                    if (img.attribs['data-original'] || img.attribs['data-src']) {
-                        img.attribs.src = img.attribs['data-original'] || img.attribs['data-src'];
-                        delete img.attribs['data-original'];
-                        delete img.attribs['data-src'];
+                    if (!(img.attribs['data-original'] || img.attribs['data-src'])) {
+                        return;
                     }
+
+                    img.attribs.src = img.attribs['data-original'] || img.attribs['data-src'];
+                    delete img.attribs['data-original'];
+                    delete img.attribs['data-src'];
                 });
 
-                item.author = $('.author_name').text().trim();
-                item.category = $('.tags a')
+                const author = $('.author_name').text().trim();
+                const category = $('.tags a')
                     .toArray()
                     .map((tag) => $(tag).text());
                 $('.social_block, .tags').remove();
-                item.description = $('.entry').html();
-
-                delete item.content;
-                delete item.contentSnippet;
-                delete item.isoDate;
-                return item;
-            })
-        )
+                return { author, category, description: $('.entry').html() };
+            });
+            const result = { ...item, ...detail };
+            delete result.content;
+            delete result.contentSnippet;
+            delete result.isoDate;
+            return {
+                ...result,
+                pubDate: item.pubDate ? parseDate(item.pubDate) : undefined,
+            };
+        })
     );
 
     return {
-        title: feed.title,
+        title: feed.title!,
         link: feed.link,
         image: domain === 'news' ? `${baseUrl}/blogico.ico` : `${baseUrl}/favicon.ico`,
         description: feed.description,
-        item: items,
+        item: items as DataItem[],
     };
 }

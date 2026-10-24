@@ -1,6 +1,5 @@
 import { load } from 'cheerio';
 import { renderToString } from 'hono/jsx/dom/server';
-import { base32 } from 'rfc4648';
 
 import cache from '@/utils/cache';
 import ofetch from '@/utils/ofetch';
@@ -26,8 +25,10 @@ export const parseList = async (
         title: string;
         description?: string;
         pubDate: Date;
+        updated?: Date;
         link: string;
         category?: string[];
+        author?: Array<{ name: string; url?: string }>;
     }>;
 }> => {
     const pageResponse = await ofetch.raw(baseUrl + sectionUrl);
@@ -39,23 +40,30 @@ export const parseList = async (
     }
     const origin = new URL(pageResponse.url).origin;
 
-    const title = $('meta[property="og:title"]').attr('content') as string;
+    const title = $('meta[property="og:title"]').attr('content');
+    if (!title) {
+        throw new Error(`zaobao: no og:title on ${sectionUrl}`);
+    }
 
     const resultList = await Promise.all(
         data.toArray().map((item) => {
             const $item = $(item);
-            const link = baseUrl + $item.attr('href');
+            const href = $item.attr('href');
+            if (!href) {
+                throw new Error(`zaobao: article link without href on ${sectionUrl}`);
+            }
+            const link = new URL(href, origin).href;
 
-            return cache.tryGet(link, async () => {
-                if ($item.attr('href')?.includes('https://')) {
+            return cache.tryGet(`zaobao:article:v4:${link}`, async () => {
+                if (href.includes('https://')) {
                     const isSingapore = pageResponse.url.startsWith('https://www.zaobao.com.sg/');
                     return {
                         title: isSingapore ? $item.text().trim() : ($item.attr('title')?.trim() as string),
-                        link: $item.attr('href') as string,
+                        link: href,
                         pubDate: timezone($item.next().text().trim().includes(':') ? parseDate($item.next().text().trim(), 'HH:mm') : parseDate($item.next().text().trim(), 'MM月DD日'), 8),
                     };
                 }
-                const response = await ofetch.raw(new URL($item.attr('href') as string, origin).href);
+                const response = await ofetch.raw(new URL(href, origin).href);
                 let $1 = load(response._data);
 
                 let category, images;
@@ -66,6 +74,8 @@ export const parseList = async (
 
                 const title = ldJson.headline;
                 const pubDate = parseDate(ldJson.datePublished);
+                const updated = ldJson.dateModified ? parseDate(ldJson.dateModified) : undefined;
+                const author = ldJson.author?.name ? [{ name: ldJson.author.name, url: ldJson.author.url }] : undefined;
 
                 const isSingapore = response.url.startsWith('https://www.zaobao.com.sg/');
                 if (isSingapore) {
@@ -73,7 +83,7 @@ export const parseList = async (
                         .attr('content')
                         ?.split(',')
                         .map((s) => s.trim());
-                    $1 = load($1('.articleBody').html(), null, false);
+                    $1 = load($1('.articleBody').html()!, null, false);
                     images = [{ url: ldJson.image[0].url }];
                 } else {
                     category = ldJson.keywords?.split(',');
@@ -106,8 +116,10 @@ export const parseList = async (
                     title,
                     description,
                     pubDate,
+                    updated,
                     link,
                     category,
+                    author,
                 };
             });
         })
@@ -118,36 +130,6 @@ export const parseList = async (
     };
 };
 
-export const orderContent = (parent) => {
-    const sortedChildren = parent
-        .children()
-        .toArray()
-        .toSorted((a, b) => {
-            const index = Buffer.from(base32.parse('GM======')).toString(); // substring(3)
-            a = Buffer.from(
-                base32.parse(
-                    parent
-                        .find((element) => a(element))
-                        .data('s')
-                        .slice(index)
-                )
-            ).toString();
-            b = Buffer.from(
-                base32.parse(
-                    parent
-                        .find((element) => b(element))
-                        .data('s')
-                        .slice(index)
-                )
-            ).toString();
-            return a - b;
-        });
-    for (const [i, e] of sortedChildren.entries()) {
-        parent.find((element) => e(element)).attr('s', i);
-        parent.append(e);
-    }
-};
-
 export interface ImageData {
     type: string;
     html: string;
@@ -155,17 +137,14 @@ export interface ImageData {
     title?: string;
 }
 
-const processImageData = (isSg, images, $1) => {
+const processImageData = (isSg, images, $1): ImageData[] => {
     if (isSg && images) {
         return images.map((img) => ({
             type: 'data',
             html: '',
-            src: img.url
-                .replaceAll(/\/\/.*\.com\/s3fs-public/g, '//static.zaobao.com/s3fs-public')
-                .replaceAll('s3/files', 's3fs-public')
-                .split('?', 1)[0],
+            src: img.url,
             title: img.caption,
-        })) as ImageData[];
+        }));
     }
 
     const hkImg = $1('[data-testid="article-banner"] img');
@@ -174,14 +153,10 @@ const processImageData = (isSg, images, $1) => {
             {
                 type: 'data',
                 html: hkImg.prop('outerHTML'),
-                src: hkImg
-                    .attr('src')
-                    .replaceAll(/\/\/.*\.com\/s3fs-public/g, '//static.zaobao.com/s3fs-public')
-                    .replaceAll('s3/files', 's3fs-public')
-                    .split('?', 1)[0],
+                src: hkImg.attr('src'),
                 title: hkImg.attr('title'),
             },
-        ] as ImageData[];
+        ];
     }
 
     return [];

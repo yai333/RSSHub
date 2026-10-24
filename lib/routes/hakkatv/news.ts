@@ -1,4 +1,6 @@
-import type { Route } from '@/types';
+import { escape } from 'entities';
+
+import type { Language, Route } from '@/types';
 import cache from '@/utils/cache';
 import ofetch from '@/utils/ofetch';
 import { parseDate } from '@/utils/parse-date';
@@ -76,22 +78,33 @@ async function handler(ctx) {
         }));
 
     const items = await Promise.all(
-        list.map((item) =>
-            cache.tryGet(item.link, async () => {
-                const data = await ofetch(`${apiUrl}/api/news/read/${item.id}`);
-                item.category = data.tag.map((t) => t.tag);
-                item.description = data.content.replaceAll('\n', '<br>');
-                delete item.id;
-                return item;
-            })
-        )
+        list.map(async ({ id, ...item }) => ({
+            ...item,
+            ...(await cache.tryGet(item.link, async () => {
+                const data = await ofetch(`${apiUrl}/api/news/read/${id}`);
+                return {
+                    category: data.tag.map((t) => t.tag),
+                    updated: data.updated_at ? timezone(parseDate(data.updated_at), 8) : undefined,
+                    description: escape(data.content).replaceAll('\n', '<br>') + getVideoEmbed(data.video?.youtube_url),
+                };
+            })),
+        }))
     );
 
     return {
         title: '新聞首頁 - 客家電視台',
         description: '客家電視是屬於全民、以至於全世界客家族群的頻道，亦是為傳播客家文化而存在，定位為「全體客家族群之媒體」。',
         link: `${baseUrl}/news`,
-        language: 'zh-TW',
+        language: 'zh-TW' as const satisfies Language,
         item: items,
     };
+}
+
+function getVideoEmbed(videoUrl?: string) {
+    if (!videoUrl || !URL.canParse(videoUrl)) {
+        return '';
+    }
+    const url = new URL(videoUrl);
+    const id = url.hostname === 'youtu.be' ? url.pathname.slice(1) : ['youtube.com', 'www.youtube.com', 'm.youtube.com'].includes(url.hostname) ? url.searchParams.get('v') : undefined;
+    return id && /^[\w-]{11}$/.test(id) ? `<iframe src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe>` : '';
 }

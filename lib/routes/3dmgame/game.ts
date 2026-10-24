@@ -1,7 +1,6 @@
 import { load } from 'cheerio';
 
 import type { Route } from '@/types';
-import cache from '@/utils/cache';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
 
@@ -18,7 +17,7 @@ export const route: Route = {
     ],
     name: '游戏资讯',
     categories: ['game'],
-    maintainers: ['sinchang', 'jacky2001114', 'HenryQW', 'lyqluis'],
+    maintainers: ['sinchang', 'yangkghjh', 'HenryQW', 'lyqluis'],
     handler,
     description: `| 新闻 | 攻略 | 资源     |
 | ---- | ---- | -------- |
@@ -31,24 +30,24 @@ async function handler(ctx) {
 
     const { data: response } = await got(url);
     const $ = load(response);
-    const listSelector = type === 'resource' ? $('.ZQ_Left .Llis_4 .lis li, .zq_left .rigtbox7 li').toArray() : $('.ZQ_Left .lis, .zq_left .newsleft li').toArray();
+    const listSelector = type === 'resource' ? $('.ZQ_Left .Llis_4 .lis li, .zq_left .rigtbox7 li').toArray() : $('.ZQ_Left .lis, .zq_left .newsleft li, .zq_left .newlis li').toArray();
 
     const list = listSelector.map((i) => {
-        i = $(i);
-        const a = i.find('a[href]').last();
-        const time = i.find('.time');
+        const $i = $(i);
+        const a = $i.find('a[href]').last();
+        const time = $i.find('.time, > span');
         return {
             title: a.text(),
-            description: i.find('.miaoshu').text(),
+            description: $i.find('.miaoshu').text(),
             link: a.attr('href'),
-            pubDate: time.length ? parseDate(time.text().trim()) : null, // 2020-12-31
+            pubDate: time.length ? parseDate(time.text().trim()) : undefined, // 2020-12-31
         };
     });
 
-    const items = await Promise.all(list.map((item) => parseArticle(item, cache.tryGet)));
+    const items = await Promise.all(list.map((item) => parseArticle(item)));
 
     return {
-        title: $('head title').text().split('_')[0],
+        title: $('head title').text().split('_', 1)[0],
         description: $('head meta[name="Description"]').attr('content'),
         link: url,
         item: items,

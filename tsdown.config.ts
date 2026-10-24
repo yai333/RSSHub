@@ -1,13 +1,13 @@
-import { defineConfig } from "tsdown";
+import { defineConfig } from 'tsdown';
 
 const namespaceOf = (id: string) => id.match(/[\\/]lib[\\/]routes[\\/]([^\\/]+)[\\/]/)?.[1];
 
 export default defineConfig({
-    entry: ["./lib/index.ts"],
+    entry: ['./lib/index.ts'],
     minify: true,
     shims: true,
     clean: true,
-    copy: ["lib/assets"],
+    copy: ['lib/assets'],
     deps: {
         onlyBundle: false,
     },

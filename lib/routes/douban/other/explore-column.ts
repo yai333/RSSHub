@@ -1,9 +1,9 @@
-import * as url from 'node:url';
-
 import { load } from 'cheerio';
 
+import InvalidParameterError from '@/errors/types/invalid-parameter';
 import type { Route } from '@/types';
 import got from '@/utils/got';
+import { isValidHost } from '@/utils/valid-host';
 
 const host = 'https://www.douban.com/explore/column/';
 export const route: Route = {
@@ -18,7 +18,11 @@ export const route: Route = {
 
 async function handler(ctx) {
     const id = ctx.req.param('id');
-    const link = url.resolve(host, id);
+    if (!isValidHost(id)) {
+        throw new InvalidParameterError('Invalid id');
+    }
+
+    const link = new URL(id, host).href;
     const response = await got.get(link);
     const $ = load(response.data);
     const title = $('div.h1').text();
@@ -33,13 +37,8 @@ async function handler(ctx) {
                 author: $(item).find('div.usr-pic a').text(),
             };
             return info;
-        });
-
-    for (let i = list.length - 1; i >= 0; i--) {
-        if (list[i].author === '[已注销]') {
-            list.splice(i, 1);
-        }
-    }
+        })
+        .filter((info) => info.author !== '[已注销]');
 
     const out = await Promise.all(
         list.map(async (info) => {

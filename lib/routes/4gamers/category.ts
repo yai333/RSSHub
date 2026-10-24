@@ -1,6 +1,7 @@
 import type { Route } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
+import { getRouteLimit } from '@/utils/route-limit';
 
 import { getCategories, parseItem, parseList } from './utils';
 
@@ -23,7 +24,7 @@ export const route: Route = {
 
 export async function handler(ctx) {
     const category = ctx.req.param('category');
-    const limit = ctx.req.query('limit') ? Number.parseInt(ctx.req.query('limit')) : 25;
+    const limit = getRouteLimit(ctx, 25);
     const isLatest = !category;
 
     const { data: response } = await got(`https://www.4gamers.com.tw/site/api/news/${isLatest ? 'latest' : `of-category/${category}`}`, {
@@ -36,10 +37,9 @@ export async function handler(ctx) {
 
     const items = await Promise.all(list.map((item) => cache.tryGet(item.link, () => parseItem(item))));
 
-    let categories = [];
     let categoryName = '最新消息';
     if (!isLatest) {
-        categories = await getCategories(cache.tryGet);
+        const categories = await getCategories();
         categoryName = categories.find((c) => c.id === Number.parseInt(category)).name;
     }
 

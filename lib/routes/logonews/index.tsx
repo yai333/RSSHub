@@ -1,12 +1,14 @@
 import { load } from 'cheerio';
 import { raw } from 'hono/html';
 import { renderToString } from 'hono/jsx/dom/server';
+import pMap from 'p-map';
 
-import type { Route } from '@/types';
+import type { DataItem, Route } from '@/types';
 import cache from '@/utils/cache';
 import { getSubPath } from '@/utils/common-utils';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
+import { getRouteLimit } from '@/utils/route-limit';
 
 export const route: Route = {
     path: '/',
@@ -39,19 +41,21 @@ export async function handler(ctx) {
     const $ = load(response.data);
 
     let items = $(isWork ? 'h2 a' : 'a.article-link')
-        .slice(0, ctx.req.query('limit') ? Number.parseInt(ctx.req.query('limit')) : 25)
+        .slice(0, getRouteLimit(ctx, 25))
         .toArray()
-        .map((item) => {
-            item = $(item);
+        .map((item): DataItem => {
+            const $item = $(item);
 
             return {
-                link: item.attr('href'),
+                link: $item.attr('href'),
+                title: '',
             };
         });
 
-    items = await Promise.all(
-        items.map((item) =>
-            cache.tryGet(item.link, async () => {
+    items = await pMap(
+        items,
+        (item) =>
+            cache.tryGet(item.link!, async () => {
                 const detailResponse = await got({
                     method: 'get',
                     url: item.link,
@@ -65,14 +69,15 @@ export async function handler(ctx) {
                     content(el).attr(
                         'src',
                         content(el)
-                            .attr('data-src')
+                            .attr('data-src')!
                             .replace(/_logonews/, '')
                     );
                 });
 
                 item.title = content('title').text();
                 item.author = content('.author-links').text();
-                item.pubDate = parseDate(content('meta[property="og:release_date"]').attr('content'));
+                const publicationDate = content('meta[property="og:release_date"]').attr('content');
+                item.pubDate = publicationDate ? parseDate(publicationDate) : undefined;
                 item.category = content('a.category_link, a[rel="tag"]')
                     .toArray()
                     .map((c) => content(c).text().replaceAll(' · ', ''));
@@ -80,8 +85,8 @@ export async function handler(ctx) {
                 item.description = renderDescription(isWork, content('meta[property="og:image"]').attr('content'), content('.This_Article_content, .w_info').html());
 
                 return item;
-            })
-        )
+            }),
+        { concurrency: 3 }
     );
 
     return {

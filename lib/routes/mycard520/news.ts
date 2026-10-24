@@ -2,8 +2,9 @@ import type { Cheerio, CheerioAPI } from 'cheerio';
 import { load } from 'cheerio';
 import type { Element } from 'domhandler';
 import type { Context } from 'hono';
+import pMap from 'p-map';
 
-import type { Data, DataItem, Route } from '@/types';
+import type { Data, DataItem, Language, Route } from '@/types';
 import { ViewType } from '@/types';
 import cache from '@/utils/cache';
 import ofetch from '@/utils/ofetch';
@@ -11,23 +12,22 @@ import { parseDate } from '@/utils/parse-date';
 
 export const handler = async (ctx: Context): Promise<Data> => {
     const { category = 'cardgame' } = ctx.req.param();
-    const limit: number = Number.parseInt(ctx.req.query('limit') ?? '18', 10);
+    const requestedLimit = Number(ctx.req.query('limit'));
+    const limit = Number.isSafeInteger(requestedLimit) && requestedLimit > 0 ? requestedLimit : 18;
 
     const baseUrl = 'https://app.mycard520.com.tw';
     const targetUrl: string = new URL(`category/${category.endsWith('/') ? category : `${category}/`}`, baseUrl).href;
 
     const response = await ofetch(targetUrl);
     const $: CheerioAPI = load(response);
-    const language = $('html').attr('lang') ?? 'zh-TW';
-
-    let items: DataItem[] = [];
+    const language = ($('html').attr('lang') ?? 'zh-TW') as Language;
 
     $('div.page_numbers').remove();
 
-    items = $('div#tab1 ul li')
+    let items: DataItem[] = $('div#tab1 ul li')
         .slice(0, limit)
         .toArray()
-        .map((el): Element => {
+        .map((el) => {
             const $el: Cheerio<Element> = $(el);
             const $aEl: Cheerio<Element> = $el.find('a');
 
@@ -57,14 +57,15 @@ export const handler = async (ctx: Context): Promise<Data> => {
         });
 
     items = (
-        await Promise.all(
-            items.map((item) => {
+        await pMap(
+            items,
+            (item) => {
                 if (!item.link) {
                     return item;
                 }
 
                 return cache.tryGet(item.link, async (): Promise<DataItem> => {
-                    const detailResponse = await ofetch(item.link);
+                    const detailResponse = await ofetch(item.link!);
                     const $$: CheerioAPI = load(detailResponse);
                     const $$pageBox: Cheerio<Element> = $$('div.page_box');
 
@@ -93,7 +94,8 @@ export const handler = async (ctx: Context): Promise<Data> => {
                         ...processedItem,
                     };
                 });
-            })
+            },
+            { concurrency: 6 }
         )
     ).filter((_): _ is DataItem => true);
 
@@ -102,7 +104,6 @@ export const handler = async (ctx: Context): Promise<Data> => {
         description: $('meta[name="keywords"]').attr('content'),
         link: targetUrl,
         item: items,
-        allowEmpty: true,
         image: $('div.logo img').attr('src'),
         author: $('title').text().split(/-/).pop()?.trim(),
         language,
@@ -150,8 +151,7 @@ export const route: Route = {
 
 | [最新遊戲](https://app.mycard520.com.tw/category/cardgame/) | [手機遊戲](https://app.mycard520.com.tw/category/cardgame-mobile/)       | [PC 遊戲](https://app.mycard520.com.tw/category/cardgame-pc/)    | [電競賽事](https://app.mycard520.com.tw/category/cardgame-esports/)        | [實況直播](https://app.mycard520.com.tw/category/cardgame-live/)     |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| [cardgame](https://rsshub.app/mycard520/category/cardgame)  | [cardgame-mobile](https://rsshub.app/mycard520/category/cardgame-mobile) | [cardgame-pc](https://rsshub.app/mycard520/category/cardgame-pc) | [cardgame-esports](https://rsshub.app/mycard520/category/cardgame-esports) | [cardgame-live](https://rsshub.app/mycard520/category/cardgame-live) |
-`,
+| [cardgame](https://rsshub.app/mycard520/category/cardgame)  | [cardgame-mobile](https://rsshub.app/mycard520/category/cardgame-mobile) | [cardgame-pc](https://rsshub.app/mycard520/category/cardgame-pc) | [cardgame-esports](https://rsshub.app/mycard520/category/cardgame-esports) | [cardgame-live](https://rsshub.app/mycard520/category/cardgame-live) |`,
     categories: ['game'],
     features: {
         requireConfig: false,
@@ -165,11 +165,7 @@ export const route: Route = {
     radar: [
         {
             source: ['app.mycard520.com.tw/category/:category'],
-            target: (params) => {
-                const category: string = params.category;
-
-                return `/mycard520${category ? `/${category}` : ''}`;
-            },
+            target: '/category/:category',
         },
         {
             title: '最新遊戲',
@@ -239,7 +235,6 @@ export const route: Route = {
 
 | [最新游戏](https://app.mycard520.com.tw/category/cardgame/) | [手机游戏](https://app.mycard520.com.tw/category/cardgame-mobile/)       | [PC 游戏](https://app.mycard520.com.tw/category/cardgame-pc/)    | [电竞赛事](https://app.mycard520.com.tw/category/cardgame-esports/)        | [实况直播](https://app.mycard520.com.tw/category/cardgame-live/)     |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| [cardgame](https://rsshub.app/mycard520/category/cardgame)  | [cardgame-mobile](https://rsshub.app/mycard520/category/cardgame-mobile) | [cardgame-pc](https://rsshub.app/mycard520/category/cardgame-pc) | [cardgame-esports](https://rsshub.app/mycard520/category/cardgame-esports) | [cardgame-live](https://rsshub.app/mycard520/category/cardgame-live) |
-`,
+| [cardgame](https://rsshub.app/mycard520/category/cardgame)  | [cardgame-mobile](https://rsshub.app/mycard520/category/cardgame-mobile) | [cardgame-pc](https://rsshub.app/mycard520/category/cardgame-pc) | [cardgame-esports](https://rsshub.app/mycard520/category/cardgame-esports) | [cardgame-live](https://rsshub.app/mycard520/category/cardgame-live) |`,
     },
 };

@@ -1,6 +1,7 @@
 import type { Route } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
+import { getRouteLimit } from '@/utils/route-limit';
 import parser from '@/utils/rss-parser';
 
 import utils from './utils';
@@ -52,17 +53,19 @@ async function handler(ctx) {
     }
 
     if (ctx.req.param('tag')) {
-        link = `${link}/guides/${ctx.req.param('tag')}/feed/`;
+        link += `/guides/${ctx.req.param('tag')}/`;
         title = `${ctx.req.param('tag')} | ${title}`;
     } else {
-        link = `${link}/feed/`;
+        link += '/';
     }
 
-    const feed = await parser.parseURL(link);
+    const feed = await parser.parseURL(new URL('feed/', link).href);
+
+    const limit = getRouteLimit(ctx, 10);
 
     const items = await Promise.all(
-        feed.items.splice(0, ctx.req.query('limit') ? Number.parseInt(ctx.req.query('limit')) : 10).map((item) =>
-            cache.tryGet(item.link, async () => {
+        feed.items.slice(0, limit).map((item) =>
+            cache.tryGet(item.link!, async () => {
                 const response = await got({
                     method: 'get',
                     url: item.link,
@@ -70,7 +73,7 @@ async function handler(ctx) {
                 const description = utils.ProcessFeed(response.data);
 
                 const single = {
-                    title: item.title,
+                    title: item.title!,
                     description,
                     pubDate: item.pubDate,
                     link: item.link,

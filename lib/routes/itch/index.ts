@@ -1,6 +1,7 @@
 import { load } from 'cheerio';
+import pMap from 'p-map';
 
-import type { Route } from '@/types';
+import type { DataItem, Route } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
 
@@ -36,18 +37,20 @@ async function handler(ctx) {
 
     let items = $('.title.game_link')
         .toArray()
-        .map((item) => {
-            item = $(item);
+        .map((item): DataItem => {
+            const $item = $(item);
 
             return {
-                title: item.text(),
-                link: item.attr('href'),
+                title: $item.text(),
+                link: $item.attr('href'),
             };
         });
 
-    items = await Promise.all(
-        items.map((item) =>
-            cache.tryGet(item.link, async () => {
+    items = await pMap(
+        items,
+        async (item) => ({
+            ...item,
+            ...(await cache.tryGet(`itch:game-details:${item.link}`, async () => {
                 const detailResponse = await got({
                     method: 'get',
                     url: item.link,
@@ -55,17 +58,18 @@ async function handler(ctx) {
 
                 const content = load(detailResponse.data);
 
-                item.author = content('title').text().split('by ').pop();
-                item.description = renderDescription({
-                    images: content('.screenshot')
-                        .toArray()
-                        .map((i) => content(i).attr('src')),
-                    description: content('.formatted_description').html(),
-                });
-
-                return item;
-            })
-        )
+                return {
+                    author: content('title').text().split('by ').pop(),
+                    description: renderDescription({
+                        images: content('.screenshot')
+                            .toArray()
+                            .map((i) => content(i).attr('src')!),
+                        description: content('.formatted_description').html() ?? undefined,
+                    }),
+                };
+            })),
+        }),
+        { concurrency: 3 }
     );
 
     return {

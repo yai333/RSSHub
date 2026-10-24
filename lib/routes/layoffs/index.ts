@@ -31,10 +31,12 @@ const getMappings = function (obj) {
     const mapping = new Map();
     const reverseMapping = new Map();
     for (const key in obj) {
-        if ('name' in obj[key] && 'id' in obj[key]) {
-            reverseMapping.set(obj[key].name, obj[key].id);
-            mapping.set(obj[key].id, obj[key].name);
+        if (!('name' in obj[key] && 'id' in obj[key])) {
+            continue;
         }
+
+        reverseMapping.set(obj[key].name, obj[key].id);
+        mapping.set(obj[key].id, obj[key].name);
     }
     return [mapping, reverseMapping];
 };
@@ -97,7 +99,7 @@ async function handler() {
             AIRTABLE_HOST +
             $('script')
                 .text()
-                .match(/urlWithParams: "(.*?)"/)[1]
+                .match(/urlWithParams: "(.*?)"/)![1]
                 .replaceAll(String.raw`\u002F`, '/');
 
         // Cache it again
@@ -144,6 +146,7 @@ async function handler() {
 
             return {
                 title,
+                guid: row.id,
                 description, // the article content
                 pubDate: dateAdded, // Data publish date
                 link: source, // Laid off source link

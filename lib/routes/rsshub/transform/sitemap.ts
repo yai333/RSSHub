@@ -69,7 +69,7 @@ async function handler(ctx) {
                           return null;
                       }
                   })
-                  .filter(Boolean)
+                  .filter((item) => item !== null)
             : [];
 
     return {

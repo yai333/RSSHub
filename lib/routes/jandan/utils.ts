@@ -6,10 +6,18 @@ import cache from '@/utils/cache';
 import ofetch from '@/utils/ofetch';
 import { parseDate } from '@/utils/parse-date';
 
+const parseSourceDate = (value?: string) => {
+    if (typeof value !== 'string' || !value || !Number.isFinite(parseDate(value.slice(0, 19), value.length === 10 ? 'YYYY-MM-DD' : 'YYYY-MM-DDTHH:mm:ss', true).getTime())) {
+        return;
+    }
+    const date = parseDate(value);
+    return Number.isFinite(date.getTime()) ? date : undefined;
+};
+
 /**
  * Extract page ID from script tags and title
  */
-export const extractPageMeta = (url: string) =>
+const extractPageMeta = (url: string) =>
     cache.tryGet(`jandan:pageMeta:${url}`, async () => {
         const response = await ofetch(url);
 
@@ -48,16 +56,16 @@ export const handleTopSection = async (rootUrl: string, type: string): Promise<{
         throw new Error(`未能获取热榜数据: ${title}`);
     }
 
-    const items = response.data.map((item) => {
+    const items = response.data.map((item): DataItem => {
         const content = item.content.replaceAll(/img src="(.*?)"/g, (match, src) => match.replace(src, () => src.replace(/^https?:\/\/(\w+)\.moyu\.im/, 'https://$1.sinaimg.cn')));
 
         return {
             author: item.author,
             title: `${item.author}: ${sanitizeHtml(content, { allowedTags: [], allowedAttributes: {} })}`,
             description: content,
-            pubDate: parseDate(item.date_gmt),
+            pubDate: parseSourceDate(item.date_gmt),
             link: `${rootUrl}/t/${item.id}`,
-        } as DataItem;
+        };
     });
 
     return { title, items };
@@ -78,17 +86,14 @@ export const handleForumSection = async (rootUrl: string): Promise<{ title: stri
         throw new Error('未能获取鱼塘数据');
     }
 
-    const items = forumData.data.list.map(
-        (post) =>
-            ({
-                author: post.author_name,
-                title: post.title,
-                pubDate: parseDate(post.create_time),
-                updated: parseDate(post.update_time),
-                link: `${rootUrl}/new/forum/topic/${post.post_id}`,
-                category: post.reply_count > 0 ? [`${post.reply_count}条回复`] : undefined,
-            }) as DataItem
-    );
+    const items = forumData.data.list.map((post): DataItem => ({
+        author: post.author_name,
+        title: post.title,
+        pubDate: parseSourceDate(post.create_time),
+        updated: parseSourceDate(post.update_time),
+        link: `${rootUrl}/new/forum/topic/${post.post_id}`,
+        category: post.reply_count > 0 ? [`${post.reply_count}条回复`] : undefined,
+    }));
 
     return { title, items, link: currentUrl };
 };
@@ -113,16 +118,16 @@ export const handleCommentSection = async (rootUrl: string, category: string): P
         throw new Error('没有获取到内容，可能需要更新解析规则');
     }
 
-    const items = commentsData.data.list.map((comment) => {
+    const items = commentsData.data.list.map((comment): DataItem => {
         const content = comment.content.replaceAll(/img src="(.*?)"/g, (match, src) => match.replace(src, () => src.replace(/^https?:\/\/(\w+)\.moyu\.im/, 'https://$1.sinaimg.cn')));
 
         return {
             author: comment.author,
             title: `${comment.author}: ${sanitizeHtml(content, { allowedTags: [], allowedAttributes: {} })}`,
             description: content,
-            pubDate: parseDate(comment.date_gmt),
+            pubDate: parseSourceDate(comment.date_gmt),
             link: `${rootUrl}/t/${comment.id}`,
-        } as DataItem;
+        };
     });
 
     return { title, items };

@@ -1,10 +1,12 @@
 import { load } from 'cheerio';
+import pMap from 'p-map';
 
-import type { Route } from '@/types';
+import type { Language, Route } from '@/types';
 import cache from '@/utils/cache';
 import { getSubPath } from '@/utils/common-utils';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
+import { getRouteLimit } from '@/utils/route-limit';
 
 export const route: Route = {
     path: '/:channel?',
@@ -47,10 +49,10 @@ export const route: Route = {
 
 export async function handler(ctx) {
     const subPath = getSubPath(ctx);
-    const limit = ctx.req.query('limit') ? Number(ctx.req.query('limit')) : 20;
+    const limit = getRouteLimit(ctx, 20);
 
     const rootUrl = 'https://www.liulinblog.com';
-    const currentUrl = subPath === '/' ? rootUrl : new URL(subPath, rootUrl).href;
+    const currentUrl = subPath === '/' ? rootUrl : `${rootUrl}${subPath}`;
 
     const { data: response } = await got(currentUrl);
 
@@ -62,32 +64,34 @@ export async function handler(ctx) {
         .slice(0, limit)
         .toArray()
         .map((item) => {
-            item = $(item);
+            const $item = $(item);
 
-            const a = item.find('h2.entry-title a');
+            const a = $item.find('h2.entry-title a');
+            const publishedDate = $item.find('span.meta-date time').prop('datetime');
 
             return {
                 title: a.prop('title'),
                 link: a.prop('href'),
-                description: item.find('div.entry-excerpt').html(),
-                author: item
+                description: $item.find('div.entry-excerpt').html(),
+                author: $item
                     .find('span.meta-author a')
                     .toArray()
                     .map((a) => $(a).prop('title'))
                     .join(' / '),
-                category: item
+                category: $item
                     .find('span.meta-category-dot a[rel="category"]')
                     .toArray()
                     .map((c) => $(c).text()),
-                guid: `liulinblog-${item.prop('id')}`,
-                pubDate: parseDate(item.find('span.meta-date time').prop('datetime')),
-                comments: item.find('span.meta-comment').text() ? Number(item.find('span.meta-comment').text().trim()) : 0,
+                guid: `liulinblog-${$item.prop('id')}`,
+                pubDate: publishedDate ? parseDate(publishedDate) : undefined,
+                comments: $item.find('span.meta-comment').text() ? Number($item.find('span.meta-comment').text().trim()) : 0,
             };
         });
 
-    items = await Promise.all(
-        items.map((item) =>
-            cache.tryGet(item.link, async () => {
+    items = await pMap(
+        items,
+        (item) =>
+            cache.tryGet(item.link!, async () => {
                 const { data: detailResponse } = await got(item.link);
 
                 const content = load(detailResponse);
@@ -108,18 +112,17 @@ export async function handler(ctx) {
                     .toArray()
                     .map((c) => content(c).text());
                 item.guid = `liulinblog-${content('article').first().prop('id')}`;
-                item.pubDate = parseDate(content('span.meta-date time').first().prop('datetime'));
-                item.comments = content('h3.comments-title').text()
-                    ? Number(
-                          content('h3.comments-title')
-                              .text()
-                              .match(/\((\d+)\)/)
-                      )
-                    : 0;
+                const publishedDate = content('span.meta-date time').first().prop('datetime');
+                item.pubDate = publishedDate ? parseDate(publishedDate) : undefined;
+                item.comments = Number(
+                    content('h3.comments-title')
+                        .text()
+                        .match(/\((\d+)\)/)?.[1] ?? 0
+                );
 
                 return item;
-            })
-        )
+            }),
+        { concurrency: 3 }
     );
 
     const icon = $('link[rel="icon"]').prop('href');
@@ -130,7 +133,7 @@ export async function handler(ctx) {
         title: `${title} - ${subPath === '/' ? '最新' : $('h1.term-title').text().split('搜索到', 1)[0]}`,
         link: currentUrl,
         description: $('meta[name="description"]').prop('content'),
-        language: 'zh-cn',
+        language: 'zh-CN' as const satisfies Language,
         image: $('img.logo').prop('src'),
         icon,
         logo: icon,

@@ -3,6 +3,7 @@ import { load } from 'cheerio';
 import type { Route } from '@/types';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
+import { getRouteLimit } from '@/utils/route-limit';
 
 import { ossUrl, ProcessFeed, rootUrl } from './utils';
 
@@ -21,7 +22,7 @@ export const route: Route = {
 
 async function handler(ctx) {
     const { id = '1', period = '1' } = ctx.req.param();
-    const limit = ctx.req.query('limit') ? Number(ctx.req.query('limit')) : 30;
+    const limit = getRouteLimit(ctx, 30);
 
     const currentUrl = new URL(`toplist${id ? `?id=${id}${id === '1' ? `&period=${period}` : ''}` : ''}`, rootUrl).href;
 
@@ -35,15 +36,15 @@ async function handler(ctx) {
         .slice(0, limit)
         .toArray()
         .map((item) => {
-            item = $(item);
+            const $item = $(item);
 
-            const a = item.find('div.tips a');
+            const a = $item.find('div.tips a');
 
             return {
                 title: a.text(),
-                link: new URL(a.prop('href'), rootUrl).href,
-                author: item.find('div.name').text(),
-                pubDate: parseDate(item.find('div.times').text()),
+                link: new URL(a.prop('href')!, rootUrl).href,
+                author: $item.find('div.name').text(),
+                pubDate: parseDate($item.find('div.times').text()),
             };
         });
 
@@ -51,7 +52,7 @@ async function handler(ctx) {
         item: await ProcessFeed(limit, items),
         title: `爱思想 - ${title}`,
         link: currentUrl,
-        language: 'zh-cn',
+        language: 'zh-CN' as const,
         image: new URL('images/logo_toplist.jpg', ossUrl).href,
         subtitle: title,
     };

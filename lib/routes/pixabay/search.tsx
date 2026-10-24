@@ -5,6 +5,7 @@ import type { Route } from '@/types';
 import { ViewType } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
+import { getRouteLimit } from '@/utils/route-limit';
 
 export const route: Route = {
     path: '/search/:q/:order?',
@@ -51,16 +52,17 @@ async function handler(ctx) {
     const { q, order = 'latest' } = ctx.req.param();
     const key = config.pixabay?.key ?? '7329690-bbadad6d872ba577d5a358679';
     const baseUrl = 'https://pixabay.com';
+    const perPage = Math.min(200, Math.max(3, getRouteLimit(ctx, 200)));
 
     const data = await cache.tryGet(
-        `pixabay:search:${q}:${order}`,
+        `pixabay:search:v2:${q}:${order}:${perPage}`,
         async () => {
             const { data } = await got(`${baseUrl}/api/`, {
                 searchParams: {
                     key,
                     q,
                     order,
-                    per_page: ctx.req.query('limit') ?? 200,
+                    per_page: perPage,
                 },
             });
             return data;
@@ -71,9 +73,11 @@ async function handler(ctx) {
 
     const items = data.hits.map((item) => {
         const { pageURL, tags, user } = item;
+        const lastSlashIndex = pageURL.lastIndexOf('/');
+        const secondLastSlashIndex = pageURL.lastIndexOf('/', lastSlashIndex - 1);
         return {
             title: pageURL
-                .substring(pageURL.lastIndexOf('/', pageURL.lastIndexOf('/') - 1) + 1, pageURL.lastIndexOf('/'))
+                .slice(secondLastSlashIndex + 1, lastSlashIndex)
                 .replace(/(-\d+)$/, '')
                 .replaceAll('-', ' '),
             description: renderToString(<PixabayImage item={item} />),
@@ -87,8 +91,8 @@ async function handler(ctx) {
         title: `Search ${q} - Pixabay`,
         description: 'Download & use free nature stock photos in high resolution ✓ New free images everyday ✓ HD to 4K ✓ Best nature pictures for all devices on Pixabay',
         link: `${baseUrl}/images/search/${q}/${order === 'latest' ? '?order=latest' : ''}`,
-        image: `https://pixabay.com/apple-touch-icon.png`,
-        language: 'en',
+        image: 'https://pixabay.com/apple-touch-icon.png',
+        language: 'en' as const,
         item: items,
     };
 }

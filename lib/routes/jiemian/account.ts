@@ -4,33 +4,33 @@ import InvalidParameterError from '@/errors/types/invalid-parameter';
 import type { Data, Route } from '@/types';
 import ofetch from '@/utils/ofetch';
 import { parseDate } from '@/utils/parse-date';
+import { getRouteLimit } from '@/utils/route-limit';
 
 import { fetchArticle } from './common';
 
-const categoryMap: Record<string, { ckey: string; name: string }> = {
-    '1': { ckey: 'finance_config_index', name: '财经号' },
-    '2': { ckey: 'city_config_index', name: '城市号' },
-    '3': { ckey: 'media_config_index', name: '媒体号' },
-};
+const categoryMap = new Map([
+    ['1', { ckey: 'finance_config_index', name: '财经号' }],
+    ['2', { ckey: 'city_config_index', name: '城市号' }],
+    ['3', { ckey: 'media_config_index', name: '媒体号' }],
+]);
 
 export const route: Route = {
     path: '/account/main/:id',
     parameters: { id: '分类 id，见下表，可在对应分类页 URL 中找到' },
     name: '界面号',
     example: '/jiemian/account/main/1',
-    maintainers: ['nczitzk'],
+    maintainers: ['nczitzk', 'pseudoyu'],
     handler,
     description: `| [财经号](https://www.jiemian.com/account/main/1.html) | [城市号](https://www.jiemian.com/account/main/2.html) | [媒体号](https://www.jiemian.com/account/main/3.html) |
 | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| 1                                                     | 2                                                     | 3                                                     |
-`,
+| 1                                                     | 2                                                     | 3                                                     |`,
 };
 
 async function handler(ctx: Context): Promise<Data> {
     const { id } = ctx.req.param();
-    const limit = ctx.req.query('limit') ? Number(ctx.req.query('limit')) : 10;
+    const limit = getRouteLimit(ctx, 10);
 
-    const category = categoryMap[id];
+    const category = categoryMap.get(id);
     if (!category) {
         throw new InvalidParameterError('Invalid id');
     }

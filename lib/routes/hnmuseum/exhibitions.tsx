@@ -1,5 +1,5 @@
 import { type Cheerio, load } from 'cheerio';
-import type { Element } from 'domhandler';
+import type { AnyNode } from 'domhandler';
 import { renderToString } from 'hono/jsx/dom/server';
 
 import type { DataItem, Route } from '@/types';
@@ -21,7 +21,7 @@ interface ExhibitionItem {
 type ExhibitionConfig = {
     selector: string;
     type: 'permanent' | 'special' | 'temporary';
-    extra: ($item: Cheerio<Element>) => Partial<Pick<ExhibitionItem, 'location' | 'fullDuration'>>;
+    extra: ($item: Cheerio<AnyNode>) => Partial<Pick<ExhibitionItem, 'location' | 'fullDuration'>>;
 };
 
 // convert date string like "YYYY年M月D日" to "YYYY-MM-DD"
@@ -41,7 +41,7 @@ const formatStr = (dateStr: string | undefined): string | undefined => {
     return undefined;
 };
 
-const extractDates = (durationStr?: string): { startDate?: string; endDate?: string } => {
+const extractDates = (durationStr?: string) => {
     if (!durationStr || durationStr.includes('永久')) {
         return { startDate: undefined, endDate: undefined };
     }
@@ -110,7 +110,7 @@ export const route: Route = {
             {
                 selector: '#block-views-a784821b4fd9f41563c7164fd2a2f96e .views-row',
                 type: 'permanent' as const,
-                extra: ($item: Cheerio<Element>) => ({
+                extra: ($item: Cheerio<AnyNode>) => ({
                     location: $item.find('.views_zhanting .field-content').text(),
                     fullDuration: $item.find('.views_startdate .field-content').text().trim(),
                 }),
@@ -118,14 +118,14 @@ export const route: Route = {
             {
                 selector: '#block-views-chen-lie-block .views-row',
                 type: 'special' as const,
-                extra: ($item: Cheerio<Element>) => ({
+                extra: ($item: Cheerio<AnyNode>) => ({
                     location: $item.find('.views_zhanting .field-content').text(),
                 }),
             },
             {
                 selector: '#block-views-zhan-lan-block .views-row',
                 type: 'temporary' as const,
-                extra: (_$item: Cheerio<Element>) => ({}),
+                extra: (_$item: Cheerio<AnyNode>) => ({}),
             },
         ];
 
@@ -143,7 +143,7 @@ export const route: Route = {
                         title: $a.text(),
                         itemLink: link.startsWith('http') ? link : `${baseUrl}${link}`,
                         imgUrl: $item.find('img').attr('src') || '',
-                        ...config.extra($item as Cheerio<Element>),
+                        ...config.extra($item),
                     };
                 })
         );
@@ -151,23 +151,21 @@ export const route: Route = {
         const targetList = isSpecial ? list.filter((item) => item.exhibitionType === 'special' || item.exhibitionType === 'temporary') : list;
 
         const items = await Promise.all(
-            targetList.map((item) => {
-                const cacheKey = item.itemLink;
+            targetList.map(async (item): Promise<DataItem> => {
+                if (item.exhibitionType === 'permanent' || item.exhibitionType === 'special') {
+                    const { startDate, endDate } = extractDates(item.fullDuration);
+                    return {
+                        title: item.title,
+                        link: item.itemLink,
+                        pubDate: startDate ? parseDate(startDate) : undefined,
+                        description: renderDescription(item.imgUrl, item.location, startDate, endDate, item.fullDuration),
+                        _extra: { museumName, location: item.location, startDate, endDate },
+                    };
+                }
 
-                return cache.tryGet(cacheKey, async (): Promise<DataItem> => {
-                    if (item.exhibitionType === 'permanent' || item.exhibitionType === 'special') {
-                        const { startDate, endDate } = extractDates(item.fullDuration);
-                        return {
-                            title: item.title,
-                            link: item.itemLink,
-                            pubDate: startDate ? parseDate(startDate) : undefined,
-                            description: renderDescription(item.imgUrl, item.location, startDate, endDate, item.fullDuration),
-                            _extra: { museumName, location: item.location, startDate, endDate },
-                        };
-                    }
-
+                const details = await cache.tryGet(`hnmuseum:exhibition-details:${item.itemLink}`, async () => {
                     const url = new URL(item.itemLink);
-                    // for theme exhibition, the detail page may be a SPA, so need to fetch the JS file to extract the data
+                    // Theme exhibitions publish their metadata in a module script.
                     if (url.hostname === 'vrexhibition.hnmuseum.com') {
                         const htmlRes = await got({ method: 'get', url: item.itemLink });
                         const $spa = load(htmlRes.data);
@@ -182,26 +180,21 @@ export const route: Route = {
                         const locMatch = jsContent.match(/"(湖南省博物馆[^"]+厅)"/);
                         const location = locMatch?.[1];
                         const { startDate, endDate } = extractDates(fullDuration);
-
-                        return {
-                            title,
-                            link: item.itemLink,
-                            pubDate: startDate ? parseDate(startDate) : undefined,
-                            description: renderDescription(item.imgUrl, location, startDate, endDate, fullDuration),
-                            _extra: { museumName, location, startDate, endDate },
-                        };
+                        return { title, location, startDate, endDate, fullDuration };
                     }
 
                     const detailResponse = await got({ method: 'get', url: item.itemLink });
                     const content = load(detailResponse.data);
-                    const title = content('h1#page-title').text();
-                    return {
-                        title,
-                        link: item.itemLink,
-                        description: renderDescription(item.imgUrl),
-                        _extra: { museumName },
-                    };
-                }) as Promise<DataItem>;
+                    return { title: content('h1#page-title').text() };
+                });
+
+                return {
+                    title: details.title,
+                    link: item.itemLink,
+                    pubDate: details.startDate ? parseDate(details.startDate) : undefined,
+                    description: renderDescription(item.imgUrl, details.location, details.startDate, details.endDate, details.fullDuration),
+                    _extra: { museumName, location: details.location, startDate: details.startDate, endDate: details.endDate },
+                };
             })
         );
 
@@ -209,7 +202,7 @@ export const route: Route = {
             title: `${museumName} - 当前展览${isSpecial ? ' - 专题&临时展览' : ''}`,
             link: listUrl,
             language: 'zh-CN',
-            item: items.filter((item) => item.title && Object.keys(item).length > 0) as DataItem[],
+            item: items.filter((item) => item.title && Object.keys(item).length > 0),
         };
     },
 };

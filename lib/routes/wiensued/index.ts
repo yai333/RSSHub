@@ -14,10 +14,8 @@ export const route: Route = {
     parameters: { path: 'Query parameters and/or the path leading up to the listing, see the description below' },
     maintainers: ['sk22'],
     categories: ['other'],
-    description: `
-Pass in the parameters (e.g. \`city=Wien&state[]=sofort\`) and/or the path
-leading up to the listing (e.g. \`wohnen/sofort-verfuegbar\`)
-`,
+    description: `Pass in the parameters (e.g. \`city=Wien&state[]=sofort\`) and/or the path
+leading up to the listing (e.g. \`wohnen/sofort-verfuegbar\`)`,
 
     async handler(ctx) {
         // ['wohnen', 'sofort-verfuegbar', 'city=Wien']
@@ -27,7 +25,7 @@ leading up to the listing (e.g. \`wohnen/sofort-verfuegbar\`)
             subPaths.push('wohnen');
         }
 
-        let params = parts.at(-1).includes('=') ? parts.at(-1) : '';
+        let params = parts.at(-1)!.includes('=') ? parts.at(-1)! : '';
         if (params.startsWith('&')) {
             params = params.slice(1);
         }
@@ -76,7 +74,6 @@ leading up to the listing (e.g. \`wohnen/sofort-verfuegbar\`)
             title,
             language: FEED_LANGUAGE,
             logo: FEED_LOGO,
-            allowEmpty: true,
             item: items,
             link,
         } satisfies Data;

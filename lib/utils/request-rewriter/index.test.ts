@@ -1,12 +1,18 @@
 // oxlint-disable unicorn-js/no-global-object-property-assignment
 import { once } from 'node:events';
+import type { OutgoingHttpHeaders } from 'node:http';
 import http from 'node:http';
 import https from 'node:https';
 
+import { HttpsProxyAgent } from 'https-proxy-agent';
+import type { Dispatcher, RequestInfo } from 'undici';
 import undici from 'undici';
 import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
 
 import { PRESETS } from '@/utils/header-generator';
+
+const connectOf = (dispatcher: Dispatcher) => dispatcher[Object.getOwnPropertySymbols(dispatcher).find((s) => s.description === 'options')!].connect;
+const requestTlsOf = (dispatcher: Dispatcher) => dispatcher[Object.getOwnPropertySymbols(dispatcher).find((s) => s.description === 'request tls settings')!];
 
 const originalGlobals = {
     fetch,
@@ -38,7 +44,7 @@ const { config } = await import('@/config');
 const { default: ofetch } = await import('@/utils/ofetch');
 
 const createJsonResponse = () =>
-    Response.json(
+    undici.Response.json(
         { ok: true },
         {
             headers: {
@@ -46,6 +52,13 @@ const createJsonResponse = () =>
             },
         }
     );
+
+const lastRequestHeaders = (input: RequestInfo | undefined) => {
+    if (!(input instanceof undici.Request)) {
+        throw new TypeError('undici.fetch was not called with a Request');
+    }
+    return input.headers;
+};
 
 describe('request-rewriter', () => {
     afterAll(() => {
@@ -91,7 +104,7 @@ describe('request-rewriter', () => {
         }
 
         // headers
-        const headers: Headers = fetchSpy.mock.lastCall?.[0].headers;
+        const headers = lastRequestHeaders(fetchSpy.mock.lastCall?.[0]);
         expect(headers.get('user-agent')).toMatch(/Chrome/);
         expect(headers.get('accept')).toBeDefined();
         expect(headers.get('referer')).toBe('http://rsshub.test');
@@ -138,7 +151,7 @@ describe('request-rewriter', () => {
         }
 
         // headers
-        const headers: Headers = fetchSpy.mock.lastCall?.[0].headers;
+        const headers = lastRequestHeaders(fetchSpy.mock.lastCall?.[0]);
         expect(headers.get('user-agent')).toMatch(/Chrome/);
         expect(headers.get('accept')).toBeDefined();
         expect(headers.get('referer')).toBe('http://rsshub.test');
@@ -191,8 +204,60 @@ describe('request-rewriter', () => {
         }
 
         // headers
-        const headers: Headers = fetchSpy.mock.lastCall?.[0].headers;
+        const headers = lastRequestHeaders(fetchSpy.mock.lastCall?.[0]);
         expect(headers.get('user-agent')).toBe(userAgent);
+    });
+
+    it('ofetch allowH2: false forces HTTP/1.1 on the dispatcher in use', async () => {
+        const fetchSpy = vi.spyOn(undici, 'fetch').mockImplementation(() => Promise.resolve(createJsonResponse()));
+        const base = new undici.Agent();
+        const dispatchSpy = vi.spyOn(base, 'dispatch').mockImplementation(() => true);
+
+        try {
+            await ofetch('http://rsshub.test/h1', { retry: 0, dispatcher: base, allowH2: false });
+        } catch {
+            // ignore
+        }
+
+        const options = fetchSpy.mock.lastCall?.[1];
+        options?.dispatcher?.dispatch({ origin: 'http://rsshub.test', path: '/h1', method: 'GET' }, {});
+        expect(dispatchSpy).toHaveBeenCalledWith(expect.objectContaining({ allowH2: false }), expect.anything());
+
+        try {
+            await ofetch('http://rsshub.test/h2', { retry: 0, dispatcher: base });
+        } catch {
+            // ignore
+        }
+        expect(fetchSpy.mock.lastCall?.[1]?.dispatcher).toBeUndefined();
+    });
+
+    it('ofetch minVersion sets the TLS floor on the dispatcher in use', async () => {
+        const fetchSpy = vi.spyOn(undici, 'fetch').mockImplementation(() => Promise.resolve(createJsonResponse()));
+
+        try {
+            await ofetch('http://rsshub.test/tls', { retry: 0, minVersion: 'TLSv1.3' });
+        } catch {
+            // ignore
+        }
+        const direct = fetchSpy.mock.lastCall?.[1]?.dispatcher;
+        expect(direct).toBeInstanceOf(undici.Agent);
+        expect(connectOf(direct!)).toMatchObject({ preferH2: true, minVersion: 'TLSv1.3' });
+
+        try {
+            await ofetch('http://rsshub.test/headers', { retry: 0, minVersion: 'TLSv1.3' });
+        } catch {
+            // ignore
+        }
+        const proxied = fetchSpy.mock.lastCall?.[1]?.dispatcher;
+        expect(proxied).toBeInstanceOf(undici.ProxyAgent);
+        expect(requestTlsOf(proxied!).minVersion).toBe('TLSv1.3');
+
+        try {
+            await ofetch('http://rsshub.test/tls', { retry: 0 });
+        } catch {
+            // ignore
+        }
+        expect(fetchSpy.mock.lastCall?.[1]?.dispatcher).toBeUndefined();
     });
 
     it('ofetch header preset', async () => {
@@ -208,7 +273,7 @@ describe('request-rewriter', () => {
         }
 
         // headers
-        const headers: Headers = fetchSpy.mock.lastCall?.[0].headers;
+        const headers = lastRequestHeaders(fetchSpy.mock.lastCall?.[0]);
         expect(headers.get('user-agent')).toBeDefined();
         expect(headers.get('accept')).toBeDefined();
         expect(headers.get('referer')).toBe('http://rsshub.test');
@@ -232,15 +297,19 @@ describe('request-rewriter', () => {
 
         // headers
         const options = httpSpy.mock.lastCall?.[1];
-        const headers = options?.headers;
+        const headers = options?.headers as OutgoingHttpHeaders | undefined;
         expect(headers?.['user-agent']).toMatch(/Chrome/);
         expect(headers?.accept).toBeDefined();
         expect(headers?.referer).toBe('http://rsshub.test');
 
         // proxy
-        const agentUri = options?.agent?.proxy?.href;
-        expect(agentUri).toBe(process.env.PROXY_URI);
-        expect(options?.agent?.proxyHeaders['proxy-authorization']).toBe(`Basic ${process.env.PROXY_AUTH}`);
+        const agent = options?.agent;
+        if (!(agent instanceof HttpsProxyAgent)) {
+            throw new TypeError('the rewriter did not attach an HttpsProxyAgent');
+        }
+        expect(agent.proxy.href).toBe(process.env.PROXY_URI);
+        const proxyHeaders = agent.proxyHeaders as OutgoingHttpHeaders;
+        expect(proxyHeaders['proxy-authorization']).toBe(`Basic ${process.env.PROXY_AUTH}`);
 
         // url regex not match
         {

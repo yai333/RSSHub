@@ -1,8 +1,10 @@
 import { load } from 'cheerio';
 
 import { config } from '@/config';
+import type { DataItem } from '@/types';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
+import timezone from '@/utils/timezone';
 
 const siteLink = 'https://chinafactcheck.com';
 
@@ -34,28 +36,19 @@ const getArticleDetail = async (link) => {
 
     const title = $('.content-head h2').text();
     const author = $('.content-persons p span:last').text();
-    const pubDate = parseDate($('.content-time').text(), 'YYYY-MM-DD');
+    const pubDate = timezone(parseDate($('.content-time').text(), 'YYYY-MM-DD'), 8);
 
     const description = $('div[class=content-list-box]').html();
     const category = $('.content-tags a[rel="tag"]')
         .toArray()
         .map((item) => $(item).text());
-    return new ArticleDetail(title, author, pubDate, description, category);
+    const detail: DataItem = { title, author, pubDate, description, category };
+    return detail;
 };
-class ArticleDetail {
-    constructor(title, author, pubDate, description, category) {
-        this.title = title;
-        this.author = author;
-        this.pubDate = pubDate;
-        this.description = description;
-        this.category = category;
-    }
-}
 
 export default {
     siteLink,
     cleanDom,
     getArticleDetail,
-    ArticleDetail,
     trueUA: config.trueUA,
 };

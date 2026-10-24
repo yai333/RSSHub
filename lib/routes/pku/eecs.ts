@@ -1,6 +1,7 @@
 import { load } from 'cheerio';
+import pMap from 'p-map';
 
-import type { Route } from '@/types';
+import type { DataItem, Route } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
@@ -37,28 +38,30 @@ async function handler(ctx) {
     const $ = load(response.data);
     let items = $('ul.list-text > li > a')
         .toArray()
-        .map((item) => {
-            item = $(item);
+        .map((item): DataItem => {
+            const $item = $(item);
             return {
-                title: item.find('.tit').text(),
-                link: new URL(item.attr('href'), listUrl).href,
-                pubDate: parseDate(item.find('.date .mon').text() + '-' + item.find('.date .day').text()),
+                title: $item.find('.tit').text(),
+                link: new URL($item.attr('href')!, listUrl).href,
+                pubDate: $item.find('.date .mon').text() && $item.find('.date .day').text() ? parseDate(`${$item.find('.date .mon').text()}-${$item.find('.date .day').text()}T00:00:00Z`) : undefined,
             };
         });
 
-    items = await Promise.all(
-        items.map((item) =>
-            cache.tryGet(item.link, async () => {
+    items = await pMap(
+        items,
+        async (item) => ({
+            ...item,
+            ...(await cache.tryGet(`pku:eecs:detail:v2:${item.link}`, async () => {
                 const detail = await got(item.link);
                 const $ = load(detail.data);
 
                 const content = $('.Section1');
                 content.find('[style]').removeAttr('style');
 
-                item.description = content.html();
-                return item;
-            })
-        )
+                return { description: content.html() };
+            })),
+        }),
+        { concurrency: 3 }
     );
 
     return {
